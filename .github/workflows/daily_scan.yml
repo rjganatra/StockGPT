@@ -33,3 +33,11 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Commit scan results
+        run: |
+         git config --global user.name "github-actions"
+         git config --global user.email "actions@github.com"
+         git add .
+         git commit -m "Update scan results" || echo "No changes"
+         git push
