@@ -2,22 +2,29 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 
-st.set_page_config(layout="wide")
+st.set_page_config(
+    layout="wide"
+)
 
 st.title("StockGPT Market Dashboard")
 
-scan_file = Path("data/scans/latest_scan.csv")
+scan_file = Path(
+    "data/scans/latest_scan.csv"
+)
 
 if not scan_file.exists():
 
-    st.warning("No scan data available yet.")
+    st.warning(
+        "No scan data available yet."
+    )
+
     st.stop()
 
 df = pd.read_csv(scan_file)
 
-# ======================
+# =================================
 # MARKET OVERVIEW
-# ======================
+# =================================
 
 st.header("Market Overview")
 
@@ -34,7 +41,7 @@ col2.metric(
 )
 
 col3.metric(
-    "Closest to 52W Low",
+    "Closest To Low",
     df.iloc[0]["symbol"]
 )
 
@@ -43,49 +50,81 @@ col4.metric(
     round(df["rsi"].mean(), 2)
 )
 
-# ======================
-# HEATMAP TABLE
-# ======================
+# =================================
+# MARKET HEATMAP
+# =================================
 
 st.header("Market Heatmap")
 
 st.dataframe(
-    df.sort_values("distance_pct")
+    df,
+    use_container_width=True
 )
 
-# ======================
-# TOP OPPORTUNITIES
-# ======================
+# =================================
+# 52W LOW OPPORTUNITIES
+# =================================
 
 st.header("52W Low Opportunities")
 
-top_low = df.sort_values("distance_pct").head(10)
+low_df = df.sort_values(
+    "distance_pct"
+).head(15)
 
-st.dataframe(top_low)
+st.dataframe(
+    low_df,
+    use_container_width=True
+)
 
-# ======================
+# =================================
 # SWING TRADE MODE
-# ======================
+# =================================
 
-st.header("Swing Trade Mode")
+st.header("Swing Trade Candidates")
 
 swing = df[
-    (df["distance_pct"] < 15) &
+    (df["distance_pct"] < 15)
+    &
     (df["rsi"] < 45)
 ]
 
-st.dataframe(swing)
-
-# ======================
-# CHARTS
-# ======================
-
-st.header("Market Charts")
-
-st.bar_chart(
-    df.set_index("symbol")["distance_pct"].head(15)
+st.dataframe(
+    swing,
+    use_container_width=True
 )
 
+# =================================
+# REASON ENGINE
+# =================================
+
+st.header("Reason Engine")
+
+st.dataframe(
+    df[[
+        "symbol",
+        "reasons"
+    ]],
+    use_container_width=True
+)
+
+# =================================
+# CHARTS
+# =================================
+
+st.header("Distance From 52W Low")
+
+chart_df = df.head(15)
+
+st.bar_chart(
+    chart_df.set_index(
+        "symbol"
+    )["distance_pct"]
+)
+
+st.header("RSI Overview")
+
 st.line_chart(
-    df.set_index("symbol")["rsi"].head(15)
+    chart_df.set_index(
+        "symbol"
+    )["rsi"]
 )
