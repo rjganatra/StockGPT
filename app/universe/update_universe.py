@@ -1,7 +1,7 @@
+
 import pandas as pd
 from pathlib import Path
 
-# Nifty 500 + Extended Watchlist
 symbols = [
     "RELIANCE","TCS","INFY","HDFCBANK","ICICIBANK",
     "SBIN","LT","ITC","KOTAKBANK","AXISBANK",
@@ -12,12 +12,33 @@ symbols = [
     "ADANIENT","COALINDIA","TATASTEEL"
 ]
 
+sector_map = {
+    "RELIANCE":"Energy",
+    "TCS":"IT",
+    "INFY":"IT",
+    "HDFCBANK":"Banking",
+    "ICICIBANK":"Banking",
+    "SBIN":"Banking",
+    "BEL":"Defence",
+    "HAL":"Defence"
+}
+
 df = pd.DataFrame({
     "symbol": symbols
 })
 
-Path("data/universe").mkdir(parents=True, exist_ok=True)
+df["sector"] = df["symbol"].map(
+    sector_map
+).fillna("Others")
 
-df.to_csv("data/universe/universe.csv", index=False)
+Path("data/universe").mkdir(
+    parents=True,
+    exist_ok=True
+)
 
-print(f"Universe updated with {len(df)} stocks")
+df.to_csv(
+    "data/universe/universe.csv",
+    index=False
+)
+
+print("Universe updated")
