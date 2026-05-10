@@ -1,26 +1,15 @@
+
 import yfinance as yf
 import pandas as pd
 import ta
 from pathlib import Path
 import time
 
-# =========================
-# STOCK UNIVERSE
-# =========================
-
-universe = pd.read_csv(
-    "data/universe/universe.csv"
-)
-
-symbols = universe["symbol"].tolist()
+universe = pd.read_csv("data/universe/universe.csv")
 
 results = []
 
-# =========================
-# SCANNER LOOP
-# =========================
-
-for symbol in symbols:
+for symbol in universe["symbol"]:
 
     try:
 
@@ -37,19 +26,9 @@ for symbol in symbols:
 
         high_52 = hist["High"].max()
 
-        distance_low = (
-            (current_price - low_52)
-            / low_52
-        ) * 100
+        distance_low = ((current_price - low_52) / low_52) * 100
 
-        distance_high = (
-            (high_52 - current_price)
-            / high_52
-        ) * 100
-
-        # =========================
-        # RSI
-        # =========================
+        distance_high = ((high_52 - current_price) / high_52) * 100
 
         hist["rsi"] = ta.momentum.RSIIndicator(
             hist["Close"]
@@ -57,19 +36,11 @@ for symbol in symbols:
 
         rsi = hist["rsi"].iloc[-1]
 
-        # =========================
-        # VOLUME
-        # =========================
-
         avg_volume = hist["Volume"].tail(20).mean()
 
         latest_volume = hist["Volume"].iloc[-1]
 
         volume_ratio = latest_volume / avg_volume
-
-        # =========================
-        # TREND
-        # =========================
 
         sma_50 = hist["Close"].rolling(50).mean().iloc[-1]
 
@@ -77,10 +48,6 @@ for symbol in symbols:
 
         if current_price < sma_50:
             trend = "Bearish"
-
-        # =========================
-        # REASON ENGINE
-        # =========================
 
         reasons = []
 
@@ -93,60 +60,41 @@ for symbol in symbols:
         if volume_ratio > 1.5:
             reasons.append("High Volume")
 
-        if trend == "Bullish":
-            reasons.append("Above 50DMA")
+        reasons_text = ", ".join(reasons)
 
-        reason_text = ", ".join(reasons)
+        sector = "Others"
 
-        # =========================
-        # SAVE RESULT
-        # =========================
+        if "sector" in universe.columns:
+
+            sector = universe[
+                universe["symbol"] == symbol
+            ]["sector"].values[0]
 
         results.append({
-
             "symbol": symbol,
-
+            "sector": sector,
             "current_price": round(current_price, 2),
-
             "52w_low": round(low_52, 2),
-
             "52w_high": round(high_52, 2),
-
             "distance_pct": round(distance_low, 2),
-
             "distance_from_high": round(distance_high, 2),
-
             "rsi": round(rsi, 2),
-
             "volume_ratio": round(volume_ratio, 2),
-
             "trend": trend,
-
-            "reasons": reason_text
-
+            "reasons": reasons_text
         })
 
-        print(f"{symbol} scanned")
+        print(symbol, "scanned")
 
         time.sleep(1)
 
     except Exception as e:
 
-        print(f"{symbol} failed: {e}")
-
-# =========================
-# FINAL DATAFRAME
-# =========================
+        print(symbol, "failed", e)
 
 df = pd.DataFrame(results)
 
-df = df.sort_values(
-    "distance_pct"
-)
-
-# =========================
-# SAVE CSV
-# =========================
+df = df.sort_values("distance_pct")
 
 Path("data/scans").mkdir(
     parents=True,
@@ -158,6 +106,4 @@ df.to_csv(
     index=False
 )
 
-print(df.head())
-
-print("SCAN COMPLETED")
+print("SCAN COMPLETE")
