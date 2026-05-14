@@ -1,0 +1,45 @@
+name: Phase6 Pipeline
+
+on:
+  schedule:
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh Universe
+        run: python app/universe/fetch_nifty500.py
+
+      - name: Run Scanner
+        run: python app/scanners/scan_52w.py
+
+      - name: Save History
+        run: python app/history/history_engine.py
+
+      - name: Store Scan In Database
+        run: python app/database/store_scan.py
+
+      - name: Commit Results
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Phase6 market pipeline update" || echo "No changes"
+          git push
