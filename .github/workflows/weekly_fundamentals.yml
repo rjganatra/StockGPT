@@ -1,0 +1,42 @@
+name: Weekly Fundamentals
+
+on:
+  schedule:
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+
+jobs:
+  fundamentals:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh Universe
+        run: python app/universe/fetch_nifty500.py
+
+      - name: Fetch Fundamentals
+        run: python app/fundamentals/fetch_fundamentals.py
+
+      - name: Score Fundamentals
+        run: python app/fundamentals/fundamental_score.py
+
+      - name: Commit Fundamentals
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Update weekly fundamentals" || echo "No changes"
+          git push
