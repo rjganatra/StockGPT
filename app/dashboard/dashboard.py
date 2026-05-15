@@ -3,172 +3,197 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
-st.set_page_config(
-    page_title="StockGPT",
-    layout="wide"
-)
-
+st.set_page_config(page_title="StockGPT", layout="wide")
 st.title("📈 StockGPT Market Intelligence Terminal")
 
 scan_file = Path("data/scans/latest_scan.csv")
 
 if not scan_file.exists():
-    st.warning("No scan data available. Run GitHub Action first.")
+    st.warning("No scan data available yet.")
     st.stop()
 
 df = pd.read_csv(scan_file)
 
-required_columns = [
-    "symbol",
-    "sector",
-    "current_price",
-    "distance_pct",
-    "rsi",
-    "trend",
-    "score"
+required_cols = [
+    "symbol", "sector", "current_price", "day_change_pct",
+    "distance_pct", "distance_from_high_pct", "rsi",
+    "volume_ratio", "trend", "score", "reasons"
 ]
 
-missing = [col for col in required_columns if col not in df.columns]
+missing = [col for col in required_cols if col not in df.columns]
 
 if missing:
-    st.error(f"Missing columns in latest_scan.csv: {missing}")
+    st.error(f"Missing columns: {missing}")
     st.stop()
 
 df = df.dropna(subset=["distance_pct", "rsi", "score"])
 
 st.sidebar.header("Filters")
 
-sector_options = ["All"] + sorted(df["sector"].dropna().unique().tolist())
+search = st.sidebar.text_input("Search Symbol", "")
 
-selected_sector = st.sidebar.selectbox(
-    "Sector",
-    sector_options
+sectors = sorted(df["sector"].dropna().unique().tolist())
+selected_sectors = st.sidebar.multiselect(
+    "Sector Filter",
+    sectors,
+    default=sectors
 )
 
-max_distance = st.sidebar.slider(
-    "Max Distance From 52W Low %",
+rsi_range = st.sidebar.slider(
+    "RSI Range",
     0,
     100,
-    30
+    (0, 100)
 )
 
-max_rsi = st.sidebar.slider(
-    "Max RSI",
+distance_range = st.sidebar.slider(
+    "Distance From 52W Low %",
     0,
-    100,
-    60
+    200,
+    (0, 50)
 )
 
-min_score = st.sidebar.slider(
+score_min = st.sidebar.slider(
     "Minimum Score",
     0,
     100,
     0
 )
 
+trend_filter = st.sidebar.multiselect(
+    "Trend",
+    ["Bullish", "Bearish"],
+    default=["Bullish", "Bearish"]
+)
+
 filtered = df.copy()
 
 filtered = filtered[
-    (filtered["distance_pct"] <= max_distance)
-    &
-    (filtered["rsi"] <= max_rsi)
-    &
-    (filtered["score"] >= min_score)
+    filtered["sector"].isin(selected_sectors)
 ]
 
-if selected_sector != "All":
+filtered = filtered[
+    filtered["rsi"].between(rsi_range[0], rsi_range[1])
+]
+
+filtered = filtered[
+    filtered["distance_pct"].between(distance_range[0], distance_range[1])
+]
+
+filtered = filtered[
+    filtered["score"] >= score_min
+]
+
+filtered = filtered[
+    filtered["trend"].isin(trend_filter)
+]
+
+if search:
     filtered = filtered[
-        filtered["sector"] == selected_sector
+        filtered["symbol"].str.contains(search.upper(), case=False, na=False)
     ]
 
+st.sidebar.header("Advanced Query")
+
+query_text = st.sidebar.text_area(
+    "Pandas Query",
+    placeholder='Example: sector == "Healthcare" and rsi > 70'
+)
+
+if query_text.strip():
+    try:
+        filtered = df.query(query_text)
+    except Exception as e:
+        st.sidebar.error(f"Invalid query: {e}")
+
 if filtered.empty:
-    st.warning("No stocks match current filters.")
+    st.warning("No stocks match your filters.")
     st.stop()
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
-    "Sector View",
+    "Sectors",
     "Stock Explorer",
     "History"
 ])
 
 with tab1:
-    st.header("📊 Market Breadth")
+    st.header("📊 Market Overview")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4 = st.columns(4)
 
     col1.metric("Stocks Scanned", len(df))
     col2.metric("Filtered Stocks", len(filtered))
-    col3.metric("Bullish", len(filtered[filtered["trend"] == "Bullish"]))
-    col4.metric("Near 52W Low", len(filtered[filtered["distance_pct"] < 15]))
-    col5.metric("Avg RSI", round(filtered["rsi"].mean(), 2))
+    col3.metric("Near 52W Low", len(df[df["distance_pct"] < 15]))
+    col4.metric("Avg RSI", round(df["rsi"].mean(), 2))
 
-    st.subheader("Top Ranked Stocks")
+    col5, col6, col7, col8 = st.columns(4)
+
+    col5.metric("Bullish Stocks", len(df[df["trend"] == "Bullish"]))
+    col6.metric("Bearish Stocks", len(df[df["trend"] == "Bearish"]))
+    col7.metric("Avg Score", round(df["score"].mean(), 2))
+    col8.metric("Volume Spike Stocks", len(df[df["volume_ratio"] > 1.3]))
+
+    st.subheader("Filtered Market Table")
 
     st.dataframe(
         filtered.sort_values("score", ascending=False),
         use_container_width=True
     )
 
-    st.subheader("RSI Distribution")
-
-    rsi_fig = px.histogram(
-        filtered,
-        x="rsi",
-        nbins=20
-    )
-
-    st.plotly_chart(rsi_fig, use_container_width=True)
-
 with tab2:
     st.header("🔥 Market Heatmap")
 
-    heatmap_df = filtered.copy()
+    try:
+        fig = px.treemap(
+            filtered,
+            path=["sector", "symbol"],
+            values="score",
+            color="distance_pct",
+            hover_data=[
+                "current_price",
+                "day_change_pct",
+                "rsi",
+                "volume_ratio",
+                "trend",
+                "score"
+            ],
+        )
 
-    heatmap_df["heatmap_size"] = heatmap_df["score"].clip(lower=1)
+        st.plotly_chart(fig, use_container_width=True)
 
-    fig = px.treemap(
-        heatmap_df,
-        path=["sector", "symbol"],
-        values="heatmap_size",
-        color="distance_pct",
-        hover_data=[
-            "current_price",
-            "rsi",
-            "trend",
-            "score"
-        ],
-        color_continuous_scale="RdYlGn_r"
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
+    except Exception as e:
+        st.error(f"Heatmap error: {e}")
 
 with tab3:
     st.header("🎯 52W Low Opportunities")
 
-    low_df = filtered.sort_values("distance_pct").head(50)
+    low_df = filtered.sort_values(
+        ["distance_pct", "score"],
+        ascending=[True, False]
+    )
 
     st.dataframe(low_df, use_container_width=True)
 
-    st.header("⚡ Swing Trade Candidates")
+    st.header("⚡ Swing Candidates")
 
-    swing_df = filtered[
+    swing = filtered[
         (filtered["distance_pct"] < 20)
         &
         (filtered["rsi"] < 45)
     ].sort_values("score", ascending=False)
 
-    st.dataframe(swing_df, use_container_width=True)
+    st.dataframe(swing, use_container_width=True)
 
     st.header("🚀 Near 52W High Momentum")
 
-    if "distance_from_high_pct" in filtered.columns:
-        high_df = filtered.sort_values("distance_from_high_pct").head(30)
-        st.dataframe(high_df, use_container_width=True)
-    else:
-        st.info("distance_from_high_pct column not available yet.")
+    high_momentum = filtered[
+        filtered["distance_from_high_pct"] < 15
+    ].sort_values("distance_from_high_pct")
+
+    st.dataframe(high_momentum, use_container_width=True)
 
 with tab4:
     st.header("🏭 Sector Overview")
@@ -178,80 +203,79 @@ with tab4:
         avg_score=("score", "mean"),
         avg_rsi=("rsi", "mean"),
         avg_distance_from_low=("distance_pct", "mean"),
-        bullish_count=("trend", lambda x: (x == "Bullish").sum())
+        avg_day_change=("day_change_pct", "mean"),
+        bullish_count=("trend", lambda x: (x == "Bullish").sum()),
+        bearish_count=("trend", lambda x: (x == "Bearish").sum())
     ).reset_index()
+
+    sector_df["bullish_pct"] = round(
+        (sector_df["bullish_count"] / sector_df["stocks"]) * 100,
+        2
+    )
 
     sector_df = sector_df.sort_values("avg_score", ascending=False)
 
     st.dataframe(sector_df, use_container_width=True)
 
-    sector_score_fig = px.bar(
-        sector_df,
-        x="sector",
-        y="avg_score",
-        title="Average Sector Score"
-    )
+    col1, col2 = st.columns(2)
 
-    st.plotly_chart(sector_score_fig, use_container_width=True)
+    with col1:
+        st.plotly_chart(
+            px.bar(sector_df, x="sector", y="avg_score", title="Sector Avg Score"),
+            use_container_width=True
+        )
 
-    sector_rsi_fig = px.bar(
-        sector_df,
-        x="sector",
-        y="avg_rsi",
-        title="Average Sector RSI"
-    )
-
-    st.plotly_chart(sector_rsi_fig, use_container_width=True)
+    with col2:
+        st.plotly_chart(
+            px.bar(sector_df, x="sector", y="avg_rsi", title="Sector Avg RSI"),
+            use_container_width=True
+        )
 
 with tab5:
     st.header("🔍 Stock Explorer")
 
     selected_stock = st.selectbox(
         "Select Stock",
-        sorted(df["symbol"].unique())
+        sorted(filtered["symbol"].unique())
     )
 
-    stock_row = df[df["symbol"] == selected_stock].iloc[0]
+    stock = filtered[filtered["symbol"] == selected_stock].iloc[0]
 
-    c1, c2, c3, c4 = st.columns(4)
+    col1, col2, col3, col4 = st.columns(4)
 
-    c1.metric("Price", stock_row["current_price"])
-    c2.metric("RSI", stock_row["rsi"])
-    c3.metric("Score", stock_row["score"])
-    c4.metric("Distance From 52W Low", stock_row["distance_pct"])
+    col1.metric("Current Price", stock["current_price"])
+    col2.metric("Distance From Low %", stock["distance_pct"])
+    col3.metric("RSI", stock["rsi"])
+    col4.metric("Score", stock["score"])
 
-    st.subheader("Stock Details")
+    st.subheader("Reason Engine")
+    st.info(stock["reasons"] if str(stock["reasons"]) != "nan" else "No reason generated.")
 
-    st.dataframe(
-        pd.DataFrame([stock_row]),
-        use_container_width=True
-    )
-
-    if "reasons" in df.columns:
-        st.subheader("Reason Engine")
-        st.write(stock_row["reasons"])
+    st.subheader("Full Stock Data")
+    st.json(stock.to_dict())
 
 with tab6:
-    st.header("📚 Historical Snapshots")
+    st.header("🕰 Historical Snapshots")
 
     history_root = Path("data/history")
 
-    if history_root.exists():
-        dates = sorted(
+    if not history_root.exists():
+        st.warning("No history folder found yet.")
+    else:
+        folders = sorted(
             [p.name for p in history_root.iterdir() if p.is_dir()],
             reverse=True
         )
 
-        if dates:
-            selected_date = st.selectbox("Select Date", dates)
+        if not folders:
+            st.warning("No historical snapshots available.")
+        else:
+            selected_date = st.selectbox("Select Snapshot Date", folders)
+
             history_file = history_root / selected_date / "latest_scan.csv"
 
             if history_file.exists():
-                history_df = pd.read_csv(history_file)
-                st.dataframe(history_df, use_container_width=True)
+                hist_df = pd.read_csv(history_file)
+                st.dataframe(hist_df, use_container_width=True)
             else:
-                st.warning("History file missing for selected date.")
-        else:
-            st.info("No historical snapshots available yet.")
-    else:
-        st.info("No history folder available yet.")
+                st.warning("Snapshot file missing.")
