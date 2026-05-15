@@ -11,7 +11,10 @@ sector_map = dict(zip(universe["symbol"], universe["sector"]))
 
 yf_symbols = [symbol + ".NS" for symbol in symbols]
 
+scan_time = datetime.now().strftime("%d.%m.%Y at %I:%M %p")
+
 print(f"Starting batch scan for {len(yf_symbols)} stocks")
+print(f"Scan time: {scan_time}")
 
 data = yf.download(
     tickers=yf_symbols,
@@ -58,13 +61,6 @@ for symbol in symbols:
         latest_volume = hist["Volume"].iloc[-1]
         volume_ratio = latest_volume / avg_volume_20 if avg_volume_20 > 0 else 0
 
-        # Liquidity filters
-        if current_price < 20:
-            continue
-
-        if avg_volume_20 < 50000:
-            continue
-
         trend = "Bullish" if current_price > sma50 else "Bearish"
 
         reasons = []
@@ -91,6 +87,7 @@ for symbol in symbols:
             reasons.append("Above 200 DMA")
 
         results.append({
+            "scan_time": scan_time,
             "symbol": symbol,
             "sector": sector_map.get(symbol, "Unknown"),
             "current_price": round(current_price, 2),
