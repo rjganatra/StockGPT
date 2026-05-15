@@ -58,6 +58,13 @@ for symbol in symbols:
         latest_volume = hist["Volume"].iloc[-1]
         volume_ratio = latest_volume / avg_volume_20 if avg_volume_20 > 0 else 0
 
+        # Liquidity filters
+        if current_price < 20:
+            continue
+
+        if avg_volume_20 < 50000:
+            continue
+
         trend = "Bullish" if current_price > sma50 else "Bearish"
 
         reasons = []
@@ -85,7 +92,7 @@ for symbol in symbols:
 
         results.append({
             "symbol": symbol,
-            "sector": sector_map.get(symbol, "Others"),
+            "sector": sector_map.get(symbol, "Unknown"),
             "current_price": round(current_price, 2),
             "day_change_pct": round(day_change_pct, 2),
             "52w_low": round(low_52, 2),
@@ -95,6 +102,8 @@ for symbol in symbols:
             "rsi": round(rsi, 2),
             "sma50": round(sma50, 2),
             "sma200": round(sma200, 2) if sma200 else None,
+            "avg_volume_20": round(avg_volume_20, 2),
+            "latest_volume": round(latest_volume, 2),
             "volume_ratio": round(volume_ratio, 2),
             "trend": trend,
             "score": score,
@@ -106,16 +115,17 @@ for symbol in symbols:
 
 df = pd.DataFrame(results)
 
-Path("data/scans").mkdir(parents=True, exist_ok=True)
-
 if df.empty:
     raise RuntimeError("Scan produced zero results")
 
 df = df.sort_values("score", ascending=False)
 
+Path("data/scans").mkdir(parents=True, exist_ok=True)
+
 df.to_csv("data/scans/latest_scan.csv", index=False)
 
 today = datetime.now().strftime("%Y-%m-%d")
+
 history_path = Path(f"data/history/{today}")
 history_path.mkdir(parents=True, exist_ok=True)
 
