@@ -1,49 +1,49 @@
 symbol,sector,company_name,series,isin
 20MICRONS,Unknown,20 Microns Limited,EQ,INE144J01027
 21STCENMGM,Unknown,21st Century Management Services Limited,EQ,INE253B01015
-360ONE,Unknown,360 ONE WAM LIMITED,EQ,INE466L01038
+360ONE,Financial Services,360 ONE WAM LIMITED,EQ,INE466L01038
 3BBLACKBIO,Unknown,3B Blackbio Dx Limited,EQ,INE994E01018
 3IINFOLTD,Unknown,3i Infotech Limited,EQ,INE748C01038
-3MINDIA,Unknown,3M India Limited,EQ,INE470A01017
+3MINDIA,Diversified,3M India Limited,EQ,INE470A01017
 3PLAND,Unknown,3P Land Holdings Limited,EQ,INE105C01023
 5PAISA,Unknown,5Paisa Capital Limited,EQ,INE618L01018
 63MOONS,Unknown,63 moons technologies limited,EQ,INE111B01023
 AAATECH,Unknown,AAA Technologies Limited,EQ,INE0D0U01013
-AADHARHFC,Unknown,Aadhar Housing Finance Limited,EQ,INE883F01010
+AADHARHFC,Financial Services,Aadhar Housing Finance Limited,EQ,INE883F01010
 AARNAV,Unknown,Aarnav Fashions Limited,EQ,INE750R01016
 AARON,Unknown,Aaron Industries Limited,EQ,INE721Z01010
 AARTECH,Unknown,Aartech Solonics Limited,EQ,INE01C001026
 AARTIDRUGS,Unknown,Aarti Drugs Limited,EQ,INE767A01016
-AARTIIND,Unknown,Aarti Industries Limited,EQ,INE769A01020
+AARTIIND,Chemicals,Aarti Industries Limited,EQ,INE769A01020
 AARTIPHARM,Unknown,Aarti Pharmalabs Limited,EQ,INE0LRU01027
 AARTISURF,Unknown,Aarti Surfactants Limited,EQ,INE09EO01013
 AARVI,Unknown,Aarvi Encon Limited,EQ,INE754X01016
-AAVAS,Unknown,Aavas Financiers Limited,EQ,INE216P01012
-ABB,Unknown,ABB India Limited,EQ,INE117A01022
-ABBOTINDIA,Unknown,Abbott India Limited,EQ,INE358A01014
-ABCAPITAL,Unknown,Aditya Birla Capital Limited,EQ,INE674K01013
+AAVAS,Financial Services,Aavas Financiers Limited,EQ,INE216P01012
+ABB,Capital Goods,ABB India Limited,EQ,INE117A01022
+ABBOTINDIA,Healthcare,Abbott India Limited,EQ,INE358A01014
+ABCAPITAL,Financial Services,Aditya Birla Capital Limited,EQ,INE674K01013
 ABCOTS,Unknown,A B Cotspin India Limited,EQ,INE08PH01015
-ABDL,Unknown,Allied Blenders and Distillers Limited,EQ,INE552Z01027
-ABFRL,Unknown,Aditya Birla Fashion and Retail Limited,EQ,INE647O01011
+ABDL,Fast Moving Consumer Goods,Allied Blenders and Distillers Limited,EQ,INE552Z01027
+ABFRL,Consumer Services,Aditya Birla Fashion and Retail Limited,EQ,INE647O01011
 ABINFRA,Unknown,A B Infrabuild Limited,EQ,INE00YB01025
-ABLBL,Unknown,Aditya Birla Lifestyle Brands Limited,EQ,INE14LE01019
+ABLBL,Consumer Services,Aditya Birla Lifestyle Brands Limited,EQ,INE14LE01019
 ABMKNO,Unknown,ABM Knowledgeware Limited,EQ,INE850B01026
-ABREL,Unknown,Aditya Birla Real Estate Limited,EQ,INE055A01016
-ABSLAMC,Unknown,Aditya Birla Sun Life AMC Limited,EQ,INE404A01024
-ACC,Unknown,ACC Limited,EQ,INE012A01025
+ABREL,Realty,Aditya Birla Real Estate Limited,EQ,INE055A01016
+ABSLAMC,Financial Services,Aditya Birla Sun Life AMC Limited,EQ,INE404A01024
+ACC,Construction Materials,ACC Limited,EQ,INE012A01025
 ACCELYA,Unknown,Accelya Solutions India Limited,EQ,INE793A01012
-ACE,Unknown,Action Construction Equipment Limited,EQ,INE731H01025
+ACE,Capital Goods,Action Construction Equipment Limited,EQ,INE731H01025
 ACEINTEG,Unknown,Ace Integrated Solutions Limited,EQ,INE543V01017
 ACI,Unknown,Archean Chemical Industries Limited,EQ,INE128X01021
 ACL,Unknown,Andhra Cements Limited,EQ,INE666E01020
-ACMESOLAR,Unknown,Acme Solar Holdings Limited,EQ,INE622W01025
+ACMESOLAR,Power,Acme Solar Holdings Limited,EQ,INE622W01025
 ACSTECH,Unknown,ACS Technologies Limited,EQ,INE366C01021
-ACUTAAS,Unknown,Acutaas Chemicals Limited,EQ,INE00FF01025
-ADANIENSOL,Unknown,Adani Energy Solutions Limited,EQ,INE931S01010
-ADANIENT,Unknown,Adani Enterprises Limited,EQ,INE423A01024
-ADANIGREEN,Unknown,Adani Green Energy Limited,EQ,INE364U01010
-ADANIPORTS,Unknown,Adani Ports and Special Economic Zone Limited,EQ,INE742F01042
-ADANIPOWER,Unknown,Adani Power Limited,EQ,INE814H01029
+ACUTAAS,Healthcare,Acutaas Chemicals Limited,EQ,INE00FF01025
+ADANIENSOL,Power,Adani Energy Solutions Limited,EQ,INE931S01010
+ADANIENT,Metals & Mining,Adani Enterprises Limited,EQ,INE423A01024
+ADANIGREEN,Power,Adani Green Energy Limited,EQ,INE364U01010
+ADANIPORTS,Services,Adani Ports and Special Economic Zone Limited,EQ,INE742F01042
+ADANIPOWER,Power,Adani Power Limited,EQ,INE814H01029
 ADFFOODS,Unknown,ADF Foods Limited,EQ,INE982B01027
 ADL,Unknown,Archidply Decor Limited,EQ,INE0CHO01012
 ADOR,Unknown,Ador Welding Limited,EQ,INE045A01017
@@ -54,15 +54,15 @@ ADVANCE,Unknown,Advance Agrolife Limited,EQ,INE1B0W01010
 ADVANIHOTR,Unknown,Advani Hotels & Resorts (India) Limited,EQ,INE199C01026
 ADVENTHTL,Unknown,Advent Hotels International Limited,EQ,INE28GN01010
 ADVENZYMES,Unknown,Advanced Enzyme Technologies Limited,EQ,INE837H01020
-AEGISLOG,Unknown,Aegis Logistics Limited,EQ,INE208C01025
-AEGISVOPAK,Unknown,Aegis Vopak Terminals Limited,EQ,INE0INX01018
+AEGISLOG,Oil Gas & Consumable Fuels,Aegis Logistics Limited,EQ,INE208C01025
+AEGISVOPAK,Oil Gas & Consumable Fuels,Aegis Vopak Terminals Limited,EQ,INE0INX01018
 AEQUS,Unknown,Aequs Limited,EQ,INE947N01017
 AEROENTER,Unknown,Aeroflex Enterprises Limited,EQ,INE065D01027
 AEROFLEX,Unknown,Aeroflex Industries Limited,EQ,INE024001021
 AERONEU,Unknown,Aeroflex Neu Limited,EQ,INE035801013
 AETHER,Unknown,Aether Industries Limited,EQ,INE0BWX01014
-AFCONS,Unknown,Afcons Infrastructure Limited,EQ,INE101I01011
-AFFLE,Unknown,Affle 3i Limited,EQ,INE00WC01027
+AFCONS,Construction,Afcons Infrastructure Limited,EQ,INE101I01011
+AFFLE,Information Technology,Affle 3i Limited,EQ,INE00WC01027
 AFSL,Unknown,Abans Financial Services Limited,EQ,INE00ZE01026
 AGARIND,Unknown,Agarwal Industrial Corporation Limited,EQ,INE204E01012
 AGARWALEYE,Unknown,Dr. Agarwal's Health Care Limited,EQ,INE943P01029
@@ -74,11 +74,11 @@ AHCL,Unknown,Anlon Healthcare Limited,EQ,INE0Y8W01025
 AHLADA,Unknown,Ahlada Engineers Limited,EQ,INE00PV01013
 AHLEAST,Unknown,Asian Hotels (East) Limited,EQ,INE926K01017
 AHLUCONT,Unknown,Ahluwalia Contracts (India) Limited,EQ,INE758C01029
-AIAENG,Unknown,AIA Engineering Limited,EQ,INE212H01026
-AIIL,Unknown,Authum Investment & Infrastructure Limited,EQ,INE206F01022
+AIAENG,Capital Goods,AIA Engineering Limited,EQ,INE212H01026
+AIIL,Financial Services,Authum Investment & Infrastructure Limited,EQ,INE206F01022
 AIRAN,Unknown,Airan Limited,EQ,INE645W01026
 AIROLAM,Unknown,Airo Lam limited,EQ,INE801L01010
-AJANTPHARM,Unknown,Ajanta Pharma Limited,EQ,INE031B01049
+AJANTPHARM,Healthcare,Ajanta Pharma Limited,EQ,INE031B01049
 AJAXENGG,Unknown,Ajax Engineering Limited,EQ,INE274Y01021
 AJMERA,Unknown,Ajmera Realty & Infra India Limited,EQ,INE298G01035
 AJOONI,Unknown,Ajooni Biotech Limited,EQ,INE820Y01021
@@ -96,7 +96,7 @@ ALGOQUANT,Unknown,Algoquant Fintech Limited,EQ,INE598D01035
 ALICON,Unknown,Alicon Castalloy Limited,EQ,INE062D01024
 ALIVUS,Unknown,Alivus Life Sciences Limited,EQ,INE03Q201024
 ALKALI,Unknown,Alkali Metals Limited,EQ,INE773I01017
-ALKEM,Unknown,Alkem Laboratories Limited,EQ,INE540L01014
+ALKEM,Healthcare,Alkem Laboratories Limited,EQ,INE540L01014
 ALKYLAMINE,Unknown,Alkyl Amines Chemicals Limited,EQ,INE150B01039
 ALLCARGO,Unknown,Allcargo Logistics Limited,EQ,INE418H01029
 ALLDIGI,Unknown,Alldigi Tech Limited,EQ,INE835G01018
@@ -108,44 +108,44 @@ ALPHAGEO,Unknown,Alphageo (India) Limited,EQ,INE137C01018
 AMAGI,Unknown,Amagi Media Labs Limited,EQ,INE121R01077
 AMANTA,Unknown,Amanta Healthcare Limited,EQ,INE084K01015
 AMBALALSA,Unknown,Ambalal Sarabhai Enterprises Limited,EQ,INE432A01017
-AMBER,Unknown,Amber Enterprises India Limited,EQ,INE371P01015
+AMBER,Consumer Durables,Amber Enterprises India Limited,EQ,INE371P01015
 AMBICAAGAR,Unknown,Ambica Agarbathies & Aroma industries Limited,EQ,INE792B01012
 AMBIKCO,Unknown,Ambika Cotton Mills Limited,EQ,INE540G01014
-AMBUJACEM,Unknown,Ambuja Cements Limited,EQ,INE079A01024
+AMBUJACEM,Construction Materials,Ambuja Cements Limited,EQ,INE079A01024
 AMDIND,Unknown,AMD Industries Limited,EQ,INE005I01014
 AMIRCHAND,Unknown,Amir Chand Jagdish Kumar (Exports) Limited,EQ,INE05TO01019
 AMJLAND,Unknown,Amj Land Holdings Limited,EQ,INE606A01024
 AMNPLST,Unknown,Amines & Plasticizers Limited,EQ,INE275D01022
 AMRUTANJAN,Unknown,Amrutanjan Health Care Limited,EQ,INE098F01031
-ANANDRATHI,Unknown,Anand Rathi Wealth Limited,EQ,INE463V01026
-ANANTRAJ,Unknown,Anant Raj Limited,EQ,INE242C01024
+ANANDRATHI,Financial Services,Anand Rathi Wealth Limited,EQ,INE463V01026
+ANANTRAJ,Realty,Anant Raj Limited,EQ,INE242C01024
 ANDHRAPAP,Unknown,ANDHRA PAPER LIMITED,EQ,INE435A01051
 ANDHRSUGAR,Unknown,The Andhra Sugars Limited,EQ,INE715B01021
-ANGELONE,Unknown,Angel One Limited,EQ,INE732I01021
+ANGELONE,Financial Services,Angel One Limited,EQ,INE732I01021
 ANMOL,Unknown,Anmol India Limited,EQ,INE02AR01019
 ANTELOPUS,Unknown,Antelopus Selan Energy Limited,EQ,INE818A01017
 ANTGRAPHIC,Unknown,Antarctica Limited,EQ,INE414B01021
-ANTHEM,Unknown,Anthem Biosciences Limited,EQ,INE0CZ201020
+ANTHEM,Healthcare,Anthem Biosciences Limited,EQ,INE0CZ201020
 ANUHPHR,Unknown,Anuh Pharma Limited,EQ,INE489G01022
 ANUP,Unknown,The Anup Engineering Limited,EQ,INE294Z01018
-ANURAS,Unknown,Anupam Rasayan India Limited,EQ,INE930P01018
-APARINDS,Unknown,Apar Industries Limited,EQ,INE372A01015
+ANURAS,Chemicals,Anupam Rasayan India Limited,EQ,INE930P01018
+APARINDS,Capital Goods,Apar Industries Limited,EQ,INE372A01015
 APCL,Unknown,Anjani Portland Cement Limited,EQ,INE071F01012
 APCOTEXIND,Unknown,Apcotex Industries Limited,EQ,INE116A01032
 APEX,Unknown,Apex Frozen Foods Limited,EQ,INE346W01013
-APLAPOLLO,Unknown,APL Apollo Tubes Limited,EQ,INE702C01027
+APLAPOLLO,Capital Goods,APL Apollo Tubes Limited,EQ,INE702C01027
 APLLTD,Unknown,Alembic Pharmaceuticals Limited,EQ,INE901L01018
 APOLLO,Unknown,Apollo Micro Systems Limited,EQ,INE713T01028
-APOLLOHOSP,Unknown,Apollo Hospitals Enterprise Limited,EQ,INE437A01024
+APOLLOHOSP,Healthcare,Apollo Hospitals Enterprise Limited,EQ,INE437A01024
 APOLLOPIPE,Unknown,Apollo Pipes Limited,EQ,INE126J01016
-APOLLOTYRE,Unknown,Apollo Tyres Limited,EQ,INE438A01022
+APOLLOTYRE,Automobile and Auto Components,Apollo Tyres Limited,EQ,INE438A01022
 APOLSINHOT,Unknown,Apollo Sindoori Hotels Limited,EQ,INE451F01024
 APTECHT,Unknown,Aptech Limited,EQ,INE266F01018
-APTUS,Unknown,Aptus Value Housing Finance India Limited,EQ,INE852O01025
+APTUS,Financial Services,Aptus Value Housing Finance India Limited,EQ,INE852O01025
 AQYLON,Unknown,Aqylon Nexus Limited,EQ,INE416A01051
 ARCHIDPLY,Unknown,Archidply Industries Limited,EQ,INE877I01016
 ARCHIES,Unknown,Archies Limited,EQ,INE731A01020
-ARE&M,Unknown,Amara Raja Energy & Mobility Limited,EQ,INE885A01032
+ARE&M,Automobile and Auto Components,Amara Raja Energy & Mobility Limited,EQ,INE885A01032
 ARENTERP,Unknown,Rajdarshan Industries Limited,EQ,INE610C01014
 ARFIN,Unknown,Arfin India Limited,EQ,INE784R01023
 ARIES,Unknown,Aries Agro Limited,EQ,INE298I01015
@@ -163,7 +163,7 @@ ARVEE,Unknown,Arvee Laboratories (India) Limited,EQ,INE006Z01016
 ARVIND,Unknown,Arvind Limited,EQ,INE034A01011
 ARVINDFASN,Unknown,Arvind Fashions Limited,EQ,INE955V01021
 ARVSMART,Unknown,Arvind SmartSpaces Limited,EQ,INE034S01021
-ASAHIINDIA,Unknown,Asahi India Glass Limited,EQ,INE439A01020
+ASAHIINDIA,Automobile and Auto Components,Asahi India Glass Limited,EQ,INE439A01020
 ASAHISONG,Unknown,Asahi Songwon Colors Limited,EQ,INE228I01012
 ASAL,Unknown,Automotive Stampings and Assemblies Limited,EQ,INE900C01027
 ASALCBR,Unknown,Associated Alcohols & Breweries Ltd.,EQ,INE073G01016
@@ -173,34 +173,34 @@ ASHIKA,Unknown,Ashika Credit Capital Limited,EQ,INE094B01013
 ASHIMASYN,Unknown,Ashima Limited,EQ,INE440A01010
 ASHOKA,Unknown,Ashoka Buildcon Limited,EQ,INE442H01029
 ASHOKAMET,Unknown,Ashoka Metcast Limited,EQ,INE760Y01011
-ASHOKLEY,Unknown,Ashok Leyland Limited,EQ,INE208A01029
+ASHOKLEY,Capital Goods,Ashok Leyland Limited,EQ,INE208A01029
 ASIANENE,Unknown,Asian Energy Services Limited,EQ,INE276G01015
 ASIANHOTNR,Unknown,Asian Hotels (North) Limited,EQ,INE363A01022
-ASIANPAINT,Unknown,Asian Paints Limited,EQ,INE021A01026
+ASIANPAINT,Consumer Durables,Asian Paints Limited,EQ,INE021A01026
 ASIANTILES,Unknown,Asian Granito India Limited,EQ,INE022I01019
 ASKAUTOLTD,Unknown,ASK Automotive Limited,EQ,INE491J01022
 ASMS,Unknown,Bartronics India Limited,EQ,INE855F01042
 ASPINWALL,Unknown,Aspinwall and Company Limited,EQ,INE991I01015
 ASTAR,Unknown,Asian Star Company Limited,EQ,INE194D01017
 ASTEC,Unknown,Astec LifeSciences Limited,EQ,INE563J01010
-ASTERDM,Unknown,Aster DM Healthcare Limited,EQ,INE914M01019
-ASTRAL,Unknown,Astral Limited,EQ,INE006I01046
+ASTERDM,Healthcare,Aster DM Healthcare Limited,EQ,INE914M01019
+ASTRAL,Capital Goods,Astral Limited,EQ,INE006I01046
 ASTRAMICRO,Unknown,Astra Microwave Products Limited,EQ,INE386C01029
 ASTRAZEN,Unknown,AstraZeneca Pharma India Limited,EQ,INE203A01020
 ATALREAL,Unknown,Atal Realtech Limited,EQ,INE0ALR01029
 ATAM,Unknown,Atam Valves Limited,EQ,INE09KD01013
-ATGL,Unknown,Adani Total Gas Limited,EQ,INE399L01023
-ATHERENERG,Unknown,Ather Energy Limited,EQ,INE0LEZ01016
+ATGL,Oil Gas & Consumable Fuels,Adani Total Gas Limited,EQ,INE399L01023
+ATHERENERG,Automobile and Auto Components,Ather Energy Limited,EQ,INE0LEZ01016
 ATL,Unknown,Allcargo Terminals Limited,EQ,INE0NN701020
 ATLANTAA,Unknown,ATLANTAA LIMITED,EQ,INE285H01022
 ATLANTAELE,Unknown,Atlanta Electricals Limited,EQ,INE0Z4F01028
 ATLASCYCLE,Unknown,Atlas Cycles (Haryana) Limited,EQ,INE446A01025
-ATUL,Unknown,Atul Limited,EQ,INE100A01010
+ATUL,Chemicals,Atul Limited,EQ,INE100A01010
 ATULAUTO,Unknown,Atul Auto Limited,EQ,INE951D01028
-AUBANK,Unknown,AU Small Finance Bank Limited,EQ,INE949L01017
+AUBANK,Financial Services,AU Small Finance Bank Limited,EQ,INE949L01017
 AURIGROW,Unknown,Auri Grow India Limited,EQ,INE925Y01036
 AURIONPRO,Unknown,Aurionpro Solutions Limited,EQ,INE132H01018
-AUROPHARMA,Unknown,Aurobindo Pharma Limited,EQ,INE406A01037
+AUROPHARMA,Healthcare,Aurobindo Pharma Limited,EQ,INE406A01037
 AURUM,Unknown,Aurum PropTech Limited,EQ,INE898S01029
 AUSOMENT,Unknown,Ausom Enterprise Limited,EQ,INE218C01016
 AUTOAXLES,Unknown,Automotive Axles Limited,EQ,INE449A01011
@@ -216,8 +216,8 @@ AVROIND,Unknown,AVRO INDIA LIMITED,EQ,INE652Z01025
 AVTNPL,Unknown,AVT Natural Products Limited,EQ,INE488D01021
 AWFIS,Unknown,Awfis Space Solutions Limited,EQ,INE108V01019
 AWHCL,Unknown,Antony Waste Handling Cell Limited,EQ,INE01BK01022
-AWL,Unknown,AWL Agri Business Limited,EQ,INE699H01024
-AXISBANK,Unknown,Axis Bank Limited,EQ,INE238A01034
+AWL,Fast Moving Consumer Goods,AWL Agri Business Limited,EQ,INE699H01024
+AXISBANK,Financial Services,Axis Bank Limited,EQ,INE238A01034
 AXISCADES,Unknown,AXISCADES Technologies Limited,EQ,INE555B01013
 AXITA,Unknown,Axita Cotton Limited,EQ,INE02EZ01022
 AYE,Unknown,Aye Finance Limited,EQ,INE501X01029
@@ -225,59 +225,59 @@ AYMSYNTEX,Unknown,AYM Syntex Limited,EQ,INE193B01039
 AZAD,Unknown,Azad Engineering Limited,EQ,INE02IJ01035
 BAGFILMS,Unknown,B.A.G Films and Media Limited,EQ,INE116D01028
 BAIDFIN,Unknown,Baid Finserv Limited,EQ,INE020D01022
-BAJAJ-AUTO,Unknown,Bajaj Auto Limited,EQ,INE917I01010
+BAJAJ-AUTO,Automobile and Auto Components,Bajaj Auto Limited,EQ,INE917I01010
 BAJAJCON,Unknown,Bajaj Consumer Care Limited,EQ,INE933K01021
 BAJAJELEC,Unknown,Bajaj Electricals Limited,EQ,INE193E01025
-BAJAJFINSV,Unknown,Bajaj Finserv Limited,EQ,INE918I01026
+BAJAJFINSV,Financial Services,Bajaj Finserv Limited,EQ,INE918I01026
 BAJAJHCARE,Unknown,Bajaj Healthcare Limited,EQ,INE411U01027
-BAJAJHFL,Unknown,Bajaj Housing Finance Limited,EQ,INE377Y01014
+BAJAJHFL,Financial Services,Bajaj Housing Finance Limited,EQ,INE377Y01014
 BAJAJHIND,Unknown,Bajaj Hindusthan Sugar Limited,EQ,INE306A01021
-BAJAJHLDNG,Unknown,Bajaj Holdings & Investment Limited,EQ,INE118A01012
+BAJAJHLDNG,Financial Services,Bajaj Holdings & Investment Limited,EQ,INE118A01012
 BAJAJINDEF,Unknown,Indef Manufacturing Limited,EQ,INE0O9T01021
 BAJAJST,Unknown,Bajaj Steel Industries Limited,EQ,INE704G01024
 BAJEL,Unknown,Bajel Projects Limited,EQ,INE0KQN01018
-BAJFINANCE,Unknown,Bajaj Finance Limited,EQ,INE296A01032
+BAJFINANCE,Financial Services,Bajaj Finance Limited,EQ,INE296A01032
 BALAJEE,Unknown,Shree Tirupati Balajee Agro Trading Company Limited,EQ,INE0S2G01011
 BALAJITELE,Unknown,Balaji Telefilms Limited,EQ,INE794B01026
 BALAMINES,Unknown,Balaji Amines Limited,EQ,INE050E01027
 BALKRISHNA,Unknown,Balkrishna Paper Mills Limited,EQ,INE875R01011
-BALKRISIND,Unknown,Balkrishna Industries Limited,EQ,INE787D01026
+BALKRISIND,Automobile and Auto Components,Balkrishna Industries Limited,EQ,INE787D01026
 BALMLAWRIE,Unknown,Balmer Lawrie & Company Limited,EQ,INE164A01016
 BALPHARMA,Unknown,Bal Pharma Limited,EQ,INE083D01012
-BALRAMCHIN,Unknown,Balrampur Chini Mills Limited,EQ,INE119A01028
+BALRAMCHIN,Fast Moving Consumer Goods,Balrampur Chini Mills Limited,EQ,INE119A01028
 BALUFORGE,Unknown,Balu Forge Industries Limited,EQ,INE011E01029
 BANARBEADS,Unknown,Banaras Beads Limited,EQ,INE655B01011
 BANARISUG,Unknown,Bannari Amman Sugars Limited,EQ,INE459A01010
 BANCOINDIA,Unknown,Banco Products (I) Limited,EQ,INE213C01025
-BANDHANBNK,Unknown,Bandhan Bank Limited,EQ,INE545U01014
+BANDHANBNK,Financial Services,Bandhan Bank Limited,EQ,INE545U01014
 BANG,Unknown,Bang Overseas Limited,EQ,INE863I01016
-BANKBARODA,Unknown,Bank of Baroda,EQ,INE028A01039
-BANKINDIA,Unknown,Bank of India,EQ,INE084A01016
+BANKBARODA,Financial Services,Bank of Baroda,EQ,INE028A01039
+BANKINDIA,Financial Services,Bank of India,EQ,INE084A01016
 BANSALWIRE,Unknown,Bansal Wire Industries Limited,EQ,INE0B9K01025
 BANSWRAS,Unknown,Banswara Syntex Limited,EQ,INE629D01020
 BASF,Unknown,BASF India Limited,EQ,INE373A01013
 BASML,Unknown,Bannari Amman Spinning Mills Limited,EQ,INE186H01022
-BATAINDIA,Unknown,Bata India Limited,EQ,INE176A01028
+BATAINDIA,Consumer Durables,Bata India Limited,EQ,INE176A01028
 BATLIBOI,Unknown,Batliboi Limited,EQ,INE177C01022
-BAYERCROP,Unknown,Bayer Cropscience Limited,EQ,INE462A01022
+BAYERCROP,Chemicals,Bayer Cropscience Limited,EQ,INE462A01022
 BBL,Unknown,Bharat Bijlee Limited,EQ,INE464A01036
 BBOX,Unknown,Black Box Limited,EQ,INE676A01027
-BBTC,Unknown,The Bombay Burmah Trading Corporation Limited,EQ,INE050A01025
+BBTC,Fast Moving Consumer Goods,The Bombay Burmah Trading Corporation Limited,EQ,INE050A01025
 BBTCL,Unknown,B&B Triplewall Containers Limited,EQ,INE01EE01011
 BCLIND,Unknown,Bcl Industries Limited,EQ,INE412G01024
 BCONCEPTS,Unknown,Brand Concepts Limited,EQ,INE977Y01011
 BCPL,Unknown,BCPL Railway Infrastructure Limited,EQ,INE00SW01015
-BDL,Unknown,Bharat Dynamics Limited,EQ,INE171Z01026
+BDL,Capital Goods,Bharat Dynamics Limited,EQ,INE171Z01026
 BEARDSELL,Unknown,Beardsell Limited,EQ,INE520H01022
 BECTORFOOD,Unknown,Mrs. Bectors Food Specialities Limited,EQ,INE495P01020
 BEEKAY,Unknown,Beekay Steel Industries Limited,EQ,INE213D01015
-BEL,Unknown,Bharat Electronics Limited,EQ,INE263A01024
+BEL,Capital Goods,Bharat Electronics Limited,EQ,INE263A01024
 BELLACASA,Unknown,Bella Casa Fashion & Retail Limited,EQ,INE344T01014
-BELRISE,Unknown,Belrise Industries Limited,EQ,INE894V01022
-BEML,Unknown,BEML Limited,EQ,INE258A01024
+BELRISE,Automobile and Auto Components,Belrise Industries Limited,EQ,INE894V01022
+BEML,Capital Goods,BEML Limited,EQ,INE258A01024
 BENGALASM,Unknown,Bengal & Assam Company Limited,EQ,INE083K01017
 BEPL,Unknown,Bhansali Engineering Polymers Limited,EQ,INE922A01025
-BERGEPAINT,Unknown,Berger Paints (I) Limited,EQ,INE463A01038
+BERGEPAINT,Consumer Durables,Berger Paints (I) Limited,EQ,INE463A01038
 BESTAGRO,Unknown,Best Agrolife Limited,EQ,INE052T01021
 BETA,Unknown,Beta Drugs Limited,EQ,INE351Y01019
 BFINVEST,Unknown,BF Investment Limited,EQ,INE878K01010
@@ -285,20 +285,20 @@ BFUTILITIE,Unknown,BF Utilities Limited,EQ,INE243D01012
 BHAGCHEM,Unknown,Bhagiradha Chemicals & Industries Limited,EQ,INE414D01027
 BHAGERIA,Unknown,Bhageria Industries Limited,EQ,INE354C01027
 BHARATCOAL,Unknown,Bharat Coking Coal Limited,EQ,INE05XR01022
-BHARATFORG,Unknown,Bharat Forge Limited,EQ,INE465A01025
+BHARATFORG,Automobile and Auto Components,Bharat Forge Limited,EQ,INE465A01025
 BHARATGEAR,Unknown,Bharat Gears Limited,EQ,INE561C01019
 BHARATRAS,Unknown,Bharat Rasayan Limited,EQ,INE838B01021
 BHARATSE,Unknown,Bharat Seats Limited,EQ,INE415D01024
 BHARATWIRE,Unknown,Bharat Wire Ropes Limited,EQ,INE316L01019
-BHARTIARTL,Unknown,Bharti Airtel Limited,EQ,INE397D01024
-BHARTIHEXA,Unknown,Bharti Hexacom Limited,EQ,INE343G01021
-BHEL,Unknown,Bharat Heavy Electricals Limited,EQ,INE257A01026
+BHARTIARTL,Telecommunication,Bharti Airtel Limited,EQ,INE397D01024
+BHARTIHEXA,Telecommunication,Bharti Hexacom Limited,EQ,INE343G01021
+BHEL,Capital Goods,Bharat Heavy Electricals Limited,EQ,INE257A01026
 BI,Unknown,Bilcare Limited,EQ,INE986A01012
 BIGBLOC,Unknown,Bigbloc Construction Limited,EQ,INE412U01025
-BIKAJI,Unknown,Bikaji Foods International Limited,EQ,INE00E101023
+BIKAJI,Fast Moving Consumer Goods,Bikaji Foods International Limited,EQ,INE00E101023
 BIL,Unknown,Bhartiya International Limited,EQ,INE828A01016
 BIMETAL,Unknown,Bimetal Bearings Limited,EQ,INE469A01019
-BIOCON,Unknown,Biocon Limited,EQ,INE376G01013
+BIOCON,Healthcare,Biocon Limited,EQ,INE376G01013
 BIOFILCHEM,Unknown,Biofil Chemicals & Pharmaceuticals Limited,EQ,INE829A01014
 BIRLACORPN,Unknown,Birla Corporation Limited,EQ,INE340A01012
 BIRLAMONEY,Unknown,Aditya Birla Money Limited,EQ,INE865C01022
@@ -310,12 +310,12 @@ BLAL,Unknown,BEML Land Assets Limited,EQ,INE0N7W01012
 BLIL,Unknown,Balmer Lawrie Investments Limited,EQ,INE525F01025
 BLISSGVS,Unknown,Bliss GVS Pharma Limited,EQ,INE416D01022
 BLKASHYAP,Unknown,B. L. Kashyap and Sons Limited,EQ,INE350H01032
-BLS,Unknown,BLS International Services Limited,EQ,INE153T01027
+BLS,Services,BLS International Services Limited,EQ,INE153T01027
 BLSE,Unknown,BLS E-Services Limited,EQ,INE0NLT01010
 BLUECHIP,Unknown,Blue Chip India Limited,EQ,INE657B01025
-BLUEDART,Unknown,Blue Dart Express Limited,EQ,INE233B01017
-BLUEJET,Unknown,Blue Jet Healthcare Limited,EQ,INE0KBH01020
-BLUESTARCO,Unknown,Blue Star Limited,EQ,INE472A01039
+BLUEDART,Services,Blue Dart Express Limited,EQ,INE233B01017
+BLUEJET,Healthcare,Blue Jet Healthcare Limited,EQ,INE0KBH01020
+BLUESTARCO,Consumer Durables,Blue Star Limited,EQ,INE472A01039
 BLUESTONE,Unknown,BlueStone Jewellery and Lifestyle Limited,EQ,INE304W01038
 BLUSPRING,Unknown,Bluspring Enterprises Limited,EQ,INE0U4101014
 BMWVENTLTD,Unknown,BMW Ventures Limited,EQ,INE965W01036
@@ -329,16 +329,16 @@ BOROLTD,Unknown,Borosil Limited,EQ,INE02PY01013
 BORORENEW,Unknown,BOROSIL RENEWABLES LIMITED,EQ,INE666D01022
 BOROSCI,Unknown,Borosil Scientific Limited,EQ,INE02L001032
 BOSCH-HCIL,Unknown,BOSCH HOME COMFORT INDIA LIMITED,EQ,INE782A01015
-BOSCHLTD,Unknown,Bosch Limited,EQ,INE323A01026
-BPCL,Unknown,Bharat Petroleum Corporation Limited,EQ,INE029A01011
+BOSCHLTD,Automobile and Auto Components,Bosch Limited,EQ,INE323A01026
+BPCL,Oil Gas & Consumable Fuels,Bharat Petroleum Corporation Limited,EQ,INE029A01011
 BPL,Unknown,BPL Limited,EQ,INE110A01019
-BRIGADE,Unknown,Brigade Enterprises Limited,EQ,INE791I01019
+BRIGADE,Realty,Brigade Enterprises Limited,EQ,INE791I01019
 BRIGHOTEL,Unknown,Brigade Hotel Ventures Limited,EQ,INE03NU01014
-BRITANNIA,Unknown,Britannia Industries Limited,EQ,INE216A01030
+BRITANNIA,Fast Moving Consumer Goods,Britannia Industries Limited,EQ,INE216A01030
 BRNL,Unknown,Bharat Road Network Limited,EQ,INE727S01012
-BSE,Unknown,BSE Limited,EQ,INE118H01025
+BSE,Financial Services,BSE Limited,EQ,INE118H01025
 BSL,Unknown,BSL Limited,EQ,INE594B01012
-BSOFT,Unknown,BIRLASOFT LIMITED,EQ,INE836A01035
+BSOFT,Information Technology,BIRLASOFT LIMITED,EQ,INE836A01035
 BTML,Unknown,Bodhi Tree Multimedia Limited,EQ,INE0EEJ01023
 BTTL,Unknown,Bhilwara Technical Textiles Limited,EQ,INE274K01012
 BUILDPRO,Unknown,Shankara Buildpro Limited,EQ,INE24OJ01011
@@ -346,113 +346,113 @@ BUTTERFLY,Unknown,Butterfly Gandhimathi Appliances Limited,EQ,INE295F01017
 BVCL,Unknown,Barak Valley Cements Limited,EQ,INE139I01011
 CAMLINFINE,Unknown,Camlin Fine Sciences Limited,EQ,INE052I01032
 CAMPUS,Unknown,Campus Activewear Limited,EQ,INE278Y01022
-CAMS,Unknown,Computer Age Management Services Limited,EQ,INE596I01020
-CANBK,Unknown,Canara Bank,EQ,INE476A01022
-CANFINHOME,Unknown,Can Fin Homes Limited,EQ,INE477A01020
-CANHLIFE,Unknown,Canara HSBC Life Insurance Company Limited,EQ,INE01TY01017
+CAMS,Financial Services,Computer Age Management Services Limited,EQ,INE596I01020
+CANBK,Financial Services,Canara Bank,EQ,INE476A01022
+CANFINHOME,Financial Services,Can Fin Homes Limited,EQ,INE477A01020
+CANHLIFE,Financial Services,Canara HSBC Life Insurance Company Limited,EQ,INE01TY01017
 CANTABIL,Unknown,Cantabil Retail India Limited,EQ,INE068L01024
 CAPACITE,Unknown,Capacit'e Infraprojects Limited,EQ,INE264T01014
 CAPILLARY,Unknown,Capillary Technologies India Limited,EQ,INE0ILV01024
 CAPITALSFB,Unknown,Capital Small Finance Bank Limited,EQ,INE646H01017
-CAPLIPOINT,Unknown,Caplin Point Laboratories Limited,EQ,INE475E01026
-CARBORUNIV,Unknown,Carborundum Universal Limited,EQ,INE120A01034
+CAPLIPOINT,Healthcare,Caplin Point Laboratories Limited,EQ,INE475E01026
+CARBORUNIV,Capital Goods,Carborundum Universal Limited,EQ,INE120A01034
 CARERATING,Unknown,CARE Ratings Limited,EQ,INE752H01013
 CARRARO,Unknown,Carraro India Limited,EQ,INE0V7W01012
-CARTRADE,Unknown,Cartrade Tech Limited,EQ,INE290S01011
+CARTRADE,Consumer Services,Cartrade Tech Limited,EQ,INE290S01011
 CARYSIL,Unknown,CARYSIL LIMITED,EQ,INE482D01024
-CASTROLIND,Unknown,Castrol India Limited,EQ,INE172A01027
+CASTROLIND,Oil Gas & Consumable Fuels,Castrol India Limited,EQ,INE172A01027
 CCAVENUE,Unknown,AvenuesAI Limited,EQ,INE483S01020
 CCCL,Unknown,Consolidated Construction Consortium Limited,EQ,INE429I01024
 CCHHL,Unknown,Country Club Hospitality & Holidays Limited,EQ,INE652F01027
-CCL,Unknown,CCL Products (India) Limited,EQ,INE421D01022
-CDSL,Unknown,Central Depository Services (India) Limited,EQ,INE736A01011
-CEATLTD,Unknown,CEAT Limited,EQ,INE482A01020
+CCL,Fast Moving Consumer Goods,CCL Products (India) Limited,EQ,INE421D01022
+CDSL,Financial Services,Central Depository Services (India) Limited,EQ,INE736A01011
+CEATLTD,Automobile and Auto Components,CEAT Limited,EQ,INE482A01020
 CEIGALL,Unknown,Ceigall India Limited,EQ,INE0AG901020
 CEINSYS,Unknown,Ceinsys Tech Limited,EQ,INE016Q01014
 CELEBRITY,Unknown,Celebrity Fashions Limited,EQ,INE185H01016
 CELLO,Unknown,Cello World Limited,EQ,INE0LMW01024
-CEMPRO,Unknown,Cemindia Projects Limited,EQ,INE686A01026
+CEMPRO,Construction,Cemindia Projects Limited,EQ,INE686A01026
 CENTENKA,Unknown,Century Enka Limited,EQ,INE485A01015
 CENTEXT,Unknown,Century Extrusions Limited,EQ,INE281A01026
-CENTRALBK,Unknown,Central Bank of India,EQ,INE483A01010
+CENTRALBK,Financial Services,Central Bank of India,EQ,INE483A01010
 CENTRUM,Unknown,Centrum Capital Limited,EQ,INE660C01027
 CENTUM,Unknown,Centum Electronics Limited,EQ,INE320B01020
 CENTURYPLY,Unknown,Century Plyboards (India) Limited,EQ,INE348B01021
 CERA,Unknown,Cera Sanitaryware Limited,EQ,INE739E01017
-CESC,Unknown,CESC Limited,EQ,INE486A01021
+CESC,Power,CESC Limited,EQ,INE486A01021
 CEWATER,Unknown,Concord Enviro Systems Limited,EQ,INE037Z01029
-CGCL,Unknown,Capri Global Capital Limited,EQ,INE180C01042
-CGPOWER,Unknown,CG Power and Industrial Solutions Limited,EQ,INE067A01029
-CHALET,Unknown,Chalet Hotels Limited,EQ,INE427F01016
-CHAMBLFERT,Unknown,Chambal Fertilizers & Chemicals Limited,EQ,INE085A01013
+CGCL,Financial Services,Capri Global Capital Limited,EQ,INE180C01042
+CGPOWER,Capital Goods,CG Power and Industrial Solutions Limited,EQ,INE067A01029
+CHALET,Consumer Services,Chalet Hotels Limited,EQ,INE427F01016
+CHAMBLFERT,Chemicals,Chambal Fertilizers & Chemicals Limited,EQ,INE085A01013
 CHEMCON,Unknown,Chemcon Speciality Chemicals Limited,EQ,INE03YM01018
 CHEMPLASTS,Unknown,Chemplast Sanmar Limited,EQ,INE488A01050
-CHENNPETRO,Unknown,Chennai Petroleum Corporation Limited,EQ,INE178A01016
+CHENNPETRO,Oil Gas & Consumable Fuels,Chennai Petroleum Corporation Limited,EQ,INE178A01016
 CHEVIOT,Unknown,Cheviot Company Limited,EQ,INE974B01016
-CHOICEIN,Unknown,Choice International Limited,EQ,INE102B01014
-CHOLAFIN,Unknown,Cholamandalam Investment and Finance Company Limited,EQ,INE121A01024
-CHOLAHLDNG,Unknown,Cholamandalam Financial Holdings Limited,EQ,INE149A01033
-CIEINDIA,Unknown,CIE Automotive India Limited,EQ,INE536H01010
+CHOICEIN,Financial Services,Choice International Limited,EQ,INE102B01014
+CHOLAFIN,Financial Services,Cholamandalam Investment and Finance Company Limited,EQ,INE121A01024
+CHOLAHLDNG,Financial Services,Cholamandalam Financial Holdings Limited,EQ,INE149A01033
+CIEINDIA,Automobile and Auto Components,CIE Automotive India Limited,EQ,INE536H01010
 CIFL,Unknown,Capital India Finance Limited,EQ,INE345H01024
 CINELINE,Unknown,Cineline India Limited,EQ,INE704H01022
 CINEVISTA,Unknown,Cinevista Limited,EQ,INE039B01026
-CIPLA,Unknown,Cipla Limited,EQ,INE059A01026
-CLEAN,Unknown,Clean Science and Technology Limited,EQ,INE227W01023
+CIPLA,Healthcare,Cipla Limited,EQ,INE059A01026
+CLEAN,Chemicals,Clean Science and Technology Limited,EQ,INE227W01023
 CLEANMAX,Unknown,Clean Max Enviro Energy Solutions Limited,EQ,INE647U01026
 CLSEL,Unknown,Chaman Lal Setia Exports Limited,EQ,INE419D01026
 CMPDI,Unknown,Central Mine Planning & Design Institute Limited,EQ,INE05HV01027
 CMSINFO,Unknown,CMS Info Systems Limited,EQ,INE925R01014
 CNL,Unknown,Creative Newtech Limited,EQ,INE985W01018
-COALINDIA,Unknown,Coal India Limited,EQ,INE522F01014
+COALINDIA,Oil Gas & Consumable Fuels,Coal India Limited,EQ,INE522F01014
 COASTCORP,Unknown,Coastal Corporation Limited,EQ,INE377E01024
-COCHINSHIP,Unknown,Cochin Shipyard Limited,EQ,INE704P01025
+COCHINSHIP,Capital Goods,Cochin Shipyard Limited,EQ,INE704P01025
 COCKERILL,Unknown,John Cockerill India Limited,EQ,INE515A01019
 COFFEEDAY,Unknown,Coffee Day Enterprises Limited,EQ,INE335K01011
-COFORGE,Unknown,Coforge Limited,EQ,INE591G01025
-COHANCE,Unknown,Cohance Lifesciences Limited,EQ,INE03QK01018
-COLPAL,Unknown,Colgate Palmolive (India) Limited,EQ,INE259A01022
+COFORGE,Information Technology,Coforge Limited,EQ,INE591G01025
+COHANCE,Healthcare,Cohance Lifesciences Limited,EQ,INE03QK01018
+COLPAL,Fast Moving Consumer Goods,Colgate Palmolive (India) Limited,EQ,INE259A01022
 COMFINTE,Unknown,Comfort Intech Limited,EQ,INE819A01049
 COMPUSOFT,Unknown,Compucom Software Limited,EQ,INE453B01029
 COMSYN,Unknown,Commercial Syn Bags Limited,EQ,INE073V01015
-CONCOR,Unknown,Container Corporation of India Limited,EQ,INE111A01025
-CONCORDBIO,Unknown,Concord Biotech Limited,EQ,INE338H01029
+CONCOR,Services,Container Corporation of India Limited,EQ,INE111A01025
+CONCORDBIO,Healthcare,Concord Biotech Limited,EQ,INE338H01029
 CONFIPET,Unknown,Confidence Petroleum India Limited,EQ,INE552D01024
 CONTROLPR,Unknown,Control Print Limited,EQ,INE663B01015
 CORALFINAC,Unknown,Coral India Finance & Housing Limited,EQ,INE558D01021
 CORDSCABLE,Unknown,Cords Cable Industries Limited,EQ,INE792I01017
-COROMANDEL,Unknown,Coromandel International Limited,EQ,INE169A01031
+COROMANDEL,Chemicals,Coromandel International Limited,EQ,INE169A01031
 CORONA,Unknown,CORONA Remedies Limited,EQ,INE02ZQ01018
 COSMOFIRST,Unknown,COSMO FIRST LIMITED,EQ,INE757A01017
 COUNCODOS,Unknown,Country Condo's Limited,EQ,INE695B01025
 CPEDU,Unknown,Career Point Edutech Limited,EQ,INE0P6P01016
-CPPLUS,Unknown,Aditya Infotech Limited,EQ,INE819V01029
-CRAFTSMAN,Unknown,Craftsman Automation Limited,EQ,INE00LO01017
+CPPLUS,Capital Goods,Aditya Infotech Limited,EQ,INE819V01029
+CRAFTSMAN,Automobile and Auto Components,Craftsman Automation Limited,EQ,INE00LO01017
 CRAMC,Unknown,Canara Robeco Asset Management Company Limited,EQ,INE218I01013
 CREATIVEYE,Unknown,Creative Eye Limited,EQ,INE230B01021
-CREDITACC,Unknown,CREDITACCESS GRAMEEN LIMITED,EQ,INE741K01010
+CREDITACC,Financial Services,CREDITACCESS GRAMEEN LIMITED,EQ,INE741K01010
 CREST,Unknown,Crest Ventures Limited,EQ,INE559D01011
-CRISIL,Unknown,CRISIL Limited,EQ,INE007A01025
+CRISIL,Financial Services,CRISIL Limited,EQ,INE007A01025
 CRIZAC,Unknown,Crizac Limited,EQ,INE0S4R01014
-CROMPTON,Unknown,Crompton Greaves Consumer Electricals Limited,EQ,INE299U01018
+CROMPTON,Consumer Durables,Crompton Greaves Consumer Electricals Limited,EQ,INE299U01018
 CROWN,Unknown,Crown Lifters Limited,EQ,INE491V01019
 CSBBANK,Unknown,CSB Bank Limited,EQ,INE679A01013
 CSLFINANCE,Unknown,CSL Finance Limited,EQ,INE718F01018
-CUB,Unknown,City Union Bank Limited,EQ,INE491A01021
+CUB,Financial Services,City Union Bank Limited,EQ,INE491A01021
 CUBEXTUB,Unknown,Cubex Tubings Limited,EQ,INE144D01012
-CUMMINSIND,Unknown,Cummins India Limited,EQ,INE298A01020
+CUMMINSIND,Capital Goods,Cummins India Limited,EQ,INE298A01020
 CUPID,Unknown,Cupid Limited,EQ,INE509F01029
 CYBERTECH,Unknown,Cybertech Systems And Software Limited,EQ,INE214A01019
-CYIENT,Unknown,Cyient Limited,EQ,INE136B01020
-CYIENTDLM,Unknown,Cyient DLM Limited,EQ,INE055S01018
-DABUR,Unknown,Dabur India Limited,EQ,INE016A01026
+CYIENT,Information Technology,Cyient Limited,EQ,INE136B01020
+CYIENTDLM,Capital Goods,Cyient DLM Limited,EQ,INE055S01018
+DABUR,Fast Moving Consumer Goods,Dabur India Limited,EQ,INE016A01026
 DAICHI,Unknown,Dai-Ichi Karkaria Limited,EQ,INE928C01010
-DALBHARAT,Unknown,Dalmia Bharat Limited,EQ,INE00R701025
+DALBHARAT,Construction Materials,Dalmia Bharat Limited,EQ,INE00R701025
 DALMIASUG,Unknown,Dalmia Bharat Sugar and Industries Limited,EQ,INE495A01022
 DAMCAPITAL,Unknown,Dam Capital Advisors Limited,EQ,INE284H01025
 DAMODARIND,Unknown,Damodar Industries Limited,EQ,INE497D01022
 DANGEE,Unknown,Dangee Dums Limited,EQ,INE688Y01022
 DATAMATICS,Unknown,Datamatics Global Services Limited,EQ,INE365B01017
-DATAPATTNS,Unknown,Data Patterns (India) Limited,EQ,INE0IX101010
+DATAPATTNS,Capital Goods,Data Patterns (India) Limited,EQ,INE0IX101010
 DAVANGERE,Unknown,Davangere Sugar Company Limited,EQ,INE179G01029
 DBCORP,Unknown,D.B.Corp Limited,EQ,INE950I01011
 DBEIL,Unknown,Deepak Builders & Engineers India Limited,EQ,INE0OPA01019
@@ -463,7 +463,7 @@ DCAL,Unknown,Dishman Carbogen Amcis Limited,EQ,INE385W01011
 DCBBANK,Unknown,DCB Bank Limited,EQ,INE503A01015
 DCM,Unknown,DCM  Limited,EQ,INE498A01018
 DCMNVL,Unknown,DCM Nouvelle Limited,EQ,INE08KP01019
-DCMSHRIRAM,Unknown,DCM Shriram Limited,EQ,INE499A01024
+DCMSHRIRAM,Diversified,DCM Shriram Limited,EQ,INE499A01024
 DCMSRIND,Unknown,DCM Shriram Industries Limited,EQ,INE843D01027
 DCW,Unknown,DCW Limited,EQ,INE500A01029
 DCXINDIA,Unknown,DCX Systems Limited,EQ,INE0KL801015
@@ -471,10 +471,10 @@ DDEVPLSTIK,Unknown,Ddev Plastiks Industries Limited,EQ,INE0HR601026
 DECCANCE,Unknown,Deccan Cements Limited,EQ,INE583C01021
 DECNGOLD,Unknown,Deccan Gold Mines Limited,EQ,INE945F01025
 DEEDEV,Unknown,DEE Development Engineers Limited,EQ,INE841L01016
-DEEPAKFERT,Unknown,Deepak Fertilizers and Petrochemicals Corporation Limited,EQ,INE501A01019
-DEEPAKNTR,Unknown,Deepak Nitrite Limited,EQ,INE288B01029
+DEEPAKFERT,Chemicals,Deepak Fertilizers and Petrochemicals Corporation Limited,EQ,INE501A01019
+DEEPAKNTR,Chemicals,Deepak Nitrite Limited,EQ,INE288B01029
 DEEPINDS,Unknown,Deep Industries Limited,EQ,INE0FHS01024
-DELHIVERY,Unknown,Delhivery Limited,EQ,INE148O01028
+DELHIVERY,Services,Delhivery Limited,EQ,INE148O01028
 DELPHIFX,Unknown,DELPHI WORLD MONEY LIMITED,EQ,INE726L01027
 DELTACORP,Unknown,Delta Corp Limited,EQ,INE124G01033
 DELTAMAGNT,Unknown,Delta Manufacturing Limited,EQ,INE393A01011
@@ -483,7 +483,7 @@ DENORA,Unknown,De Nora India Limited,EQ,INE244A01016
 DENTA,Unknown,Denta Water and Infra Solutions Limited,EQ,INE0R4L01018
 DEVIT,Unknown,Dev Information Technology Limited,EQ,INE060X01034
 DEVX,Unknown,Dev Accelerator Limited,EQ,INE0VOV01021
-DEVYANI,Unknown,Devyani International Limited,EQ,INE872J01023
+DEVYANI,Consumer Services,Devyani International Limited,EQ,INE872J01023
 DGCONTENT,Unknown,Digicontent Limited,EQ,INE03JI01017
 DHAMPURSUG,Unknown,Dhampur Sugar Mills Limited,EQ,INE041A01016
 DHANBANK,Unknown,Dhanlaxmi Bank Limited,EQ,INE680A01011
@@ -500,18 +500,18 @@ DIGITIDE,Unknown,Digitide Solutions Limited,EQ,INE0U4701011
 DIGJAMLMTD,Unknown,Digjam Limited,EQ,INE731U01028
 DISAQ,Unknown,Disa India Limited,EQ,INE131C01011
 DIVGIITTS,Unknown,Divgi Torqtransfer Systems Limited,EQ,INE753U01022
-DIVISLAB,Unknown,Divi's Laboratories Limited,EQ,INE361B01024
-DIXON,Unknown,Dixon Technologies (India) Limited,EQ,INE935N01020
-DLF,Unknown,DLF Limited,EQ,INE271C01023
+DIVISLAB,Healthcare,Divi's Laboratories Limited,EQ,INE361B01024
+DIXON,Consumer Durables,Dixon Technologies (India) Limited,EQ,INE935N01020
+DLF,Realty,DLF Limited,EQ,INE271C01023
 DLINKINDIA,Unknown,D-Link (India) Limited,EQ,INE250K01012
-DMART,Unknown,Avenue Supermarts Limited,EQ,INE192R01011
+DMART,Consumer Services,Avenue Supermarts Limited,EQ,INE192R01011
 DMCC,Unknown,DMCC SPECIALITY CHEMICALS LIMITED,EQ,INE505A01010
 DNAMEDIA,Unknown,Diligent Media Corporation Limited,EQ,INE016M01021
 DODLA,Unknown,Dodla Dairy Limited,EQ,INE021O01019
 DOLATALGO,Unknown,Dolat Algotech Limited,EQ,INE966A01022
 DOLLAR,Unknown,Dollar Industries Limited,EQ,INE325C01035
 DOLPHIN,Unknown,Dolphin Offshore Enterprises (India) Limited,EQ,INE920A01037
-DOMS,Unknown,DOMS Industries Limited,EQ,INE321T01012
+DOMS,Fast Moving Consumer Goods,DOMS Industries Limited,EQ,INE321T01012
 DONEAR,Unknown,Donear Industries Limited,EQ,INE668D01028
 DPABHUSHAN,Unknown,D. P. Abhushan Limited,EQ,INE266Y01019
 DPSCLTD,Unknown,DPSC Limited,EQ,INE360C01024
@@ -520,7 +520,7 @@ DRAGARWQ,Unknown,Dr Agarwals Eye Hospital Limited,EQ,INE934C01018
 DRCSYSTEMS,Unknown,DRC Systems India Limited,EQ,INE03RS01027
 DREAMFOLKS,Unknown,Dreamfolks Services Limited,EQ,INE0JS101016
 DREDGECORP,Unknown,Dredging Corporation of India Limited,EQ,INE506A01018
-DRREDDY,Unknown,Dr. Reddy's Laboratories Limited,EQ,INE089A01031
+DRREDDY,Healthcare,Dr. Reddy's Laboratories Limited,EQ,INE089A01031
 DSFCL,Unknown,DCM Shriram Fine Chemicals Limited,EQ,INE0OFM01015
 DSSL,Unknown,Dynacons Systems & Solutions Limited,EQ,INE417B01040
 DTIL,Unknown,Dhunseri Tea & Industries Limited,EQ,INE341R01014
@@ -531,59 +531,59 @@ DYNAMATECH,Unknown,Dynamatic Technologies Limited,EQ,INE221B01012
 DYNPRO,Unknown,Dynemic Products Limited,EQ,INE256H01015
 EASEMYTRIP,Unknown,Easy Trip Planners Limited,EQ,INE07O001026
 EBGNG,Unknown,GNG Electronics Limited,EQ,INE18JU01028
-ECLERX,Unknown,eClerx Services Limited,EQ,INE738I01010
+ECLERX,Services,eClerx Services Limited,EQ,INE738I01010
 ECOSMOBLTY,Unknown,Ecos (India) Mobility & Hospitality Limited,EQ,INE06HJ01020
 EDELWEISS,Unknown,Edelweiss Financial Services Limited,EQ,INE532F01054
 EFCIL,Unknown,EFC (I) Limited,EQ,INE886D01026
-EICHERMOT,Unknown,Eicher Motors Limited,EQ,INE066A01021
-EIDPARRY,Unknown,EID Parry India Limited,EQ,INE126A01031
+EICHERMOT,Automobile and Auto Components,Eicher Motors Limited,EQ,INE066A01021
+EIDPARRY,Fast Moving Consumer Goods,EID Parry India Limited,EQ,INE126A01031
 EIEL,Unknown,Enviro Infra Engineers Limited,EQ,INE0LLY01014
 EIFFL,Unknown,Euro India Fresh Foods Limited,EQ,INE546V01010
 EIHAHOTELS,Unknown,EIH Associated Hotels Limited,EQ,INE276C01014
-EIHOTEL,Unknown,EIH Limited,EQ,INE230A01023
+EIHOTEL,Consumer Services,EIH Limited,EQ,INE230A01023
 EIMCOELECO,Unknown,Eimco Elecon (India) Limited,EQ,INE158B01016
 EKC,Unknown,Everest Kanto Cylinder Limited,EQ,INE184H01027
 ELANTAS,Unknown,Elantas Beck India Limited,EQ,INE280B01018
 ELCIDIN,Unknown,EL CID Investments Limited,EQ,INE927X01018
 ELDEHSG,Unknown,Eldeco Housing And Industries Limited,EQ,INE668G01021
-ELECON,Unknown,Elecon Engineering Company Limited,EQ,INE205B01031
+ELECON,Capital Goods,Elecon Engineering Company Limited,EQ,INE205B01031
 ELECTCAST,Unknown,Electrosteel Castings Limited,EQ,INE086A01029
 ELECTHERM,Unknown,Electrotherm (India) Limited,EQ,INE822G01016
-ELGIEQUIP,Unknown,Elgi Equipments Limited,EQ,INE285A01027
+ELGIEQUIP,Capital Goods,Elgi Equipments Limited,EQ,INE285A01027
 ELGIRUBCO,Unknown,Elgi Rubber Company Limited,EQ,INE819L01012
 ELIN,Unknown,Elin Electronics Limited,EQ,INE050401020
 ELITECON,Unknown,Elitecon International Limited,EQ,INE669R01026
 ELLEN,Unknown,Ellenbarrie Industrial Gases Limited,EQ,INE236E01022
 ELPROINTL,Unknown,Elpro International Limited,EQ,INE579B01039
-EMAMILTD,Unknown,Emami Limited,EQ,INE548C01032
+EMAMILTD,Fast Moving Consumer Goods,Emami Limited,EQ,INE548C01032
 EMAMIPAP,Unknown,Emami Paper Mills Limited,EQ,INE830C01026
 EMBDL,Unknown,Embassy Developments Limited,EQ,INE069I01010
-EMCURE,Unknown,Emcure Pharmaceuticals Limited,EQ,INE168P01015
+EMCURE,Healthcare,Emcure Pharmaceuticals Limited,EQ,INE168P01015
 EMIL,Unknown,Electronics Mart India Limited,EQ,INE02YR01019
 EMKAY,Unknown,Emkay Global Financial Services Limited,EQ,INE296H01011
 EMMBI,Unknown,Emmbi Industries Limited,EQ,INE753K01015
-EMMVEE,Unknown,Emmvee Photovoltaic Power Limited,EQ,INE1C6T01020
+EMMVEE,Capital Goods,Emmvee Photovoltaic Power Limited,EQ,INE1C6T01020
 EMSLIMITED,Unknown,EMS Limited,EQ,INE0OV601013
 EMUDHRA,Unknown,eMudhra Limited,EQ,INE01QM01018
-ENDURANCE,Unknown,Endurance Technologies Limited,EQ,INE913H01037
+ENDURANCE,Automobile and Auto Components,Endurance Technologies Limited,EQ,INE913H01037
 ENERGYDEV,Unknown,Energy Development Company Limited,EQ,INE306C01019
-ENGINERSIN,Unknown,Engineers India Limited,EQ,INE510A01028
+ENGINERSIN,Construction,Engineers India Limited,EQ,INE510A01028
 ENIL,Unknown,Entertainment Network (India) Limited,EQ,INE265F01028
-ENRIN,Unknown,Siemens Energy India Limited,EQ,INE1NPP01017
+ENRIN,Capital Goods,Siemens Energy India Limited,EQ,INE1NPP01017
 ENTERO,Unknown,Entero Healthcare Solutions Limited,EQ,INE010601016
 EPACK,Unknown,EPACK Durable Limited,EQ,INE0G5901015
 EPACKPEB,Unknown,EPack Prefab Technologies Limited,EQ,INE0MLS01022
 EPIGRAL,Unknown,Epigral Limited,EQ,INE071N01016
 EPL,Unknown,EPL Limited,EQ,INE255A01020
 EQUITASBNK,Unknown,Equitas Small Finance Bank Limited,EQ,INE063P01018
-ERIS,Unknown,Eris Lifesciences Limited,EQ,INE406M01024
+ERIS,Healthcare,Eris Lifesciences Limited,EQ,INE406M01024
 ESABINDIA,Unknown,Esab India Limited,EQ,INE284A01012
 ESAFSFB,Unknown,ESAF Small Finance Bank Limited,EQ,INE818W01011
-ESCORTS,Unknown,Escorts Kubota Limited,EQ,INE042A01014
+ESCORTS,Capital Goods,Escorts Kubota Limited,EQ,INE042A01014
 ESSARSHPNG,Unknown,Essar Shipping Limited,EQ,INE122M01019
 ESSENTIA,Unknown,Integra Essentia Limited,EQ,INE418N01035
 ESTER,Unknown,Ester Industries Limited,EQ,INE778B01029
-ETERNAL,Unknown,ETERNAL LIMITED,EQ,INE758T01015
+ETERNAL,Consumer Services,ETERNAL LIMITED,EQ,INE758T01015
 ETHOSLTD,Unknown,Ethos Limited,EQ,INE04TZ01018
 EUREKAFORB,Unknown,Eureka Forbes Limited,EQ,INE0KCE01017
 EUROBOND,Unknown,Euro Panel Products Limited,EQ,INE505V01016
@@ -594,48 +594,48 @@ EVERESTIND,Unknown,Everest Industries Limited,EQ,INE295A01018
 EXCELINDUS,Unknown,Excel Industries Limited,EQ,INE369A01029
 EXCELSOFT,Unknown,Excelsoft Technologies Limited,EQ,INE606N01019
 EXICOM,Unknown,Exicom Tele-Systems Limited,EQ,INE777F01014
-EXIDEIND,Unknown,Exide Industries Limited,EQ,INE302A01020
+EXIDEIND,Automobile and Auto Components,Exide Industries Limited,EQ,INE302A01020
 EXPLEOSOL,Unknown,Expleo Solutions Limited,EQ,INE201K01015
 EXXARO,Unknown,Exxaro Tiles Limited,EQ,INE0GFE01026
 FABTECH,Unknown,Fabtech Technologies Limited,EQ,INE0HF201011
-FACT,Unknown,Fertilizers and Chemicals Travancore Limited,EQ,INE188A01015
+FACT,Chemicals,Fertilizers and Chemicals Travancore Limited,EQ,INE188A01015
 FAIRCHEMOR,Unknown,Fairchem Organics Limited,EQ,INE0DNW01011
 FCL,Unknown,Fineotex Chemical Limited,EQ,INE045J01034
 FDC,Unknown,FDC Limited,EQ,INE258B01022
 FEDDERSHOL,Unknown,Fedders Holding Limited,EQ,INE417D01020
-FEDERALBNK,Unknown,The Federal Bank  Limited,EQ,INE171A01029
+FEDERALBNK,Financial Services,The Federal Bank  Limited,EQ,INE171A01029
 FEDFINA,Unknown,Fedbank Financial Services Limited,EQ,INE007N01010
 FERMENTA,Unknown,Fermenta Biotech Limited,EQ,INE225B01021
 FIEMIND,Unknown,Fiem Industries Limited,EQ,INE737H01014
 FILATEX,Unknown,Filatex India Limited,EQ,INE816B01035
-FINCABLES,Unknown,Finolex Cables Limited,EQ,INE235A01022
+FINCABLES,Capital Goods,Finolex Cables Limited,EQ,INE235A01022
 FINEORG,Unknown,Fine Organic Industries Limited,EQ,INE686Y01026
 FINKURVE,Unknown,Finkurve Financial Services Limited,EQ,INE734I01027
 FINOPB,Unknown,Fino Payments Bank Limited,EQ,INE02NC01014
 FINPIPE,Unknown,Finolex Industries Limited,EQ,INE183A01024
-FIRSTCRY,Unknown,Brainbees Solutions Limited,EQ,INE02RE01045
+FIRSTCRY,Consumer Services,Brainbees Solutions Limited,EQ,INE02RE01045
 FISCHER,Unknown,Fischer Medical Ventures Limited,EQ,INE771F01041
-FIVESTAR,Unknown,Five-Star Business Finance Limited,EQ,INE128S01021
+FIVESTAR,Financial Services,Five-Star Business Finance Limited,EQ,INE128S01021
 FLAIR,Unknown,Flair Writing Industries Limited,EQ,INE00Y201027
 FLEXITUFF,Unknown,Flexituff Ventures International Limited,EQ,INE060J01017
-FLUOROCHEM,Unknown,Gujarat Fluorochemicals Limited,EQ,INE09N301011
+FLUOROCHEM,Chemicals,Gujarat Fluorochemicals Limited,EQ,INE09N301011
 FMGOETZE,Unknown,Federal-Mogul Goetze (India) Limited.,EQ,INE529A01010
 FMNL,Unknown,Future Market Networks Limited,EQ,INE360L01017
 FOCUS,Unknown,Focus Lighting and Fixtures Limited,EQ,INE593W01028
 FOODSIN,Unknown,Foods & Inns Limited,EQ,INE976E01023
-FORCEMOT,Unknown,FORCE MOTORS LTD,EQ,INE451A01017
-FORTIS,Unknown,Fortis Healthcare Limited,EQ,INE061F01013
+FORCEMOT,Automobile and Auto Components,FORCE MOTORS LTD,EQ,INE451A01017
+FORTIS,Healthcare,Fortis Healthcare Limited,EQ,INE061F01013
 FOSECOIND,Unknown,Foseco India Limited,EQ,INE519A01011
 FRACTAL,Unknown,Fractal Analytics Limited,EQ,INE212S01015
 FRONTSP,Unknown,Frontier Springs Limited,EQ,INE572D01014
-FSL,Unknown,Firstsource Solutions Limited,EQ,INE684F01012
+FSL,Services,Firstsource Solutions Limited,EQ,INE684F01012
 FUSION,Unknown,Fusion Finance Limited,EQ,INE139R01012
-GABRIEL,Unknown,Gabriel India Limited,EQ,INE524A01029
+GABRIEL,Automobile and Auto Components,Gabriel India Limited,EQ,INE524A01029
 GAEL,Unknown,Gujarat Ambuja Exports Limited,EQ,INE036B01030
-GAIL,Unknown,GAIL (India) Limited,EQ,INE129A01019
+GAIL,Oil Gas & Consumable Fuels,GAIL (India) Limited,EQ,INE129A01019
 GALAPREC,Unknown,Gala Precision Engineering Limited,EQ,INE0RE001014
 GALAXYSURF,Unknown,Galaxy Surfactants Limited,EQ,INE600K01018
-GALLANTT,Unknown,Gallantt Ispat Limited,EQ,INE297H01019
+GALLANTT,Capital Goods,Gallantt Ispat Limited,EQ,INE297H01019
 GANDHAR,Unknown,Gandhar Oil Refinery (India) Limited,EQ,INE717W01049
 GANDHITUBE,Unknown,Gandhi Special Tubes Limited,EQ,INE524B01027
 GANECOS,Unknown,Ganesha Ecosphere Limited,EQ,INE845D01014
@@ -658,23 +658,23 @@ GENESYS,Unknown,Genesys International Corporation Limited,EQ,INE727B01026
 GENUSPAPER,Unknown,Genus Paper & Boards Limited,EQ,INE949P01018
 GENUSPOWER,Unknown,Genus Power Infrastructures Limited,EQ,INE955D01029
 GEOJITFSL,Unknown,Geojit Financial Services Limited,EQ,INE007B01023
-GESHIP,Unknown,The Great Eastern Shipping Company Limited,EQ,INE017A01032
+GESHIP,Services,The Great Eastern Shipping Company Limited,EQ,INE017A01032
 GFLLIMITED,Unknown,GFL Limited,EQ,INE538A01037
 GHCL,Unknown,GHCL Limited,EQ,INE539A01019
 GHCLTEXTIL,Unknown,GHCL Textiles Limited,EQ,INE0PA801013
 GICHSGFIN,Unknown,GIC Housing Finance Limited,EQ,INE289B01019
 GICL,Unknown,Globe International Carriers Limited,EQ,INE947T01022
-GICRE,Unknown,General Insurance Corporation of India,EQ,INE481Y01014
+GICRE,Financial Services,General Insurance Corporation of India,EQ,INE481Y01014
 GILLANDERS,Unknown,Gillanders Arbuthnot & Company Limited,EQ,INE047B01011
-GILLETTE,Unknown,Gillette India Limited,EQ,INE322A01010
+GILLETTE,Fast Moving Consumer Goods,Gillette India Limited,EQ,INE322A01010
 GINNIFILA,Unknown,Ginni Filaments Limited,EQ,INE424C01010
 GIPCL,Unknown,Gujarat Industries Power Company Limited,EQ,INE162A01010
 GKENERGY,Unknown,GK Energy Limited,EQ,INE1AG301022
 GKSL,Unknown,Gujarat Kidney And Super Speciality Limited,EQ,INE0V0W01025
 GKWLIMITED,Unknown,GKW Limited,EQ,INE528A01020
-GLAND,Unknown,Gland Pharma Limited,EQ,INE068V01023
-GLAXO,Unknown,GlaxoSmithKline Pharmaceuticals Limited,EQ,INE159A01016
-GLENMARK,Unknown,Glenmark Pharmaceuticals Limited,EQ,INE935A01035
+GLAND,Healthcare,Gland Pharma Limited,EQ,INE068V01023
+GLAXO,Healthcare,GlaxoSmithKline Pharmaceuticals Limited,EQ,INE159A01016
+GLENMARK,Healthcare,Glenmark Pharmaceuticals Limited,EQ,INE935A01035
 GLOBAL,Unknown,Global Education Limited,EQ,INE291W01037
 GLOBALVECT,Unknown,Global Vectra Helicorp Limited,EQ,INE792H01019
 GLOBE,Unknown,GLOBE ENTERPRISES (INDIA) LIMITED,EQ,INE581X01021
@@ -682,9 +682,9 @@ GLOBUSSPR,Unknown,Globus Spirits Limited,EQ,INE615I01010
 GLOSTERLTD,Unknown,Gloster Limited,EQ,INE350Z01018
 GLOTTIS,Unknown,Glottis Limited,EQ,INE0TQE01026
 GMBREW,Unknown,GM Breweries Limited,EQ,INE075D01018
-GMDCLTD,Unknown,Gujarat Mineral Development Corporation Limited,EQ,INE131A01031
+GMDCLTD,Metals & Mining,Gujarat Mineral Development Corporation Limited,EQ,INE131A01031
 GMMPFAUDLR,Unknown,GMM Pfaudler Limited,EQ,INE541A01023
-GMRAIRPORT,Unknown,GMR AIRPORTS LIMITED,EQ,INE776C01039
+GMRAIRPORT,Services,GMR AIRPORTS LIMITED,EQ,INE776C01039
 GMRP&UI,Unknown,GMR Power and Urban Infra Limited,EQ,INE0CU601026
 GNA,Unknown,GNA Axles Limited,EQ,INE934S01014
 GNFC,Unknown,Gujarat Narmada Valley Fertilizers and Chemicals Limited,EQ,INE113A01013
@@ -693,12 +693,12 @@ GOACARBON,Unknown,Goa Carbon Limited,EQ,INE426D01013
 GOCLCORP,Unknown,GOCL Corporation Limited,EQ,INE077F01035
 GOCOLORS,Unknown,Go Fashion (India) Limited,EQ,INE0BJS01011
 GODAVARIB,Unknown,Godavari Biorefineries Limited,EQ,INE497S01012
-GODFRYPHLP,Unknown,Godfrey Phillips India Limited,EQ,INE260B01028
-GODIGIT,Unknown,Go Digit General Insurance Limited,EQ,INE03JT01014
+GODFRYPHLP,Fast Moving Consumer Goods,Godfrey Phillips India Limited,EQ,INE260B01028
+GODIGIT,Financial Services,Go Digit General Insurance Limited,EQ,INE03JT01014
 GODREJAGRO,Unknown,Godrej Agrovet Limited,EQ,INE850D01014
-GODREJCP,Unknown,Godrej Consumer Products Limited,EQ,INE102D01028
-GODREJIND,Unknown,Godrej Industries Limited,EQ,INE233A01035
-GODREJPROP,Unknown,Godrej Properties Limited,EQ,INE484J01027
+GODREJCP,Fast Moving Consumer Goods,Godrej Consumer Products Limited,EQ,INE102D01028
+GODREJIND,Diversified,Godrej Industries Limited,EQ,INE233A01035
+GODREJPROP,Realty,Godrej Properties Limited,EQ,INE484J01027
 GOKEX,Unknown,Gokaldas Exports Limited,EQ,INE887G01027
 GOKUL,Unknown,Gokul Refoils and Solvent Limited,EQ,INE020J01029
 GOKULAGRO,Unknown,Gokul Agro Resources Limited,EQ,INE314T01033
@@ -708,17 +708,17 @@ GOODLUCK,Unknown,Goodluck India Limited,EQ,INE127I01024
 GOODYEAR,Unknown,Goodyear India Limited,EQ,INE533A01012
 GOPAL,Unknown,Gopal Snacks Limited,EQ,INE0L9R01028
 GOYALALUM,Unknown,Goyal Aluminiums Limited,EQ,INE705X01026
-GPIL,Unknown,Godawari Power And Ispat limited,EQ,INE177H01039
+GPIL,Capital Goods,Godawari Power And Ispat limited,EQ,INE177H01039
 GPPL,Unknown,Gujarat Pipavav Port Limited,EQ,INE517F01014
 GPTHEALTH,Unknown,GPT Healthcare Limited,EQ,INE486R01017
 GPTINFRA,Unknown,GPT Infraprojects Limited,EQ,INE390G01014
 GRANDOAK,Unknown,Grand Oak Canyons Distillery Limited,EQ,INE926B01016
-GRANULES,Unknown,Granules India Limited,EQ,INE101D01020
-GRAPHITE,Unknown,Graphite India Limited,EQ,INE371A01025
-GRASIM,Unknown,Grasim Industries Limited,EQ,INE047A01021
+GRANULES,Healthcare,Granules India Limited,EQ,INE101D01020
+GRAPHITE,Capital Goods,Graphite India Limited,EQ,INE371A01025
+GRASIM,Construction Materials,Grasim Industries Limited,EQ,INE047A01021
 GRAUWEIL,Unknown,Grauer & Weil India Limited,EQ,INE266D01021
 GRAVISSHO,Unknown,Graviss Hospitality Limited,EQ,INE214F01026
-GRAVITA,Unknown,Gravita India Limited,EQ,INE024L01027
+GRAVITA,Metals & Mining,Gravita India Limited,EQ,INE024L01027
 GREAVESCOT,Unknown,Greaves Cotton Limited,EQ,INE224A01026
 GREENLAM,Unknown,Greenlam Industries Limited,EQ,INE544R01021
 GREENPANEL,Unknown,Greenpanel Industries Limited,EQ,INE08ZM01014
@@ -728,9 +728,9 @@ GRINDWELL,Unknown,Grindwell Norton Limited,EQ,INE536A01023
 GRINFRA,Unknown,G R Infraprojects Limited,EQ,INE201P01022
 GRMOVER,Unknown,GRM Overseas Limited,EQ,INE192H01020
 GROBTEA,Unknown,The Grob Tea Company Limited,EQ,INE646C01018
-GROWW,Unknown,Billionbrains Garage Ventures Limited,EQ,INE0HOQ01053
+GROWW,Financial Services,Billionbrains Garage Ventures Limited,EQ,INE0HOQ01053
 GRPLTD,Unknown,GRP Limited,EQ,INE137I01015
-GRSE,Unknown,Garden Reach Shipbuilders & Engineers Limited,EQ,INE382Z01011
+GRSE,Capital Goods,Garden Reach Shipbuilders & Engineers Limited,EQ,INE382Z01011
 GRWRHITECH,Unknown,Garware Hi-Tech Films Limited,EQ,INE291A01017
 GSFC,Unknown,Gujarat State Fertilizers & Chemicals Limited,EQ,INE026A01025
 GSLSU,Unknown,Global Surfaces Limited,EQ,INE0JSX01015
@@ -748,8 +748,8 @@ GULFOILLUB,Unknown,Gulf Oil Lubricants India Limited,EQ,INE635Q01029
 GULFPETRO,Unknown,GP Petroleums Limited,EQ,INE586G01017
 GULPOLY,Unknown,Gulshan Polyols Limited,EQ,INE255D01024
 GVPTECH,Unknown,GVP Infotech Limited,EQ,INE382T01030
-GVT&D,Unknown,GE Vernova T&D India Limited,EQ,INE200A01026
-HAL,Unknown,Hindustan Aeronautics Limited,EQ,INE066F01020
+GVT&D,Capital Goods,GE Vernova T&D India Limited,EQ,INE200A01026
+HAL,Capital Goods,Hindustan Aeronautics Limited,EQ,INE066F01020
 HALDER,Unknown,Halder Venture Limited,EQ,INE115S01010
 HALDYNGL,Unknown,Haldyn Glass Limited,EQ,INE506D01020
 HALEOSLABS,Unknown,HALEOS LABS LIMITED,EQ,INE320X01016
@@ -761,45 +761,45 @@ HARRMALAYA,Unknown,Harrisons  Malayalam Limited,EQ,INE544A01019
 HARSHA,Unknown,Harsha Engineers International Limited,EQ,INE0JUS01029
 HATHWAY,Unknown,Hathway Cable & Datacom Limited,EQ,INE982F01036
 HATSUN,Unknown,Hatsun Agro Product Limited,EQ,INE473B01035
-HAVELLS,Unknown,Havells India Limited,EQ,INE176B01034
+HAVELLS,Consumer Durables,Havells India Limited,EQ,INE176B01034
 HAWKINCOOK,Unknown,Hawkins Cookers Limited,EQ,INE979B01015
 HBESD,Unknown,HB Estate Developers Limited,EQ,INE640B01021
-HBLENGINE,Unknown,HBL Engineering Limited,EQ,INE292B01021
+HBLENGINE,Capital Goods,HBL Engineering Limited,EQ,INE292B01021
 HCC,Unknown,Hindustan Construction Company Limited,EQ,INE549A01026
 HCG,Unknown,Healthcare Global Enterprises Limited,EQ,INE075I01017
 HCL-INSYS,Unknown,HCL Infosystems Limited,EQ,INE236A01020
-HCLTECH,Unknown,HCL Technologies Limited,EQ,INE860A01027
-HDBFS,Unknown,HDB Financial Services Limited,EQ,INE756I01012
-HDFCAMC,Unknown,HDFC Asset Management Company Limited,EQ,INE127D01025
-HDFCBANK,Unknown,HDFC Bank Limited,EQ,INE040A01034
-HDFCLIFE,Unknown,HDFC Life Insurance Company Limited,EQ,INE795G01014
+HCLTECH,Information Technology,HCL Technologies Limited,EQ,INE860A01027
+HDBFS,Financial Services,HDB Financial Services Limited,EQ,INE756I01012
+HDFCAMC,Financial Services,HDFC Asset Management Company Limited,EQ,INE127D01025
+HDFCBANK,Financial Services,HDFC Bank Limited,EQ,INE040A01034
+HDFCLIFE,Financial Services,HDFC Life Insurance Company Limited,EQ,INE795G01014
 HEADSUP,Unknown,Heads UP Ventures Limited,EQ,INE759V01019
 HEALTHX,Unknown,Health X Platform Limited,EQ,INE019J01013
 HECPROJECT,Unknown,HEC Infra Projects Limited,EQ,INE558R01013
-HEG,Unknown,HEG Limited,EQ,INE545A01024
+HEG,Capital Goods,HEG Limited,EQ,INE545A01024
 HEIDELBERG,Unknown,HeidelbergCement India Limited,EQ,INE578A01017
 HEMIPROP,Unknown,Hemisphere Properties India Limited,EQ,INE0AJG01018
 HERANBA,Unknown,Heranba Industries Limited,EQ,INE694N01015
 HERITGFOOD,Unknown,Heritage Foods Limited,EQ,INE978A01027
-HEROMOTOCO,Unknown,Hero MotoCorp Limited,EQ,INE158A01026
+HEROMOTOCO,Automobile and Auto Components,Hero MotoCorp Limited,EQ,INE158A01026
 HESTERBIO,Unknown,Hester Biosciences Limited,EQ,INE782E01017
 HEXATRADEX,Unknown,Hexa Tradex Limited,EQ,INE750M01017
-HEXT,Unknown,Hexaware Technologies Limited,EQ,INE093A01041
-HFCL,Unknown,HFCL Limited,EQ,INE548A01028
+HEXT,Information Technology,Hexaware Technologies Limited,EQ,INE093A01041
+HFCL,Telecommunication,HFCL Limited,EQ,INE548A01028
 HGINFRA,Unknown,H.G. Infra Engineering Limited,EQ,INE926X01010
 HGM,Unknown,HandsOn Global Management (HGM) Limited,EQ,INE596H01014
 HGS,Unknown,Hinduja Global Solutions Limited,EQ,INE170I01016
 HIKAL,Unknown,Hikal Limited,EQ,INE475B01022
 HILTON,Unknown,Hilton Metal Forging Limited,EQ,INE788H01017
 HIMATSEIDE,Unknown,Himatsingka Seide Limited,EQ,INE049A01027
-HINDALCO,Unknown,Hindalco Industries Limited,EQ,INE038A01020
+HINDALCO,Metals & Mining,Hindalco Industries Limited,EQ,INE038A01020
 HINDCOMPOS,Unknown,Hindustan Composites Limited,EQ,INE310C01029
-HINDCOPPER,Unknown,Hindustan Copper Limited,EQ,INE531E01026
+HINDCOPPER,Metals & Mining,Hindustan Copper Limited,EQ,INE531E01026
 HINDOILEXP,Unknown,Hindustan Oil Exploration Company Limited,EQ,INE345A01011
-HINDPETRO,Unknown,Hindustan Petroleum Corporation Limited,EQ,INE094A01015
-HINDUNILVR,Unknown,Hindustan Unilever Limited,EQ,INE030A01027
+HINDPETRO,Oil Gas & Consumable Fuels,Hindustan Petroleum Corporation Limited,EQ,INE094A01015
+HINDUNILVR,Fast Moving Consumer Goods,Hindustan Unilever Limited,EQ,INE030A01027
 HINDWAREAP,Unknown,Hindware Home Innovation Limited,EQ,INE05AN01011
-HINDZINC,Unknown,Hindustan Zinc Limited,EQ,INE267A01025
+HINDZINC,Metals & Mining,Hindustan Zinc Limited,EQ,INE267A01025
 HIRECT,Unknown,Hind Rectifiers Limited,EQ,INE835D01023
 HISARMETAL,Unknown,Hisar Metal Industries Limited,EQ,INE598C01011
 HITECH,Unknown,Hi-Tech Pipes Limited,EQ,INE106T01025
@@ -809,63 +809,63 @@ HLVLTD,Unknown,HLV LIMITED,EQ,INE102A01024
 HMAAGRO,Unknown,HMA Agro Industries Limited,EQ,INE0ECP01024
 HMVL,Unknown,Hindustan Media Ventures Limited,EQ,INE871K01015
 HNDFDS,Unknown,Hindustan Foods Limited,EQ,INE254N01026
-HOMEFIRST,Unknown,Home First Finance Company India Limited,EQ,INE481N01025
-HONASA,Unknown,Honasa Consumer Limited,EQ,INE0J5401028
-HONAUT,Unknown,Honeywell Automation India Limited,EQ,INE671A01010
+HOMEFIRST,Financial Services,Home First Finance Company India Limited,EQ,INE481N01025
+HONASA,Fast Moving Consumer Goods,Honasa Consumer Limited,EQ,INE0J5401028
+HONAUT,Capital Goods,Honeywell Automation India Limited,EQ,INE671A01010
 HONDAPOWER,Unknown,Honda India Power Products Limited,EQ,INE634A01018
 HPAL,Unknown,HP Adhesives Limited,EQ,INE0GSL01024
 HPIL,Unknown,Hindprakash Industries Limited,EQ,INE05X901010
 HPL,Unknown,HPL Electric & Power Limited,EQ,INE495S01016
-HSCL,Unknown,Himadri Speciality Chemical Limited,EQ,INE019C01026
+HSCL,Chemicals,Himadri Speciality Chemical Limited,EQ,INE019C01026
 HTMEDIA,Unknown,HT Media Limited,EQ,INE501G01024
 HUBTOWN,Unknown,Hubtown Limited,EQ,INE703H01016
-HUDCO,Unknown,Housing & Urban Development Corporation Limited,EQ,INE031A01017
+HUDCO,Financial Services,Housing & Urban Development Corporation Limited,EQ,INE031A01017
 HUHTAMAKI,Unknown,Huhtamaki India Limited,EQ,INE275B01026
 HYBRIDFIN,Unknown,Hybrid Financial Services Limited,EQ,INE965B01022
-HYUNDAI,Unknown,Hyundai Motor India Limited,EQ,INE0V6F01027
+HYUNDAI,Automobile and Auto Components,Hyundai Motor India Limited,EQ,INE0V6F01027
 IBULLSLTD,Unknown,Indiabulls Limited,EQ,INE126M01010
 ICEMAKE,Unknown,Ice Make Refrigeration Limited,EQ,INE520Y01019
-ICICIAMC,Unknown,ICICI Prudential Asset Management Company Limited,EQ,INE346A01027
-ICICIBANK,Unknown,ICICI Bank Limited,EQ,INE090A01021
-ICICIGI,Unknown,ICICI Lombard General Insurance Company Limited,EQ,INE765G01017
-ICICIPRULI,Unknown,ICICI Prudential Life Insurance Company Limited,EQ,INE726G01019
+ICICIAMC,Financial Services,ICICI Prudential Asset Management Company Limited,EQ,INE346A01027
+ICICIBANK,Financial Services,ICICI Bank Limited,EQ,INE090A01021
+ICICIGI,Financial Services,ICICI Lombard General Insurance Company Limited,EQ,INE765G01017
+ICICIPRULI,Financial Services,ICICI Prudential Life Insurance Company Limited,EQ,INE726G01019
 ICIL,Unknown,Indo Count Industries Limited,EQ,INE483B01026
 ICRA,Unknown,ICRA Limited,EQ,INE725G01011
-IDBI,Unknown,IDBI Bank Limited,EQ,INE008A01015
-IDEA,Unknown,Vodafone Idea Limited,EQ,INE669E01016
+IDBI,Financial Services,IDBI Bank Limited,EQ,INE008A01015
+IDEA,Telecommunication,Vodafone Idea Limited,EQ,INE669E01016
 IDEAFORGE,Unknown,Ideaforge Technology Limited,EQ,INE349Y01013
-IDFCFIRSTB,Unknown,IDFC First Bank Limited,EQ,INE092T01019
-IEX,Unknown,Indian Energy Exchange Limited,EQ,INE022Q01020
+IDFCFIRSTB,Financial Services,IDFC First Bank Limited,EQ,INE092T01019
+IEX,Financial Services,Indian Energy Exchange Limited,EQ,INE022Q01020
 IFBAGRO,Unknown,IFB Agro Industries Limited,EQ,INE076C01018
 IFBIND,Unknown,IFB Industries Limited,EQ,INE559A01017
-IFCI,Unknown,IFCI Limited,EQ,INE039A01010
+IFCI,Financial Services,IFCI Limited,EQ,INE039A01010
 IFGLEXPOR,Unknown,IFGL Refractories Limited,EQ,INE133Y01011
 IGARASHI,Unknown,Igarashi Motors India Limited,EQ,INE188B01013
 IGCL,Unknown,Indogulf Cropsciences Limited,EQ,INE05J901018
-IGIL,Unknown,International Gemological Institute Limited,EQ,INE0Q9301021
-IGL,Unknown,Indraprastha Gas Limited,EQ,INE203G01027
+IGIL,Services,International Gemological Institute Limited,EQ,INE0Q9301021
+IGL,Oil Gas & Consumable Fuels,Indraprastha Gas Limited,EQ,INE203G01027
 IGPL,Unknown,IG Petrochemicals Limited,EQ,INE204A01010
-IIFL,Unknown,IIFL Finance Limited,EQ,INE530B01024
+IIFL,Financial Services,IIFL Finance Limited,EQ,INE530B01024
 IIFLCAPS,Unknown,IIFL Capital Services Limited,EQ,INE489L01022
 IITL,Unknown,Industrial Investment Trust Limited,EQ,INE886A01014
 IKIO,Unknown,IKIO Technologies Limited,EQ,INE0LOJ01019
-IKS,Unknown,Inventurus Knowledge Solutions Limited,EQ,INE115Q01022
+IKS,Information Technology,Inventurus Knowledge Solutions Limited,EQ,INE115Q01022
 IMAGICAA,Unknown,Imagicaaworld Entertainment Limited,EQ,INE172N01012
 IMFA,Unknown,Indian Metals & Ferro Alloys Limited,EQ,INE919H01018
 IMPAL,Unknown,India Motor Parts and Accessories Limited,EQ,INE547E01014
 INA,Unknown,Insolation Energy Limited,EQ,INE0LGX01024
 INCREDIBLE,Unknown,INCREDIBLE INDUSTRIES LIMITED,EQ,INE452L01012
 INDBANK,Unknown,Indbank Merchant Banking Services Limited,EQ,INE841B01017
-INDGN,Unknown,Indegene Limited,EQ,INE065X01017
-INDHOTEL,Unknown,The Indian Hotels Company Limited,EQ,INE053A01029
-INDIACEM,Unknown,The India Cements Limited,EQ,INE383A01012
+INDGN,Healthcare,Indegene Limited,EQ,INE065X01017
+INDHOTEL,Consumer Services,The Indian Hotels Company Limited,EQ,INE053A01029
+INDIACEM,Construction Materials,The India Cements Limited,EQ,INE383A01012
 INDIAGLYCO,Unknown,India Glycols Limited,EQ,INE560A01023
-INDIAMART,Unknown,Indiamart Intermesh Limited,EQ,INE933S01016
-INDIANB,Unknown,Indian Bank,EQ,INE562A01011
+INDIAMART,Consumer Services,Indiamart Intermesh Limited,EQ,INE933S01016
+INDIANB,Financial Services,Indian Bank,EQ,INE562A01011
 INDIANCARD,Unknown,Indian Card Clothing Company Limited,EQ,INE061A01014
 INDIANHUME,Unknown,Indian Hume Pipe Company Limited,EQ,INE323C01030
 INDIASHLTR,Unknown,India Shelter Finance Corporation Limited,EQ,INE922K01024
-INDIGO,Unknown,InterGlobe Aviation Limited,EQ,INE646L01027
+INDIGO,Services,InterGlobe Aviation Limited,EQ,INE646L01027
 INDIGOPNTS,Unknown,Indigo Paints Limited,EQ,INE09VQ01012
 INDIQUBE,Unknown,Indiqube Spaces Limited,EQ,INE06ST01018
 INDNIPPON,Unknown,India Nippon Electricals Limited,EQ,INE092B01025
@@ -882,57 +882,57 @@ INDPRUD,Unknown,Industrial & Prudential Investment Company Limited,EQ,INE620D010
 INDRAMEDCO,Unknown,Indraprastha Medical Corporation Limited,EQ,INE681B01017
 INDSWFTLAB,Unknown,Ind-Swift Laboratories Limited,EQ,INE915B01019
 INDTERRAIN,Unknown,Indian Terrain Fashions Limited,EQ,INE611L01021
-INDUSINDBK,Unknown,IndusInd Bank Limited,EQ,INE095A01012
-INDUSTOWER,Unknown,Indus Towers Limited,EQ,INE121J01017
+INDUSINDBK,Financial Services,IndusInd Bank Limited,EQ,INE095A01012
+INDUSTOWER,Telecommunication,Indus Towers Limited,EQ,INE121J01017
 INFOBEAN,Unknown,InfoBeans Technologies Limited,EQ,INE344S01016
 INFOMEDIA,Unknown,Infomedia Press Limited,EQ,INE669A01022
-INFY,Unknown,Infosys Limited,EQ,INE009A01021
+INFY,Information Technology,Infosys Limited,EQ,INE009A01021
 INGERRAND,Unknown,Ingersoll Rand (India) Limited,EQ,INE177A01018
 INNOVACAP,Unknown,Innova Captab Limited,EQ,INE0DUT01020
 INNOVANA,Unknown,Innovana Thinklabs Limited,EQ,INE403Y01018
 INNOVISION,Unknown,Innovision Limited,EQ,INE0ADB01012
 INOXGREEN,Unknown,Inox Green Energy Services Limited,EQ,INE510W01014
 INOXINDIA,Unknown,INOX India Limited,EQ,INE616N01034
-INOXWIND,Unknown,Inox Wind Limited,EQ,INE066P01011
+INOXWIND,Capital Goods,Inox Wind Limited,EQ,INE066P01011
 INSECTICID,Unknown,Insecticides (India) Limited,EQ,INE070I01018
-INTELLECT,Unknown,Intellect Design Arena Limited,EQ,INE306R01017
+INTELLECT,Information Technology,Intellect Design Arena Limited,EQ,INE306R01017
 INTENTECH,Unknown,Intense Technologies Limited,EQ,INE781A01025
 INTERARCH,Unknown,Interarch Building Solutions Limited,EQ,INE00M901018
 INTLCONV,Unknown,International Conveyors Limited,EQ,INE575C01027
 INVENTURE,Unknown,Inventure Growth & Securities Limited,EQ,INE878H01024
 INVPRECQ,Unknown,Investment & Precision Castings Limited,EQ,INE155E01016
-IOB,Unknown,Indian Overseas Bank,EQ,INE565A01014
-IOC,Unknown,Indian Oil Corporation Limited,EQ,INE242A01010
+IOB,Financial Services,Indian Overseas Bank,EQ,INE565A01014
+IOC,Oil Gas & Consumable Fuels,Indian Oil Corporation Limited,EQ,INE242A01010
 IOLCP,Unknown,IOL Chemicals and Pharmaceuticals Limited,EQ,INE485C01029
 IONEXCHANG,Unknown,ION Exchange (India) Limited,EQ,INE570A01022
-IPCALAB,Unknown,IPCA Laboratories Limited,EQ,INE571A01038
+IPCALAB,Healthcare,IPCA Laboratories Limited,EQ,INE571A01038
 IPL,Unknown,India Pesticides Limited,EQ,INE0D6701023
-IRB,Unknown,IRB Infrastructure Developers Limited,EQ,INE821I01022
-IRCON,Unknown,Ircon International Limited,EQ,INE962Y01021
-IRCTC,Unknown,Indian Railway Catering And Tourism Corporation Limited,EQ,INE335Y01020
-IREDA,Unknown,Indian Renewable Energy Development Agency Limited,EQ,INE202E01016
-IRFC,Unknown,Indian Railway Finance Corporation Limited,EQ,INE053F01010
+IRB,Construction,IRB Infrastructure Developers Limited,EQ,INE821I01022
+IRCON,Construction,Ircon International Limited,EQ,INE962Y01021
+IRCTC,Consumer Services,Indian Railway Catering And Tourism Corporation Limited,EQ,INE335Y01020
+IREDA,Financial Services,Indian Renewable Energy Development Agency Limited,EQ,INE202E01016
+IRFC,Financial Services,Indian Railway Finance Corporation Limited,EQ,INE053F01010
 IRIS,Unknown,IRIS RegTech Solutions Limited,EQ,INE864K01010
 IRISDOREME,Unknown,Iris Clothings Limited,EQ,INE01GN01025
 IRMENERGY,Unknown,IRM Energy Limited,EQ,INE07U701015
 ISFT,Unknown,Intrasoft Technologies Limited,EQ,INE566K01011
 ISGEC,Unknown,Isgec Heavy Engineering Limited,EQ,INE858B01029
 ISHANCH,Unknown,Ishan Dyes and Chemicals Limited,EQ,INE561M01018
-ITC,Unknown,ITC Limited,EQ,INE154A01025
-ITCHOTELS,Unknown,ITC Hotels Limited,EQ,INE379A01028
+ITC,Fast Moving Consumer Goods,ITC Limited,EQ,INE154A01025
+ITCHOTELS,Consumer Services,ITC Hotels Limited,EQ,INE379A01028
 ITDC,Unknown,India Tourism Development Corporation Limited,EQ,INE353K01014
-ITI,Unknown,ITI Limited,EQ,INE248A01017
+ITI,Telecommunication,ITI Limited,EQ,INE248A01017
 IVALUE,Unknown,Ivalue Infosolutions Limited,EQ,INE056801025
 IVC,Unknown,IL&FS Investment Managers Limited,EQ,INE050B01023
 IVP,Unknown,IVP Limited,EQ,INE043C01018
 IWP,Unknown,The Indian Wood Products Company Limited,EQ,INE586E01020
 IXIGO,Unknown,Le Travenues Technology Limited,EQ,INE0HV901016
-J&KBANK,Unknown,The Jammu & Kashmir Bank Limited,EQ,INE168A01041
+J&KBANK,Financial Services,The Jammu & Kashmir Bank Limited,EQ,INE168A01041
 JAGRAN,Unknown,Jagran Prakashan Limited,EQ,INE199G01027
 JAGSNPHARM,Unknown,Jagsonpal Pharmaceuticals Limited,EQ,INE048B01035
 JAIBALAJI,Unknown,Jai Balaji Industries Limited,EQ,INE091G01026
 JAICORPLTD,Unknown,Jai Corp Limited,EQ,INE070D01027
-JAINREC,Unknown,Jain Resource Recycling Limited,EQ,INE0YD401026
+JAINREC,Metals & Mining,Jain Resource Recycling Limited,EQ,INE0YD401026
 JAIPURKURT,Unknown,Nandani Creation Limited,EQ,INE696V01013
 JAMNAAUTO,Unknown,Jamna Auto Industries Limited,EQ,INE039C01032
 JARO,Unknown,Jaro Institute of Technology Management and Research Limited,EQ,INE00YJ01010
@@ -942,58 +942,58 @@ JAYBARMARU,Unknown,Jay Bharat Maruti Limited,EQ,INE571B01036
 JAYKAY,Unknown,Jaykay Enterprises Limited,EQ,INE903A01025
 JAYNECOIND,Unknown,Jayaswal Neco Industries Limited,EQ,INE854B01010
 JAYSREETEA,Unknown,Jayshree Tea & Industries Limited,EQ,INE364A01020
-JBCHEPHARM,Unknown,JB Chemicals & Pharmaceuticals Limited,EQ,INE572A01036
-JBMA,Unknown,JBM Auto Limited,EQ,INE927D01051
+JBCHEPHARM,Healthcare,JB Chemicals & Pharmaceuticals Limited,EQ,INE572A01036
+JBMA,Automobile and Auto Components,JBM Auto Limited,EQ,INE927D01051
 JETFREIGHT,Unknown,Jet Freight Logistics Limited,EQ,INE982V01025
 JGCHEM,Unknown,J.G.Chemicals Limited,EQ,INE0MB501011
 JINDALPHOT,Unknown,Jindal Photo Limited,EQ,INE796G01012
 JINDALPOLY,Unknown,Jindal Poly Films Limited,EQ,INE197D01010
-JINDALSAW,Unknown,Jindal Saw Limited,EQ,INE324A01032
-JINDALSTEL,Unknown,JINDAL STEEL LIMITED,EQ,INE749A01030
+JINDALSAW,Capital Goods,Jindal Saw Limited,EQ,INE324A01032
+JINDALSTEL,Metals & Mining,JINDAL STEEL LIMITED,EQ,INE749A01030
 JINDRILL,Unknown,Jindal Drilling And Industries Limited,EQ,INE742C01031
 JINDWORLD,Unknown,Jindal Worldwide Limited,EQ,INE247D01039
-JIOFIN,Unknown,Jio Financial Services Limited,EQ,INE758E01017
+JIOFIN,Financial Services,Jio Financial Services Limited,EQ,INE758E01017
 JISLDVREQS,Unknown,Jain Irrigation Systems Limited,EQ,IN9175A01010
 JISLJALEQS,Unknown,Jain Irrigation Systems Limited,EQ,INE175A01038
-JKCEMENT,Unknown,JK Cement Limited,EQ,INE823G01014
+JKCEMENT,Construction Materials,JK Cement Limited,EQ,INE823G01014
 JKIL,Unknown,J.Kumar Infraprojects Limited,EQ,INE576I01022
 JKLAKSHMI,Unknown,JK Lakshmi Cement Limited,EQ,INE786A01032
 JKPAPER,Unknown,JK Paper Limited,EQ,INE789E01012
-JKTYRE,Unknown,JK Tyre & Industries Limited,EQ,INE573A01042
+JKTYRE,Automobile and Auto Components,JK Tyre & Industries Limited,EQ,INE573A01042
 JLHL,Unknown,Jupiter Life Line Hospitals Limited,EQ,INE682M01012
 JMA,Unknown,Jullundur Motor Agency (Delhi) Limited,EQ,INE412C01023
-JMFINANCIL,Unknown,JM Financial Limited,EQ,INE780C01023
+JMFINANCIL,Financial Services,JM Financial Limited,EQ,INE780C01023
 JNKINDIA,Unknown,JNK India Limited,EQ,INE0OAF01028
 JOCIL,Unknown,Jocil Limited,EQ,INE839G01010
 JPOLYINVST,Unknown,Jindal Poly Investment and Finance Company Limited,EQ,INE147P01019
-JPPOWER,Unknown,Jaiprakash Power Ventures Limited,EQ,INE351F01018
+JPPOWER,Power,Jaiprakash Power Ventures Limited,EQ,INE351F01018
 JSFB,Unknown,Jana Small Finance Bank Limited,EQ,INE953L01027
-JSL,Unknown,Jindal Stainless Limited,EQ,INE220G01021
+JSL,Metals & Mining,Jindal Stainless Limited,EQ,INE220G01021
 JSLL,Unknown,Jeena Sikho Lifecare Limited,EQ,INE0J5801029
-JSWCEMENT,Unknown,JSW Cement Limited,EQ,INE718I01012
-JSWDULUX,Unknown,JSW Dulux Limited,EQ,INE133A01011
-JSWENERGY,Unknown,JSW Energy Limited,EQ,INE121E01018
+JSWCEMENT,Construction Materials,JSW Cement Limited,EQ,INE718I01012
+JSWDULUX,Consumer Durables,JSW Dulux Limited,EQ,INE133A01011
+JSWENERGY,Power,JSW Energy Limited,EQ,INE121E01018
 JSWHL,Unknown,JSW Holdings Limited,EQ,INE824G01012
-JSWINFRA,Unknown,JSW Infrastructure Limited,EQ,INE880J01026
-JSWSTEEL,Unknown,JSW Steel Limited,EQ,INE019A01038
+JSWINFRA,Services,JSW Infrastructure Limited,EQ,INE880J01026
+JSWSTEEL,Metals & Mining,JSW Steel Limited,EQ,INE019A01038
 JTEKTINDIA,Unknown,Jtekt India Limited,EQ,INE643A01035
 JTLIND,Unknown,JTL INDUSTRIES LIMITED,EQ,INE391J01032
 JUBLCPL,Unknown,Jubilant Agri and Consumer Products Limited,EQ,INE03CC01015
-JUBLFOOD,Unknown,Jubilant Foodworks Limited,EQ,INE797F01020
-JUBLINGREA,Unknown,Jubilant Ingrevia Limited,EQ,INE0BY001018
-JUBLPHARMA,Unknown,Jubilant Pharmova Limited,EQ,INE700A01033
+JUBLFOOD,Consumer Services,Jubilant Foodworks Limited,EQ,INE797F01020
+JUBLINGREA,Chemicals,Jubilant Ingrevia Limited,EQ,INE0BY001018
+JUBLPHARMA,Healthcare,Jubilant Pharmova Limited,EQ,INE700A01033
 JUNIPER,Unknown,Juniper Hotels Limited,EQ,INE696F01016
 JUSTDIAL,Unknown,Just Dial Limited,EQ,INE599M01018
-JWL,Unknown,Jupiter Wagons Limited,EQ,INE209L01016
+JWL,Capital Goods,Jupiter Wagons Limited,EQ,INE209L01016
 JYOTHYLAB,Unknown,Jyothy Labs Limited,EQ,INE668F01031
-JYOTICNC,Unknown,Jyoti CNC Automation Limited,EQ,INE980O01024
+JYOTICNC,Capital Goods,Jyoti CNC Automation Limited,EQ,INE980O01024
 JYOTISTRUC,Unknown,Jyoti Structures Limited,EQ,INE197A01024
 KABRAEXTRU,Unknown,Kabra Extrusion Technik Limited,EQ,INE900B01029
-KAJARIACER,Unknown,Kajaria Ceramics Limited,EQ,INE217B01036
+KAJARIACER,Consumer Durables,Kajaria Ceramics Limited,EQ,INE217B01036
 KALAMANDIR,Unknown,Sai Silks (Kalamandir) Limited,EQ,INE438K01021
 KALPATARU,Unknown,Kalpataru Limited,EQ,INE227J01012
 KALYANIFRG,Unknown,Kalyani Forge Limited,EQ,INE314G01014
-KALYANKJIL,Unknown,Kalyan Jewellers India Limited,EQ,INE303R01014
+KALYANKJIL,Consumer Durables,Kalyan Jewellers India Limited,EQ,INE303R01014
 KAMAHOLD,Unknown,Kama Holdings Limited,EQ,INE411F01010
 KAMATHOTEL,Unknown,Kamat Hotels (I) Limited,EQ,INE967C01018
 KAMDHENU,Unknown,Kamdhenu Limited,EQ,INE390H01020
@@ -1003,34 +1003,34 @@ KANPRPLA,Unknown,Kanpur Plastipack Limited,EQ,INE694E01014
 KANSAINER,Unknown,Kansai Nerolac Paints Limited,EQ,INE531A01024
 KAPSTON,Unknown,Kapston Services Limited,EQ,INE542Z01028
 KARMAENG,Unknown,Karma Energy Limited,EQ,INE725L01011
-KARURVYSYA,Unknown,Karur Vysya Bank Limited,EQ,INE036D01028
+KARURVYSYA,Financial Services,Karur Vysya Bank Limited,EQ,INE036D01028
 KAUSHALYA,Unknown,Kaushalya Infrastructure Development Corporation Limited,EQ,INE234I01028
 KAYA,Unknown,Kaya Limited,EQ,INE587G01015
-KAYNES,Unknown,Kaynes Technology India Limited,EQ,INE918Z01012
+KAYNES,Consumer Durables,Kaynes Technology India Limited,EQ,INE918Z01012
 KCP,Unknown,KCP Limited,EQ,INE805C01028
 KCPSUGIND,Unknown,KCP Sugar and Industries Corporation Limited,EQ,INE790B01024
 KDDL,Unknown,KDDL Limited,EQ,INE291D01011
-KEC,Unknown,KEC International Limited,EQ,INE389H01022
+KEC,Construction,KEC International Limited,EQ,INE389H01022
 KEEPLEARN,Unknown,DSJ Keep Learning Limited,EQ,INE055C01020
-KEI,Unknown,KEI Industries Limited,EQ,INE878B01027
+KEI,Capital Goods,KEI Industries Limited,EQ,INE878B01027
 KELLTONTEC,Unknown,Kellton Tech Solutions Limited,EQ,INE164B01030
 KENNAMET,Unknown,Kennametal India Limited,EQ,INE717A01029
 KERNEX,Unknown,Kernex Microsystems (India) Limited,EQ,INE202H01019
 KESORAMIND,Unknown,Kesoram Industries Limited,EQ,INE087A01019
 KEYFINSERV,Unknown,Keynote Financial Services Limited,EQ,INE681C01015
-KFINTECH,Unknown,Kfin Technologies Limited,EQ,INE138Y01010
+KFINTECH,Financial Services,Kfin Technologies Limited,EQ,INE138Y01010
 KHADIM,Unknown,Khadim India Limited,EQ,INE834I01025
 KHANDSE,Unknown,Khandwala Securities Limited,EQ,INE060B01014
 KICL,Unknown,Kalyani Investment Company Limited,EQ,INE029L01018
 KILITCH,Unknown,Kilitch Drugs (India) Limited,EQ,INE729D01010
-KIMS,Unknown,Krishna Institute of Medical Sciences Limited,EQ,INE967H01025
+KIMS,Healthcare,Krishna Institute of Medical Sciences Limited,EQ,INE967H01025
 KINGFA,Unknown,Kingfa Science & Technology (India) Limited,EQ,INE473D01015
 KIOCL,Unknown,KIOCL Limited,EQ,INE880L01014
 KIRANVYPAR,Unknown,Kiran Vyapar Limited,EQ,INE555P01013
 KIRIINDUS,Unknown,Kiri Industries Limited,EQ,INE415I01015
 KIRLFER,Unknown,Kirloskar Ferrous Industries Limited,EQ,INE884B01025
 KIRLOSBROS,Unknown,Kirloskar Brothers Limited,EQ,INE732A01036
-KIRLOSENG,Unknown,Kirloskar Oil Engines Limited,EQ,INE146L01010
+KIRLOSENG,Capital Goods,Kirloskar Oil Engines Limited,EQ,INE146L01010
 KIRLOSIND,Unknown,Kirloskar Industries Limited,EQ,INE250A01039
 KIRLPNU,Unknown,Kirloskar Pneumatic Company Limited,EQ,INE811A01020
 KISSHT,Unknown,OnEMI Technology Solutions Limited,EQ,INE12F801023
@@ -1045,7 +1045,7 @@ KOHINOOR,Unknown,Kohinoor Foods Limited,EQ,INE080B01012
 KOKUYOCMLN,Unknown,Kokuyo Camlin Limited,EQ,INE760A01029
 KOLTEPATIL,Unknown,Kolte - Patil Developers Limited,EQ,INE094I01018
 KOPRAN,Unknown,Kopran Limited,EQ,INE082A01010
-KOTAKBANK,Unknown,Kotak Mahindra Bank Limited,EQ,INE237A01036
+KOTAKBANK,Financial Services,Kotak Mahindra Bank Limited,EQ,INE237A01036
 KOTARISUG,Unknown,Kothari Sugars And Chemicals Limited,EQ,INE419A01022
 KOTHARIPET,Unknown,Kothari Petrochemicals Limited,EQ,INE720A01015
 KOTHARIPRO,Unknown,Kothari Products Limited,EQ,INE823A01017
@@ -1054,10 +1054,10 @@ KOTYARK,Unknown,Kotyark Industries Limited,EQ,INE0J0B01017
 KOVAI,Unknown,Kovai Medical Center & Hospital Limited,EQ,INE177F01017
 KPEL,Unknown,K.P. Energy Limited,EQ,INE127T01021
 KPIGREEN,Unknown,KPI Green Energy Limited,EQ,INE542W01025
-KPIL,Unknown,Kalpataru Projects International Limited,EQ,INE220B01022
-KPITTECH,Unknown,KPIT Technologies Limited,EQ,INE04I401011
+KPIL,Construction,Kalpataru Projects International Limited,EQ,INE220B01022
+KPITTECH,Information Technology,KPIT Technologies Limited,EQ,INE04I401011
 KPL,Unknown,Kwality Pharmaceuticals Limited,EQ,INE552U01010
-KPRMILL,Unknown,K.P.R. Mill Limited,EQ,INE930H01031
+KPRMILL,Textiles,K.P.R. Mill Limited,EQ,INE930H01031
 KRBL,Unknown,KRBL Limited,EQ,INE001B01026
 KRIDHANINF,Unknown,Kridhan Infra Limited,EQ,INE524L01026
 KRISHANA,Unknown,Krishana Phoschem Limited,EQ,INE506W01012
@@ -1080,50 +1080,50 @@ KWIL,Unknown,Kwality Wall's (India) Limited,EQ,INE2KCE01013
 LAGNAM,Unknown,Lagnam Spintex Limited,EQ,INE548Z01017
 LAHOTIOV,Unknown,Lahoti Overseas Limited,EQ,INE515C01023
 LAL,Unknown,Lorenzini Apparels Limited,EQ,INE740X01023
-LALPATHLAB,Unknown,Dr. Lal Path Labs Ltd.,EQ,INE600L01024
+LALPATHLAB,Healthcare,Dr. Lal Path Labs Ltd.,EQ,INE600L01024
 LAMBODHARA,Unknown,Lambodhara Textiles Limited,EQ,INE112F01022
 LANDMARK,Unknown,Landmark Cars Limited,EQ,INE559R01029
 LANDSMILL,Unknown,Landsmill Green Limited,EQ,INE688J01023
 LAOPALA,Unknown,La Opala RG Limited,EQ,INE059D01020
-LATENTVIEW,Unknown,Latent View Analytics Limited,EQ,INE0I7C01011
-LAURUSLABS,Unknown,Laurus Labs Limited,EQ,INE947Q01028
+LATENTVIEW,Information Technology,Latent View Analytics Limited,EQ,INE0I7C01011
+LAURUSLABS,Healthcare,Laurus Labs Limited,EQ,INE947Q01028
 LAXMIDENTL,Unknown,Laxmi Dental Limited,EQ,INE0WO601020
 LEMERITE,Unknown,Le Merite Exports Limited,EQ,INE0G1L01017
-LEMONTREE,Unknown,Lemon Tree Hotels Limited,EQ,INE970X01018
-LENSKART,Unknown,Lenskart Solutions Limited,EQ,INE956O01016
+LEMONTREE,Consumer Services,Lemon Tree Hotels Limited,EQ,INE970X01018
+LENSKART,Consumer Services,Lenskart Solutions Limited,EQ,INE956O01016
 LFIC,Unknown,Lakshmi Finance & Industrial Corporation Limited,EQ,INE850E01012
 LGBBROSLTD,Unknown,LG Balakrishnan & Bros Limited,EQ,INE337A01034
-LGEINDIA,Unknown,LG Electronics India Limited,EQ,INE324D01010
+LGEINDIA,Consumer Durables,LG Electronics India Limited,EQ,INE324D01010
 LGHL,Unknown,Laxmi Goldorna House Limited,EQ,INE258Y01016
 LIBAS,Unknown,Libas Consumer Products Limited,EQ,INE908V01012
 LIBERTSHOE,Unknown,Liberty Shoes Limited,EQ,INE557B01019
-LICHSGFIN,Unknown,LIC Housing Finance Limited,EQ,INE115A01026
-LICI,Unknown,Life Insurance Corporation Of India,EQ,INE0J1Y01017
+LICHSGFIN,Financial Services,LIC Housing Finance Limited,EQ,INE115A01026
+LICI,Financial Services,Life Insurance Corporation Of India,EQ,INE0J1Y01017
 LINC,Unknown,Linc Limited,EQ,INE802B01027
 LINCOLN,Unknown,Lincoln Pharmaceuticals Limited,EQ,INE405C01035
-LINDEINDIA,Unknown,Linde India Limited,EQ,INE473A01011
+LINDEINDIA,Chemicals,Linde India Limited,EQ,INE473A01011
 LLOYDSENGG,Unknown,LLOYDS ENGINEERING WORKS LIMITED,EQ,INE093R01011
 LLOYDSENT,Unknown,Lloyds Enterprises Limited,EQ,INE080I01025
-LLOYDSME,Unknown,Lloyds Metals And Energy Limited,EQ,INE281B01032
+LLOYDSME,Metals & Mining,Lloyds Metals And Energy Limited,EQ,INE281B01032
 LMW,Unknown,LMW Limited,EQ,INE269B01029
-LODHA,Unknown,Lodha Developers Limited,EQ,INE670K01029
+LODHA,Realty,Lodha Developers Limited,EQ,INE670K01029
 LORDSCHLO,Unknown,Lords Chloro Alkali Limited,EQ,INE846D01012
 LOTUSDEV,Unknown,Sri Lotus Developers and Realty Limited,EQ,INE0V9Q01010
 LOTUSEYE,Unknown,Lotus Eye Hospital and Institute Limited,EQ,INE947I01017
 LOVABLE,Unknown,Lovable Lingerie Limited,EQ,INE597L01014
-LT,Unknown,Larsen & Toubro Limited,EQ,INE018A01030
-LTF,Unknown,L&T Finance Limited,EQ,INE498L01015
-LTFOODS,Unknown,LT Foods Limited,EQ,INE818H01020
-LTM,Unknown,LTM Limited,EQ,INE214T01019
-LTTS,Unknown,L&T Technology Services Limited,EQ,INE010V01017
+LT,Construction,Larsen & Toubro Limited,EQ,INE018A01030
+LTF,Financial Services,L&T Finance Limited,EQ,INE498L01015
+LTFOODS,Fast Moving Consumer Goods,LT Foods Limited,EQ,INE818H01020
+LTM,Information Technology,LTM Limited,EQ,INE214T01019
+LTTS,Information Technology,L&T Technology Services Limited,EQ,INE010V01017
 LUMAXIND,Unknown,Lumax Industries Limited,EQ,INE162B01018
 LUMAXTECH,Unknown,Lumax Auto Technologies Limited,EQ,INE872H01027
-LUPIN,Unknown,Lupin Limited,EQ,INE326A01037
+LUPIN,Healthcare,Lupin Limited,EQ,INE326A01037
 LUXIND,Unknown,Lux Industries Limited,EQ,INE150G01020
 LXCHEM,Unknown,Laxmi Organic Industries Limited,EQ,INE576O01020
 LYPSAGEMS,Unknown,Lypsa Gems & Jewellery Limited,EQ,INE142K01011
-M&M,Unknown,Mahindra & Mahindra Limited,EQ,INE101A01026
-M&MFIN,Unknown,Mahindra & Mahindra Financial Services Limited,EQ,INE774D01024
+M&M,Automobile and Auto Components,Mahindra & Mahindra Limited,EQ,INE101A01026
+M&MFIN,Financial Services,Mahindra & Mahindra Financial Services Limited,EQ,INE774D01024
 MAANALU,Unknown,Maan Aluminium Limited,EQ,INE215I01027
 MACPOWER,Unknown,Macpower CNC Machines Limited,EQ,INE155Z01011
 MADHAV,Unknown,Madhav Marbles and Granites Limited,EQ,INE925C01016
@@ -1131,7 +1131,7 @@ MADHAVIPL,Unknown,Madhav Infra Projects Limited,EQ,INE631R01026
 MADRASFERT,Unknown,Madras Fertilizers Limited,EQ,INE414A01015
 MAFATIND,Unknown,Mafatlal Industries Limited,EQ,INE270B01035
 MAGADSUGAR,Unknown,Magadh Sugar & Energy Limited,EQ,INE347W01011
-MAHABANK,Unknown,Bank of Maharashtra,EQ,INE457A01014
+MAHABANK,Financial Services,Bank of Maharashtra,EQ,INE457A01014
 MAHAPEXLTD,Unknown,Maha Rashtra Apex Corporation Limited,EQ,INE843B01013
 MAHEPC,Unknown,Mahindra EPC Irrigation Limited,EQ,INE215D01010
 MAHESHWARI,Unknown,Maheshwari Logistics Limited,EQ,INE263W01010
@@ -1148,47 +1148,47 @@ MANAKALUCO,Unknown,Manaksia Aluminium Company Limited,EQ,INE859Q01017
 MANAKCOAT,Unknown,Manaksia Coated Metals & Industries Limited,EQ,INE830Q01018
 MANAKSIA,Unknown,Manaksia Limited,EQ,INE015D01022
 MANALIPETC,Unknown,Manali Petrochemicals Limited,EQ,INE201A01024
-MANAPPURAM,Unknown,Manappuram Finance Limited,EQ,INE522D01027
+MANAPPURAM,Financial Services,Manappuram Finance Limited,EQ,INE522D01027
 MANBA,Unknown,Manba Finance Limited,EQ,INE939X01013
 MANCREDIT,Unknown,Mangal Credit and Fincorp Limited,EQ,INE545L01039
 MANGLMCEM,Unknown,Mangalam Cement Limited,EQ,INE347A01017
 MANINDS,Unknown,Man Industries (India) Limited,EQ,INE993A01026
 MANINFRA,Unknown,Man Infraconstruction Limited,EQ,INE949H01023
-MANKIND,Unknown,Mankind Pharma Limited,EQ,INE634S01028
+MANKIND,Healthcare,Mankind Pharma Limited,EQ,INE634S01028
 MANOMAY,Unknown,Manomay Tex India Limited,EQ,INE784W01015
 MANORAMA,Unknown,Manorama Industries Limited,EQ,INE00VM01036
 MANORG,Unknown,Mangalam Organics Limited,EQ,INE370D01013
 MANUGRAPH,Unknown,Manugraph India Limited,EQ,INE867A01022
 MANYAVAR,Unknown,Vedant Fashions Limited,EQ,INE825V01034
-MAPMYINDIA,Unknown,C.E. Info Systems Limited,EQ,INE0BV301023
+MAPMYINDIA,Information Technology,C.E. Info Systems Limited,EQ,INE0BV301023
 MARATHON,Unknown,Marathon Nextgen Realty Limited,EQ,INE182D01020
-MARICO,Unknown,Marico Limited,EQ,INE196A01026
+MARICO,Fast Moving Consumer Goods,Marico Limited,EQ,INE196A01026
 MARINE,Unknown,Marine Electricals (India) Limited,EQ,INE01JE01028
 MARKOLINES,Unknown,Markolines Pavement Technologies Limited,EQ,INE0FW001016
 MARKSANS,Unknown,Marksans Pharma Limited,EQ,INE750C01026
 MARSONS,Unknown,Marsons Limited,EQ,INE415B01044
-MARUTI,Unknown,Maruti Suzuki India Limited,EQ,INE585B01010
+MARUTI,Automobile and Auto Components,Maruti Suzuki India Limited,EQ,INE585B01010
 MASFIN,Unknown,MAS Financial Services Limited,EQ,INE348L01012
 MASTEK,Unknown,Mastek Limited,EQ,INE759A01021
 MASTERTR,Unknown,Master Trust Limited,EQ,INE677D01037
 MATRIMONY,Unknown,Matrimony.Com Limited,EQ,INE866R01028
 MAXESTATES,Unknown,Max Estates Limited,EQ,INE03EI01018
-MAXHEALTH,Unknown,Max Healthcare Institute Limited,EQ,INE027H01010
+MAXHEALTH,Healthcare,Max Healthcare Institute Limited,EQ,INE027H01010
 MAXIND,Unknown,Max India Limited,EQ,INE0CG601016
 MAYURUNIQ,Unknown,Mayur Uniquoters Ltd,EQ,INE040D01038
 MAZDA,Unknown,Mazda Limited,EQ,INE885E01042
-MAZDOCK,Unknown,Mazagon Dock Shipbuilders Limited,EQ,INE249Z01020
+MAZDOCK,Capital Goods,Mazagon Dock Shipbuilders Limited,EQ,INE249Z01020
 MBAPL,Unknown,Madhya Bharat Agro Products Limited,EQ,INE900L01010
 MBEL,Unknown,M & B Engineering Limited,EQ,INE08N601015
 MCCHRLS-B,Unknown,Mac Charles India Limited,EQ,INE435D01014
 MCLOUD,Unknown,Magellanic Cloud Limited,EQ,INE613C01026
-MCX,Unknown,Multi Commodity Exchange of India Limited,EQ,INE745G01043
-MEDANTA,Unknown,Global Health Limited,EQ,INE474Q01031
+MCX,Financial Services,Multi Commodity Exchange of India Limited,EQ,INE745G01043
+MEDANTA,Healthcare,Global Health Limited,EQ,INE474Q01031
 MEDIASSIST,Unknown,Medi Assist Healthcare Services Limited,EQ,INE456Z01021
 MEDICAMEQ,Unknown,Medicamen Biotech Limited,EQ,INE646B01010
 MEDICO,Unknown,Medico Remedies Limited,EQ,INE630Y01024
 MEDPLUS,Unknown,Medplus Health Services Limited,EQ,INE804L01022
-MEESHO,Unknown,Meesho Limited,EQ,INE0VDM01015
+MEESHO,Consumer Services,Meesho Limited,EQ,INE0VDM01015
 MEGASTAR,Unknown,Megastar Foods Limited,EQ,INE00EM01016
 MENNPIS,Unknown,Menon Pistons Limited,EQ,INE650G01029
 MENONBE,Unknown,Menon Bearings Limited,EQ,INE071D01033
@@ -1197,15 +1197,15 @@ METROBRAND,Unknown,Metro Brands Limited,EQ,INE317I01021
 METROGLOBL,Unknown,Metroglobal Limited,EQ,INE085D01033
 METROPOLIS,Unknown,Metropolis Healthcare Limited,EQ,INE112L01020
 MFML,Unknown,Mahalaxmi Fabric Mills Limited,EQ,INE0US801024
-MFSL,Unknown,Max Financial Services Limited,EQ,INE180A01020
+MFSL,Financial Services,Max Financial Services Limited,EQ,INE180A01020
 MGEL,Unknown,Mangalam Global Enterprise Limited,EQ,INE0APB01032
-MGL,Unknown,Mahanagar Gas Limited,EQ,INE002S01010
+MGL,Oil Gas & Consumable Fuels,Mahanagar Gas Limited,EQ,INE002S01010
 MHLXMIRU,Unknown,Mahalaxmi Rubtech Limited,EQ,INE112D01035
 MHRIL,Unknown,Mahindra Holidays & Resorts India Limited,EQ,INE998I01010
 MICEL,Unknown,MIC Electronics Limited,EQ,INE287C01037
 MIDHANI,Unknown,Mishra Dhatu Nigam Limited,EQ,INE099Z01011
 MIDWESTLTD,Unknown,Midwest Limited,EQ,INE0XAD01024
-MINDACORP,Unknown,Minda Corporation Limited,EQ,INE842C01021
+MINDACORP,Automobile and Auto Components,Minda Corporation Limited,EQ,INE842C01021
 MINDTECK,Unknown,Mindteck (India) Limited,EQ,INE110B01017
 MIRCELECTR,Unknown,MIRC Electronics Limited,EQ,INE831A01028
 MIRZAINT,Unknown,Mirza International Limited,EQ,INE771A01026
@@ -1214,7 +1214,7 @@ MITTAL,Unknown,Mittal Life Style Limited,EQ,INE997Y01027
 MKPL,Unknown,M K Proteins Limited,EQ,INE964W01021
 MMFL,Unknown,MM Forgings Limited,EQ,INE227C01017
 MMP,Unknown,MMP Industries Limited,EQ,INE511Y01018
-MMTC,Unknown,MMTC Limited,EQ,INE123F01029
+MMTC,Services,MMTC Limited,EQ,INE123F01029
 MMWL,Unknown,Media Matrix Worldwide Limited,EQ,INE200D01020
 MOBIKWIK,Unknown,One Mobikwik Systems Limited,EQ,INE0HLU01028
 MODINATUR,Unknown,Modi Naturals Limited,EQ,INE537F01012
@@ -1233,18 +1233,18 @@ MONEYBOXX,Unknown,Moneyboxx Finance Limited,EQ,INE296Q01012
 MONTECARLO,Unknown,Monte Carlo Fashions Limited,EQ,INE950M01013
 MOREPENLAB,Unknown,Morepen Laboratories Limited,EQ,INE083A01026
 MOSCHIP,Unknown,Moschip Technologies Limited,EQ,INE935B01025
-MOTHERSON,Unknown,Samvardhana Motherson International Limited,EQ,INE775A01035
-MOTILALOFS,Unknown,Motilal Oswal Financial Services Limited,EQ,INE338I01027
+MOTHERSON,Automobile and Auto Components,Samvardhana Motherson International Limited,EQ,INE775A01035
+MOTILALOFS,Financial Services,Motilal Oswal Financial Services Limited,EQ,INE338I01027
 MOTISONS,Unknown,Motisons Jewellers Limited,EQ,INE0FRK01020
 MOTOGENFIN,Unknown,The Motor & General Finance Limited,EQ,INE861B01023
-MPHASIS,Unknown,MphasiS Limited,EQ,INE356A01018
+MPHASIS,Information Technology,MphasiS Limited,EQ,INE356A01018
 MPSLTD,Unknown,MPS Limited,EQ,INE943D01017
-MRF,Unknown,MRF Limited,EQ,INE883A01011
-MRPL,Unknown,Mangalore Refinery and Petrochemicals Limited,EQ,INE103A01014
+MRF,Automobile and Auto Components,MRF Limited,EQ,INE883A01011
+MRPL,Oil Gas & Consumable Fuels,Mangalore Refinery and Petrochemicals Limited,EQ,INE103A01014
 MSPL,Unknown,MSP Steel & Power Limited,EQ,INE752G01015
 MSTCLTD,Unknown,Mstc Limited,EQ,INE255X01014
-MSUMI,Unknown,Motherson Sumi Wiring India Limited,EQ,INE0FS801015
-MTARTECH,Unknown,Mtar Technologies Limited,EQ,INE864I01014
+MSUMI,Automobile and Auto Components,Motherson Sumi Wiring India Limited,EQ,INE0FS801015
+MTARTECH,Capital Goods,Mtar Technologies Limited,EQ,INE864I01014
 MTNL,Unknown,Mahanagar Telephone Nigam Limited,EQ,INE153A01019
 MUFIN,Unknown,Mufin Green Finance Limited,EQ,INE08KJ01020
 MUFTI,Unknown,Credo Brands Marketing Limited,EQ,INE220Q01020
@@ -1255,7 +1255,7 @@ MUNJALAU,Unknown,Munjal Auto Industries Limited,EQ,INE672B01032
 MUNJALSHOW,Unknown,Munjal Showa Limited,EQ,INE577A01027
 MURUDCERA,Unknown,Murudeshwar Ceramics Limited,EQ,INE692B01014
 MUTHOOTCAP,Unknown,Muthoot Capital Services Limited,EQ,INE296G01013
-MUTHOOTFIN,Unknown,Muthoot Finance Limited,EQ,INE414G01012
+MUTHOOTFIN,Financial Services,Muthoot Finance Limited,EQ,INE414G01012
 MUTHOOTMF,Unknown,Muthoot Microfin Limited,EQ,INE046W01019
 MVGJL,Unknown,Manoj Vaibhav Gems N Jewellers Limited,EQ,INE0KNT01012
 MWL,Unknown,Mangalam Worldwide Limited,EQ,INE0JYY01011
@@ -1264,23 +1264,23 @@ NAGREEKEXP,Unknown,Nagreeka Exports Limited,EQ,INE123B01028
 NAHARCAP,Unknown,Nahar Capital and Financial Services Limited,EQ,INE049I01012
 NAHARINDUS,Unknown,Nahar Industrial Enterprises Limited,EQ,INE289A01011
 NAHARPOLY,Unknown,Nahar Poly Films Limited,EQ,INE308A01027
-NAM-INDIA,Unknown,Nippon Life India Asset Management Limited,EQ,INE298J01013
+NAM-INDIA,Financial Services,Nippon Life India Asset Management Limited,EQ,INE298J01013
 NARMADA,Unknown,Narmada Agrobase Limited,EQ,INE117Z01011
 NATCAPSUQ,Unknown,Natural Capsules Limited,EQ,INE936B01015
-NATCOPHARM,Unknown,Natco Pharma Limited,EQ,INE987B01026
+NATCOPHARM,Healthcare,Natco Pharma Limited,EQ,INE987B01026
 NATHBIOGEN,Unknown,Nath Bio-Genes (India) Limited,EQ,INE448G01010
-NATIONALUM,Unknown,National Aluminium Company Limited,EQ,INE139A01034
+NATIONALUM,Metals & Mining,National Aluminium Company Limited,EQ,INE139A01034
 NATIONSTD,Unknown,National Standard (India) Limited,EQ,INE166R01015
-NAUKRI,Unknown,Info Edge (India) Limited,EQ,INE663F01032
-NAVA,Unknown,NAVA LIMITED,EQ,INE725A01030
-NAVINFLUOR,Unknown,Navin Fluorine International Limited,EQ,INE048G01026
+NAUKRI,Consumer Services,Info Edge (India) Limited,EQ,INE663F01032
+NAVA,Power,NAVA LIMITED,EQ,INE725A01030
+NAVINFLUOR,Chemicals,Navin Fluorine International Limited,EQ,INE048G01026
 NAVKARCORP,Unknown,Navkar Corporation Limited,EQ,INE278M01019
 NAVKARURB,Unknown,Navkar Urbanstructure Limited,EQ,INE268H01044
 NAVNETEDUL,Unknown,Navneet Education Limited,EQ,INE060A01024
 NAZARA,Unknown,Nazara Technologies Limited,EQ,INE418L01047
-NBCC,Unknown,NBCC (India) Limited,EQ,INE095N01031
+NBCC,Construction,NBCC (India) Limited,EQ,INE095N01031
 NBIFIN,Unknown,N. B. I. Industrial Finance Company Limited,EQ,INE365I01020
-NCC,Unknown,NCC Limited,EQ,INE868B01028
+NCC,Construction,NCC Limited,EQ,INE868B01028
 NCLIND,Unknown,NCL Industries Limited,EQ,INE732C01016
 NDGL,Unknown,Naga Dhunseri Group Limited,EQ,INE756C01015
 NDL,Unknown,Nandan Denim Limited,EQ,INE875G01048
@@ -1294,18 +1294,18 @@ NELCO,Unknown,NELCO Limited,EQ,INE045B01015
 NEOGEN,Unknown,Neogen Chemicals Limited,EQ,INE136S01016
 NEPHROPLUS,Unknown,Nephrocare Health Services Limited,EQ,INE428V01029
 NESCO,Unknown,Nesco Limited,EQ,INE317F01035
-NESTLEIND,Unknown,Nestle India Limited,EQ,INE239A01024
-NETWEB,Unknown,Netweb Technologies India Limited,EQ,INE0NT901020
+NESTLEIND,Fast Moving Consumer Goods,Nestle India Limited,EQ,INE239A01024
+NETWEB,Information Technology,Netweb Technologies India Limited,EQ,INE0NT901020
 NETWORK18,Unknown,Network18 Media & Investments Limited,EQ,INE870H01013
-NEULANDLAB,Unknown,Neuland Laboratories Limited,EQ,INE794A01010
-NEWGEN,Unknown,Newgen Software Technologies Limited,EQ,INE619B01017
+NEULANDLAB,Healthcare,Neuland Laboratories Limited,EQ,INE794A01010
+NEWGEN,Information Technology,Newgen Software Technologies Limited,EQ,INE619B01017
 NEXTMEDIA,Unknown,Next Mediaworks Limited,EQ,INE747B01016
 NFL,Unknown,National Fertilizers Limited,EQ,INE870D01012
 NGIL,Unknown,Nakoda Group of Industries Limited,EQ,INE236Y01012
 NGLFINE,Unknown,NGL Fine-Chem Limited,EQ,INE887E01022
-NH,Unknown,Narayana Hrudayalaya Ltd.,EQ,INE410P01011
-NHPC,Unknown,NHPC Limited,EQ,INE848E01016
-NIACL,Unknown,The New India Assurance Company Limited,EQ,INE470Y01017
+NH,Healthcare,Narayana Hrudayalaya Ltd.,EQ,INE410P01011
+NHPC,Power,NHPC Limited,EQ,INE848E01016
+NIACL,Financial Services,The New India Assurance Company Limited,EQ,INE470Y01017
 NIBE,Unknown,NIBE Limited,EQ,INE149O01018
 NIBL,Unknown,NRB Industrial Bearings Limited,EQ,INE047O01014
 NIITLTD,Unknown,NIIT Limited,EQ,INE161A01038
@@ -1321,10 +1321,10 @@ NITCO,Unknown,Nitco Limited,EQ,INE858F01012
 NITINSPIN,Unknown,Nitin Spinners Limited,EQ,INE229H01012
 NITIRAJ,Unknown,Nitiraj Engineers Limited,EQ,INE439T01012
 NITTAGELA,Unknown,Nitta Gelatin India Limited,EQ,INE265B01019
-NIVABUPA,Unknown,Niva Bupa Health Insurance Company Limited,EQ,INE995S01015
+NIVABUPA,Financial Services,Niva Bupa Health Insurance Company Limited,EQ,INE995S01015
 NKIND,Unknown,NK Industries Limited,EQ,INE542C01019
-NLCINDIA,Unknown,NLC India Limited,EQ,INE589A01014
-NMDC,Unknown,NMDC Limited,EQ,INE584A01023
+NLCINDIA,Power,NLC India Limited,EQ,INE589A01014
+NMDC,Metals & Mining,NMDC Limited,EQ,INE584A01023
 NOCIL,Unknown,NOCIL Limited,EQ,INE163A01018
 NOIDATOLL,Unknown,Noida Toll Bridge Company Limited,EQ,INE781B01015
 NORBTEAEXP,Unknown,Norben Tea & Exports Limited,EQ,INE369C01017
@@ -1336,22 +1336,22 @@ NRAIL,Unknown,N R Agarwal Industries Limited,EQ,INE740D01017
 NRBBEARING,Unknown,NRB Bearing Limited,EQ,INE349A01021
 NRL,Unknown,Nupur Recyclers Limited,EQ,INE0JM501013
 NSIL,Unknown,Nalwa Sons Investments Limited,EQ,INE023A01030
-NSLNISP,Unknown,NMDC Steel Limited,EQ,INE0NNS01018
-NTPC,Unknown,NTPC Limited,EQ,INE733E01010
-NTPCGREEN,Unknown,NTPC Green Energy Limited,EQ,INE0ONG01011
+NSLNISP,Metals & Mining,NMDC Steel Limited,EQ,INE0NNS01018
+NTPC,Power,NTPC Limited,EQ,INE733E01010
+NTPCGREEN,Power,NTPC Green Energy Limited,EQ,INE0ONG01011
 NUCLEUS,Unknown,Nucleus Software Exports Limited,EQ,INE096B01018
 NURECA,Unknown,Nureca Limited,EQ,INE0DSF01015
-NUVAMA,Unknown,Nuvama Wealth Management Limited,EQ,INE531F01023
-NUVOCO,Unknown,Nuvoco Vistas Corporation Limited,EQ,INE118D01016
-NYKAA,Unknown,FSN E-Commerce Ventures Limited,EQ,INE388Y01029
+NUVAMA,Financial Services,Nuvama Wealth Management Limited,EQ,INE531F01023
+NUVOCO,Construction Materials,Nuvoco Vistas Corporation Limited,EQ,INE118D01016
+NYKAA,Consumer Services,FSN E-Commerce Ventures Limited,EQ,INE388Y01029
 OAL,Unknown,Oriental Aromatics Limited,EQ,INE959C01023
 OBCL,Unknown,Orissa Bengal Carrier Limited,EQ,INE426Z01016
-OBEROIRLTY,Unknown,Oberoi Realty Limited,EQ,INE093I01010
+OBEROIRLTY,Realty,Oberoi Realty Limited,EQ,INE093I01010
 OCCLLTD,Unknown,OCCL Limited,EQ,INE0PK601023
-OFSS,Unknown,Oracle Financial Services Software Limited,EQ,INE881D01027
-OIL,Unknown,Oil India Limited,EQ,INE274J01014
-OLAELEC,Unknown,Ola Electric Mobility Limited,EQ,INE0LXG01040
-OLECTRA,Unknown,Olectra Greentech Limited,EQ,INE260D01016
+OFSS,Information Technology,Oracle Financial Services Software Limited,EQ,INE881D01027
+OIL,Oil Gas & Consumable Fuels,Oil India Limited,EQ,INE274J01014
+OLAELEC,Automobile and Auto Components,Ola Electric Mobility Limited,EQ,INE0LXG01040
+OLECTRA,Automobile and Auto Components,Olectra Greentech Limited,EQ,INE260D01016
 OMAXE,Unknown,Omaxe Limited,EQ,INE800H01010
 OMFREIGHT,Unknown,Om Freight Forwarders Limited,EQ,INE1BZC01019
 OMINFRAL,Unknown,OM INFRA LIMITED,EQ,INE239D01028
@@ -1359,8 +1359,8 @@ OMNI,Unknown,Omnitech Engineering Limited,EQ,INE0UH301010
 OMPOWER,Unknown,Om Power Transmission Limited,EQ,INE25E901019
 ONELIFECAP,Unknown,Onelife Capital Advisors Limited,EQ,INE912L01015
 ONEPOINT,Unknown,One Point One Solutions Limited,EQ,INE840Y01029
-ONESOURCE,Unknown,Onesource Specialty Pharma Limited,EQ,INE013P01021
-ONGC,Unknown,Oil & Natural Gas Corporation Limited,EQ,INE213A01029
+ONESOURCE,Healthcare,Onesource Specialty Pharma Limited,EQ,INE013P01021
+ONGC,Oil Gas & Consumable Fuels,Oil & Natural Gas Corporation Limited,EQ,INE213A01029
 ONMOBILE,Unknown,OnMobile Global Limited,EQ,INE809I01019
 ONWARDTEC,Unknown,Onward Technologies Limited,EQ,INE229A01017
 OPTIEMUS,Unknown,Optiemus Infracom Limited,EQ,INE350C01017
@@ -1383,7 +1383,7 @@ OSWALGREEN,Unknown,Oswal Greentech Limited,EQ,INE143A01010
 OSWALPUMPS,Unknown,Oswal Pumps Limited,EQ,INE0BYP01024
 OSWALSEEDS,Unknown,ShreeOswal Seeds And Chemicals Limited,EQ,INE00IK01029
 PACEDIGITK,Unknown,Pace Digitek Limited,EQ,INE0S3G01027
-PAGEIND,Unknown,Page Industries Limited,EQ,INE761H01022
+PAGEIND,Textiles,Page Industries Limited,EQ,INE761H01022
 PAISALO,Unknown,Paisalo Digital Limited,EQ,INE420C01059
 PAKKA,Unknown,PAKKA LIMITED,EQ,INE551D01018
 PALASHSECU,Unknown,Palash Securities Limited,EQ,INE471W01019
@@ -1392,72 +1392,72 @@ PANAMAPET,Unknown,Panama Petrochem Limited,EQ,INE305C01029
 PANSARI,Unknown,Pansari Developers Limited,EQ,INE697V01011
 PAR,Unknown,Par Drugs And Chemicals Limited,EQ,INE04LG01015
 PARACABLES,Unknown,Paramount Communications Limited,EQ,INE074B01023
-PARADEEP,Unknown,Paradeep Phosphates Limited,EQ,INE088F01024
+PARADEEP,Chemicals,Paradeep Phosphates Limited,EQ,INE088F01024
 PARAGMILK,Unknown,Parag Milk Foods Limited,EQ,INE883N01014
 PARAS,Unknown,Paras Defence and Space Technologies Limited,EQ,INE045601023
 PARKHOSPS,Unknown,Park Medi World Limited,EQ,INE119201023
 PARKHOTELS,Unknown,Apeejay Surrendra Park Hotels Limited,EQ,INE988S01028
 PASHUPATI,Unknown,Pashupati Cotspin Limited,EQ,INE124Y01028
 PASUPTAC,Unknown,Pasupati Acrylon Limited,EQ,INE818B01023
-PATANJALI,Unknown,Patanjali Foods Limited,EQ,INE619A01035
+PATANJALI,Fast Moving Consumer Goods,Patanjali Foods Limited,EQ,INE619A01035
 PATELENG,Unknown,Patel Engineering Limited,EQ,INE244B01030
 PATELRMART,Unknown,Patel Retail Limited,EQ,INE0R8B01010
 PATINTLOG,Unknown,Patel Integrated Logistics Limited,EQ,INE529D01014
 PAUSHAKLTD,Unknown,Paushak Limited,EQ,INE111F01024
-PAYTM,Unknown,One 97 Communications Limited,EQ,INE982J01020
-PCBL,Unknown,PCBL Chemical Limited,EQ,INE602A01031
+PAYTM,Financial Services,One 97 Communications Limited,EQ,INE982J01020
+PCBL,Chemicals,PCBL Chemical Limited,EQ,INE602A01031
 PCJEWELLER,Unknown,PC Jeweller Limited,EQ,INE785M01021
 PDMJEPAPER,Unknown,Pudumjee Paper Products Limited,EQ,INE865T01018
 PDSL,Unknown,PDS Limited,EQ,INE111Q01021
 PENIND,Unknown,Pennar Industries Limited,EQ,INE932A01024
-PERSISTENT,Unknown,Persistent Systems Limited,EQ,INE262H01021
-PETRONET,Unknown,Petronet LNG Limited,EQ,INE347G01014
-PFC,Unknown,Power Finance Corporation Limited,EQ,INE134E01011
-PFIZER,Unknown,Pfizer Limited,EQ,INE182A01018
+PERSISTENT,Information Technology,Persistent Systems Limited,EQ,INE262H01021
+PETRONET,Oil Gas & Consumable Fuels,Petronet LNG Limited,EQ,INE347G01014
+PFC,Financial Services,Power Finance Corporation Limited,EQ,INE134E01011
+PFIZER,Healthcare,Pfizer Limited,EQ,INE182A01018
 PFS,Unknown,PTC India Financial Services Limited,EQ,INE560K01014
-PGEL,Unknown,PG Electroplast Limited,EQ,INE457L01029
+PGEL,Consumer Durables,PG Electroplast Limited,EQ,INE457L01029
 PGHH,Unknown,Procter & Gamble Hygiene and Health Care Limited,EQ,INE179A01014
 PGHL,Unknown,Procter & Gamble Health Limited,EQ,INE199A01012
 PGIL,Unknown,Pearl Global Industries Limited,EQ,INE940H01022
-PHOENIXLTD,Unknown,The Phoenix Mills Limited,EQ,INE211B01039
+PHOENIXLTD,Realty,The Phoenix Mills Limited,EQ,INE211B01039
 PICCADIL,Unknown,Piccadily Agro Industries Limited,EQ,INE546C01010
-PIDILITIND,Unknown,Pidilite Industries Limited,EQ,INE318A01026
+PIDILITIND,Chemicals,Pidilite Industries Limited,EQ,INE318A01026
 PIGL,Unknown,Power & Instrumentation (Gujarat) Limited,EQ,INE557Z01018
-PIIND,Unknown,PI Industries Limited,EQ,INE603J01030
+PIIND,Chemicals,PI Industries Limited,EQ,INE603J01030
 PILANIINVS,Unknown,Pilani Investment and Industries Corporation Limited,EQ,INE417C01014
 PILITA,Unknown,PIL ITALICA LIFESTYLE LIMITED,EQ,INE600A01035
-PINELABS,Unknown,Pine Labs Limited,EQ,INE15B701018
+PINELABS,Financial Services,Pine Labs Limited,EQ,INE15B701018
 PIONEEREMB,Unknown,Pioneer Embroideries Limited,EQ,INE156C01018
 PIONRINV,Unknown,Pioneer Investcorp Limited,EQ,INE746D01014
-PIRAMALFIN,Unknown,Piramal Finance Limited,EQ,INE202B01038
+PIRAMALFIN,Financial Services,Piramal Finance Limited,EQ,INE202B01038
 PITTIENG,Unknown,Pitti Engineering Limited,EQ,INE450D01021
 PIXTRANS,Unknown,Pix Transmissions Limited,EQ,INE751B01018
 PKTEA,Unknown,The Peria Karamalai Tea & Produce Company Limited,EQ,INE431F01018
 PLASTIBLEN,Unknown,Plastiblends India Limited,EQ,INE083C01022
 PLATIND,Unknown,Platinum Industries Limited,EQ,INE0PT501018
 PML,Unknown,Paul Merchants Limited,EQ,INE291E01019
-PNB,Unknown,Punjab National Bank,EQ,INE160A01022
+PNB,Financial Services,Punjab National Bank,EQ,INE160A01022
 PNBGILTS,Unknown,PNB Gilts Limited,EQ,INE859A01011
-PNBHOUSING,Unknown,PNB Housing Finance Limited,EQ,INE572E01012
+PNBHOUSING,Financial Services,PNB Housing Finance Limited,EQ,INE572E01012
 PNCINFRA,Unknown,PNC Infratech Limited,EQ,INE195J01029
 PNGJL,Unknown,P N Gadgil Jewellers Limited,EQ,INE953R01016
 PNGSREVA,Unknown,PNGS Reva Diamond Jewellery Limited,EQ,INE1RDG01013
 POCL,Unknown,Pondy Oxides & Chemicals Limited,EQ,INE063E01053
 PODDARMENT,Unknown,Poddar Pigments Limited,EQ,INE371C01013
 POKARNA,Unknown,Pokarna Limited,EQ,INE637C01025
-POLICYBZR,Unknown,PB Fintech Limited,EQ,INE417T01026
-POLYCAB,Unknown,Polycab India Limited,EQ,INE455K01017
-POLYMED,Unknown,Poly Medicure Limited,EQ,INE205C01021
+POLICYBZR,Financial Services,PB Fintech Limited,EQ,INE417T01026
+POLYCAB,Capital Goods,Polycab India Limited,EQ,INE455K01017
+POLYMED,Healthcare,Poly Medicure Limited,EQ,INE205C01021
 POLYPLEX,Unknown,Polyplex Corporation Limited,EQ,INE633B01018
 PONNIERODE,Unknown,Ponni Sugars (Erode) Limited,EQ,INE838E01017
-POONAWALLA,Unknown,Poonawalla Fincorp Limited,EQ,INE511C01022
-POWERGRID,Unknown,Power Grid Corporation of India Limited,EQ,INE752E01010
+POONAWALLA,Financial Services,Poonawalla Fincorp Limited,EQ,INE511C01022
+POWERGRID,Power,Power Grid Corporation of India Limited,EQ,INE752E01010
 POWERICA,Unknown,Powerica Limited,EQ,INE921L01032
-POWERINDIA,Unknown,Hitachi Energy India Limited,EQ,INE07Y701011
+POWERINDIA,Capital Goods,Hitachi Energy India Limited,EQ,INE07Y701011
 POWERMECH,Unknown,Power Mech Projects Limited,EQ,INE211R01019
 PPAP,Unknown,PPAP Automotive Limited,EQ,INE095I01015
 PPL,Unknown,Prakash Pipes Limited,EQ,INE050001010
-PPLPHARMA,Unknown,Piramal Pharma Limited,EQ,INE0DK501011
+PPLPHARMA,Healthcare,Piramal Pharma Limited,EQ,INE0DK501011
 PRABHA,Unknown,Prabha Energy Limited,EQ,INE0I0M01023
 PRADPME,Unknown,Pradeep Metals Limited,EQ,INE770A01010
 PRAENG,Unknown,Prajay Engineers Syndicate Limited,EQ,INE505C01016
@@ -1469,8 +1469,8 @@ PRECAM,Unknown,Precision Camshafts Limited,EQ,INE484I01029
 PRECWIRE,Unknown,Precision Wires India Limited,EQ,INE372C01037
 PREMCO,Unknown,Premco Global Limited,EQ,INE001E01012
 PREMEXPLN,Unknown,Premier Explosives Limited,EQ,INE863B01029
-PREMIERENE,Unknown,Premier Energies Limited,EQ,INE0BS701011
-PRESTIGE,Unknown,Prestige Estates Projects Limited,EQ,INE811K01011
+PREMIERENE,Capital Goods,Premier Energies Limited,EQ,INE0BS701011
+PRESTIGE,Realty,Prestige Estates Projects Limited,EQ,INE811K01011
 PRICOLLTD,Unknown,Pricol Limited,EQ,INE726V01018
 PRIMESECU,Unknown,Prime Securities Limited,EQ,INE032B01021
 PRIMO,Unknown,Primo Chemicals Limited,EQ,INE607A01022
@@ -1486,14 +1486,14 @@ PRUDMOULI,Unknown,Prudential Sugar Corporation Limited,EQ,INE024D01016
 PSB,Unknown,Punjab & Sind Bank,EQ,INE608A01012
 PSPPROJECT,Unknown,PSP Projects Limited,EQ,INE488V01015
 PTC,Unknown,PTC India Limited,EQ,INE877F01012
-PTCIL,Unknown,PTC Industries Limited,EQ,INE596F01018
+PTCIL,Capital Goods,PTC Industries Limited,EQ,INE596F01018
 PTL,Unknown,PTL Enterprises Limited,EQ,INE034D01049
 PUNJABCHEM,Unknown,Punjab Chemicals & Crop Protection Limited,EQ,INE277B01014
 PURVA,Unknown,Puravankara Limited,EQ,INE323I01011
 PVP,Unknown,PVP Ventures Limited,EQ,INE362A01016
-PVRINOX,Unknown,PVR INOX Limited,EQ,INE191H01014
+PVRINOX,Media Entertainment & Publication,PVR INOX Limited,EQ,INE191H01014
 PVSL,Unknown,Popular Vehicles and Services Limited,EQ,INE772T01024
-PWL,Unknown,Physicswallah Limited,EQ,INE0LP301011
+PWL,Consumer Services,Physicswallah Limited,EQ,INE0LP301011
 PYRAMID,Unknown,Pyramid Technoplast Limited,EQ,INE0MIS01010
 QPOWER,Unknown,Quality Power Electrical Equipments Limited,EQ,INE0SII01026
 QUADFUTURE,Unknown,Quadrant Future Tek Limited,EQ,INE0LRY01011
@@ -1504,10 +1504,10 @@ RACLGEAR,Unknown,RACL Geartech Limited,EQ,INE704B01017
 RADAAN,Unknown,Radaan Mediaworks India Limited,EQ,INE874F01027
 RADHIKAJWE,Unknown,Radhika Jeweltech Limited,EQ,INE583V01021
 RADIANTCMS,Unknown,Radiant Cash Management Services Limited,EQ,INE855R01021
-RADICO,Unknown,Radico Khaitan Limited,EQ,INE944F01028
-RAILTEL,Unknown,Railtel Corporation Of India Limited,EQ,INE0DD101019
+RADICO,Fast Moving Consumer Goods,Radico Khaitan Limited,EQ,INE944F01028
+RAILTEL,Telecommunication,Railtel Corporation Of India Limited,EQ,INE0DD101019
 RAIN,Unknown,Rain Industries Limited,EQ,INE855B01025
-RAINBOW,Unknown,Rainbow Childrens Medicare Limited,EQ,INE961O01016
+RAINBOW,Healthcare,Rainbow Childrens Medicare Limited,EQ,INE961O01016
 RAJOOENG,Unknown,Rajoo Engineers Limited,EQ,INE535F01024
 RAJPALAYAM,Unknown,Rajapalayam Mills Limited,EQ,INE296E01026
 RAJRATAN,Unknown,Rajratan Global Wire Limited,EQ,INE451D01029
@@ -1517,7 +1517,7 @@ RALLIS,Unknown,Rallis India Limited,EQ,INE613A01020
 RAMANEWS,Unknown,Shree Rama Newsprint Limited,EQ,INE278B01020
 RAMAPHO,Unknown,Rama Phosphates Limited,EQ,INE809A01032
 RAMASTEEL,Unknown,Rama Steel Tubes Limited,EQ,INE230R01035
-RAMCOCEM,Unknown,The Ramco Cements Limited,EQ,INE331A01037
+RAMCOCEM,Construction Materials,The Ramco Cements Limited,EQ,INE331A01037
 RAMCOIND,Unknown,Ramco Industries Limited,EQ,INE614A01028
 RAMCOSYS,Unknown,Ramco Systems Limited,EQ,INE246B01019
 RAMKY,Unknown,Ramky Infrastructure Limited,EQ,INE874I01013
@@ -1531,18 +1531,18 @@ RAYMOND,Unknown,Raymond Limited,EQ,INE301A01014
 RAYMONDLSL,Unknown,Raymond Lifestyle Limited,EQ,INE02ID01020
 RAYMONDREL,Unknown,Raymond Realty Limited,EQ,INE1SY401010
 RBA,Unknown,Restaurant Brands Asia Limited,EQ,INE07T201019
-RBLBANK,Unknown,RBL Bank Limited,EQ,INE976G01028
+RBLBANK,Financial Services,RBL Bank Limited,EQ,INE976G01028
 RBZJEWEL,Unknown,RBZ Jewellers Limited,EQ,INE0PEQ01016
 RCF,Unknown,Rashtriya Chemicals and Fertilizers Limited,EQ,INE027A01015
-RECLTD,Unknown,REC Limited,EQ,INE020B01018
-REDINGTON,Unknown,Redington Limited,EQ,INE891D01026
+RECLTD,Financial Services,REC Limited,EQ,INE020B01018
+REDINGTON,Services,Redington Limited,EQ,INE891D01026
 REDTAPE,Unknown,Redtape Limited,EQ,INE0LXT01019
 REFEX,Unknown,Refex Industries Limited,EQ,INE056I01025
 REGENCERAM,Unknown,Regency Ceramics Limited,EQ,INE277C01012
 RELAXO,Unknown,Relaxo Footwears Limited,EQ,INE131B01039
 RELCHEMQ,Unknown,Reliance Chemotex Industries Limited,EQ,INE750D01016
 RELIABLE,Unknown,Reliable Data Services Limited,EQ,INE375Y01018
-RELIANCE,Unknown,Reliance Industries Limited,EQ,INE002A01018
+RELIANCE,Oil Gas & Consumable Fuels,Reliance Industries Limited,EQ,INE002A01018
 RELIGARE,Unknown,Religare Enterprises Limited,EQ,INE621H01010
 RELTD,Unknown,Ravindra Energy Limited,EQ,INE206N01018
 REMSONSIND,Unknown,Remsons Industries Limited,EQ,INE474C01023
@@ -1553,16 +1553,16 @@ RESPONIND,Unknown,Responsive Industries Limited,EQ,INE688D01026
 RETAIL,Unknown,JHS Svendgaard Retail Ventures Limited,EQ,INE03DD01011
 RGL,Unknown,Renaissance Global Limited,EQ,INE722H01024
 RHETAN,Unknown,Rhetan TMT Limited,EQ,INE0KKN01029
-RHIM,Unknown,RHI MAGNESITA INDIA LIMITED,EQ,INE743M01012
+RHIM,Capital Goods,RHI MAGNESITA INDIA LIMITED,EQ,INE743M01012
 RHL,Unknown,Robust Hotels Limited,EQ,INE508K01013
 RICOAUTO,Unknown,Rico Auto Industries Limited,EQ,INE209B01025
 RIIL,Unknown,Reliance Industrial Infrastructure Limited,EQ,INE046A01015
 RISHABH,Unknown,Rishabh Instruments Limited,EQ,INE0N2P01017
 RITCO,Unknown,Ritco Logistics Limited,EQ,INE01EG01016
-RITES,Unknown,RITES Limited,EQ,INE320J01015
+RITES,Services,RITES Limited,EQ,INE320J01015
 RKDL,Unknown,Ravi Kumar Distilleries Limited,EQ,INE722J01012
 RKEC,Unknown,RKEC Projects Limited,EQ,INE786W01010
-RKFORGE,Unknown,Ramkrishna Forgings Limited,EQ,INE399G01023
+RKFORGE,Automobile and Auto Components,Ramkrishna Forgings Limited,EQ,INE399G01023
 RKSWAMY,Unknown,R K Swamy Limited,EQ,INE0NQ801033
 RMDRIP,Unknown,R M Drip and Sprinklers Systems Limited,EQ,INE219Y01026
 RML,Unknown,Rane (Madras) Limited,EQ,INE050H01012
@@ -1576,13 +1576,13 @@ ROTO,Unknown,Roto Pumps Limited,EQ,INE535D01037
 ROUTE,Unknown,ROUTE MOBILE LIMITED,EQ,INE450U01017
 RPEL,Unknown,Raghav Productivity Enhancers Limited,EQ,INE912T01018
 RPGLIFE,Unknown,RPG Life Sciences Limited,EQ,INE105J01010
-RPOWER,Unknown,Reliance Power Limited,EQ,INE614G01033
+RPOWER,Power,Reliance Power Limited,EQ,INE614G01033
 RPPINFRA,Unknown,R.P.P. Infra Projects Limited,EQ,INE324L01013
 RPPL,Unknown,Rajshree Polypack Limited,EQ,INE760W01023
 RPSGVENT,Unknown,RPSG VENTURES LIMITED,EQ,INE425Y01011
 RPTECH,Unknown,Rashi Peripherals Limited,EQ,INE0J1F01024
 RRIL,Unknown,RRIL Limited,EQ,INE951M01037
-RRKABEL,Unknown,R R Kabel Limited,EQ,INE777K01022
+RRKABEL,Capital Goods,R R Kabel Limited,EQ,INE777K01022
 RSDFIN,Unknown,RSD Finance Limited,EQ,INE616F01022
 RSL,Unknown,Rajputana Stainless Limited,EQ,INE313L01016
 RSWM,Unknown,RSWM Limited,EQ,INE611A01016
@@ -1598,18 +1598,18 @@ RUPA,Unknown,Rupa & Company Limited,EQ,INE895B01021
 RUSHIL,Unknown,Rushil Decor Limited,EQ,INE573K01025
 RUSTOMJEE,Unknown,Keystone Realtors Limited,EQ,INE263M01029
 RVHL,Unknown,Ravinder Heights Limited,EQ,INE09E501017
-RVNL,Unknown,Rail Vikas Nigam Limited,EQ,INE415G01027
+RVNL,Construction,Rail Vikas Nigam Limited,EQ,INE415G01027
 RVTH,Unknown,Revathi Equipment India Limited,EQ,INE0DAB01012
 SAATVIKGL,Unknown,Saatvik Green Energy Limited,EQ,INE13B501022
 SADBHIN,Unknown,Sadbhav Infrastructure Project Limited,EQ,INE764L01010
 SAFARI,Unknown,Safari Industries (India) Limited,EQ,INE429E01023
 SAGARDEEP,Unknown,Sagardeep Alloys Limited,EQ,INE976T01013
 SAGCEM,Unknown,Sagar Cements Limited,EQ,INE229C01021
-SAGILITY,Unknown,SAGILITY LIMITED,EQ,INE0W2G01015
+SAGILITY,Information Technology,SAGILITY LIMITED,EQ,INE0W2G01015
 SAHLIBHFI,Unknown,Shalibhadra Finance Limited,EQ,INE861D01011
 SAHYADRI,Unknown,Sahyadri Industries Limited,EQ,INE280H01015
-SAIL,Unknown,Steel Authority of India Limited,EQ,INE114A01011
-SAILIFE,Unknown,Sai Life Sciences Limited,EQ,INE570L01029
+SAIL,Metals & Mining,Steel Authority of India Limited,EQ,INE114A01011
+SAILIFE,Healthcare,Sai Life Sciences Limited,EQ,INE570L01029
 SAIPARENT,Unknown,Sai Parenterals Limited,EQ,INE0H9F01037
 SAKAR,Unknown,Sakar Healthcare Limited,EQ,INE732S01012
 SAKHTISUG,Unknown,Sakthi Sugars Limited,EQ,INE623A01011
@@ -1619,7 +1619,7 @@ SALONA,Unknown,Salona Cotspin Limited,EQ,INE498E01010
 SALZERELEC,Unknown,Salzer Electronics Limited,EQ,INE457F01013
 SAMBHV,Unknown,Sambhv Steel Tubes Limited,EQ,INE12NJ01018
 SAMHI,Unknown,Samhi Hotels Limited,EQ,INE08U801020
-SAMMAANCAP,Unknown,Sammaan Capital Limited,EQ,INE148I01020
+SAMMAANCAP,Financial Services,Sammaan Capital Limited,EQ,INE148I01020
 SAMPANN,Unknown,Sampann Utpadan India Limited,EQ,INE735M01018
 SANATHAN,Unknown,Sanathan Textiles Limited,EQ,INE0JPD01013
 SANDESH,Unknown,The Sandesh Limited,EQ,INE583B01015
@@ -1631,10 +1631,10 @@ SANOFI,Unknown,Sanofi India Limited,EQ,INE058A01010
 SANOFICONR,Unknown,Sanofi Consumer Healthcare India Limited,EQ,INE0UOS01011
 SANSERA,Unknown,Sansera Engineering Limited,EQ,INE953O01021
 SANSTAR,Unknown,Sanstar Limited,EQ,INE08NE01025
-SAPPHIRE,Unknown,Sapphire Foods India Limited,EQ,INE806T01020
+SAPPHIRE,Consumer Services,Sapphire Foods India Limited,EQ,INE806T01020
 SAPPL,Unknown,Shree Ajit Pulp & Paper Limited,EQ,INE185C01017
-SARDAEN,Unknown,Sarda Energy & Minerals Limited,EQ,INE385C01021
-SAREGAMA,Unknown,Saregama India Limited,EQ,INE979A01025
+SARDAEN,Metals & Mining,Sarda Energy & Minerals Limited,EQ,INE385C01021
+SAREGAMA,Media Entertainment & Publication,Saregama India Limited,EQ,INE979A01025
 SARLAPOLY,Unknown,Sarla Performance Fibers Limited,EQ,INE453D01025
 SASKEN,Unknown,Sasken Technologies Limited,EQ,INE231F01020
 SATIA,Unknown,Satia Industries Limited,EQ,INE170E01023
@@ -1643,15 +1643,15 @@ SAURASHCEM,Unknown,Saurashtra Cement Limited,EQ,INE626A01014
 SAYAJIHOTL,Unknown,Sayaji Hotels Limited,EQ,INE318C01014
 SBC,Unknown,SBC Exports Limited,EQ,INE04AK01028
 SBCL,Unknown,Shivalik Bimetal Controls Limited,EQ,INE386D01027
-SBFC,Unknown,SBFC Finance Limited,EQ,INE423Y01016
+SBFC,Financial Services,SBFC Finance Limited,EQ,INE423Y01016
 SBGLP,Unknown,Suratwwala Business Group Limited,EQ,INE05ST01028
-SBICARD,Unknown,SBI Cards and Payment Services Limited,EQ,INE018E01016
-SBILIFE,Unknown,SBI Life Insurance Company Limited,EQ,INE123W01016
-SBIN,Unknown,State Bank of India,EQ,INE062A01020
+SBICARD,Financial Services,SBI Cards and Payment Services Limited,EQ,INE018E01016
+SBILIFE,Financial Services,SBI Life Insurance Company Limited,EQ,INE123W01016
+SBIN,Financial Services,State Bank of India,EQ,INE062A01020
 SCANSTL,Unknown,Scan Steels Limited,EQ,INE099G01011
-SCHAEFFLER,Unknown,Schaeffler India Limited,EQ,INE513A01022
+SCHAEFFLER,Automobile and Auto Components,Schaeffler India Limited,EQ,INE513A01022
 SCHAND,Unknown,S Chand And Company Limited,EQ,INE807K01035
-SCI,Unknown,Shipping Corporation Of India Limited,EQ,INE109A01011
+SCI,Services,Shipping Corporation Of India Limited,EQ,INE109A01011
 SCILAL,Unknown,Shipping Corporation of India Land and Assets Limited,EQ,INE0PB301013
 SCODATUBES,Unknown,Scoda Tubes Limited,EQ,INE090501011
 SDBL,Unknown,Som Distilleries & Breweries Limited,EQ,INE480C01038
@@ -1697,7 +1697,7 @@ SHK,Unknown,S H Kelkar and Company Limited,EQ,INE500L01026
 SHOPERSTOP,Unknown,Shoppers Stop Limited,EQ,INE498B01024
 SHRADHA,Unknown,Shradha Realty Limited,EQ,INE715Y01031
 SHREDIGCEM,Unknown,Shree Digvijay Cement Co.Ltd,EQ,INE232A01011
-SHREECEM,Unknown,SHREE CEMENT LIMITED,EQ,INE070A01015
+SHREECEM,Construction Materials,SHREE CEMENT LIMITED,EQ,INE070A01015
 SHREEJISPG,Unknown,Shreeji Shipping Global Limited,EQ,INE1B6101010
 SHREEPUSHK,Unknown,Shree Pushkar Chemicals & Fertilisers Limited,EQ,INE712K01011
 SHREERAMA,Unknown,Shree Rama Multi-Tech Limited,EQ,INE879A01019
@@ -1705,15 +1705,15 @@ SHREYANIND,Unknown,Shreyans Industries Limited,EQ,INE231C01019
 SHRIKRISH,Unknown,Shri Krishna Devcon Limited,EQ,INE997I01012
 SHRINGARMS,Unknown,Shringar House of Mangalsutra Limited,EQ,INE1B3L01017
 SHRIPISTON,Unknown,Shriram Pistons & Rings Limited,EQ,INE526E01018
-SHRIRAMFIN,Unknown,Shriram Finance Limited,EQ,INE721A01047
+SHRIRAMFIN,Financial Services,Shriram Finance Limited,EQ,INE721A01047
 SHRIRAMPPS,Unknown,Shriram Properties Limited,EQ,INE217L01019
 SHYAMCENT,Unknown,Shyam Century Ferrous Limited,EQ,INE979R01011
-SHYAMMETL,Unknown,Shyam Metalics and Energy Limited,EQ,INE810G01011
+SHYAMMETL,Capital Goods,Shyam Metalics and Energy Limited,EQ,INE810G01011
 SICAGEN,Unknown,Sicagen India Limited,EQ,INE176J01011
-SIEMENS,Unknown,Siemens Limited,EQ,INE003A01024
+SIEMENS,Capital Goods,Siemens Limited,EQ,INE003A01024
 SIGIND,Unknown,Signet Industries Limited,EQ,INE529F01035
 SIGMA,Unknown,Sigma Solve Limited,EQ,INE0A0S01028
-SIGNATURE,Unknown,Signatureglobal (India) Limited,EQ,INE903U01023
+SIGNATURE,Realty,Signatureglobal (India) Limited,EQ,INE903U01023
 SIGNPOST,Unknown,Signpost India Limited,EQ,INE0KGZ01021
 SIKA,Unknown,Sika Interplant Systems Limited,EQ,INE438E01032
 SIKKO,Unknown,Sikko Industries Limited,EQ,INE112X01025
@@ -1731,7 +1731,7 @@ SIRCA,Unknown,Sirca Paints India Limited,EQ,INE792Z01011
 SIS,Unknown,SIS LIMITED,EQ,INE285J01028
 SIYSIL,Unknown,Siyaram Silk Mills Limited,EQ,INE076B01028
 SJS,Unknown,S.J.S. Enterprises Limited,EQ,INE284S01014
-SJVN,Unknown,SJVN Limited,EQ,INE002L01015
+SJVN,Power,SJVN Limited,EQ,INE002L01015
 SKFINDIA,Unknown,SKF India Limited,EQ,INE640A01023
 SKFINDUS,Unknown,SKF India (Industrial) Limited,EQ,INE2J8701016
 SKIPPER,Unknown,Skipper Limited,EQ,INE439E01022
@@ -1744,18 +1744,18 @@ SMLMAH,Unknown,SML Mahindra Limited,EQ,INE294B01019
 SMLT,Unknown,Sarthak Metals Limited,EQ,INE017W01010
 SMSPHARMA,Unknown,SMS Pharmaceuticals Limited,EQ,INE812G01025
 SNOWMAN,Unknown,Snowman Logistics Limited,EQ,INE734N01019
-SOBHA,Unknown,Sobha Limited,EQ,INE671H01015
+SOBHA,Realty,Sobha Limited,EQ,INE671H01015
 SOLARA,Unknown,Solara Active Pharma Sciences Limited,EQ,INE624Z01016
-SOLARINDS,Unknown,Solar Industries India Limited,EQ,INE343H01029
+SOLARINDS,Chemicals,Solar Industries India Limited,EQ,INE343H01029
 SOLARWORLD,Unknown,Solarworld Energy Solutions Limited,EQ,INE0TY101024
 SOLEX,Unknown,Solex Energy Limited,EQ,INE880Y01017
 SOMANYCERA,Unknown,Somany Ceramics Limited,EQ,INE355A01028
 SOMATEX,Unknown,Soma Textiles & Industries Limited,EQ,INE314C01013
 SOMICONVEY,Unknown,Somi Conveyor Beltings Limited,EQ,INE323J01019
-SONACOMS,Unknown,Sona BLW Precision Forgings Limited,EQ,INE073K01018
+SONACOMS,Automobile and Auto Components,Sona BLW Precision Forgings Limited,EQ,INE073K01018
 SONAL,Unknown,Sonal Mercantile Limited,EQ,INE321M01017
 SONAMLTD,Unknown,SONAM LIMITED,EQ,INE00LM01029
-SONATSOFTW,Unknown,Sonata Software Limited,EQ,INE269A01021
+SONATSOFTW,Information Technology,Sonata Software Limited,EQ,INE269A01021
 SOTL,Unknown,Savita Oil Technologies Limited,EQ,INE035D01020
 SOUTHBANK,Unknown,The South Indian Bank Limited,EQ,INE683A01023
 SOUTHWEST,Unknown,South West Pinnacle Exploration Limited,EQ,INE980Y01015
@@ -1768,12 +1768,12 @@ SPECTRUM,Unknown,Spectrum Electrical Industries Limited,EQ,INE01EO01010
 SPENCERS,Unknown,Spencer's Retail Limited,EQ,INE020801028
 SPIC,Unknown,Southern Petrochemicals Industries Corporation  Limited,EQ,INE147A01011
 SPLIL,Unknown,SPL Industries Limited,EQ,INE978G01016
-SPLPETRO,Unknown,Supreme Petrochem Limited,EQ,INE663A01033
+SPLPETRO,Chemicals,Supreme Petrochem Limited,EQ,INE663A01033
 SPMLINFRA,Unknown,SPML Infra Limited,EQ,INE937A01023
 SPORTKING,Unknown,Sportking India Limited,EQ,INE885H01029
 SRD,Unknown,Shankar Lal Rampal Dye-Chem Limited,EQ,INE01NE01012
 SREEL,Unknown,Sreeleathers Limited,EQ,INE099F01013
-SRF,Unknown,SRF Limited,EQ,INE647A01010
+SRF,Chemicals,SRF Limited,EQ,INE647A01010
 SRGHFL,Unknown,SRG Housing Finance Limited,EQ,INE559N01010
 SRHHYPOLTD,Unknown,Sree Rayalaseema Hi-Strength Hypo Limited,EQ,INE917H01012
 SRM,Unknown,SRM Contractors Limited,EQ,INE0R6Z01013
@@ -1784,7 +1784,7 @@ STALLION,Unknown,Stallion India Fluorochemicals Limited,EQ,INE0RYC01010
 STANLEY,Unknown,Stanley Lifestyles Limited,EQ,INE01A001028
 STAR,Unknown,Strides Pharma Science Limited,EQ,INE939A01011
 STARCEMENT,Unknown,Star Cement Limited,EQ,INE460H01021
-STARHEALTH,Unknown,Star Health and Allied Insurance Company Limited,EQ,INE575P01011
+STARHEALTH,Financial Services,Star Health and Allied Insurance Company Limited,EQ,INE575P01011
 STARPAPER,Unknown,Star Paper Mills Limited,EQ,INE733A01018
 STARTECK,Unknown,Starteck Finance Limited,EQ,INE992I01013
 STCINDIA,Unknown,The State Trading Corporation of India Limited,EQ,INE655A01013
@@ -1807,23 +1807,23 @@ SUDEEPPHRM,Unknown,Sudeep Pharma Limited,EQ,INE0QPI01025
 SUKHJITS,Unknown,Sukhjit Starch & Chemicals Limited,EQ,INE450E01029
 SULA,Unknown,Sula Vineyards Limited,EQ,INE142Q01026
 SUMEETINDS,Unknown,Sumeet Industries Limited,EQ,INE235C01036
-SUMICHEM,Unknown,Sumitomo Chemical India Limited,EQ,INE258G01013
+SUMICHEM,Chemicals,Sumitomo Chemical India Limited,EQ,INE258G01013
 SUMMITSEC,Unknown,Summit Securities Limited,EQ,INE519C01017
 SUNCLAY,Unknown,Sundaram Clayton Limited,EQ,INE0Q3R01026
 SUNDARAM,Unknown,Sundaram Multi Pap Limited,EQ,INE108E01023
-SUNDARMFIN,Unknown,Sundaram Finance Limited,EQ,INE660A01013
+SUNDARMFIN,Financial Services,Sundaram Finance Limited,EQ,INE660A01013
 SUNDRMBRAK,Unknown,Sundaram Brake Linings Limited,EQ,INE073D01013
 SUNDRMFAST,Unknown,Sundram Fasteners Limited,EQ,INE387A01021
 SUNDROP,Unknown,Sundrop Brands Limited,EQ,INE209A01019
 SUNFLAG,Unknown,Sunflag Iron And Steel Company Limited,EQ,INE947A01014
-SUNPHARMA,Unknown,Sun Pharmaceutical Industries Limited,EQ,INE044A01036
+SUNPHARMA,Healthcare,Sun Pharmaceutical Industries Limited,EQ,INE044A01036
 SUNTECK,Unknown,Sunteck Realty Limited,EQ,INE805D01034
-SUNTV,Unknown,Sun TV Network Limited,EQ,INE424H01027
+SUNTV,Media Entertainment & Publication,Sun TV Network Limited,EQ,INE424H01027
 SUPERHOUSE,Unknown,Superhouse Limited,EQ,INE712B01010
 SUPERSPIN,Unknown,Super Spinning Mills Limited,EQ,INE662A01027
 SUPRAJIT,Unknown,Suprajit Engineering Limited,EQ,INE399C01030
 SUPREME,Unknown,Supreme Holdings & Hospitality (India) Limited,EQ,INE822E01011
-SUPREMEIND,Unknown,Supreme Industries Limited,EQ,INE195A01028
+SUPREMEIND,Capital Goods,Supreme Industries Limited,EQ,INE195A01028
 SUPREMEINF,Unknown,Supreme Infrastructure India Limited,EQ,INE550H01011
 SUPRIYA,Unknown,Supriya Lifescience Limited,EQ,INE07RO01027
 SURAJEST,Unknown,Suraj Estate Developers Limited,EQ,INE843S01025
@@ -1838,17 +1838,17 @@ SURYODAY,Unknown,Suryoday Small Finance Bank Limited,EQ,INE428Q01011
 SUTLEJTEX,Unknown,Sutlej Textiles and Industries Limited,EQ,INE645H01027
 SUVEN,Unknown,Suven Life Sciences Limited,EQ,INE495B01038
 SUYOG,Unknown,Suyog Telematics Limited,EQ,INE442P01014
-SUZLON,Unknown,Suzlon Energy Limited,EQ,INE040H01021
+SUZLON,Capital Goods,Suzlon Energy Limited,EQ,INE040H01021
 SVLL,Unknown,Shree Vasu Logistics Limited,EQ,INE00CE01017
-SWANCORP,Unknown,SWAN CORP LIMITED,EQ,INE665A01038
+SWANCORP,Chemicals,SWAN CORP LIMITED,EQ,INE665A01038
 SWARAJENG,Unknown,Swaraj Engines Limited,EQ,INE277A01016
 SWELECTES,Unknown,Swelect Energy Systems Limited,EQ,INE409B01013
-SWIGGY,Unknown,Swiggy Limited,EQ,INE00H001014
+SWIGGY,Consumer Services,Swiggy Limited,EQ,INE00H001014
 SWSOLAR,Unknown,Sterling and Wilson Renewable Energy Limited,EQ,INE00M201021
 SYMPHONY,Unknown,Symphony Limited,EQ,INE225D01027
 SYNCOMF,Unknown,Syncom Formulations (India) Limited,EQ,INE312C01025
-SYNGENE,Unknown,Syngene International Limited,EQ,INE398R01022
-SYRMA,Unknown,Syrma SGS Technology Limited,EQ,INE0DYJ01015
+SYNGENE,Healthcare,Syngene International Limited,EQ,INE398R01022
+SYRMA,Capital Goods,Syrma SGS Technology Limited,EQ,INE0DYJ01015
 SYSTMTXC,Unknown,Systematix Corporate Services Limited,EQ,INE356B01024
 TAALTECH,Unknown,Taal Tech Limited,EQ,INE524T01011
 TAINWALCHM,Unknown,Tainwala Chemical and Plastic (I) Limited,EQ,INE123C01018
@@ -1859,38 +1859,38 @@ TANLA,Unknown,Tanla Platforms Limited,EQ,INE483C01032
 TARACHAND,Unknown,Tara Chand InfraLogistic Solutions Limited,EQ,INE555Z01020
 TARAPUR,Unknown,Tarapur Transformers Limited,EQ,INE747K01017
 TARC,Unknown,TARC Limited,EQ,INE0EK901012
-TARIL,Unknown,Transformers And Rectifiers (India) Limited,EQ,INE763I01026
+TARIL,Capital Goods,Transformers And Rectifiers (India) Limited,EQ,INE763I01026
 TARSONS,Unknown,Tarsons Products Limited,EQ,INE144Z01023
 TASTYBITE,Unknown,Tasty Bite Eatables Limited,EQ,INE488B01017
-TATACAP,Unknown,Tata Capital Limited,EQ,INE976I01016
-TATACHEM,Unknown,Tata Chemicals Limited,EQ,INE092A01019
-TATACOMM,Unknown,Tata Communications Limited,EQ,INE151A01013
-TATACONSUM,Unknown,TATA CONSUMER PRODUCTS LIMITED,EQ,INE192A01025
-TATAELXSI,Unknown,Tata Elxsi Limited,EQ,INE670A01012
-TATAINVEST,Unknown,Tata Investment Corporation Limited,EQ,INE672A01026
-TATAPOWER,Unknown,Tata Power Company Limited,EQ,INE245A01021
-TATASTEEL,Unknown,Tata Steel Limited,EQ,INE081A01020
-TATATECH,Unknown,Tata Technologies Limited,EQ,INE142M01025
+TATACAP,Financial Services,Tata Capital Limited,EQ,INE976I01016
+TATACHEM,Chemicals,Tata Chemicals Limited,EQ,INE092A01019
+TATACOMM,Telecommunication,Tata Communications Limited,EQ,INE151A01013
+TATACONSUM,Fast Moving Consumer Goods,TATA CONSUMER PRODUCTS LIMITED,EQ,INE192A01025
+TATAELXSI,Information Technology,Tata Elxsi Limited,EQ,INE670A01012
+TATAINVEST,Financial Services,Tata Investment Corporation Limited,EQ,INE672A01026
+TATAPOWER,Power,Tata Power Company Limited,EQ,INE245A01021
+TATASTEEL,Metals & Mining,Tata Steel Limited,EQ,INE081A01020
+TATATECH,Information Technology,Tata Technologies Limited,EQ,INE142M01025
 TATVA,Unknown,Tatva Chintan Pharma Chem Limited,EQ,INE0GK401011
-TBOTEK,Unknown,TBO Tek Limited,EQ,INE673O01025
+TBOTEK,Consumer Services,TBO Tek Limited,EQ,INE673O01025
 TBZ,Unknown,Tribhovandas Bhimji Zaveri Limited,EQ,INE760L01018
 TCC,Unknown,TCC Concept Limited,EQ,INE887D01016
 TCI,Unknown,Transport Corporation of India Limited,EQ,INE688A01022
 TCIEXP,Unknown,TCI Express Limited,EQ,INE586V01016
 TCIFINANCE,Unknown,TCI Finance Limited,EQ,INE911B01018
 TCPLPACK,Unknown,TCPL Packaging Limited,EQ,INE822C01015
-TCS,Unknown,Tata Consultancy Services Limited,EQ,INE467B01029
+TCS,Information Technology,Tata Consultancy Services Limited,EQ,INE467B01029
 TDPOWERSYS,Unknown,TD Power Systems Limited,EQ,INE419M01027
 TEAMGTY,Unknown,Team India Guaranty Limited,EQ,INE289C01025
 TEAMLEASE,Unknown,Teamlease Services Limited,EQ,INE985S01024
-TECHM,Unknown,Tech Mahindra Limited,EQ,INE669C01036
-TECHNOE,Unknown,Techno Electric & Engineering Company Limited,EQ,INE285K01026
+TECHM,Information Technology,Tech Mahindra Limited,EQ,INE669C01036
+TECHNOE,Construction,Techno Electric & Engineering Company Limited,EQ,INE285K01026
 TECHNVISN,Unknown,TechNVision Ventures Limited,EQ,INE314H01012
 TECILCHEM,Unknown,TECIL Chemicals and Hydro Power Limited,EQ,INE014B01011
-TEGA,Unknown,Tega Industries Limited,EQ,INE011K01018
-TEJASNET,Unknown,Tejas Networks Limited,EQ,INE010J01012
+TEGA,Capital Goods,Tega Industries Limited,EQ,INE011K01018
+TEJASNET,Telecommunication,Tejas Networks Limited,EQ,INE010J01012
 TEMBO,Unknown,Tembo Global Industries Limited,EQ,INE869Y01010
-TENNIND,Unknown,Tenneco Clean Air India Limited,EQ,INE19RI01016
+TENNIND,Automobile and Auto Components,Tenneco Clean Air India Limited,EQ,INE19RI01016
 TERASOFT,Unknown,Tera Software Limited,EQ,INE482B01010
 TEXINFRA,Unknown,Texmaco Infrastructure & Holdings Limited,EQ,INE435C01024
 TEXMOPIPES,Unknown,Texmo Pipes and Products Limited,EQ,INE141K01013
@@ -1903,35 +1903,35 @@ THAKDEV,Unknown,Thakkers Developers Limited,EQ,INE403F01017
 THANGAMAYL,Unknown,Thangamayil Jewellery Limited,EQ,INE085J01014
 THEINVEST,Unknown,The Investment Trust Of India Limited,EQ,INE924D01017
 THEJO,Unknown,Thejo Engineering Limited,EQ,INE121N01019
-THELEELA,Unknown,Leela Palaces Hotels & Resorts Limited,EQ,INE0AQ201015
+THELEELA,Consumer Services,Leela Palaces Hotels & Resorts Limited,EQ,INE0AQ201015
 THEMISMED,Unknown,Themis Medicare Limited,EQ,INE083B01024
-THERMAX,Unknown,Thermax Limited,EQ,INE152A01029
+THERMAX,Capital Goods,Thermax Limited,EQ,INE152A01029
 THOMASCOOK,Unknown,Thomas Cook  (India)  Limited,EQ,INE332A01027
 THOMASCOTT,Unknown,Thomas Scott (India) Limited,EQ,INE480M01011
 THYROCARE,Unknown,Thyrocare Technologies Limited,EQ,INE594H01019
 TI,Unknown,Tilaknagar Industries Limited,EQ,INE133E01013
 TICL,Unknown,Twamev Construction and Infrastructure Limited,EQ,INE388G01026
 TIIL,Unknown,Technocraft Industries (India) Limited,EQ,INE545H01011
-TIINDIA,Unknown,Tube Investments of India Limited,EQ,INE974X01010
+TIINDIA,Automobile and Auto Components,Tube Investments of India Limited,EQ,INE974X01010
 TIL,Unknown,TIL Limited,EQ,INE806C01018
 TIMETECHNO,Unknown,Time Technoplast Limited,EQ,INE508G01029
 TIMEX,Unknown,Timex Group India Limited,EQ,INE064A01026
-TIMKEN,Unknown,Timken India Limited,EQ,INE325A01013
+TIMKEN,Capital Goods,Timken India Limited,EQ,INE325A01013
 TINNARUBR,Unknown,Tinna Rubber and Infrastructure Limited,EQ,INE015C01016
 TIPSFILMS,Unknown,Tips Films Limited,EQ,INE0LQS01015
 TIPSMUSIC,Unknown,Tips Music Limited,EQ,INE716B01029
 TIRUMALCHM,Unknown,Thirumalai Chemicals Limited,EQ,INE338A01024
-TITAGARH,Unknown,TITAGARH RAIL SYSTEMS LIMITED,EQ,INE615H01020
-TITAN,Unknown,Titan Company Limited,EQ,INE280A01028
+TITAGARH,Capital Goods,TITAGARH RAIL SYSTEMS LIMITED,EQ,INE615H01020
+TITAN,Consumer Durables,Titan Company Limited,EQ,INE280A01028
 TMB,Unknown,Tamilnad Mercantile Bank Limited,EQ,INE668A01016
-TMCV,Unknown,Tata Motors Limited,EQ,INE1TAE01010
-TMPV,Unknown,Tata Motors Passenger Vehicles Limited,EQ,INE155A01022
+TMCV,Capital Goods,Tata Motors Limited,EQ,INE1TAE01010
+TMPV,Automobile and Auto Components,Tata Motors Passenger Vehicles Limited,EQ,INE155A01022
 TNPETRO,Unknown,Tamilnadu PetroProducts Limited,EQ,INE148A01019
 TNPL,Unknown,Tamil Nadu Newsprint & Papers Limited,EQ,INE107A01015
 TNTELE,Unknown,Tamilnadu Telecommunication Limited,EQ,INE141D01018
 TOLINS,Unknown,Tolins Tyres Limited,EQ,INE0RWQ01014
-TORNTPHARM,Unknown,Torrent Pharmaceuticals Limited,EQ,INE685A01028
-TORNTPOWER,Unknown,Torrent Power Limited,EQ,INE813H01021
+TORNTPHARM,Healthcare,Torrent Pharmaceuticals Limited,EQ,INE685A01028
+TORNTPOWER,Power,Torrent Power Limited,EQ,INE813H01021
 TOTAL,Unknown,Total Transport Systems Limited,EQ,INE336X01012
 TOUCHWOOD,Unknown,Touchwood Entertainment Limited,EQ,INE486Y01013
 TPHQ,Unknown,Teamo Productions HQ Limited,EQ,INE065J01024
@@ -1940,30 +1940,30 @@ TRACXN,Unknown,Tracxn Technologies Limited,EQ,INE0HMF01019
 TRANSPEK,Unknown,Transpek Industry Limited,EQ,INE687A01016
 TRANSRAILL,Unknown,Transrail Lighting Limited,EQ,INE454P01035
 TRANSWORLD,Unknown,TRANSWORLD SHIPPING LINES LIMITED,EQ,INE757B01015
-TRAVELFOOD,Unknown,Travel Food Services Limited,EQ,INE103V01028
+TRAVELFOOD,Consumer Services,Travel Food Services Limited,EQ,INE103V01028
 TREJHARA,Unknown,TREJHARA SOLUTIONS LIMITED,EQ,INE00CA01015
 TREL,Unknown,Transindia Real Estate Limited,EQ,INE0O3901029
-TRENT,Unknown,Trent Limited,EQ,INE849A01020
+TRENT,Consumer Services,Trent Limited,EQ,INE849A01020
 TRF,Unknown,TRF Limited,EQ,INE391D01019
-TRIDENT,Unknown,Trident Limited,EQ,INE064C01022
+TRIDENT,Textiles,Trident Limited,EQ,INE064C01022
 TRIGYN,Unknown,Trigyn Technologies Limited,EQ,INE948A01012
-TRITURBINE,Unknown,Triveni Turbine Limited,EQ,INE152M01016
+TRITURBINE,Capital Goods,Triveni Turbine Limited,EQ,INE152M01016
 TRIVENI,Unknown,Triveni Engineering & Industries Limited,EQ,INE256C01024
 TRU,Unknown,TruCap Finance Limited,EQ,INE615R01029
 TRUALT,Unknown,TruAlt Bioenergy Limited,EQ,INE0MWH01014
 TSFINV,Unknown,TSF INVESTMENTS LIMITED,EQ,INE202Z01029
 TTKHLTCARE,Unknown,TTK Healthcare Limited,EQ,INE910C01018
 TTKPRESTIG,Unknown,TTK Prestige Limited,EQ,INE690A01028
-TTML,Unknown,Tata Teleservices (Maharashtra) Limited,EQ,INE517B01013
+TTML,Telecommunication,Tata Teleservices (Maharashtra) Limited,EQ,INE517B01013
 TVSELECT,Unknown,TVS Electronics Limited,EQ,INE236G01019
 TVSHLTD,Unknown,TVS Holdings Limited,EQ,INE105A01035
-TVSMOTOR,Unknown,TVS Motor Company Limited,EQ,INE494B01023
+TVSMOTOR,Automobile and Auto Components,TVS Motor Company Limited,EQ,INE494B01023
 TVSSRICHAK,Unknown,TVS Srichakra Limited,EQ,INE421C01016
 TVTODAY,Unknown,TV Today Network Limited,EQ,INE038F01029
 TVVISION,Unknown,TV Vision Limited,EQ,INE871L01013
-UBL,Unknown,United Breweries Limited,EQ,INE686F01025
+UBL,Fast Moving Consumer Goods,United Breweries Limited,EQ,INE686F01025
 UCAL,Unknown,UCAL LIMITED,EQ,INE139B01016
-UCOBANK,Unknown,UCO Bank,EQ,INE691A01018
+UCOBANK,Financial Services,UCO Bank,EQ,INE691A01018
 UDS,Unknown,Updater Services Limited,EQ,INE851I01011
 UEL,Unknown,Ujaas Energy Limited,EQ,INE899L01030
 UFBL,Unknown,United Foodbrands Limited,EQ,INE382M01027
@@ -1972,7 +1972,7 @@ UFO,Unknown,UFO Moviez India Limited,EQ,INE527H01019
 UGARSUGAR,Unknown,The Ugar Sugar Works Limited,EQ,INE071E01023
 UGROCAP,Unknown,Ugro Capital Limited,EQ,INE583D01011
 UJJIVANSFB,Unknown,Ujjivan Small Finance Bank Limited,EQ,INE551W01018
-ULTRACEMCO,Unknown,UltraTech Cement Limited,EQ,INE481G01011
+ULTRACEMCO,Construction Materials,UltraTech Cement Limited,EQ,INE481G01011
 ULTRAMAR,Unknown,Ultramarine & Pigments Limited,EQ,INE405A01021
 UMIYA-MRO,Unknown,UMIYA BUILDCON LIMITED,EQ,INE398B01018
 UNICHEMLAB,Unknown,Unichem Laboratories Limited,EQ,INE351A01035
@@ -1980,20 +1980,20 @@ UNIDT,Unknown,United Drilling Tools Limited,EQ,INE961D01019
 UNIECOM,Unknown,Unicommerce Esolutions Limited,EQ,INE00U401027
 UNIENTER,Unknown,Uniphos Enterprises Limited,EQ,INE037A01022
 UNIMECH,Unknown,Unimech Aerospace and Manufacturing Limited,EQ,INE0U3I01011
-UNIONBANK,Unknown,Union Bank of India,EQ,INE692A01016
+UNIONBANK,Financial Services,Union Bank of India,EQ,INE692A01016
 UNIPARTS,Unknown,Uniparts India Limited,EQ,INE244O01017
-UNITDSPR,Unknown,United Spirits Limited,EQ,INE854D01024
+UNITDSPR,Fast Moving Consumer Goods,United Spirits Limited,EQ,INE854D01024
 UNITECH,Unknown,Unitech Limited,EQ,INE694A01020
 UNITEDPOLY,Unknown,United Polyfab Gujarat Limited,EQ,INE368U01029
 UNITEDTEA,Unknown,The United Nilgiri Tea Estates Company Limited,EQ,INE458F01011
 UNIVASTU,Unknown,Univastu India Limited,EQ,INE562X01013
 UNIVCABLES,Unknown,Universal Cables Limited,EQ,INE279A01012
-UNOMINDA,Unknown,UNO Minda Limited,EQ,INE405E01023
-UPL,Unknown,UPL Limited,EQ,INE628A01036
-URBANCO,Unknown,Urban Company Limited,EQ,INE0CAZ01013
+UNOMINDA,Automobile and Auto Components,UNO Minda Limited,EQ,INE405E01023
+UPL,Chemicals,UPL Limited,EQ,INE628A01036
+URBANCO,Consumer Services,Urban Company Limited,EQ,INE0CAZ01013
 URJA,Unknown,Urja Global Limited,EQ,INE550C01020
-USHAMART,Unknown,Usha Martin Limited,EQ,INE228A01035
-UTIAMC,Unknown,UTI Asset Management Company Limited,EQ,INE094J01016
+USHAMART,Capital Goods,Usha Martin Limited,EQ,INE228A01035
+UTIAMC,Financial Services,UTI Asset Management Company Limited,EQ,INE094J01016
 UTKARSHBNK,Unknown,Utkarsh Small Finance Bank Limited,EQ,INE735W01017
 UTLSOLAR,Unknown,Fujiyama Power Systems Limited,EQ,INE12UR01024
 UTTAMSUGAR,Unknown,Uttam Sugar Mills Limited,EQ,INE786F01031
@@ -2006,9 +2006,9 @@ VALIANTORG,Unknown,Valiant Organics Limited,EQ,INE565V01010
 VARDHACRLC,Unknown,Vardhman Acrylics Limited,EQ,INE116G01013
 VARROC,Unknown,Varroc Engineering Limited,EQ,INE665L01035
 VASWANI,Unknown,Vaswani Industries Limited,EQ,INE590L01019
-VBL,Unknown,Varun Beverages Limited,EQ,INE200M01039
+VBL,Fast Moving Consumer Goods,Varun Beverages Limited,EQ,INE200M01039
 VCL,Unknown,Vaxtex Cotfab Limited,EQ,INE098201036
-VEDL,Unknown,Vedanta Limited,EQ,INE205A01025
+VEDL,Metals & Mining,Vedanta Limited,EQ,INE205A01025
 VEEDOL,Unknown,Veedol Corporation Limited,EQ,INE484C01030
 VELJAN,Unknown,Veljan Denison Limited,EQ,INE232E01013
 VENKEYS,Unknown,Venky's (India) Limited,EQ,INE398A01010
@@ -2024,7 +2024,7 @@ VGUARD,Unknown,V-Guard Industries Limited,EQ,INE951I01027
 VHL,Unknown,Vardhman Holdings Limited,EQ,INE701A01023
 VIDHIING,Unknown,Vidhi Specialty Food Ingredients Limited,EQ,INE632C01026
 VIDYAWIRES,Unknown,Vidya Wires Limited,EQ,INE14UN01029
-VIJAYA,Unknown,Vijaya Diagnostic Centre Limited,EQ,INE043W01024
+VIJAYA,Healthcare,Vijaya Diagnostic Centre Limited,EQ,INE043W01024
 VIKRAMSOLR,Unknown,Vikram Solar Limited,EQ,INE078V01014
 VIKRAN,Unknown,Vikran Engineering Limited,EQ,INE01R501028
 VIMTALABS,Unknown,Vimta Labs Limited,EQ,INE579C01029
@@ -2041,17 +2041,17 @@ VIVIDHA,Unknown,Visagar Polytex Limited,EQ,INE370E01029
 VIYASH,Unknown,Viyash Scientific Limited,EQ,INE807F01027
 VLSFINANCE,Unknown,VLS Finance Limited,EQ,INE709A01018
 VMART,Unknown,V-Mart Retail Limited,EQ,INE665J01013
-VMM,Unknown,Vishal Mega Mart Limited,EQ,INE01EA01019
+VMM,Consumer Services,Vishal Mega Mart Limited,EQ,INE01EA01019
 VOLTAMP,Unknown,Voltamp Transformers Limited,EQ,INE540H01012
-VOLTAS,Unknown,Voltas Limited,EQ,INE226A01021
+VOLTAS,Consumer Durables,Voltas Limited,EQ,INE226A01021
 VRAJ,Unknown,Vraj Iron and Steel Limited,EQ,INE0S2V01010
 VRLLOG,Unknown,VRL Logistics Limited,EQ,INE366I01010
 VSSL,Unknown,Vardhman Special Steels Limited,EQ,INE050M01012
 VSTIND,Unknown,VST Industries Limited,EQ,INE710A01016
 VSTL,Unknown,Vibhor Steel Tubes Limited,EQ,INE0QTF01015
 VSTTILLERS,Unknown,V.S.T Tillers Tractors Limited,EQ,INE764D01017
-VTL,Unknown,Vardhman Textiles Limited,EQ,INE825A01020
-WAAREEENER,Unknown,Waaree Energies Limited,EQ,INE377N01017
+VTL,Textiles,Vardhman Textiles Limited,EQ,INE825A01020
+WAAREEENER,Capital Goods,Waaree Energies Limited,EQ,INE377N01017
 WAAREERTL,Unknown,Waaree Renewable Technologies Limited,EQ,INE299N01021
 WABAG,Unknown,VA Tech Wabag Limited,EQ,INE956G01038
 WAKEFIT,Unknown,Wakefit Innovations Limited,EQ,INE0E7301029
@@ -2061,23 +2061,23 @@ WEALTH,Unknown,Wealth First Portfolio Managers Limited,EQ,INE658T01017
 WEBELSOLAR,Unknown,Websol Energy System Limited,EQ,INE855C01023
 WEIZMANIND,Unknown,Weizmann Limited,EQ,INE080A01014
 WEL,Unknown,Wonder Electricals Limited,EQ,INE02WG01024
-WELCORP,Unknown,Welspun Corp Limited,EQ,INE191B01025
+WELCORP,Capital Goods,Welspun Corp Limited,EQ,INE191B01025
 WELENT,Unknown,Welspun Enterprises Limited,EQ,INE625G01013
 WELINV,Unknown,Welspun Investments and Commercials Limited,EQ,INE389K01018
 WELSPLSOL,Unknown,Welspun Specialty Solutions Limited,EQ,INE731F01037
-WELSPUNLIV,Unknown,Welspun Living Limited,EQ,INE192B01031
+WELSPUNLIV,Textiles,Welspun Living Limited,EQ,INE192B01031
 WENDT,Unknown,Wendt (India) Limited,EQ,INE274C01019
 WESTLIFE,Unknown,WESTLIFE FOODWORLD LIMITED,EQ,INE274F01020
 WEWORK,Unknown,WeWork India Management Limited,EQ,INE085001019
 WHEELS,Unknown,Wheels India Limited,EQ,INE715A01015
-WHIRLPOOL,Unknown,Whirlpool of India Limited,EQ,INE716A01013
+WHIRLPOOL,Consumer Durables,Whirlpool of India Limited,EQ,INE716A01013
 WILLAMAGOR,Unknown,Williamson Magor & Company Limited,EQ,INE210A01017
 WIMPLAST,Unknown,Wim Plast Limited,EQ,INE015B01018
 WINDLAS,Unknown,Windlas Biotech Limited,EQ,INE0H5O01029
 WINDMACHIN,Unknown,Windsor Machines Limited,EQ,INE052A01021
 WIPL,Unknown,The Western India Plywoods Limited,EQ,INE215F01023
-WIPRO,Unknown,Wipro Limited,EQ,INE075A01022
-WOCKPHARMA,Unknown,Wockhardt Limited,EQ,INE049B01025
+WIPRO,Information Technology,Wipro Limited,EQ,INE075A01022
+WOCKPHARMA,Healthcare,Wockhardt Limited,EQ,INE049B01025
 WONDERLA,Unknown,Wonderla Holidays Limited,EQ,INE066O01014
 WORTHPERI,Unknown,Worth Peripherals Limited,EQ,INE196Y01018
 WPIL,Unknown,WPIL Limited,EQ,INE765D01022
@@ -2090,21 +2090,21 @@ XTGLOBAL,Unknown,Xtglobal Infotech Limited,EQ,INE547B01028
 YASHO,Unknown,Yasho Industries Limited,EQ,INE616Z01012
 YATHARTH,Unknown,Yatharth Hospital & Trauma Care Services Limited,EQ,INE0JO301016
 YATRA,Unknown,Yatra Online Limited,EQ,INE0JR601024
-YESBANK,Unknown,Yes Bank Limited,EQ,INE528G01035
+YESBANK,Financial Services,Yes Bank Limited,EQ,INE528G01035
 YUKEN,Unknown,Yuken India Limited,EQ,INE384C01016
 ZAGGLE,Unknown,Zaggle Prepaid Ocean Services Limited,EQ,INE07K301024
-ZEEL,Unknown,Zee Entertainment Enterprises Limited,EQ,INE256A01028
+ZEEL,Media Entertainment & Publication,Zee Entertainment Enterprises Limited,EQ,INE256A01028
 ZEELEARN,Unknown,Zee Learn Limited,EQ,INE565L01011
 ZENITHEXPO,Unknown,Zenith Exports Limited,EQ,INE058B01018
 ZENITHSTL,Unknown,Zenith Steel Pipes & Industries Limited,EQ,INE318D01020
-ZENSARTECH,Unknown,Zensar Technologies Limited,EQ,INE520A01027
-ZENTEC,Unknown,Zen Technologies Limited,EQ,INE251B01027
-ZFCVINDIA,Unknown,ZF Commercial Vehicle Control Systems India Limited,EQ,INE342J01019
+ZENSARTECH,Information Technology,Zensar Technologies Limited,EQ,INE520A01027
+ZENTEC,Capital Goods,Zen Technologies Limited,EQ,INE251B01027
+ZFCVINDIA,Automobile and Auto Components,ZF Commercial Vehicle Control Systems India Limited,EQ,INE342J01019
 ZFSTEERING,Unknown,ZF Steering Gear (India) Limited,EQ,INE116C01012
 ZODIACLOTH,Unknown,Zodiac Clothing Company Limited,EQ,INE206B01013
 ZOTA,Unknown,Zota Health Care LImited,EQ,INE358U01012
 ZSARACOM,Unknown,Saraswati Commercial India Limited,EQ,INE967G01019
 ZUARI,Unknown,Zuari Agro Chemicals Limited,EQ,INE840M01016
 ZUARIIND,Unknown,ZUARI INDUSTRIES LIMITED,EQ,INE217A01012
-ZYDUSLIFE,Unknown,Zydus Lifesciences Limited,EQ,INE010B01027
-ZYDUSWELL,Unknown,Zydus Wellness Limited,EQ,INE768C01028
+ZYDUSLIFE,Healthcare,Zydus Lifesciences Limited,EQ,INE010B01027
+ZYDUSWELL,Fast Moving Consumer Goods,Zydus Wellness Limited,EQ,INE768C01028
