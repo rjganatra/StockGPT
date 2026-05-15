@@ -15,6 +15,12 @@ if not scan_file.exists():
 
 df = pd.read_csv(scan_file)
 
+if "scan_time" in df.columns:
+    last_scan_time = df["scan_time"].dropna().iloc[0]
+    st.caption(f"🕒 Last scanned on {last_scan_time}")
+else:
+    st.caption("🕒 Last scanned time unavailable")
+
 required_cols = [
     "symbol", "sector", "current_price", "day_change_pct",
     "distance_pct", "distance_from_high_pct",
