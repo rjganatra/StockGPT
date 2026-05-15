@@ -30,31 +30,292 @@ if missing:
 df = df.dropna(subset=["distance_pct", "rsi", "score"])
 
 # Sidebar filters
+# Sidebar filters
 st.sidebar.header("Filters")
 
-sector_options = ["All"] + sorted(df["sector"].dropna().unique().tolist())
+st.sidebar.caption("Use these filters to narrow opportunities without changing the underlying scan.")
 
-selected_sector = st.sidebar.selectbox("Sector", sector_options)
+# =========================
+# TEXT SEARCH
+# =========================
 
-max_distance = st.sidebar.slider("Max Distance From 52W Low %", 0, 100, 30)
-max_rsi = st.sidebar.slider("Max RSI", 0, 100, 60)
-min_score = st.sidebar.slider("Minimum Score", 0, 100, 0)
+search_symbol = st.sidebar.text_input(
+    "Search Symbol",
+    placeholder="Example: INFY, HDFCBANK, RELIANCE"
+)
+
+search_reason = st.sidebar.text_input(
+    "Search Reason",
+    placeholder="Example: RSI, 52W, volume"
+)
+
+# =========================
+# SECTOR FILTER
+# =========================
+
+sector_options = sorted(df["sector"].dropna().unique().tolist())
+
+selected_sectors = st.sidebar.multiselect(
+    "Sectors",
+    sector_options,
+    default=sector_options
+)
+
+# =========================
+# TREND FILTER
+# =========================
+
+trend_options = sorted(df["trend"].dropna().unique().tolist())
+
+selected_trends = st.sidebar.multiselect(
+    "Trend",
+    trend_options,
+    default=trend_options
+)
+
+# =========================
+# NUMERIC FILTERS
+# =========================
+
+distance_min, distance_max = st.sidebar.slider(
+    "Distance From 52W Low %",
+    min_value=0,
+    max_value=300,
+    value=(0, 100)
+)
+
+high_distance_min, high_distance_max = st.sidebar.slider(
+    "Distance From 52W High %",
+    min_value=0,
+    max_value=300,
+    value=(0, 100)
+)
+
+rsi_min, rsi_max = st.sidebar.slider(
+    "RSI Range",
+    min_value=0,
+    max_value=100,
+    value=(0, 100)
+)
+
+score_min, score_max = st.sidebar.slider(
+    "Score Range",
+    min_value=0,
+    max_value=100,
+    value=(0, 100)
+)
+
+volume_min, volume_max = st.sidebar.slider(
+    "Volume Ratio Range",
+    min_value=0.0,
+    max_value=10.0,
+    value=(0.0, 10.0),
+    step=0.1
+)
+
+day_change_min, day_change_max = st.sidebar.slider(
+    "Day Change %",
+    min_value=-20.0,
+    max_value=20.0,
+    value=(-20.0, 20.0),
+    step=0.1
+)
+
+price_min = float(df["current_price"].min())
+price_max = float(df["current_price"].max())
+
+selected_price_min, selected_price_max = st.sidebar.slider(
+    "Current Price Range",
+    min_value=float(round(price_min, 2)),
+    max_value=float(round(price_max, 2)),
+    value=(float(round(price_min, 2)), float(round(price_max, 2))),
+    step=1.0
+)
+
+# =========================
+# QUICK PRESETS
+# =========================
+
+st.sidebar.header("Quick Presets")
+
+preset = st.sidebar.selectbox(
+    "Preset Strategy",
+    [
+        "Custom",
+        "52W Low Opportunities",
+        "Oversold Bounce",
+        "Volume Spike",
+        "Bullish Trend",
+        "Near 52W High Momentum",
+        "Weak Sector Hunt",
+        "High Conviction"
+    ]
+)
 
 filtered = df.copy()
 
+# =========================
+# APPLY BASIC FILTERS
+# =========================
+
 filtered = filtered[
-    (filtered["distance_pct"] <= max_distance)
-    &
-    (filtered["rsi"] <= max_rsi)
-    &
-    (filtered["score"] >= min_score)
+    filtered["sector"].isin(selected_sectors)
 ]
 
-if selected_sector != "All":
-    filtered = filtered[filtered["sector"] == selected_sector]
+filtered = filtered[
+    filtered["trend"].isin(selected_trends)
+]
+
+filtered = filtered[
+    filtered["distance_pct"].between(distance_min, distance_max)
+]
+
+filtered = filtered[
+    filtered["distance_from_high_pct"].between(high_distance_min, high_distance_max)
+]
+
+filtered = filtered[
+    filtered["rsi"].between(rsi_min, rsi_max)
+]
+
+filtered = filtered[
+    filtered["score"].between(score_min, score_max)
+]
+
+filtered = filtered[
+    filtered["volume_ratio"].between(volume_min, volume_max)
+]
+
+filtered = filtered[
+    filtered["day_change_pct"].between(day_change_min, day_change_max)
+]
+
+filtered = filtered[
+    filtered["current_price"].between(selected_price_min, selected_price_max)
+]
+
+if search_symbol.strip():
+    filtered = filtered[
+        filtered["symbol"].str.contains(search_symbol.upper(), case=False, na=False)
+    ]
+
+if search_reason.strip():
+    filtered = filtered[
+        filtered["reasons"].astype(str).str.contains(search_reason, case=False, na=False)
+    ]
+
+# =========================
+# APPLY PRESETS
+# =========================
+
+if preset == "52W Low Opportunities":
+    filtered = filtered[
+        filtered["distance_pct"] < 15
+    ]
+
+elif preset == "Oversold Bounce":
+    filtered = filtered[
+        (filtered["distance_pct"] < 25)
+        &
+        (filtered["rsi"] < 45)
+    ]
+
+elif preset == "Volume Spike":
+    filtered = filtered[
+        filtered["volume_ratio"] > 1.3
+    ]
+
+elif preset == "Bullish Trend":
+    filtered = filtered[
+        filtered["trend"] == "Bullish"
+    ]
+
+elif preset == "Near 52W High Momentum":
+    filtered = filtered[
+        filtered["distance_from_high_pct"] < 15
+    ]
+
+elif preset == "Weak Sector Hunt":
+    filtered = filtered[
+        (filtered["rsi"] < 45)
+        &
+        (filtered["trend"] == "Bearish")
+    ]
+
+elif preset == "High Conviction":
+    filtered = filtered[
+        filtered["score"] >= 60
+    ]
+
+# =========================
+# ADVANCED QUERY TOOL
+# =========================
+
+st.sidebar.header("Advanced Query")
+
+st.sidebar.caption(
+    'Examples: sector == "Healthcare" and rsi > 70 | score >= 60 and volume_ratio > 1.5'
+)
+
+query_text = st.sidebar.text_area(
+    "Custom Query",
+    placeholder='sector == "Healthcare" and rsi > 70'
+)
+
+if query_text.strip():
+    try:
+        filtered = df.query(query_text)
+        st.sidebar.success("Custom query applied.")
+    except Exception as e:
+        st.sidebar.error(f"Invalid query: {e}")
+
+# =========================
+# SORTING
+# =========================
+
+st.sidebar.header("Sorting")
+
+sort_column = st.sidebar.selectbox(
+    "Sort By",
+    [
+        "score",
+        "distance_pct",
+        "rsi",
+        "volume_ratio",
+        "day_change_pct",
+        "distance_from_high_pct",
+        "current_price"
+    ]
+)
+
+sort_order = st.sidebar.radio(
+    "Sort Order",
+    ["Descending", "Ascending"]
+)
+
+filtered = filtered.sort_values(
+    sort_column,
+    ascending=(sort_order == "Ascending")
+)
+
+# =========================
+# RESULT LIMIT
+# =========================
+
+result_limit = st.sidebar.slider(
+    "Max Rows Displayed",
+    min_value=10,
+    max_value=500,
+    value=100,
+    step=10
+)
+
+filtered = filtered.head(result_limit)
+
+st.sidebar.metric("Results", len(filtered))
 
 if filtered.empty:
-    st.warning("No stocks match the selected filters.")
+    st.warning("No stocks match the selected filters. Try relaxing the sidebar filters or choose Preset Strategy = Custom.")
     st.stop()
 
 # Tabs
