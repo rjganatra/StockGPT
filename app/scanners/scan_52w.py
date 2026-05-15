@@ -3,6 +3,7 @@ import pandas as pd
 import ta
 from pathlib import Path
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 universe = pd.read_csv("data/universe/universe.csv")
 
@@ -11,7 +12,11 @@ sector_map = dict(zip(universe["symbol"], universe["sector"]))
 
 yf_symbols = [symbol + ".NS" for symbol in symbols]
 
-scan_time = datetime.now().strftime("%d.%m.%Y at %I:%M %p")
+from zoneinfo import ZoneInfo
+
+scan_time = datetime.now(
+    ZoneInfo("Asia/Kolkata")
+).strftime("%d.%m.%Y at %I:%M %p IST")
 
 print(f"Starting batch scan for {len(yf_symbols)} stocks")
 print(f"Scan time: {scan_time}")
