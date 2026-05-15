@@ -37,6 +37,12 @@ jobs:
       - name: Store Scan In Database
         run: python app/database/store_scan.py
 
+      - name: Send Telegram Alert
+        run: python app/telegram/send_alert.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
       - name: Commit Results
         run: |
           git config --global user.name "github-actions"
