@@ -1,31 +1,11 @@
-symbol,sector
-RELIANCE,Energy
-TCS,IT
-INFY,IT
-HDFCBANK,Banking
-ICICIBANK,Banking
-SBIN,Banking
-LT,Others
-ITC,Others
-KOTAKBANK,Others
-AXISBANK,Others
-ASIANPAINT,Others
-BAJFINANCE,Others
-MARUTI,Others
-TITAN,Others
-ULTRACEMCO,Others
-NESTLEIND,Others
-WIPRO,Others
-ONGC,Others
-NTPC,Others
-POWERGRID,Others
-BEL,Defence
-HAL,Defence
-TRENT,Others
-DMART,Others
-PIDILITIND,Others
-SUNPHARMA,Others
-ADANIPORTS,Others
-ADANIENT,Others
-COALINDIA,Others
-TATASTEEL,Others
+symbol,sector,company_name,series,isin
+RELIANCE,Oil Gas & Consumable Fuels,Reliance Industries Ltd.,EQ,
+TCS,Information Technology,Tata Consultancy Services Ltd.,EQ,
+INFY,Information Technology,Infosys Ltd.,EQ,
+HDFCBANK,Financial Services,HDFC Bank Ltd.,EQ,
+ICICIBANK,Financial Services,ICICI Bank Ltd.,EQ,
+SBIN,Financial Services,State Bank of India,EQ,
+LT,Construction,Larsen & Toubro Ltd.,EQ,
+ITC,Fast Moving Consumer Goods,ITC Ltd.,EQ,
+KOTAKBANK,Financial Services,Kotak Mahindra Bank Ltd.,EQ,
+AXISBANK,Financial Services,Axis Bank Ltd.,EQ,
