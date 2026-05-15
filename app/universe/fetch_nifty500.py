@@ -5,49 +5,76 @@ from io import StringIO
 
 OUTPUT_FILE = "data/universe/universe.csv"
 
-NIFTY_500_URL = "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv"
+NSE_EQUITY_URL = "https://archives.nseindia.com/content/equities/EQUITY_L.csv"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
     "Accept": "text/csv,application/csv,text/plain,*/*",
-    "Referer": "https://www.niftyindices.com/",
+    "Referer": "https://www.nseindia.com/",
 }
 
 Path("data/universe").mkdir(parents=True, exist_ok=True)
 
 
-def normalize_columns(df):
-    df.columns = [str(col).strip() for col in df.columns]
+def fetch_nse_eq_universe():
+    response = requests.get(
+        NSE_EQUITY_URL,
+        headers=HEADERS,
+        timeout=30
+    )
+
+    response.raise_for_status()
+
+    text = response.text.strip()
+
+    if "SYMBOL" not in text.upper():
+        raise ValueError("Downloaded file does not look like NSE equity list")
+
+    df = pd.read_csv(StringIO(text))
+
+    df.columns = [str(col).strip().upper() for col in df.columns]
+
+    # Common NSE columns:
+    # SYMBOL, NAME OF COMPANY, SERIES, DATE OF LISTING, PAID UP VALUE, MARKET LOT, ISIN NUMBER, FACE VALUE
 
     rename_map = {
-        "Company Name": "company_name",
-        "Industry": "sector",
-        "Symbol": "symbol",
-        "Series": "series",
-        "ISIN Code": "isin",
+        "SYMBOL": "symbol",
+        "NAME OF COMPANY": "company_name",
+        "SERIES": "series",
+        "DATE OF LISTING": "listing_date",
+        "ISIN NUMBER": "isin",
+        "FACE VALUE": "face_value",
     }
 
     df = df.rename(columns=rename_map)
 
-    required = ["symbol", "sector"]
+    required_cols = ["symbol", "series"]
 
-    for col in required:
+    for col in required_cols:
         if col not in df.columns:
-            raise ValueError(f"Missing required column: {col}")
+            raise ValueError(f"Missing required NSE column: {col}")
 
-    if "company_name" not in df.columns:
-        df["company_name"] = ""
-
-    if "series" not in df.columns:
-        df["series"] = "EQ"
-
-    if "isin" not in df.columns:
-        df["isin"] = ""
-
-    df = df[["symbol", "sector", "company_name", "series", "isin"]]
+    # Only normal mainboard equity
+    df = df[df["series"].astype(str).str.upper().str.strip() == "EQ"]
 
     df["symbol"] = df["symbol"].astype(str).str.strip()
-    df["sector"] = df["sector"].astype(str).str.strip()
+    df["company_name"] = df.get("company_name", "").astype(str).str.strip()
+    df["isin"] = df.get("isin", "").astype(str).str.strip()
+
+    # NSE equity list does not always provide clean sector.
+    # Scanner/dashboard can still work with sector = Unknown.
+    # Later we can enrich sectors from NSE/Nifty index lists or yfinance.
+    df["sector"] = "Unknown"
+
+    df = df[
+        [
+            "symbol",
+            "sector",
+            "company_name",
+            "series",
+            "isin"
+        ]
+    ]
 
     df = df.dropna(subset=["symbol"])
     df = df[df["symbol"] != ""]
@@ -56,100 +83,41 @@ def normalize_columns(df):
     return df
 
 
-def fetch_from_niftyindices():
-    response = requests.get(
-        NIFTY_500_URL,
-        headers=HEADERS,
-        timeout=30,
-    )
-
-    response.raise_for_status()
-
-    text = response.text.strip()
-
-    if "Symbol" not in text:
-        raise ValueError("Downloaded file does not look like Nifty 500 CSV")
-
-    df = pd.read_csv(StringIO(text))
-
-    return normalize_columns(df)
-
-
 def fallback_universe():
     symbols = [
-        "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", "SBIN", "LT", "ITC",
-        "KOTAKBANK", "AXISBANK", "BHARTIARTL", "BAJFINANCE", "ASIANPAINT",
-        "MARUTI", "TITAN", "SUNPHARMA", "ULTRACEMCO", "NTPC", "POWERGRID",
-        "ONGC", "COALINDIA", "TATASTEEL", "HINDALCO", "JSWSTEEL", "M&M",
-        "TATAMOTORS", "BAJAJFINSV", "HCLTECH", "WIPRO", "TECHM", "LTIM",
-        "ADANIENT", "ADANIPORTS", "GRASIM", "CIPLA", "DRREDDY", "DIVISLAB",
-        "APOLLOHOSP", "EICHERMOT", "HEROMOTOCO", "BAJAJ-AUTO", "BRITANNIA",
-        "NESTLEIND", "HINDUNILVR", "TATACONSUM", "PIDILITIND", "DMART",
-        "TRENT", "BEL", "HAL", "BHEL", "IRCTC", "INDIGO", "DLF", "LODHA",
-        "GODREJPROP", "SBILIFE", "HDFCLIFE", "ICICIPRULI", "ICICIGI",
-        "CHOLAFIN", "MUTHOOTFIN", "RECLTD", "PFC", "CANBK", "BANKBARODA",
-        "PNB", "FEDERALBNK", "IDFCFIRSTB", "AUBANK", "BANDHANBNK",
-        "JINDALSTEL", "SAIL", "NMDC", "VEDL", "HINDZINC", "TATAPOWER",
-        "ADANIGREEN", "ADANIPOWER", "IOC", "BPCL", "HINDPETRO", "GAIL",
-        "PETRONET", "IGL", "MGL", "TATACHEM", "UPL", "PIIND", "SRF",
-        "DEEPAKNTR", "AARTIIND", "DIXON", "VOLTAS", "BLUESTARCO",
-        "CROMPTON", "HAVELLS", "POLYCAB", "ABB", "SIEMENS", "CUMMINSIND",
-        "ASHOKLEY", "TVSMOTOR", "BOSCHLTD", "MRF", "BALKRISIND",
-        "PAGEIND", "NYKAA", "ZOMATO", "PAYTM", "NAUKRI", "POLICYBZR",
-        "YESBANK", "UNIONBANK", "INDUSINDBK", "RBLBANK", "BSE", "CDSL",
-        "MCX", "IEX", "IRFC", "RVNL", "IRCON", "CONCOR", "GMRINFRA",
-        "ADANITRANS", "NHPC", "SJVN", "TORNTPOWER", "JSWENERGY",
-        "MAXHEALTH", "FORTIS", "LUPIN", "AUROPHARMA", "ALKEM", "BIOCON",
-        "LAURUSLABS", "GLENMARK", "MANKIND", "IPCALAB", "OBEROIRLTY",
-        "PHOENIXLTD", "PRESTIGE", "TATACOMM", "BHARATFORG", "MOTHERSON",
-        "SONACOMS", "SUPREMEIND", "ASTRAL", "KEI", "KPITTECH", "COFORGE",
-        "MPHASIS", "PERSISTENT", "OFSS", "LTTS"
+        "RELIANCE", "TCS", "INFY", "HDFCBANK", "ICICIBANK", "SBIN",
+        "LT", "ITC", "KOTAKBANK", "AXISBANK", "BHARTIARTL",
+        "BAJFINANCE", "ASIANPAINT", "MARUTI", "TITAN",
+        "SUNPHARMA", "ULTRACEMCO", "NTPC", "POWERGRID",
+        "ONGC", "COALINDIA", "TATASTEEL", "HINDALCO", "JSWSTEEL",
+        "M&M", "TATAMOTORS", "BAJAJFINSV", "HCLTECH", "WIPRO",
+        "TECHM", "ADANIENT", "ADANIPORTS", "BEL", "HAL",
+        "MTARTECH", "DATAPATTNS", "ZENTEC", "KAYNES", "CYIENTDLM",
+        "BLS", "DIXON", "ZOMATO", "BSE", "CDSL", "MCX", "IEX"
     ]
 
-    sector_map = {
-        "RELIANCE": "Oil Gas & Consumable Fuels",
-        "TCS": "Information Technology",
-        "INFY": "Information Technology",
-        "HDFCBANK": "Financial Services",
-        "ICICIBANK": "Financial Services",
-        "SBIN": "Financial Services",
-        "AXISBANK": "Financial Services",
-        "KOTAKBANK": "Financial Services",
-        "BEL": "Capital Goods",
-        "HAL": "Capital Goods",
-        "SUNPHARMA": "Healthcare",
-        "CIPLA": "Healthcare",
-        "TATASTEEL": "Metals & Mining",
-        "TATAMOTORS": "Automobile and Auto Components",
-        "MARUTI": "Automobile and Auto Components",
-        "M&M": "Automobile and Auto Components",
-        "ZOMATO": "Consumer Services",
-    }
-
-    df = pd.DataFrame({
+    return pd.DataFrame({
         "symbol": symbols,
-        "sector": [sector_map.get(symbol, "Others") for symbol in symbols],
+        "sector": "Unknown",
         "company_name": symbols,
         "series": "EQ",
-        "isin": "",
+        "isin": ""
     })
-
-    return df
 
 
 try:
-    universe = fetch_from_niftyindices()
+    universe = fetch_nse_eq_universe()
 
-    if len(universe) < 400:
-        raise ValueError(f"Fetched only {len(universe)} rows, expected around 500")
+    if len(universe) < 800:
+        raise ValueError(f"Fetched only {len(universe)} EQ stocks, expected broader universe")
 
     universe.to_csv(OUTPUT_FILE, index=False)
 
-    print(f"Nifty 500 universe updated: {len(universe)} stocks")
+    print(f"NSE EQ universe updated: {len(universe)} stocks")
 
 except Exception as error:
-    print(f"Nifty 500 fetch failed: {error}")
-    print("Using expanded fallback universe instead.")
+    print(f"NSE EQ universe fetch failed: {error}")
+    print("Using fallback universe.")
 
     universe = fallback_universe()
     universe.to_csv(OUTPUT_FILE, index=False)
