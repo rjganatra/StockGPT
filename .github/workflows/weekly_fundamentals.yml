@@ -30,6 +30,9 @@ jobs:
       - name: Fetch Fundamentals
         run: python app/fundamentals/fetch_fundamentals.py
 
+      - name: Enrich Sector Industry Map
+        run: python app/universe/enrich_sectors.py
+
       - name: Score Fundamentals
         run: python app/fundamentals/fundamental_score.py
 
