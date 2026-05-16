@@ -554,7 +554,6 @@ with tab2:
 
     st.plotly_chart(move_fig, use_container_width=True)
 
-
 # =========================
 # TAB 3 — OPPORTUNITIES
 # =========================
@@ -562,47 +561,76 @@ with tab2:
 with tab3:
     st.header("🎯 52W Low Opportunities")
 
-    low_df = filtered.sort_values(
+    low_opportunities = filtered[
+        filtered["distance_pct"] <= 15
+    ].sort_values(
         ["distance_pct", "score"],
         ascending=[True, False]
     )
 
-    st.dataframe(
-        low_df[
-            [
-                "symbol",
-                "sector",
-                "current_price",
-                "day_change_pct",
-                "52w_low",
-                "distance_pct",
-                "rsi",
-                "volume_ratio",
-                "trend",
-                "score",
-                "reasons"
-            ]
-        ],
-        use_container_width=True
-    )
+    if low_opportunities.empty:
+        st.info("No stocks currently qualify as 52W Low Opportunities under the active filters.")
+    else:
+        st.dataframe(
+            low_opportunities[
+                [
+                    "symbol",
+                    "sector",
+                    "current_price",
+                    "day_change_pct",
+                    "52w_low",
+                    "distance_pct",
+                    "rsi",
+                    "volume_ratio",
+                    "trend",
+                    "score",
+                    "reasons"
+                ]
+            ],
+            use_container_width=True
+        )
 
     st.header("⚡ Swing Candidates")
 
     swing = filtered[
-        (filtered["distance_pct"] < 20)
+        (filtered["distance_pct"] <= 25)
         &
-        (filtered["rsi"] < 45)
-    ].sort_values("score", ascending=False)
+        (filtered["rsi"] <= 45)
+        &
+        (filtered["volume_ratio"] >= 1.0)
+    ].sort_values(
+        "score",
+        ascending=False
+    )
 
-    st.dataframe(swing, use_container_width=True)
+    if swing.empty:
+        st.info("No stocks currently qualify as Swing Candidates under the active filters.")
+    else:
+        st.dataframe(
+            swing,
+            use_container_width=True
+        )
 
     st.header("🚀 Near 52W High Momentum")
 
     high_momentum = filtered[
-        filtered["distance_from_high_pct"] < 15
-    ].sort_values("distance_from_high_pct")
+        (filtered["distance_from_high_pct"] <= 15)
+        &
+        (filtered["rsi"] >= 50)
+        &
+        (filtered["trend"] == "Bullish")
+    ].sort_values(
+        ["distance_from_high_pct", "score"],
+        ascending=[True, False]
+    )
 
-    st.dataframe(high_momentum, use_container_width=True)
+    if high_momentum.empty:
+        st.info("No stocks currently qualify as Near 52W High Momentum under the active filters.")
+    else:
+        st.dataframe(
+            high_momentum,
+            use_container_width=True
+        )
 
 
 # =========================
