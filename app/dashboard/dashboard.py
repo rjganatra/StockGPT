@@ -753,14 +753,15 @@ if filtered.empty:
 # TABS
 # =========================
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
     "Sectors",
     "Stock Explorer",
     "History",
-    "Watchlist"
+    "Watchlist",
+    "Fundamentals"
 ])
 
 
@@ -1256,3 +1257,93 @@ with tab7:
                         st.rerun()
     else:
         st.info("Enter access key to remove stocks.")
+
+# =========================
+# TAB 8 — FUNDAMENTALS
+# =========================
+
+with tab8:
+    st.header("📚 Fundamentals")
+
+    st.warning(
+        "Note: Current fundamentals are placeholder/scaffold values. "
+        "Use this tab to confirm pipeline integration. Real ROE, ROCE, Debt/Equity, "
+        "Sales Growth, EPS Growth, CFO, and margin data will be added in the next upgrade."
+    )
+
+    fundamentals_file = Path("data/fundamentals/fundamental_scores.csv")
+
+    if not fundamentals_file.exists():
+        st.warning("Fundamentals file not found. Run weekly_fundamentals.yml first.")
+    else:
+        fundamentals_df = pd.read_csv(fundamentals_file)
+
+        if fundamentals_df.empty:
+            st.warning("Fundamentals file exists but has no rows.")
+        else:
+            st.subheader("Fundamental Score Table")
+
+            st.dataframe(
+                fundamentals_df.sort_values(
+                    "conviction_score",
+                    ascending=False
+                ),
+                use_container_width=True
+            )
+
+            st.subheader("Top Fundamental Scores")
+
+            top_fundamentals = fundamentals_df.sort_values(
+                "conviction_score",
+                ascending=False
+            ).head(25)
+
+            st.dataframe(
+                top_fundamentals,
+                use_container_width=True
+            )
+
+            st.subheader("Technical + Fundamental Combined View")
+
+            if "symbol" in fundamentals_df.columns and "symbol" in df.columns:
+                merged_df = df.merge(
+                    fundamentals_df,
+                    on="symbol",
+                    how="left",
+                    suffixes=("", "_fundamental")
+                )
+
+                # Use available score columns safely
+                if "conviction_score" in merged_df.columns:
+                    merged_df["combined_score"] = (
+                        merged_df["score"].fillna(0) * 0.6
+                        +
+                        merged_df["conviction_score"].fillna(0) * 0.4
+                    )
+                else:
+                    merged_df["combined_score"] = merged_df["score"].fillna(0)
+
+                st.dataframe(
+                    merged_df.sort_values(
+                        "combined_score",
+                        ascending=False
+                    ),
+                    use_container_width=True
+                )
+
+                st.subheader("Best Combined Candidates")
+
+                best_combined = merged_df[
+                    merged_df["conviction_score"].notna()
+                ].sort_values(
+                    "combined_score",
+                    ascending=False
+                ).head(25)
+
+                st.dataframe(
+                    best_combined,
+                    use_container_width=True
+                )
+
+            else:
+                st.warning("Could not merge fundamentals with scan data because symbol column is missing.")
