@@ -320,25 +320,26 @@ for symbol in retry_symbols:
             reasons.append("Above 200 DMA")
 
         results.append({
-            "scan_time": scan_time,
-            "symbol": symbol,
-            "sector": sector_map.get(symbol, "Unknown"),
-            "current_price": round(current_price, 2),
-            "day_change_pct": round(day_change_pct, 2),
-            "52w_low": round(low_52, 2),
-            "52w_high": round(high_52, 2),
-            "distance_pct": round(distance_pct, 2),
-            "distance_from_high_pct": round(distance_from_high_pct, 2),
-            "rsi": round(rsi, 2),
-            "sma50": round(sma50, 2),
-            "sma200": round(sma200, 2) if sma200 else None,
-            "avg_volume_20": round(avg_volume_20, 2),
-            "latest_volume": round(latest_volume, 2),
-            "volume_ratio": round(volume_ratio, 2),
-            "trend": trend,
-            "score": score,
-            "reasons": ", ".join(reasons)
-        })
+    "scan_time": scan_time,
+    "symbol": symbol,
+    "sector": sector_map.get(symbol, "Unknown"),
+    "industry": industry_map.get(symbol, "Unknown"),
+    "current_price": round(current_price, 2),
+    "day_change_pct": round(day_change_pct, 2),
+    "52w_low": round(low_52, 2),
+    "52w_high": round(high_52, 2),
+    "distance_pct": round(distance_pct, 2),
+    "distance_from_high_pct": round(distance_from_high_pct, 2),
+    "rsi": round(rsi, 2),
+    "sma50": round(sma50, 2),
+    "sma200": round(sma200, 2) if sma200 else None,
+    "avg_volume_20": round(avg_volume_20, 2),
+    "latest_volume": round(latest_volume, 2),
+    "volume_ratio": round(volume_ratio, 2),
+    "trend": trend,
+    "score": score,
+    "reasons": ", ".join(reasons)
+})
 
     except Exception as e:
         print(f"Important retry failed for {symbol}: {e}")
