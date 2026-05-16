@@ -475,13 +475,14 @@ if filtered.empty:
 # TABS
 # =========================
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
     "Sectors",
     "Stock Explorer",
-    "History"
+    "History",
+    "Watchlist"
 ])
 
 
@@ -770,3 +771,103 @@ with tab6:
                 st.dataframe(hist_df, use_container_width=True)
             else:
                 st.warning("Snapshot file missing.")
+
+# =========================
+# TAB 7 — WATCHLIST
+# =========================
+
+with tab7:
+    st.header("⭐ Watchlist")
+
+    st.caption(
+        "The watchlist is visible to everyone, but editing requires an access key."
+    )
+
+    # Default public watchlist
+    default_watchlist = [
+        "RELIANCE",
+        "TCS",
+        "INFY",
+        "HDFCBANK",
+        "MTARTECH"
+    ]
+
+    # Initialize watchlist in session
+    if "watchlist_symbols" not in st.session_state:
+        st.session_state["watchlist_symbols"] = default_watchlist
+
+    # Show current watchlist
+    watchlist_symbols = st.session_state["watchlist_symbols"]
+
+    watch_df = df[
+        df["symbol"].astype(str).str.upper().isin(watchlist_symbols)
+    ]
+
+    st.subheader("Current Watchlist")
+
+    if watch_df.empty:
+        st.warning("No watchlist stocks found in the latest scan.")
+    else:
+        st.dataframe(
+            watch_df.sort_values("score", ascending=False),
+            use_container_width=True
+        )
+
+    # Summary
+    if not watch_df.empty:
+        col1, col2, col3, col4 = st.columns(4)
+
+        col1.metric("Stocks Found", len(watch_df))
+        col2.metric("Avg RSI", round(watch_df["rsi"].mean(), 2))
+        col3.metric("Avg Score", round(watch_df["score"].mean(), 2))
+        col4.metric(
+            "Near 52W Low",
+            len(watch_df[watch_df["distance_pct"] < 15])
+        )
+
+    st.divider()
+
+    st.subheader("Edit Watchlist")
+
+    entered_key = st.text_input(
+        "Enter access key to edit watchlist",
+        type="password"
+    )
+
+    try:
+        correct_key = st.secrets["WATCHLIST_SECRET"]
+    except Exception:
+        correct_key = ""
+
+    if entered_key and entered_key == correct_key:
+
+        st.success("Access granted. You can edit the watchlist.")
+
+        current_text = ", ".join(watchlist_symbols)
+
+        updated_watchlist_text = st.text_area(
+            "Enter symbols separated by commas",
+            value=current_text,
+            placeholder="Example: RELIANCE, INFY, MTARTECH, IDEAFORGE"
+        )
+
+        if st.button("Save Watchlist"):
+
+            updated_symbols = [
+                symbol.strip().upper()
+                for symbol in updated_watchlist_text.split(",")
+                if symbol.strip()
+            ]
+
+            st.session_state["watchlist_symbols"] = updated_symbols
+
+            st.success("Watchlist updated for your current session.")
+            st.rerun()
+
+    elif entered_key:
+
+        st.error("Incorrect access key.")
+
+    else:
+
+        st.info("Enter access key to modify the watchlist.")
