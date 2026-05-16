@@ -22,9 +22,17 @@ else:
     st.caption("🕒 Last scanned time unavailable")
 
 required_cols = [
-    "symbol", "sector", "current_price", "day_change_pct",
-    "distance_pct", "distance_from_high_pct",
-    "rsi", "volume_ratio", "trend", "score", "reasons"
+    "symbol",
+    "sector",
+    "current_price",
+    "day_change_pct",
+    "distance_pct",
+    "distance_from_high_pct",
+    "rsi",
+    "volume_ratio",
+    "trend",
+    "score",
+    "reasons"
 ]
 
 missing = [col for col in required_cols if col not in df.columns]
@@ -35,296 +43,114 @@ if missing:
 
 df = df.dropna(subset=["distance_pct", "rsi", "score"])
 
-# Sidebar filters
-# Sidebar filters
+# =========================
+# SIDEBAR FILTERS
+# =========================
+
 st.sidebar.header("Filters")
 
-st.sidebar.caption("Use these filters to narrow opportunities without changing the underlying scan.")
+reset_filters = st.sidebar.button("Reset All Filters")
 
-# =========================
-# TEXT SEARCH
-# =========================
+if reset_filters:
+    st.session_state["search_symbol"] = ""
+    st.session_state["selected_sector"] = "All"
+    st.session_state["max_distance"] = 300
+    st.session_state["max_rsi"] = 100
+    st.session_state["min_score"] = 0
+    st.rerun()
 
 search_symbol = st.sidebar.text_input(
     "Search Symbol",
-    placeholder="Example: INFY, HDFCBANK, RELIANCE"
+    value=st.session_state.get("search_symbol", ""),
+    placeholder="Example: IDEA, IDEAFORGE, INFY",
+    key="search_symbol"
 )
 
-search_reason = st.sidebar.text_input(
-    "Search Reason",
-    placeholder="Example: RSI, 52W, volume"
-)
+sector_options = ["All"] + sorted(df["sector"].dropna().unique().tolist())
 
-# =========================
-# SECTOR FILTER
-# =========================
-
-sector_options = sorted(df["sector"].dropna().unique().tolist())
-
-selected_sectors = st.sidebar.multiselect(
-    "Sectors",
+selected_sector = st.sidebar.selectbox(
+    "Sector",
     sector_options,
-    default=sector_options
+    index=sector_options.index(
+        st.session_state.get("selected_sector", "All")
+    ) if st.session_state.get("selected_sector", "All") in sector_options else 0,
+    key="selected_sector"
 )
 
-# =========================
-# TREND FILTER
-# =========================
-
-trend_options = sorted(df["trend"].dropna().unique().tolist())
-
-selected_trends = st.sidebar.multiselect(
-    "Trend",
-    trend_options,
-    default=trend_options
+max_distance = st.sidebar.slider(
+    "Max Distance From 52W Low %",
+    0,
+    300,
+    st.session_state.get("max_distance", 300),
+    key="max_distance"
 )
 
-# =========================
-# NUMERIC FILTERS
-# =========================
-
-distance_min, distance_max = st.sidebar.slider(
-    "Distance From 52W Low %",
-    min_value=0,
-    max_value=300,
-    value=(0, 100)
+max_rsi = st.sidebar.slider(
+    "Max RSI",
+    0,
+    100,
+    st.session_state.get("max_rsi", 100),
+    key="max_rsi"
 )
 
-high_distance_min, high_distance_max = st.sidebar.slider(
-    "Distance From 52W High %",
-    min_value=0,
-    max_value=300,
-    value=(0, 100)
-)
-
-rsi_min, rsi_max = st.sidebar.slider(
-    "RSI Range",
-    min_value=0,
-    max_value=100,
-    value=(0, 100)
-)
-
-score_min, score_max = st.sidebar.slider(
-    "Score Range",
-    min_value=0,
-    max_value=100,
-    value=(0, 100)
-)
-
-volume_min, volume_max = st.sidebar.slider(
-    "Volume Ratio Range",
-    min_value=0.0,
-    max_value=10.0,
-    value=(0.0, 10.0),
-    step=0.1
-)
-
-day_change_min, day_change_max = st.sidebar.slider(
-    "Day Change %",
-    min_value=-20.0,
-    max_value=20.0,
-    value=(-20.0, 20.0),
-    step=0.1
-)
-
-price_min = float(df["current_price"].min())
-price_max = float(df["current_price"].max())
-
-selected_price_min, selected_price_max = st.sidebar.slider(
-    "Current Price Range",
-    min_value=float(round(price_min, 2)),
-    max_value=float(round(price_max, 2)),
-    value=(float(round(price_min, 2)), float(round(price_max, 2))),
-    step=1.0
-)
-
-# =========================
-# QUICK PRESETS
-# =========================
-
-st.sidebar.header("Quick Presets")
-
-preset = st.sidebar.selectbox(
-    "Preset Strategy",
-    [
-        "Custom",
-        "52W Low Opportunities",
-        "Oversold Bounce",
-        "Volume Spike",
-        "Bullish Trend",
-        "Near 52W High Momentum",
-        "Weak Sector Hunt",
-        "High Conviction"
-    ]
+min_score = st.sidebar.slider(
+    "Minimum Score",
+    0,
+    100,
+    st.session_state.get("min_score", 0),
+    key="min_score"
 )
 
 filtered = df.copy()
 
-# =========================
-# APPLY BASIC FILTERS
-# =========================
-
-filtered = filtered[
-    filtered["sector"].isin(selected_sectors)
-]
-
-filtered = filtered[
-    filtered["trend"].isin(selected_trends)
-]
-
-filtered = filtered[
-    filtered["distance_pct"].between(distance_min, distance_max)
-]
-
-filtered = filtered[
-    filtered["distance_from_high_pct"].between(high_distance_min, high_distance_max)
-]
-
-filtered = filtered[
-    filtered["rsi"].between(rsi_min, rsi_max)
-]
-
-filtered = filtered[
-    filtered["score"].between(score_min, score_max)
-]
-
-filtered = filtered[
-    filtered["volume_ratio"].between(volume_min, volume_max)
-]
-
-filtered = filtered[
-    filtered["day_change_pct"].between(day_change_min, day_change_max)
-]
-
-filtered = filtered[
-    filtered["current_price"].between(selected_price_min, selected_price_max)
-]
-
+# Search should override strict filters
 if search_symbol.strip():
-    filtered = filtered[
-        filtered["symbol"].str.contains(search_symbol.upper(), case=False, na=False)
+    filtered = df[
+        df["symbol"].astype(str).str.contains(
+            search_symbol.upper(),
+            case=False,
+            na=False
+        )
     ]
-
-if search_reason.strip():
+else:
     filtered = filtered[
-        filtered["reasons"].astype(str).str.contains(search_reason, case=False, na=False)
-    ]
-
-# =========================
-# APPLY PRESETS
-# =========================
-
-if preset == "52W Low Opportunities":
-    filtered = filtered[
-        filtered["distance_pct"] < 15
-    ]
-
-elif preset == "Oversold Bounce":
-    filtered = filtered[
-        (filtered["distance_pct"] < 25)
+        (filtered["distance_pct"] <= max_distance)
         &
-        (filtered["rsi"] < 45)
-    ]
-
-elif preset == "Volume Spike":
-    filtered = filtered[
-        filtered["volume_ratio"] > 1.3
-    ]
-
-elif preset == "Bullish Trend":
-    filtered = filtered[
-        filtered["trend"] == "Bullish"
-    ]
-
-elif preset == "Near 52W High Momentum":
-    filtered = filtered[
-        filtered["distance_from_high_pct"] < 15
-    ]
-
-elif preset == "Weak Sector Hunt":
-    filtered = filtered[
-        (filtered["rsi"] < 45)
+        (filtered["rsi"] <= max_rsi)
         &
-        (filtered["trend"] == "Bearish")
+        (filtered["score"] >= min_score)
     ]
 
-elif preset == "High Conviction":
-    filtered = filtered[
-        filtered["score"] >= 60
-    ]
-
-# =========================
-# ADVANCED QUERY TOOL
-# =========================
-
-st.sidebar.header("Advanced Query")
-
-st.sidebar.caption(
-    'Examples: sector == "Healthcare" and rsi > 70 | score >= 60 and volume_ratio > 1.5'
-)
-
-query_text = st.sidebar.text_area(
-    "Custom Query",
-    placeholder='sector == "Healthcare" and rsi > 70'
-)
-
-if query_text.strip():
-    try:
-        filtered = df.query(query_text)
-        st.sidebar.success("Custom query applied.")
-    except Exception as e:
-        st.sidebar.error(f"Invalid query: {e}")
-
-# =========================
-# SORTING
-# =========================
-
-st.sidebar.header("Sorting")
-
-sort_column = st.sidebar.selectbox(
-    "Sort By",
-    [
-        "score",
-        "distance_pct",
-        "rsi",
-        "volume_ratio",
-        "day_change_pct",
-        "distance_from_high_pct",
-        "current_price"
-    ]
-)
-
-sort_order = st.sidebar.radio(
-    "Sort Order",
-    ["Descending", "Ascending"]
-)
-
-filtered = filtered.sort_values(
-    sort_column,
-    ascending=(sort_order == "Ascending")
-)
-
-# =========================
-# RESULT LIMIT
-# =========================
-
-result_limit = st.sidebar.slider(
-    "Max Rows Displayed",
-    min_value=10,
-    max_value=500,
-    value=100,
-    step=10
-)
-
-filtered = filtered.head(result_limit)
-
-st.sidebar.metric("Results", len(filtered))
+    if selected_sector != "All":
+        filtered = filtered[
+            filtered["sector"] == selected_sector
+        ]
 
 if filtered.empty:
-    st.warning("No stocks match the selected filters. Try relaxing the sidebar filters or choose Preset Strategy = Custom.")
+    st.warning("No stocks meet the strict criteria.")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("Reset Filters"):
+            st.session_state["search_symbol"] = ""
+            st.session_state["selected_sector"] = "All"
+            st.session_state["max_distance"] = 300
+            st.session_state["max_rsi"] = 100
+            st.session_state["min_score"] = 0
+            st.rerun()
+
+    with col2:
+        st.info(
+            "Try searching another stock like IDEA, IDEAFORGE, INFY, MTARTECH."
+        )
+
     st.stop()
 
-# Tabs
+# =========================
+# TABS
+# =========================
+
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "Market Overview",
     "Heatmap",
@@ -333,6 +159,10 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "Stock Explorer",
     "History"
 ])
+
+# =========================
+# TAB 1 — MARKET OVERVIEW
+# =========================
 
 with tab1:
     st.header("📊 Market Overview")
@@ -358,13 +188,24 @@ with tab1:
         use_container_width=True
     )
 
+# =========================
+# TAB 2 — HEATMAP
+# =========================
+
 with tab2:
     st.header("🔥 Market Heatmap")
 
+    heatmap_df = filtered.copy()
+
+    # Prevent score=0 stocks from disappearing in treemap
+    heatmap_df["heatmap_size"] = heatmap_df["score"].apply(
+        lambda x: max(float(x), 1)
+    )
+
     fig = px.treemap(
-        filtered,
+        heatmap_df,
         path=["sector", "symbol"],
-        values="score",
+        values="heatmap_size",
         color="distance_pct",
         hover_data=[
             "current_price",
@@ -378,17 +219,32 @@ with tab2:
 
     st.plotly_chart(fig, use_container_width=True)
 
+# =========================
+# TAB 3 — OPPORTUNITIES
+# =========================
+
 with tab3:
     st.header("🎯 52W Low Opportunities")
 
-    low_df = filtered.sort_values(["distance_pct", "score"], ascending=[True, False])
+    low_df = filtered.sort_values(
+        ["distance_pct", "score"],
+        ascending=[True, False]
+    )
 
     st.dataframe(
         low_df[
             [
-                "symbol", "sector", "current_price", "day_change_pct",
-                "52w_low", "distance_pct", "rsi", "volume_ratio",
-                "trend", "score", "reasons"
+                "symbol",
+                "sector",
+                "current_price",
+                "day_change_pct",
+                "52w_low",
+                "distance_pct",
+                "rsi",
+                "volume_ratio",
+                "trend",
+                "score",
+                "reasons"
             ]
         ],
         use_container_width=True
@@ -406,16 +262,20 @@ with tab3:
 
     st.header("🚀 Near 52W High Momentum")
 
-    high_momentum = df[
-        df["distance_from_high_pct"] < 15
+    high_momentum = filtered[
+        filtered["distance_from_high_pct"] < 15
     ].sort_values("distance_from_high_pct")
 
     st.dataframe(high_momentum, use_container_width=True)
 
+# =========================
+# TAB 4 — SECTORS
+# =========================
+
 with tab4:
     st.header("🏭 Sector Overview")
 
-    sector_df = df.groupby("sector").agg(
+    sector_df = filtered.groupby("sector").agg(
         stocks=("symbol", "count"),
         avg_score=("score", "mean"),
         avg_rsi=("rsi", "mean"),
@@ -454,6 +314,10 @@ with tab4:
         )
         st.plotly_chart(fig_sector_rsi, use_container_width=True)
 
+# =========================
+# TAB 5 — STOCK EXPLORER
+# =========================
+
 with tab5:
     st.header("🔍 Stock Explorer")
 
@@ -477,7 +341,16 @@ with tab5:
 
     st.subheader("Reason Engine")
 
-    st.info(stock["reasons"] if stock["reasons"] else "No strong reason generated yet.")
+    reason_value = stock["reasons"]
+
+    if pd.isna(reason_value) or str(reason_value).strip() == "":
+        st.info("No strong reason generated yet.")
+    else:
+        st.info(reason_value)
+
+# =========================
+# TAB 6 — HISTORY
+# =========================
 
 with tab6:
     st.header("🕰 Historical Snapshots")
@@ -504,3 +377,17 @@ with tab6:
                 st.dataframe(hist_df, use_container_width=True)
             else:
                 st.warning("Snapshot file missing.")
+
+# =========================
+# FAILED SYMBOLS
+# =========================
+
+failed_file = Path("data/scans/failed_symbols.csv")
+
+if failed_file.exists():
+    failed_df = pd.read_csv(failed_file)
+
+    st.sidebar.metric("Failed Symbols", len(failed_df))
+
+    with st.sidebar.expander("View Failed Symbols"):
+        st.dataframe(failed_df, use_container_width=True)
