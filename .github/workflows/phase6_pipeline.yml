@@ -32,6 +32,9 @@ jobs:
       - name: Run Scanner
         run: python app/scanners/scan_52w.py
 
+      - name: Enrich Latest Scan With Sector Industry
+        run: python app/universe/enrich_sectors.py
+
       - name: Save History
         run: python app/history/history_engine.py
 
