@@ -461,9 +461,7 @@ if filtered.empty:
 
     with col1:
         if st.button("Reset Filters"):
-            for key in list(st.session_state.keys()):
-                del st.session_state[key]
-            st.rerun()
+            reset_all_filters()
 
     with col2:
         st.info(
