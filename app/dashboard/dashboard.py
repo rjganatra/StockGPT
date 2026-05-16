@@ -3,6 +3,11 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 import math
+import requests
+import base64
+from io import StringIO
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 st.set_page_config(page_title="StockGPT", layout="wide")
 
@@ -113,6 +118,279 @@ def adaptive_float_slider(label, series, step=0.1, key=None):
         step=step,
         key=key
     )
+
+# =========================
+# WATCHLIST STORAGE — GITHUB BACKED
+# =========================
+
+WATCHLIST_PATH = "data/watchlist/watchlist.csv"
+
+WATCHLIST_COLUMNS = [
+    "symbol",
+    "basket",
+    "notes",
+    "added_at"
+]
+
+
+def get_streamlit_secret(name, default=""):
+    try:
+        return st.secrets[name]
+    except Exception:
+        return default
+
+
+def empty_watchlist():
+    return pd.DataFrame(columns=WATCHLIST_COLUMNS)
+
+
+def github_headers():
+    token = get_streamlit_secret("GITHUB_TOKEN")
+
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json"
+    }
+
+
+def github_file_url():
+    repo = get_streamlit_secret("GITHUB_REPO", "rjganatra/StockGPT")
+
+    return f"https://api.github.com/repos/{repo}/contents/{WATCHLIST_PATH}"
+
+
+def load_watchlist_from_github():
+    token = get_streamlit_secret("GITHUB_TOKEN")
+    branch = get_streamlit_secret("GITHUB_BRANCH", "main")
+
+    if not token:
+        local_file = Path(WATCHLIST_PATH)
+
+        if local_file.exists():
+            return pd.read_csv(local_file)
+
+        return empty_watchlist()
+
+    response = requests.get(
+        github_file_url(),
+        headers=github_headers(),
+        params={"ref": branch},
+        timeout=20
+    )
+
+    if response.status_code == 404:
+        return empty_watchlist()
+
+    if response.status_code != 200:
+        st.warning(f"Could not load GitHub watchlist: {response.text}")
+        return empty_watchlist()
+
+    payload = response.json()
+
+    content = base64.b64decode(
+        payload["content"]
+    ).decode("utf-8")
+
+    if not content.strip():
+        return empty_watchlist()
+
+    watchlist = pd.read_csv(StringIO(content))
+
+    for col in WATCHLIST_COLUMNS:
+        if col not in watchlist.columns:
+            watchlist[col] = ""
+
+    return watchlist[WATCHLIST_COLUMNS]
+
+
+def save_watchlist_to_github(watchlist_df):
+    token = get_streamlit_secret("GITHUB_TOKEN")
+    branch = get_streamlit_secret("GITHUB_BRANCH", "main")
+
+    if not token:
+        st.error("GitHub token missing in Streamlit Secrets.")
+        return False
+
+    watchlist_df = watchlist_df[WATCHLIST_COLUMNS].drop_duplicates(
+        subset=["symbol", "basket"]
+    )
+
+    csv_content = watchlist_df.to_csv(index=False)
+
+    get_response = requests.get(
+        github_file_url(),
+        headers=github_headers(),
+        params={"ref": branch},
+        timeout=20
+    )
+
+    sha = None
+
+    if get_response.status_code == 200:
+        sha = get_response.json().get("sha")
+
+    payload = {
+        "message": "Update StockGPT watchlist",
+        "content": base64.b64encode(
+            csv_content.encode("utf-8")
+        ).decode("utf-8"),
+        "branch": branch
+    }
+
+    if sha:
+        payload["sha"] = sha
+
+    put_response = requests.put(
+        github_file_url(),
+        headers=github_headers(),
+        json=payload,
+        timeout=20
+    )
+
+    if put_response.status_code not in [200, 201]:
+        st.error(f"Could not save watchlist: {put_response.text}")
+        return False
+
+    return True
+
+
+def add_symbols_to_watchlist(symbols, basket, notes=""):
+    watchlist = load_watchlist_from_github()
+
+    now = datetime.now(
+        ZoneInfo("Asia/Kolkata")
+    ).strftime("%d.%m.%Y %I:%M %p IST")
+
+    new_rows = []
+
+    existing_pairs = set(
+        zip(
+            watchlist["symbol"].astype(str).str.upper(),
+            watchlist["basket"].astype(str)
+        )
+    )
+
+    for symbol in symbols:
+        symbol = str(symbol).strip().upper()
+
+        if not symbol:
+            continue
+
+        pair = (symbol, basket)
+
+        if pair not in existing_pairs:
+            new_rows.append({
+                "symbol": symbol,
+                "basket": basket,
+                "notes": notes,
+                "added_at": now
+            })
+
+    if new_rows:
+        watchlist = pd.concat(
+            [watchlist, pd.DataFrame(new_rows)],
+            ignore_index=True
+        )
+
+    return save_watchlist_to_github(watchlist)
+
+
+def remove_symbols_from_watchlist(symbols, basket=None):
+    watchlist = load_watchlist_from_github()
+
+    symbols = [
+        str(symbol).strip().upper()
+        for symbol in symbols
+    ]
+
+    if basket:
+        watchlist = watchlist[
+            ~(
+                watchlist["symbol"].astype(str).str.upper().isin(symbols)
+                &
+                (watchlist["basket"].astype(str) == basket)
+            )
+        ]
+    else:
+        watchlist = watchlist[
+            ~watchlist["symbol"].astype(str).str.upper().isin(symbols)
+        ]
+
+    return save_watchlist_to_github(watchlist)
+
+
+def has_watchlist_access():
+    entered_key = st.session_state.get("watchlist_access_key", "")
+    correct_key = get_streamlit_secret("WATCHLIST_SECRET", "")
+
+    return bool(correct_key) and entered_key == correct_key
+
+
+def render_add_to_watchlist(source_df, key_prefix, default_basket):
+    st.subheader("➕ Add to Watchlist")
+
+    st.text_input(
+        "Access key",
+        type="password",
+        key=f"{key_prefix}_access_key"
+    )
+
+    if st.session_state.get(f"{key_prefix}_access_key", "") != get_streamlit_secret("WATCHLIST_SECRET", ""):
+        st.info("Enter access key to add stocks to watchlist.")
+        return
+
+    available_symbols = sorted(
+        source_df["symbol"].dropna().astype(str).unique().tolist()
+    )
+
+    selected_symbols = st.multiselect(
+        "Select stocks to add",
+        available_symbols,
+        key=f"{key_prefix}_symbols"
+    )
+
+    basket = st.selectbox(
+        "Basket",
+        [
+            "52W Low Opportunities",
+            "Swing Candidates",
+            "Near 52W High Momentum",
+            "High Conviction",
+            "Personal Watchlist",
+            "Research",
+            "Avoid / Risky"
+        ],
+        index=[
+            "52W Low Opportunities",
+            "Swing Candidates",
+            "Near 52W High Momentum",
+            "High Conviction",
+            "Personal Watchlist",
+            "Research",
+            "Avoid / Risky"
+        ].index(default_basket),
+        key=f"{key_prefix}_basket"
+    )
+
+    notes = st.text_input(
+        "Notes",
+        placeholder="Optional note",
+        key=f"{key_prefix}_notes"
+    )
+
+    if st.button("Add Selected to Watchlist", key=f"{key_prefix}_add_button"):
+        if not selected_symbols:
+            st.warning("Select at least one stock.")
+        else:
+            ok = add_symbols_to_watchlist(
+                selected_symbols,
+                basket,
+                notes
+            )
+
+            if ok:
+                st.success("Watchlist updated.")
+                st.rerun()
 
 # =========================
 # RESET STATE MANAGER
@@ -615,6 +893,14 @@ with tab3:
             use_container_width=True
         )
 
+        render_add_to_watchlist(
+            low_opportunities,
+            "low_opportunity_watchlist",
+            "52W Low Opportunities"
+        )
+
+    st.divider()
+
     st.header("⚡ Swing Candidates")
 
     swing = filtered[
@@ -635,6 +921,14 @@ with tab3:
             swing,
             use_container_width=True
         )
+
+        render_add_to_watchlist(
+            swing,
+            "swing_watchlist",
+            "Swing Candidates"
+        )
+
+    st.divider()
 
     st.header("🚀 Near 52W High Momentum")
 
@@ -657,6 +951,11 @@ with tab3:
             use_container_width=True
         )
 
+        render_add_to_watchlist(
+            high_momentum,
+            "high_momentum_watchlist",
+            "Near 52W High Momentum"
+        )
 
 # =========================
 # TAB 4 — SECTORS
@@ -741,6 +1040,49 @@ with tab5:
     else:
         st.info(reason_value)
 
+st.divider()
+
+st.subheader("➕ Add This Stock to Watchlist")
+
+stock_access_key = st.text_input(
+    "Access key for Stock Explorer watchlist",
+    type="password",
+    key="stock_explorer_watchlist_key"
+)
+
+if stock_access_key == get_streamlit_secret("WATCHLIST_SECRET", ""):
+    basket = st.selectbox(
+        "Select Basket",
+        [
+            "52W Low Opportunities",
+            "Swing Candidates",
+            "Near 52W High Momentum",
+            "High Conviction",
+            "Personal Watchlist",
+            "Research",
+            "Avoid / Risky"
+        ],
+        key="stock_explorer_basket"
+    )
+
+    notes = st.text_input(
+        "Notes",
+        key="stock_explorer_notes"
+    )
+
+    if st.button("Add This Stock"):
+        ok = add_symbols_to_watchlist(
+            [selected_stock],
+            basket,
+            notes
+        )
+
+        if ok:
+            st.success(f"{selected_stock} added to watchlist.")
+            st.rerun()
+else:
+    st.info("Enter access key to add this stock.")
+
 
 # =========================
 # TAB 6 — HISTORY
@@ -777,97 +1119,140 @@ with tab6:
 # =========================
 
 with tab7:
-    st.header("⭐ Watchlist")
+    st.header("⭐ Permanent Watchlist")
 
     st.caption(
-        "The watchlist is visible to everyone, but editing requires an access key."
+        "This watchlist is saved permanently in GitHub. Visitors can view it, but editing requires your access key."
     )
 
-    # Default public watchlist
-    default_watchlist = [
-        "RELIANCE",
-        "TCS",
-        "INFY",
-        "HDFCBANK",
-        "MTARTECH"
-    ]
+    watchlist = load_watchlist_from_github()
 
-    # Initialize watchlist in session
-    if "watchlist_symbols" not in st.session_state:
-        st.session_state["watchlist_symbols"] = default_watchlist
-
-    # Show current watchlist
-    watchlist_symbols = st.session_state["watchlist_symbols"]
-
-    watch_df = df[
-        df["symbol"].astype(str).str.upper().isin(watchlist_symbols)
-    ]
-
-    st.subheader("Current Watchlist")
-
-    if watch_df.empty:
-        st.warning("No watchlist stocks found in the latest scan.")
+    if watchlist.empty:
+        st.info("Watchlist is empty.")
     else:
+        watchlist["symbol"] = watchlist["symbol"].astype(str).str.upper()
+
+        merged_watchlist = watchlist.merge(
+            df,
+            on="symbol",
+            how="left"
+        )
+
+        baskets = sorted(
+            watchlist["basket"].dropna().unique().tolist()
+        )
+
+        selected_basket_view = st.selectbox(
+            "View Basket",
+            ["All"] + baskets,
+            key="watchlist_basket_view"
+        )
+
+        display_watchlist = merged_watchlist.copy()
+
+        if selected_basket_view != "All":
+            display_watchlist = display_watchlist[
+                display_watchlist["basket"] == selected_basket_view
+            ]
+
+        st.subheader("Watchlist Table")
+
         st.dataframe(
-            watch_df.sort_values("score", ascending=False),
+            display_watchlist,
             use_container_width=True
         )
 
-    # Summary
-    if not watch_df.empty:
-        col1, col2, col3, col4 = st.columns(4)
+        st.subheader("Watchlist Summary")
 
-        col1.metric("Stocks Found", len(watch_df))
-        col2.metric("Avg RSI", round(watch_df["rsi"].mean(), 2))
-        col3.metric("Avg Score", round(watch_df["score"].mean(), 2))
-        col4.metric(
-            "Near 52W Low",
-            len(watch_df[watch_df["distance_pct"] < 15])
-        )
+        found_watchlist = display_watchlist[
+            display_watchlist["current_price"].notna()
+        ]
+
+        if not found_watchlist.empty:
+            col1, col2, col3, col4 = st.columns(4)
+
+            col1.metric("Stocks Found", len(found_watchlist))
+            col2.metric("Avg RSI", round(found_watchlist["rsi"].mean(), 2))
+            col3.metric("Avg Score", round(found_watchlist["score"].mean(), 2))
+            col4.metric(
+                "Near 52W Low",
+                len(found_watchlist[found_watchlist["distance_pct"] < 15])
+            )
+
+        missing_watchlist = display_watchlist[
+            display_watchlist["current_price"].isna()
+        ]
+
+        if not missing_watchlist.empty:
+            st.warning("Some watchlist stocks were not found in latest scan.")
+            st.dataframe(
+                missing_watchlist[["symbol", "basket", "notes", "added_at"]],
+                use_container_width=True
+            )
+
+        st.divider()
+
+        st.subheader("Watchlist by Opportunity Basket")
+
+        for basket_name in baskets:
+            basket_df = merged_watchlist[
+                merged_watchlist["basket"] == basket_name
+            ]
+
+            with st.expander(f"{basket_name} ({len(basket_df)})"):
+                st.dataframe(
+                    basket_df,
+                    use_container_width=True
+                )
 
     st.divider()
 
-    st.subheader("Edit Watchlist")
+    st.subheader("Remove from Watchlist")
 
-    entered_key = st.text_input(
-        "Enter access key to edit watchlist",
-        type="password"
+    st.text_input(
+        "Access key to remove stocks",
+        type="password",
+        key="watchlist_access_key"
     )
 
-    try:
-        correct_key = st.secrets["WATCHLIST_SECRET"]
-    except Exception:
-        correct_key = ""
+    if has_watchlist_access():
+        if watchlist.empty:
+            st.info("Nothing to remove.")
+        else:
+            remove_basket = st.selectbox(
+                "Remove from basket",
+                ["All"] + sorted(watchlist["basket"].dropna().unique().tolist()),
+                key="remove_basket"
+            )
 
-    if entered_key and entered_key == correct_key:
+            removable_df = watchlist.copy()
 
-        st.success("Access granted. You can edit the watchlist.")
+            if remove_basket != "All":
+                removable_df = removable_df[
+                    removable_df["basket"] == remove_basket
+                ]
 
-        current_text = ", ".join(watchlist_symbols)
+            removable_symbols = sorted(
+                removable_df["symbol"].dropna().astype(str).unique().tolist()
+            )
 
-        updated_watchlist_text = st.text_area(
-            "Enter symbols separated by commas",
-            value=current_text,
-            placeholder="Example: RELIANCE, INFY, MTARTECH, IDEAFORGE"
-        )
+            symbols_to_remove = st.multiselect(
+                "Select symbols to remove",
+                removable_symbols,
+                key="symbols_to_remove"
+            )
 
-        if st.button("Save Watchlist"):
+            if st.button("Remove Selected"):
+                if not symbols_to_remove:
+                    st.warning("Select at least one symbol.")
+                else:
+                    ok = remove_symbols_from_watchlist(
+                        symbols_to_remove,
+                        None if remove_basket == "All" else remove_basket
+                    )
 
-            updated_symbols = [
-                symbol.strip().upper()
-                for symbol in updated_watchlist_text.split(",")
-                if symbol.strip()
-            ]
-
-            st.session_state["watchlist_symbols"] = updated_symbols
-
-            st.success("Watchlist updated for your current session.")
-            st.rerun()
-
-    elif entered_key:
-
-        st.error("Incorrect access key.")
-
+                    if ok:
+                        st.success("Selected symbols removed.")
+                        st.rerun()
     else:
-
-        st.info("Enter access key to modify the watchlist.")
+        st.info("Enter access key to remove stocks.")
