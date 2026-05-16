@@ -1265,12 +1265,6 @@ with tab7:
 with tab8:
     st.header("📚 Fundamentals")
 
-    st.warning(
-        "Note: Current fundamentals are placeholder/scaffold values. "
-        "Use this tab to confirm pipeline integration. Real ROE, ROCE, Debt/Equity, "
-        "Sales Growth, EPS Growth, CFO, and margin data will be added in the next upgrade."
-    )
-
     fundamentals_file = Path("data/fundamentals/fundamental_scores.csv")
 
     if not fundamentals_file.exists():
@@ -1281,20 +1275,24 @@ with tab8:
         if fundamentals_df.empty:
             st.warning("Fundamentals file exists but has no rows.")
         else:
-            st.subheader("Fundamental Score Table")
+            if "fundamental_scan_time" in fundamentals_df.columns:
+                fund_time = fundamentals_df["fundamental_scan_time"].dropna().iloc[0]
+                st.caption(f"🕒 Fundamentals last updated on {fund_time}")
+
+            st.subheader("Fundamental Quality Table")
 
             st.dataframe(
                 fundamentals_df.sort_values(
-                    "conviction_score",
+                    "fundamental_score",
                     ascending=False
                 ),
                 use_container_width=True
             )
 
-            st.subheader("Top Fundamental Scores")
+            st.subheader("Top Fundamental Companies")
 
             top_fundamentals = fundamentals_df.sort_values(
-                "conviction_score",
+                "fundamental_score",
                 ascending=False
             ).head(25)
 
@@ -1313,15 +1311,13 @@ with tab8:
                     suffixes=("", "_fundamental")
                 )
 
-                # Use available score columns safely
-                if "conviction_score" in merged_df.columns:
-                    merged_df["combined_score"] = (
-                        merged_df["score"].fillna(0) * 0.6
-                        +
-                        merged_df["conviction_score"].fillna(0) * 0.4
-                    )
-                else:
-                    merged_df["combined_score"] = merged_df["score"].fillna(0)
+                merged_df["fundamental_score"] = merged_df["fundamental_score"].fillna(0)
+
+                merged_df["combined_score"] = (
+                    merged_df["score"].fillna(0) * 0.5
+                    +
+                    merged_df["fundamental_score"].fillna(0) * 0.5
+                )
 
                 st.dataframe(
                     merged_df.sort_values(
@@ -1333,9 +1329,7 @@ with tab8:
 
                 st.subheader("Best Combined Candidates")
 
-                best_combined = merged_df[
-                    merged_df["conviction_score"].notna()
-                ].sort_values(
+                best_combined = merged_df.sort_values(
                     "combined_score",
                     ascending=False
                 ).head(25)
@@ -1344,6 +1338,5 @@ with tab8:
                     best_combined,
                     use_container_width=True
                 )
-
             else:
                 st.warning("Could not merge fundamentals with scan data because symbol column is missing.")
