@@ -9,7 +9,12 @@ import time
 universe = pd.read_csv("data/universe/universe.csv")
 
 symbols = universe["symbol"].dropna().unique().tolist()
-sector_map = dict(zip(universe["symbol"], universe["sector"]))
+sector_map = dict(zip(universe["symbol"], universe.get("sector", "Unknown")))
+
+if "industry" in universe.columns:
+    industry_map = dict(zip(universe["symbol"], universe["industry"]))
+else:
+    industry_map = {}
 
 scan_time = datetime.now(
     ZoneInfo("Asia/Kolkata")
@@ -219,31 +224,26 @@ conviction_score = max(0, min(100, raw_score))
 score = conviction_score
 
             results.append({
-                "trend_score": trend_score,
-                "momentum_score": momentum_score,
-                "reversal_score": reversal_score,
-                "volume_score": volume_score,
-                "risk_penalty": risk_penalty,
-                "conviction_score": conviction_score,
-                "scan_time": scan_time,
-                "symbol": symbol,
-                "sector": sector_map.get(symbol, "Unknown"),
-                "current_price": round(current_price, 2),
-                "day_change_pct": round(day_change_pct, 2),
-                "52w_low": round(low_52, 2),
-                "52w_high": round(high_52, 2),
-                "distance_pct": round(distance_pct, 2),
-                "distance_from_high_pct": round(distance_from_high_pct, 2),
-                "rsi": round(rsi, 2),
-                "sma50": round(sma50, 2),
-                "sma200": round(sma200, 2) if sma200 else None,
-                "avg_volume_20": round(avg_volume_20, 2),
-                "latest_volume": round(latest_volume, 2),
-                "volume_ratio": round(volume_ratio, 2),
-                "trend": trend,
-                "score": score,
-                "reasons": ", ".join(reasons)
-            })
+    "scan_time": scan_time,
+    "symbol": symbol,
+    "sector": sector_map.get(symbol, "Unknown"),
+    "industry": industry_map.get(symbol, "Unknown"),
+    "current_price": round(current_price, 2),
+    "day_change_pct": round(day_change_pct, 2),
+    "52w_low": round(low_52, 2),
+    "52w_high": round(high_52, 2),
+    "distance_pct": round(distance_pct, 2),
+    "distance_from_high_pct": round(distance_from_high_pct, 2),
+    "rsi": round(rsi, 2),
+    "sma50": round(sma50, 2),
+    "sma200": round(sma200, 2) if sma200 else None,
+    "avg_volume_20": round(avg_volume_20, 2),
+    "latest_volume": round(latest_volume, 2),
+    "volume_ratio": round(volume_ratio, 2),
+    "trend": trend,
+    "score": score,
+    "reasons": ", ".join(reasons)
+})
 
         except Exception as e:
             print(f"{symbol} failed during processing: {e}")
