@@ -480,11 +480,14 @@ with tab1:
 # =========================
 
 with tab2:
-    st.header("🔥 Market Heatmap")
+    st.header("🔥 Opportunity Heatmap")
 
     heatmap_df = filtered.copy()
 
-    heatmap_df["heatmap_size"] = heatmap_df["score"].apply(
+    if "conviction_score" not in heatmap_df.columns:
+        heatmap_df["conviction_score"] = heatmap_df["score"]
+
+    heatmap_df["heatmap_size"] = heatmap_df["conviction_score"].apply(
         lambda x: max(float(x), 1)
     )
 
@@ -492,7 +495,37 @@ with tab2:
         heatmap_df,
         path=["sector", "symbol"],
         values="heatmap_size",
-        color="distance_pct",
+        color="conviction_score",
+        color_continuous_scale=["red", "yellow", "green"],
+        hover_data=[
+            "current_price",
+            "day_change_pct",
+            "rsi",
+            "volume_ratio",
+            "trend",
+            "distance_pct",
+            "distance_from_high_pct",
+            "conviction_score"
+        ],
+        title="Opportunity Heatmap: Green = Higher Conviction, Red = Lower Conviction"
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.header("📍 Daily Movement Heatmap")
+
+    movement_df = filtered.copy()
+
+    movement_df["heatmap_size"] = movement_df["current_price"].apply(
+        lambda x: max(float(x), 1)
+    )
+
+    move_fig = px.treemap(
+        movement_df,
+        path=["sector", "symbol"],
+        values="heatmap_size",
+        color="day_change_pct",
+        color_continuous_scale=["red", "white", "green"],
         hover_data=[
             "current_price",
             "day_change_pct",
@@ -501,9 +534,10 @@ with tab2:
             "trend",
             "score"
         ],
+        title="Daily Movement Heatmap: Green = Up Today, Red = Down Today"
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(move_fig, use_container_width=True)
 
 
 # =========================
