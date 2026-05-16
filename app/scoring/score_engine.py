@@ -34,11 +34,23 @@ def safe_merge(left, right, on="symbol"):
     left = left.copy()
     right = right.copy()
 
-    left = clean_symbol_column(left)
-    right = clean_symbol_column(right)
-
-    # Remove duplicate column names from right except symbol
+    left = left.loc[:, ~left.columns.duplicated()]
     right = right.loc[:, ~right.columns.duplicated()]
+
+    if on not in left.columns:
+        raise ValueError(f"{on} column missing from left dataframe")
+
+    if on not in right.columns:
+        raise ValueError(f"{on} column missing from right dataframe")
+
+    if on == "symbol":
+        left[on] = left[on].astype(str).str.upper().str.strip()
+        right[on] = right[on].astype(str).str.upper().str.strip()
+    else:
+        left[on] = left[on].astype(str).str.strip()
+        right[on] = right[on].astype(str).str.strip()
+
+    right = right.drop_duplicates(subset=[on])
 
     overlapping_cols = [
         col for col in right.columns
