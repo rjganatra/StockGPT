@@ -113,6 +113,17 @@ def adaptive_float_slider(label, series, step=0.1):
         step=step
     )
 
+# =========================
+# RESET STATE MANAGER
+# =========================
+
+if "reset_counter" not in st.session_state:
+    st.session_state["reset_counter"] = 0
+
+
+def reset_all_filters():
+    st.session_state["reset_counter"] += 1
+    st.rerun()
 
 # =========================
 # SIDEBAR FILTERS
@@ -120,27 +131,32 @@ def adaptive_float_slider(label, series, step=0.1):
 
 st.sidebar.header("Filters")
 
-if st.sidebar.button("Reset All Filters"):
-    for key in list(st.session_state.keys()):
-        del st.session_state[key]
-    st.rerun()
+rk = st.session_state["reset_counter"]
+
+if st.sidebar.button("Reset All Filters", key=f"reset_all_{rk}"):
+    reset_all_filters()
 
 st.sidebar.caption("Filters are adaptive based on your latest scan data.")
 
 # Search
 search_symbol = st.sidebar.text_input(
     "Search Symbol",
-    placeholder="Example: IDEA, IDEAFORGE, MTARTECH, INFY"
+    placeholder="Example: IDEA, IDEAFORGE, MTARTECH, INFY",
+    value="",
+    key=f"search_symbol_{rk}"
 )
 
 search_reason = st.sidebar.text_input(
     "Search Reason",
-    placeholder="Example: RSI, 52W, volume"
+    placeholder="Example: RSI, 52W, volume",
+    value="",
+    key=f"search_reason_{rk}"
 )
 
 search_ignore_filters = st.sidebar.checkbox(
     "Search ignores all filters",
     value=False,
+    key=f"search_ignore_filters_{rk}",
     help="Turn this ON only when you want to find a stock even if current filters would normally hide it."
 )
 
@@ -150,7 +166,8 @@ sector_options = sorted(df["sector"].dropna().unique().tolist())
 selected_sectors = st.sidebar.multiselect(
     "Sectors",
     sector_options,
-    default=sector_options
+    default=sector_options,
+    key=f"selected_sectors_{rk}"
 )
 
 # Trend filter
@@ -159,50 +176,58 @@ trend_options = sorted(df["trend"].dropna().unique().tolist())
 selected_trends = st.sidebar.multiselect(
     "Trend",
     trend_options,
-    default=trend_options
+    default=trend_options,
+    key=f"selected_trends_{rk}"
 )
 
 # Adaptive numeric filters
 distance_min, distance_max = adaptive_float_slider(
     "Distance From 52W Low %",
     df["distance_pct"],
-    step=0.1
+    step=0.1,
+    key=f"distance_slider_{rk}"
 )
 
 high_distance_min, high_distance_max = adaptive_float_slider(
     "Distance From 52W High %",
     df["distance_from_high_pct"],
-    step=0.1
+    step=0.1,
+    key=f"high_distance_slider_{rk}"
 )
 
 rsi_min, rsi_max = adaptive_float_slider(
     "RSI Range",
     df["rsi"],
-    step=0.1
+    step=0.1,
+    key=f"rsi_slider_{rk}"
 )
 
 score_min, score_max = adaptive_float_slider(
     "Score Range",
     df["score"],
-    step=1.0
+    step=1.0,
+    key=f"score_slider_{rk}"
 )
 
 volume_min, volume_max = adaptive_float_slider(
     "Volume Ratio Range",
     df["volume_ratio"],
-    step=0.1
+    step=0.1,
+    key=f"volume_slider_{rk}"
 )
 
 day_change_min, day_change_max = adaptive_float_slider(
     "Day Change %",
     df["day_change_pct"],
-    step=0.1
+    step=0.1,
+    key=f"day_change_slider_{rk}"
 )
 
 price_min, price_max = adaptive_float_slider(
     "Current Price Range",
     df["current_price"],
-    step=1.0
+    step=1.0,
+    key=f"price_slider_{rk}"
 )
 
 # Quick presets
@@ -221,7 +246,8 @@ preset = st.sidebar.selectbox(
         "High Conviction",
         "Weak But Recovering",
         "Fresh Breakdown Risk"
-    ]
+    ],
+    key=f"preset_{rk}"
 )
 
 # Start filtering
@@ -237,7 +263,6 @@ if search_ignore_filters and search_symbol.strip():
         )
     ]
 else:
-    # Apply normal filters
     filtered = filtered[
         filtered["sector"].isin(selected_sectors)
     ]
