@@ -391,13 +391,28 @@ filtered = filtered.sort_values(
     ascending=(sort_order == "Ascending")
 )
 
-result_limit = st.sidebar.slider(
-    "Max Rows Displayed",
-    min_value=10,
-    max_value=max(10, len(filtered)),
-    value=min(100, max(10, len(filtered))),
-    step=10
-)
+# =========================
+# RESULT LIMIT
+# =========================
+
+filtered_count = len(filtered)
+
+if filtered_count <= 10:
+    result_limit = filtered_count
+else:
+    max_rows_displayed = min(filtered_count, 1000)
+
+    result_limit = st.sidebar.slider(
+        "Max Rows Displayed",
+        min_value=10,
+        max_value=max_rows_displayed,
+        value=min(100, max_rows_displayed),
+        step=1
+    )
+
+filtered = filtered.head(result_limit)
+
+st.sidebar.metric("Results", len(filtered))
 
 filtered = filtered.head(result_limit)
 
