@@ -106,29 +106,125 @@ for chunk in chunk_list(symbols, CHUNK_SIZE):
             trend = "Bullish" if current_price > sma50 else "Bearish"
 
             reasons = []
-            score = 0
 
-            if distance_pct < 15:
-                score += 25
-                reasons.append("Near 52W low")
+trend_score = 0
+momentum_score = 0
+reversal_score = 0
+volume_score = 0
+risk_penalty = 0
 
-            if rsi < 45:
-                score += 20
-                reasons.append("RSI weak/oversold")
+# =========================
+# TREND SCORE
+# =========================
 
-            if trend == "Bullish":
-                score += 20
-                reasons.append("Above 50 DMA")
+if current_price > sma50:
+    trend_score += 15
+    reasons.append("Above 50 DMA")
 
-            if volume_ratio > 1.3:
-                score += 15
-                reasons.append("Volume expansion")
+if sma200 and current_price > sma200:
+    trend_score += 15
+    reasons.append("Above 200 DMA")
 
-            if sma200 and current_price > sma200:
-                score += 20
-                reasons.append("Above 200 DMA")
+# =========================
+# MOMENTUM SCORE
+# =========================
+
+if 50 <= rsi <= 70:
+    momentum_score += 20
+    reasons.append("Healthy RSI momentum")
+
+elif 45 <= rsi < 50:
+    momentum_score += 10
+    reasons.append("RSI recovering zone")
+
+elif 30 <= rsi < 45:
+    momentum_score += 8
+    reasons.append("Weak but watchable RSI")
+
+elif rsi > 70:
+    momentum_score += 5
+    reasons.append("Strong but overbought RSI")
+
+elif rsi < 30:
+    momentum_score += 5
+    reasons.append("Oversold RSI")
+
+# =========================
+# REVERSAL SCORE
+# =========================
+
+if distance_pct <= 10 and rsi >= 30:
+    reversal_score += 20
+    reasons.append("Near 52W low with non-crashing RSI")
+
+elif distance_pct <= 20 and rsi >= 35:
+    reversal_score += 15
+    reasons.append("Close to 52W low with recovery potential")
+
+elif distance_pct <= 30:
+    reversal_score += 8
+    reasons.append("Within 30% of 52W low")
+
+# =========================
+# VOLUME SCORE
+# =========================
+
+if volume_ratio >= 2:
+    volume_score += 15
+    reasons.append("Strong volume expansion")
+
+elif volume_ratio >= 1.3:
+    volume_score += 10
+    reasons.append("Volume expansion")
+
+elif volume_ratio >= 1:
+    volume_score += 5
+    reasons.append("Normal volume support")
+
+# =========================
+# RISK PENALTY
+# =========================
+
+if sma200 and current_price < sma200:
+    risk_penalty += 15
+    reasons.append("Below 200 DMA risk")
+
+if rsi < 25:
+    risk_penalty += 10
+    reasons.append("Extreme RSI weakness")
+
+if day_change_pct < -5:
+    risk_penalty += 5
+    reasons.append("Sharp daily fall")
+
+if distance_from_high_pct > 60:
+    risk_penalty += 5
+    reasons.append("Very far from 52W high")
+
+# =========================
+# FINAL CONVICTION SCORE
+# =========================
+
+raw_score = (
+    trend_score
+    + momentum_score
+    + reversal_score
+    + volume_score
+    - risk_penalty
+)
+
+conviction_score = max(0, min(100, raw_score))
+
+# Keep old score column for dashboard compatibility
+score = conviction_score
 
             results.append({
+                "trend_score": trend_score,
+                "momentum_score": momentum_score,
+                "reversal_score": reversal_score,
+                "volume_score": volume_score,
+                "risk_penalty": risk_penalty,
+                "conviction_score": conviction_score,
                 "scan_time": scan_time,
                 "symbol": symbol,
                 "sector": sector_map.get(symbol, "Unknown"),
