@@ -98,7 +98,7 @@ def adaptive_int_slider(label, series, default_full=True):
     )
 
 
-def adaptive_float_slider(label, series, step=0.1):
+def adaptive_float_slider(label, series, step=0.1, key=None):
     min_val = float(round(series.min(), 2))
     max_val = float(round(series.max(), 2))
 
@@ -110,7 +110,8 @@ def adaptive_float_slider(label, series, step=0.1):
         min_value=min_val,
         max_value=max_val,
         value=(min_val, max_val),
-        step=step
+        step=step,
+        key=key
     )
 
 # =========================
