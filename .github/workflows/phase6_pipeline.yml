@@ -35,6 +35,12 @@ jobs:
       - name: Enrich Latest Scan With Sector Industry
         run: python app/universe/enrich_sectors.py
 
+      - name: Calculate Relative Strength
+        run: python app/scoring/relative_strength.py
+
+      - name: Run Final Score Engine
+        run: python app/scoring/score_engine.py
+
       - name: Save History
         run: python app/history/history_engine.py
 
