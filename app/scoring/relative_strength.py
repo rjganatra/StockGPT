@@ -12,7 +12,9 @@ Path("data/scoring").mkdir(parents=True, exist_ok=True)
 
 scan_df = pd.read_csv(SCAN_FILE)
 
-symbols = scan_df["symbol"].dropna().astype(str).str.upper().unique().tolist()
+scan_df["symbol"] = scan_df["symbol"].astype(str).str.upper().str.strip()
+
+symbols = scan_df["symbol"].dropna().unique().tolist()
 
 scan_time = datetime.now(
     ZoneInfo("Asia/Kolkata")
@@ -43,31 +45,36 @@ def calc_return(close_series, days):
         return None
 
 
+def safe_download_nifty():
+    try:
+        nifty_data = yf.download(
+            "^NSEI",
+            period="8mo",
+            interval="1d",
+            progress=False,
+            timeout=20
+        )
+
+        if nifty_data.empty or "Close" not in nifty_data.columns:
+            return None, None, None
+
+        nifty_close = nifty_data["Close"].dropna()
+
+        return (
+            calc_return(nifty_close, 21),
+            calc_return(nifty_close, 63),
+            calc_return(nifty_close, 126)
+        )
+
+    except Exception as e:
+        print(f"Nifty benchmark failed. Continuing without Nifty comparison: {e}")
+
+        return None, None, None
+
+
 print(f"Starting relative strength calculation for {len(symbols)} stocks")
 
-# Download Nifty 50 benchmark
-try:
-    nifty_data = yf.download(
-        "^NSEI",
-        period="8mo",
-        interval="1d",
-        progress=False,
-        timeout=20
-    )
-
-    nifty_close = nifty_data["Close"].dropna()
-
-    nifty_1m_return = calc_return(nifty_close, 21)
-    nifty_3m_return = calc_return(nifty_close, 63)
-    nifty_6m_return = calc_return(nifty_close, 126)
-
-except Exception as e:
-    print(f"Nifty benchmark failed: {e}")
-
-    nifty_1m_return = None
-    nifty_3m_return = None
-    nifty_6m_return = None
-
+nifty_1m_return, nifty_3m_return, nifty_6m_return = safe_download_nifty()
 
 results = []
 
@@ -113,56 +120,64 @@ for chunk in chunk_list(symbols, CHUNK_SIZE):
                 vs_nifty_1m = (
                     round(return_1m - nifty_1m_return, 2)
                     if return_1m is not None and nifty_1m_return is not None
-                    else None
+                    else 0
                 )
 
                 vs_nifty_3m = (
                     round(return_3m - nifty_3m_return, 2)
                     if return_3m is not None and nifty_3m_return is not None
-                    else None
+                    else 0
                 )
 
                 vs_nifty_6m = (
                     round(return_6m - nifty_6m_return, 2)
                     if return_6m is not None and nifty_6m_return is not None
-                    else None
+                    else 0
                 )
 
                 score = 0
                 reasons = []
 
-                if vs_nifty_1m is not None:
-                    if vs_nifty_1m > 5:
+                if return_1m is not None:
+                    if return_1m > 10:
+                        score += 15
+                        reasons.append("Strong 1M absolute return")
+                    elif return_1m > 0:
+                        score += 8
+                        reasons.append("Positive 1M return")
+
+                if return_3m is not None:
+                    if return_3m > 20:
                         score += 20
-                        reasons.append("Strong 1M outperformance")
-                    elif vs_nifty_1m > 0:
-                        score += 12
-                        reasons.append("Positive 1M outperformance")
+                        reasons.append("Strong 3M absolute return")
+                    elif return_3m > 0:
+                        score += 10
+                        reasons.append("Positive 3M return")
 
-                if vs_nifty_3m is not None:
-                    if vs_nifty_3m > 10:
-                        score += 25
-                        reasons.append("Strong 3M outperformance")
-                    elif vs_nifty_3m > 0:
-                        score += 15
-                        reasons.append("Positive 3M outperformance")
+                if return_6m is not None:
+                    if return_6m > 30:
+                        score += 20
+                        reasons.append("Strong 6M absolute return")
+                    elif return_6m > 0:
+                        score += 10
+                        reasons.append("Positive 6M return")
 
-                if vs_nifty_6m is not None:
-                    if vs_nifty_6m > 15:
-                        score += 25
-                        reasons.append("Strong 6M outperformance")
-                    elif vs_nifty_6m > 0:
-                        score += 15
-                        reasons.append("Positive 6M outperformance")
+                if nifty_1m_return is not None and vs_nifty_1m > 5:
+                    score += 10
+                    reasons.append("1M Nifty outperformance")
+
+                if nifty_3m_return is not None and vs_nifty_3m > 10:
+                    score += 15
+                    reasons.append("3M Nifty outperformance")
+
+                if nifty_6m_return is not None and vs_nifty_6m > 15:
+                    score += 15
+                    reasons.append("6M Nifty outperformance")
 
                 if return_1m is not None and return_3m is not None and return_6m is not None:
                     if return_1m > 0 and return_3m > 0 and return_6m > 0:
-                        score += 15
+                        score += 10
                         reasons.append("Positive across 1M/3M/6M")
-
-                    if return_1m > return_3m / 3:
-                        score += 5
-                        reasons.append("Recent acceleration")
 
                 score = max(0, min(100, score))
 
@@ -196,7 +211,6 @@ rs_df = pd.DataFrame(results)
 if rs_df.empty:
     raise RuntimeError("Relative strength calculation produced no rows.")
 
-# Merge sector for sector rank
 sector_cols = ["symbol", "sector"]
 
 if "industry" in scan_df.columns:
@@ -208,7 +222,8 @@ rs_df = rs_df.merge(
     how="left"
 )
 
-# Sector rank based on relative strength score
+rs_df["sector"] = rs_df["sector"].fillna("Unknown")
+
 rs_df["sector_rank"] = rs_df.groupby("sector")["relative_strength_score"].rank(
     ascending=False,
     method="dense"
