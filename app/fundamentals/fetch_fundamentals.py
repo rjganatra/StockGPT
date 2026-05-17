@@ -228,6 +228,7 @@ print(f"Starting fundamentals fetch for {len(symbols)} stocks")
 print(f"Fundamental scan time: {scan_time}")
 
 results = []
+failed_symbols = []
 
 MAX_WORKERS = 3
 
@@ -246,6 +247,8 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             if result:
                 results.append(result)
                 print(f"{symbol} fundamentals fetched")
+            else:
+                failed_symbols.append(symbol)
 
         except Exception as e:
             print(f"{symbol} future failed: {e}")
