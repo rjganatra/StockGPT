@@ -78,10 +78,21 @@ def fetch_one(symbol):
 
     try:
         ticker = yf.Ticker(yf_symbol)
+        info = None
+
+for attempt in range(3):
+    try:
         info = ticker.info
 
-        if not info:
-            return None
+        if info:
+            break
+
+    except Exception as e:
+        print(f"{symbol} info fetch attempt {attempt + 1} failed: {e}")
+        time.sleep(2 + attempt * 3)
+
+if not info:
+    return None
 
         company_name = get_info_value(
             info,
@@ -218,7 +229,7 @@ print(f"Fundamental scan time: {scan_time}")
 
 results = []
 
-MAX_WORKERS = 8
+MAX_WORKERS = 3
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
     futures = {
@@ -239,7 +250,7 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         except Exception as e:
             print(f"{symbol} future failed: {e}")
 
-        time.sleep(0.05)
+        time.sleep(0.8)
 
 fundamentals_df = pd.DataFrame(results)
 
