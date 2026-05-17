@@ -1,17 +1,27 @@
 import sqlite3
 import pandas as pd
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
-DB_PATH = "data/database/stockgpt.db"
 SCAN_FILE = "data/scans/latest_scan.csv"
+DB_FILE = "data/database/stockgpt.db"
 
 Path("data/database").mkdir(parents=True, exist_ok=True)
 
+if not Path(SCAN_FILE).exists():
+    raise FileNotFoundError("data/scans/latest_scan.csv not found")
+
 df = pd.read_csv(SCAN_FILE)
 
-conn = sqlite3.connect(DB_PATH)
+stored_at = datetime.now(
+    ZoneInfo("Asia/Kolkata")
+).strftime("%d.%m.%Y %I:%M %p IST")
 
-# Replace table so schema always matches latest scanner output
+df["stored_at"] = stored_at
+
+conn = sqlite3.connect(DB_FILE)
+
 df.to_sql(
     "daily_scans",
     conn,
@@ -21,4 +31,4 @@ df.to_sql(
 
 conn.close()
 
-print("Scans stored successfully with latest schema.")
+print(f"Scans stored: {len(df)} rows")
