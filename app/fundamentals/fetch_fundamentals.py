@@ -263,5 +263,8 @@ if fundamentals_df.empty:
 fundamentals_df = fundamentals_df.drop_duplicates(subset=["symbol"])
 
 fundamentals_df.to_csv(OUTPUT_FILE, index=False)
+failed_df = pd.DataFrame({"symbol": sorted(set(failed_symbols))})
+failed_df.to_csv("data/fundamentals/failed_fundamentals.csv", index=False)
 
+print(f"Failed fundamentals: {len(set(failed_symbols))}")
 print(f"Fundamentals saved: {len(fundamentals_df)} rows")
