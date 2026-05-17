@@ -9,6 +9,7 @@ import time
 UNIVERSE_FILE = "data/universe/universe.csv"
 SCAN_FILE = "data/scans/latest_scan.csv"
 OUTPUT_FILE = "data/fundamentals/fundamentals.csv"
+FAILED_FILE = "data/fundamentals/failed_fundamentals.csv"
 
 Path("data/fundamentals").mkdir(parents=True, exist_ok=True)
 
@@ -19,7 +20,7 @@ scan_time = datetime.now(
 
 def load_symbols():
     """
-    Prefer latest_scan.csv because those are symbols Yahoo successfully scanned.
+    Prefer latest_scan.csv because those are symbols Yahoo already scanned.
     Fall back to universe.csv if latest scan is unavailable.
     """
 
@@ -27,17 +28,33 @@ def load_symbols():
         scan_df = pd.read_csv(SCAN_FILE)
 
         if "symbol" in scan_df.columns and not scan_df.empty:
-            return scan_df["symbol"].dropna().astype(str).str.upper().unique().tolist()
+            return (
+                scan_df["symbol"]
+                .dropna()
+                .astype(str)
+                .str.upper()
+                .str.strip()
+                .unique()
+                .tolist()
+            )
 
     universe_df = pd.read_csv(UNIVERSE_FILE)
 
-    return universe_df["symbol"].dropna().astype(str).str.upper().unique().tolist()
+    return (
+        universe_df["symbol"]
+        .dropna()
+        .astype(str)
+        .str.upper()
+        .str.strip()
+        .unique()
+        .tolist()
+    )
 
 
 def safe_percent(value):
     """
     Yahoo sometimes returns 0.15 for 15%.
-    Convert to percentage if value looks like ratio.
+    Convert to percentage if value looks like a ratio.
     """
 
     if value is None:
@@ -61,6 +78,7 @@ def safe_number(value):
 
     try:
         return round(float(value), 2)
+
     except Exception:
         return None
 
@@ -73,26 +91,31 @@ def get_info_value(info, keys):
     return None
 
 
-def fetch_one(symbol):
+def fetch_info_with_retry(symbol):
     yf_symbol = symbol + ".NS"
 
-    try:
-        ticker = yf.Ticker(yf_symbol)
-        info = None
+    for attempt in range(3):
+        try:
+            ticker = yf.Ticker(yf_symbol)
+            info = ticker.info
 
-for attempt in range(3):
-    try:
-        info = ticker.info
+            if info:
+                return info
 
-        if info:
-            break
+        except Exception as e:
+            print(f"{symbol} info fetch attempt {attempt + 1} failed: {e}")
 
-    except Exception as e:
-        print(f"{symbol} info fetch attempt {attempt + 1} failed: {e}")
-        time.sleep(2 + attempt * 3)
+        time.sleep(3 + attempt * 4)
 
-if not info:
     return None
+
+
+def fetch_one(symbol):
+    try:
+        info = fetch_info_with_retry(symbol)
+
+        if not info:
+            return None
 
         company_name = get_info_value(
             info,
@@ -230,6 +253,7 @@ print(f"Fundamental scan time: {scan_time}")
 results = []
 failed_symbols = []
 
+# Keep this low. Yahoo blocks aggressive .info calls.
 MAX_WORKERS = 3
 
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
@@ -249,22 +273,35 @@ with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
                 print(f"{symbol} fundamentals fetched")
             else:
                 failed_symbols.append(symbol)
+                print(f"{symbol} fundamentals missing")
 
         except Exception as e:
             print(f"{symbol} future failed: {e}")
+            failed_symbols.append(symbol)
 
         time.sleep(0.8)
+
 
 fundamentals_df = pd.DataFrame(results)
 
 if fundamentals_df.empty:
+    failed_df = pd.DataFrame({
+        "symbol": sorted(set(failed_symbols))
+    })
+
+    failed_df.to_csv(FAILED_FILE, index=False)
+
     raise RuntimeError("No fundamentals fetched.")
 
 fundamentals_df = fundamentals_df.drop_duplicates(subset=["symbol"])
 
 fundamentals_df.to_csv(OUTPUT_FILE, index=False)
-failed_df = pd.DataFrame({"symbol": sorted(set(failed_symbols))})
-failed_df.to_csv("data/fundamentals/failed_fundamentals.csv", index=False)
+
+failed_df = pd.DataFrame({
+    "symbol": sorted(set(failed_symbols))
+})
+
+failed_df.to_csv(FAILED_FILE, index=False)
 
 print(f"Failed fundamentals: {len(set(failed_symbols))}")
 print(f"Fundamentals saved: {len(fundamentals_df)} rows")
