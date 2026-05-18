@@ -26,6 +26,40 @@ universe["industry"] = universe["industry"].fillna("Unknown").astype(str)
 
 symbols = universe["symbol"].dropna().unique().tolist()
 
+FAILED_SCAN_FILE = "data/scans/failed_symbols.csv"
+
+if Path(FAILED_SCAN_FILE).exists():
+    try:
+        failed_df = pd.read_csv(FAILED_SCAN_FILE)
+
+        if "symbol" in failed_df.columns:
+            failed_first = (
+                failed_df["symbol"]
+                .dropna()
+                .astype(str)
+                .str.upper()
+                .str.strip()
+                .unique()
+                .tolist()
+            )
+
+            ordered_symbols = []
+
+            for symbol in failed_first:
+                if symbol in symbols and symbol not in ordered_symbols:
+                    ordered_symbols.append(symbol)
+
+            for symbol in symbols:
+                if symbol not in ordered_symbols:
+                    ordered_symbols.append(symbol)
+
+            symbols = ordered_symbols
+
+            print(f"Prioritizing previous failed scanner symbols: {len(failed_first)}")
+
+    except Exception as e:
+        print(f"Could not prioritize failed scanner symbols: {e}")
+
 sector_map = dict(zip(universe["symbol"], universe["sector"]))
 industry_map = dict(zip(universe["symbol"], universe["industry"]))
 
