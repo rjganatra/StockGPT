@@ -1547,77 +1547,278 @@ with tab8:
         if fundamentals_df.empty:
             st.warning("Fundamentals file exists but has no rows.")
         else:
+            fundamentals_df["symbol"] = fundamentals_df["symbol"].astype(str).str.upper().str.strip()
+
             if "fundamental_scan_time" in fundamentals_df.columns and not fundamentals_df["fundamental_scan_time"].dropna().empty:
                 fund_time = fundamentals_df["fundamental_scan_time"].dropna().iloc[0]
                 st.caption(f"🕒 Fundamentals last updated on {fund_time}")
 
-            st.subheader("Fundamental Quality Table")
+            # Merge latest dashboard sector/industry/technical data
+            if "symbol" in df.columns:
+                dashboard_cols = [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "rsi",
+                    "technical_score",
+                    "relative_strength_score",
+                    "sector_score",
+                    "risk_penalty",
+                    "final_conviction_score"
+                ]
 
-            if "fundamental_score" in fundamentals_df.columns:
-                fundamentals_view = fundamentals_df.sort_values(
-                    "fundamental_score",
-                    ascending=False
+                available_dashboard_cols = [
+                    col for col in dashboard_cols
+                    if col in df.columns
+                ]
+
+                fundamentals_view = fundamentals_df.merge(
+                    df[available_dashboard_cols].drop_duplicates(subset=["symbol"]),
+                    on="symbol",
+                    how="left",
+                    suffixes=("", "_latest")
                 )
             else:
-                fundamentals_view = fundamentals_df
+                fundamentals_view = fundamentals_df.copy()
 
-            display_table(fundamentals_view)
+            # Ensure missing columns do not break filters
+            if "sector" not in fundamentals_view.columns:
+                fundamentals_view["sector"] = fundamentals_view.get("sector_yf", "Unknown")
+
+            if "industry" not in fundamentals_view.columns:
+                fundamentals_view["industry"] = fundamentals_view.get("industry_yf", "Unknown")
+
+            fundamentals_view["sector"] = fundamentals_view["sector"].fillna("Unknown").astype(str)
+            fundamentals_view["industry"] = fundamentals_view["industry"].fillna("Unknown").astype(str)
+
+            numeric_fund_cols = [
+                "fundamental_score",
+                "market_cap_cr",
+                "trailing_pe",
+                "forward_pe",
+                "price_to_book",
+                "debt_to_equity",
+                "roe",
+                "roa",
+                "operating_margin",
+                "net_profit_margin",
+                "gross_margin",
+                "revenue_growth",
+                "earnings_growth",
+                "current_ratio",
+                "quick_ratio",
+                "total_cash_cr",
+                "total_debt_cr",
+                "free_cashflow_cr",
+                "operating_cashflow_cr",
+                "dividend_yield",
+                "beta",
+                "final_conviction_score",
+                "technical_score",
+                "relative_strength_score",
+                "risk_penalty"
+            ]
+
+            for col in numeric_fund_cols:
+                if col not in fundamentals_view.columns:
+                    fundamentals_view[col] = 0
+
+                fundamentals_view[col] = pd.to_numeric(
+                    fundamentals_view[col],
+                    errors="coerce"
+                )
+
+            fundamentals_view[numeric_fund_cols] = fundamentals_view[numeric_fund_cols].fillna(0)
+
+            st.subheader("Fundamental Filters")
+
+            fcol1, fcol2, fcol3 = st.columns(3)
+
+            with fcol1:
+                selected_fund_sectors = st.multiselect(
+                    "Fundamental Sector",
+                    sorted(fundamentals_view["sector"].dropna().unique().tolist()),
+                    default=sorted(fundamentals_view["sector"].dropna().unique().tolist()),
+                    key="fundamental_sector_filter"
+                )
+
+            with fcol2:
+                selected_fund_industries = st.multiselect(
+                    "Fundamental Industry",
+                    sorted(fundamentals_view["industry"].dropna().unique().tolist()),
+                    default=sorted(fundamentals_view["industry"].dropna().unique().tolist()),
+                    key="fundamental_industry_filter"
+                )
+
+            with fcol3:
+                fund_search = st.text_input(
+                    "Search Symbol / Company",
+                    placeholder="Example: RELIANCE, TCS, PIIND",
+                    key="fundamental_search"
+                )
+
+            fcol4, fcol5, fcol6 = st.columns(3)
+
+            with fcol4:
+                min_fund_score = st.slider(
+                    "Minimum Fundamental Score",
+                    0,
+                    100,
+                    0,
+                    key="min_fund_score_filter"
+                )
+
+            with fcol5:
+                min_roe = st.slider(
+                    "Minimum ROE %",
+                    0,
+                    100,
+                    0,
+                    key="min_roe_filter"
+                )
+
+            with fcol6:
+                max_debt_to_equity = st.slider(
+                    "Maximum Debt/Equity",
+                    0,
+                    500,
+                    500,
+                    key="max_debt_filter"
+                )
+
+            fcol7, fcol8, fcol9 = st.columns(3)
+
+            with fcol7:
+                min_revenue_growth = st.slider(
+                    "Minimum Revenue Growth %",
+                    -100,
+                    100,
+                    -100,
+                    key="min_revenue_growth_filter"
+                )
+
+            with fcol8:
+                min_profit_margin = st.slider(
+                    "Minimum Net Profit Margin %",
+                    -100,
+                    100,
+                    -100,
+                    key="min_profit_margin_filter"
+                )
+
+            with fcol9:
+                min_dividend_yield = st.slider(
+                    "Minimum Dividend Yield %",
+                    0,
+                    20,
+                    0,
+                    key="min_dividend_yield_filter"
+                )
+
+            filtered_fundamentals = fundamentals_view.copy()
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["sector"].isin(selected_fund_sectors)
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["industry"].isin(selected_fund_industries)
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["fundamental_score"] >= min_fund_score
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["roe"] >= min_roe
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["debt_to_equity"] <= max_debt_to_equity
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["revenue_growth"] >= min_revenue_growth
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["net_profit_margin"] >= min_profit_margin
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["dividend_yield"] >= min_dividend_yield
+            ]
+
+            if fund_search.strip():
+                search_text = fund_search.strip().upper()
+
+                filtered_fundamentals = filtered_fundamentals[
+                    filtered_fundamentals["symbol"].astype(str).str.upper().str.contains(search_text, na=False)
+                    |
+                    filtered_fundamentals.get("company_name", "").astype(str).str.upper().str.contains(search_text, na=False)
+                ]
+
+            st.caption(f"Showing {len(filtered_fundamentals)} out of {len(fundamentals_view)} fundamental rows")
+
+            st.subheader("Fundamental Quality Table")
+
+            display_cols = [
+                "symbol",
+                "company_name",
+                "sector",
+                "industry",
+                "market_cap_cr",
+                "fundamental_score",
+                "final_conviction_score",
+                "roe",
+                "roa",
+                "debt_to_equity",
+                "trailing_pe",
+                "price_to_book",
+                "operating_margin",
+                "net_profit_margin",
+                "revenue_growth",
+                "earnings_growth",
+                "operating_cashflow_cr",
+                "free_cashflow_cr",
+                "dividend_yield",
+                "fundamental_reasons",
+                "fundamental_risks"
+            ]
+
+            available_display_cols = [
+                col for col in display_cols
+                if col in filtered_fundamentals.columns
+            ]
+
+            st.dataframe(
+                filtered_fundamentals.sort_values(
+                    "fundamental_score",
+                    ascending=False
+                )[available_display_cols],
+                use_container_width=True
+            )
 
             st.subheader("Top Fundamental Companies")
 
-            if "fundamental_score" in fundamentals_df.columns:
-                top_fundamentals = fundamentals_df.sort_values(
+            st.dataframe(
+                filtered_fundamentals.sort_values(
                     "fundamental_score",
                     ascending=False
-                ).head(25)
-            else:
-                top_fundamentals = fundamentals_df.head(25)
+                ).head(25)[available_display_cols],
+                use_container_width=True
+            )
 
-            display_table(top_fundamentals)
+            st.subheader("Best Combined Candidates")
 
-            st.subheader("Technical + Fundamental Combined View")
-
-            if "symbol" in fundamentals_df.columns and "symbol" in df.columns:
-                cols_to_merge = [
-                    col for col in fundamentals_df.columns
-                    if col == "symbol" or col not in df.columns
-                ]
-
-                merged_df = df.merge(
-                    fundamentals_df[cols_to_merge],
-                    on="symbol",
-                    how="left",
-                    suffixes=("", "_fundamental")
-                )
-
-                if "fundamental_score" not in merged_df.columns:
-                    merged_df["fundamental_score"] = 0
-
-                merged_df["fundamental_score"] = merged_df["fundamental_score"].fillna(0)
-
-                if "final_conviction_score" not in merged_df.columns:
-                    merged_df["final_conviction_score"] = merged_df["score"]
-
-                merged_df["combined_score"] = (
-                    merged_df["final_conviction_score"].fillna(0) * 0.5
-                    +
-                    merged_df["fundamental_score"].fillna(0) * 0.5
-                )
-
-                display_table(
-                    merged_df.sort_values(
-                        "combined_score",
+            if "final_conviction_score" in filtered_fundamentals.columns:
+                st.dataframe(
+                    filtered_fundamentals.sort_values(
+                        "final_conviction_score",
                         ascending=False
-                    )
+                    ).head(25)[available_display_cols],
+                    use_container_width=True
                 )
-
-                st.subheader("Best Combined Candidates")
-
-                best_combined = merged_df.sort_values(
-                    "combined_score",
-                    ascending=False
-                ).head(25)
-
-                display_table(best_combined)
             else:
-                st.warning("Could not merge fundamentals with scan data because symbol column is missing.")
+                st.info("Final conviction score not available yet.")
