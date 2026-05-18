@@ -21,14 +21,17 @@ scan_time = datetime.now(
 def load_symbols():
     """
     Prefer latest_scan.csv because those are symbols Yahoo already scanned.
+    Prioritize previously failed fundamentals first.
     Fall back to universe.csv if latest scan is unavailable.
     """
+
+    symbols = []
 
     if Path(SCAN_FILE).exists():
         scan_df = pd.read_csv(SCAN_FILE)
 
         if "symbol" in scan_df.columns and not scan_df.empty:
-            return (
+            symbols = (
                 scan_df["symbol"]
                 .dropna()
                 .astype(str)
@@ -38,23 +41,54 @@ def load_symbols():
                 .tolist()
             )
 
-    universe_df = pd.read_csv(UNIVERSE_FILE)
+    if not symbols:
+        universe_df = pd.read_csv(UNIVERSE_FILE)
 
-    return (
-        universe_df["symbol"]
-        .dropna()
-        .astype(str)
-        .str.upper()
-        .str.strip()
-        .unique()
-        .tolist()
-    )
+        symbols = (
+            universe_df["symbol"]
+            .dropna()
+            .astype(str)
+            .str.upper()
+            .str.strip()
+            .unique()
+            .tolist()
+        )
+
+    failed_first = []
+
+    if Path(FAILED_FILE).exists():
+        failed_df = pd.read_csv(FAILED_FILE)
+
+        if "symbol" in failed_df.columns:
+            failed_first = (
+                failed_df["symbol"]
+                .dropna()
+                .astype(str)
+                .str.upper()
+                .str.strip()
+                .unique()
+                .tolist()
+            )
+
+    ordered_symbols = []
+
+    for symbol in failed_first:
+        if symbol in symbols and symbol not in ordered_symbols:
+            ordered_symbols.append(symbol)
+
+    for symbol in symbols:
+        if symbol not in ordered_symbols:
+            ordered_symbols.append(symbol)
+
+    return ordered_symbols
 
 
 def safe_percent(value):
     """
-    Yahoo sometimes returns 0.15 for 15%.
-    Convert to percentage if value looks like a ratio.
+    Yahoo usually returns:
+    0.15 = 15%
+
+    Used for ROE, ROA, margins, revenue growth, earnings growth.
     """
 
     if value is None:
@@ -72,12 +106,52 @@ def safe_percent(value):
         return None
 
 
+def safe_dividend_yield(value):
+    """
+    Yahoo dividendYield may come as:
+    0.015 = 1.5%
+    1.5 = 1.5%
+
+    So only multiply when value is clearly a decimal ratio.
+    """
+
+    if value is None:
+        return None
+
+    try:
+        value = float(value)
+
+        if value <= 1:
+            return round(value * 100, 2)
+
+        return round(value, 2)
+
+    except Exception:
+        return None
+
+
 def safe_number(value):
     if value is None:
         return None
 
     try:
         return round(float(value), 2)
+
+    except Exception:
+        return None
+
+
+def safe_crore(value):
+    """
+    Convert absolute rupee values into ₹ crore.
+    1 crore = 10,000,000.
+    """
+
+    if value is None:
+        return None
+
+    try:
+        return round(float(value) / 10000000, 2)
 
     except Exception:
         return None
@@ -132,8 +206,37 @@ def fetch_one(symbol):
             ["industry"]
         )
 
+        market_cap_raw = get_info_value(
+            info,
+            ["marketCap"]
+        )
+
+        total_cash_raw = get_info_value(
+            info,
+            ["totalCash"]
+        )
+
+        total_debt_raw = get_info_value(
+            info,
+            ["totalDebt"]
+        )
+
+        free_cashflow_raw = get_info_value(
+            info,
+            ["freeCashflow"]
+        )
+
+        operating_cashflow_raw = get_info_value(
+            info,
+            ["operatingCashflow"]
+        )
+
         market_cap = safe_number(
-            get_info_value(info, ["marketCap"])
+            market_cap_raw
+        )
+
+        market_cap_cr = safe_crore(
+            market_cap_raw
         )
 
         trailing_pe = safe_number(
@@ -189,22 +292,38 @@ def fetch_one(symbol):
         )
 
         total_cash = safe_number(
-            get_info_value(info, ["totalCash"])
+            total_cash_raw
+        )
+
+        total_cash_cr = safe_crore(
+            total_cash_raw
         )
 
         total_debt = safe_number(
-            get_info_value(info, ["totalDebt"])
+            total_debt_raw
+        )
+
+        total_debt_cr = safe_crore(
+            total_debt_raw
         )
 
         free_cashflow = safe_number(
-            get_info_value(info, ["freeCashflow"])
+            free_cashflow_raw
+        )
+
+        free_cashflow_cr = safe_crore(
+            free_cashflow_raw
         )
 
         operating_cashflow = safe_number(
-            get_info_value(info, ["operatingCashflow"])
+            operating_cashflow_raw
         )
 
-        dividend_yield = safe_percent(
+        operating_cashflow_cr = safe_crore(
+            operating_cashflow_raw
+        )
+
+        dividend_yield = safe_dividend_yield(
             get_info_value(info, ["dividendYield"])
         )
 
@@ -219,6 +338,7 @@ def fetch_one(symbol):
             "sector_yf": sector,
             "industry_yf": industry,
             "market_cap": market_cap,
+            "market_cap_cr": market_cap_cr,
             "trailing_pe": trailing_pe,
             "forward_pe": forward_pe,
             "price_to_book": price_to_book,
@@ -233,9 +353,13 @@ def fetch_one(symbol):
             "current_ratio": current_ratio,
             "quick_ratio": quick_ratio,
             "total_cash": total_cash,
+            "total_cash_cr": total_cash_cr,
             "total_debt": total_debt,
+            "total_debt_cr": total_debt_cr,
             "free_cashflow": free_cashflow,
+            "free_cashflow_cr": free_cashflow_cr,
             "operating_cashflow": operating_cashflow,
+            "operating_cashflow_cr": operating_cashflow_cr,
             "dividend_yield": dividend_yield,
             "beta": beta
         }
