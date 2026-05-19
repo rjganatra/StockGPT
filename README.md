@@ -1,5 +1,8 @@
 # 📈 StockGPT — NSE Market Intelligence Terminal
 
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/8160aae8-31f4-4867-a9e0-1f2ca8856e5e" />
+
+
 StockGPT is a Streamlit-based market intelligence dashboard built for scanning Indian equities, identifying technical opportunities, evaluating fundamental quality, tracking relative strength, monitoring sectors/industries, and maintaining a permanent watchlist.
 
 The system is designed around a broad NSE universe rather than only NIFTY 50 / NIFTY 500, so important mid-cap and small-cap opportunities are not missed.
