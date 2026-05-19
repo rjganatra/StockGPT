@@ -28,18 +28,9 @@ else:
     st.caption("🕒 Last scanned time unavailable")
 
 required_cols = [
-    "symbol",
-    "sector",
-    "industry",
-    "current_price",
-    "day_change_pct",
-    "distance_pct",
-    "distance_from_high_pct",
-    "rsi",
-    "volume_ratio",
-    "trend",
-    "score",
-    "reasons"
+    "symbol", "sector", "industry", "current_price", "day_change_pct",
+    "distance_pct", "distance_from_high_pct", "rsi", "volume_ratio",
+    "trend", "score", "reasons"
 ]
 
 missing = [col for col in required_cols if col not in df.columns]
@@ -51,25 +42,12 @@ if missing:
 df = df.dropna(subset=["symbol", "distance_pct", "rsi", "score"])
 
 optional_score_cols = [
-    "market_cap_cr",
-    "total_cash_cr",
-    "total_debt_cr",
-    "free_cashflow_cr",
-    "operating_cashflow_cr",
-    "technical_score",
-    "fundamental_score",
-    "sector_score",
-    "relative_strength_score",
-    "risk_penalty",
-    "final_conviction_score",
-    "return_1m",
-    "return_3m",
-    "return_6m",
-    "return_vs_nifty_1m",
-    "return_vs_nifty_3m",
-    "return_vs_nifty_6m",
-    "sector_rank",
-    "sector_rank_pct"
+    "market_cap_cr", "total_cash_cr", "total_debt_cr", "free_cashflow_cr",
+    "operating_cashflow_cr", "technical_score", "fundamental_score",
+    "sector_score", "relative_strength_score", "risk_penalty",
+    "final_conviction_score", "return_1m", "return_3m", "return_6m",
+    "return_vs_nifty_1m", "return_vs_nifty_3m", "return_vs_nifty_6m",
+    "sector_rank", "sector_rank_pct"
 ]
 
 for col in optional_score_cols:
@@ -77,39 +55,24 @@ for col in optional_score_cols:
         df[col] = 0
 
 numeric_cols = [
-    "current_price",
-    "day_change_pct",
-    "distance_pct",
-    "distance_from_high_pct",
-    "rsi",
-    "volume_ratio",
-    "score",
-    "technical_score",
-    "fundamental_score",
-    "sector_score",
-    "relative_strength_score",
-    "risk_penalty",
-    "final_conviction_score",
-    "return_1m",
-    "return_3m",
-    "return_6m",
-    "return_vs_nifty_1m",
-    "return_vs_nifty_3m",
-    "return_vs_nifty_6m",
-    "sector_rank",
-    "sector_rank_pct"
+    "current_price", "day_change_pct", "distance_pct",
+    "distance_from_high_pct", "rsi", "volume_ratio", "score",
+    "market_cap_cr", "total_cash_cr", "total_debt_cr", "free_cashflow_cr",
+    "operating_cashflow_cr", "technical_score", "fundamental_score",
+    "sector_score", "relative_strength_score", "risk_penalty",
+    "final_conviction_score", "return_1m", "return_3m", "return_6m",
+    "return_vs_nifty_1m", "return_vs_nifty_3m", "return_vs_nifty_6m",
+    "sector_rank", "sector_rank_pct"
 ]
 
 for col in numeric_cols:
-    df[col] = pd.to_numeric(df[col], errors="coerce")
+    if col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
 
 df = df.dropna(
     subset=[
-        "current_price",
-        "distance_pct",
-        "distance_from_high_pct",
-        "rsi",
-        "score"
+        "current_price", "distance_pct", "distance_from_high_pct",
+        "rsi", "score"
     ]
 )
 
@@ -122,9 +85,6 @@ df["industry"] = df["industry"].fillna("Unknown").astype(str)
 df["trend"] = df["trend"].fillna("Unknown").astype(str)
 df["reasons"] = df["reasons"].fillna("").astype(str)
 
-# =========================
-# HELPER FUNCTIONS
-# =========================
 
 def safe_floor(value):
     if pd.isna(value):
@@ -139,23 +99,65 @@ def safe_ceil(value):
 
 
 def adaptive_float_slider(label, series, step=0.1, key=None):
-    clean_series = pd.to_numeric(series, errors="coerce").dropna()
+    clean_series = pd.to_numeric(series, errors="coerce")
+    clean_series = clean_series.replace([float("inf"), float("-inf")], pd.NA).dropna()
 
     if clean_series.empty:
         min_val = 0.0
-        max_val = step
+        max_val = float(step)
     else:
         min_val = float(round(clean_series.min(), 2))
         max_val = float(round(clean_series.max(), 2))
 
         if min_val == max_val:
-            max_val = min_val + step
+            max_val = min_val + float(step)
+
+    min_val = float(min_val)
+    max_val = float(max_val)
+    step = float(step)
+
+    if max_val <= min_val:
+        max_val = min_val + step
 
     return st.sidebar.slider(
         label,
         min_value=min_val,
         max_value=max_val,
         value=(min_val, max_val),
+        step=step,
+        key=key
+    )
+
+
+def range_slider(label, data, column, step=1.0, key=None):
+    if column not in data.columns:
+        data[column] = 0
+
+    clean_series = pd.to_numeric(data[column], errors="coerce")
+    clean_series = clean_series.replace([float("inf"), float("-inf")], pd.NA).dropna()
+
+    if clean_series.empty:
+        min_value = 0.0
+        max_value = float(step)
+    else:
+        min_value = float(round(clean_series.min(), 2))
+        max_value = float(round(clean_series.max(), 2))
+
+        if min_value == max_value:
+            max_value = min_value + float(step)
+
+    min_value = float(min_value)
+    max_value = float(max_value)
+    step = float(step)
+
+    if max_value <= min_value:
+        max_value = min_value + step
+
+    return st.slider(
+        label,
+        min_value=min_value,
+        max_value=max_value,
+        value=(min_value, max_value),
         step=step,
         key=key
     )
@@ -173,18 +175,8 @@ def display_table(dataframe, columns=None):
         st.dataframe(dataframe, use_container_width=True)
 
 
-# =========================
-# WATCHLIST STORAGE — GITHUB BACKED
-# =========================
-
 WATCHLIST_PATH = "data/watchlist/watchlist.csv"
-
-WATCHLIST_COLUMNS = [
-    "symbol",
-    "basket",
-    "notes",
-    "added_at"
-]
+WATCHLIST_COLUMNS = ["symbol", "basket", "notes", "added_at"]
 
 
 def get_streamlit_secret(name, default=""):
@@ -200,7 +192,6 @@ def empty_watchlist():
 
 def github_headers():
     token = get_streamlit_secret("GITHUB_TOKEN")
-
     return {
         "Authorization": f"Bearer {token}",
         "Accept": "application/vnd.github+json"
@@ -209,7 +200,6 @@ def github_headers():
 
 def github_file_url():
     repo = get_streamlit_secret("GITHUB_REPO", "rjganatra/StockGPT")
-
     return f"https://api.github.com/repos/{repo}/contents/{WATCHLIST_PATH}"
 
 
@@ -219,10 +209,8 @@ def load_watchlist_from_github():
 
     if not token:
         local_file = Path(WATCHLIST_PATH)
-
         if local_file.exists():
             return pd.read_csv(local_file)
-
         return empty_watchlist()
 
     response = requests.get(
@@ -240,10 +228,7 @@ def load_watchlist_from_github():
         return empty_watchlist()
 
     payload = response.json()
-
-    content = base64.b64decode(
-        payload["content"]
-    ).decode("utf-8")
+    content = base64.b64decode(payload["content"]).decode("utf-8")
 
     if not content.strip():
         return empty_watchlist()
@@ -281,15 +266,12 @@ def save_watchlist_to_github(watchlist_df):
     )
 
     sha = None
-
     if get_response.status_code == 200:
         sha = get_response.json().get("sha")
 
     payload = {
         "message": "Update StockGPT watchlist",
-        "content": base64.b64encode(
-            csv_content.encode("utf-8")
-        ).decode("utf-8"),
+        "content": base64.b64encode(csv_content.encode("utf-8")).decode("utf-8"),
         "branch": branch
     }
 
@@ -312,13 +294,9 @@ def save_watchlist_to_github(watchlist_df):
 
 def add_symbols_to_watchlist(symbols, basket, notes=""):
     watchlist = load_watchlist_from_github()
-
-    now = datetime.now(
-        ZoneInfo("Asia/Kolkata")
-    ).strftime("%d.%m.%Y %I:%M %p IST")
+    now = datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%d.%m.%Y %I:%M %p IST")
 
     new_rows = []
-
     existing_pairs = set(
         zip(
             watchlist["symbol"].astype(str).str.upper(),
@@ -328,7 +306,6 @@ def add_symbols_to_watchlist(symbols, basket, notes=""):
 
     for symbol in symbols:
         symbol = str(symbol).strip().upper()
-
         if not symbol:
             continue
 
@@ -343,21 +320,14 @@ def add_symbols_to_watchlist(symbols, basket, notes=""):
             })
 
     if new_rows:
-        watchlist = pd.concat(
-            [watchlist, pd.DataFrame(new_rows)],
-            ignore_index=True
-        )
+        watchlist = pd.concat([watchlist, pd.DataFrame(new_rows)], ignore_index=True)
 
     return save_watchlist_to_github(watchlist)
 
 
 def remove_symbols_from_watchlist(symbols, basket=None):
     watchlist = load_watchlist_from_github()
-
-    symbols = [
-        str(symbol).strip().upper()
-        for symbol in symbols
-    ]
+    symbols = [str(symbol).strip().upper() for symbol in symbols]
 
     if basket:
         watchlist = watchlist[
@@ -378,7 +348,6 @@ def remove_symbols_from_watchlist(symbols, basket=None):
 def has_watchlist_access():
     entered_key = st.session_state.get("watchlist_access_key", "")
     correct_key = get_streamlit_secret("WATCHLIST_SECRET", "")
-
     return bool(correct_key) and entered_key == correct_key
 
 
@@ -396,11 +365,7 @@ WATCHLIST_BASKETS = [
 def render_add_to_watchlist(source_df, key_prefix, default_basket):
     st.subheader("➕ Add to Watchlist")
 
-    st.text_input(
-        "Access key",
-        type="password",
-        key=f"{key_prefix}_access_key"
-    )
+    st.text_input("Access key", type="password", key=f"{key_prefix}_access_key")
 
     if st.session_state.get(f"{key_prefix}_access_key", "") != get_streamlit_secret("WATCHLIST_SECRET", ""):
         st.info("Enter access key to add stocks to watchlist.")
@@ -425,30 +390,18 @@ def render_add_to_watchlist(source_df, key_prefix, default_basket):
         key=f"{key_prefix}_basket"
     )
 
-    notes = st.text_input(
-        "Notes",
-        placeholder="Optional note",
-        key=f"{key_prefix}_notes"
-    )
+    notes = st.text_input("Notes", placeholder="Optional note", key=f"{key_prefix}_notes")
 
     if st.button("Add Selected to Watchlist", key=f"{key_prefix}_add_button"):
         if not selected_symbols:
             st.warning("Select at least one stock.")
         else:
-            ok = add_symbols_to_watchlist(
-                selected_symbols,
-                basket,
-                notes
-            )
+            ok = add_symbols_to_watchlist(selected_symbols, basket, notes)
 
             if ok:
                 st.success("Watchlist updated.")
                 st.rerun()
 
-
-# =========================
-# RESET STATE MANAGER
-# =========================
 
 if "reset_counter" not in st.session_state:
     st.session_state["reset_counter"] = 0
@@ -459,12 +412,7 @@ def reset_all_filters():
     st.rerun()
 
 
-# =========================
-# SIDEBAR FILTERS
-# =========================
-
 st.sidebar.header("Filters")
-
 rk = st.session_state["reset_counter"]
 
 if st.sidebar.button("Reset All Filters", key=f"reset_all_{rk}"):
@@ -494,7 +442,6 @@ search_ignore_filters = st.sidebar.checkbox(
 )
 
 sector_options = sorted(df["sector"].dropna().unique().tolist())
-
 selected_sectors = st.sidebar.multiselect(
     "Sectors",
     sector_options,
@@ -503,7 +450,6 @@ selected_sectors = st.sidebar.multiselect(
 )
 
 industry_options = sorted(df["industry"].dropna().unique().tolist())
-
 selected_industries = st.sidebar.multiselect(
     "Industries",
     industry_options,
@@ -512,7 +458,6 @@ selected_industries = st.sidebar.multiselect(
 )
 
 trend_options = sorted(df["trend"].dropna().unique().tolist())
-
 selected_trends = st.sidebar.multiselect(
     "Trend",
     trend_options,
@@ -520,117 +465,22 @@ selected_trends = st.sidebar.multiselect(
     key=f"selected_trends_{rk}"
 )
 
-distance_min, distance_max = adaptive_float_slider(
-    "Distance From 52W Low %",
-    df["distance_pct"],
-    step=0.1,
-    key=f"distance_slider_{rk}"
-)
-
-high_distance_min, high_distance_max = adaptive_float_slider(
-    "Distance From 52W High %",
-    df["distance_from_high_pct"],
-    step=0.1,
-    key=f"high_distance_slider_{rk}"
-)
-
-rsi_min, rsi_max = adaptive_float_slider(
-    "RSI Range",
-    df["rsi"],
-    step=0.1,
-    key=f"rsi_slider_{rk}"
-)
-
-score_min, score_max = adaptive_float_slider(
-    "Score Range",
-    df["score"],
-    step=1.0,
-    key=f"score_slider_{rk}"
-)
-
-final_score_min, final_score_max = adaptive_float_slider(
-    "Final Conviction Score Range",
-    df["final_conviction_score"],
-    step=1.0,
-    key=f"final_score_slider_{rk}"
-)
-
-technical_score_min, technical_score_max = adaptive_float_slider(
-    "Technical Score Range",
-    df["technical_score"],
-    step=1.0,
-    key=f"technical_score_slider_{rk}"
-)
-
-relative_score_min, relative_score_max = adaptive_float_slider(
-    "Relative Strength Score Range",
-    df["relative_strength_score"],
-    step=1.0,
-    key=f"relative_score_slider_{rk}"
-)
-
-fundamental_score_min, fundamental_score_max = adaptive_float_slider(
-    "Fundamental Score Range",
-    df["fundamental_score"],
-    step=1.0,
-    key=f"fundamental_score_slider_{rk}"
-)
-
-sector_score_min, sector_score_max = adaptive_float_slider(
-    "Sector Score Range",
-    df["sector_score"],
-    step=1.0,
-    key=f"sector_score_slider_{rk}"
-)
-
-risk_penalty_min, risk_penalty_max = adaptive_float_slider(
-    "Risk Penalty Range",
-    df["risk_penalty"],
-    step=1.0,
-    key=f"risk_penalty_slider_{rk}"
-)
-
-volume_min, volume_max = adaptive_float_slider(
-    "Volume Ratio Range",
-    df["volume_ratio"],
-    step=0.1,
-    key=f"volume_slider_{rk}"
-)
-
-day_change_min, day_change_max = adaptive_float_slider(
-    "Day Change %",
-    df["day_change_pct"],
-    step=0.1,
-    key=f"day_change_slider_{rk}"
-)
-
-price_min, price_max = adaptive_float_slider(
-    "Current Price Range",
-    df["current_price"],
-    step=1.0,
-    key=f"price_slider_{rk}"
-)
-
-return_1m_min, return_1m_max = adaptive_float_slider(
-    "1M Return %",
-    df["return_1m"],
-    step=0.1,
-    key=f"return_1m_slider_{rk}"
-)
-
-return_3m_min, return_3m_max = adaptive_float_slider(
-    "3M Return %",
-    df["return_3m"],
-    step=0.1,
-    key=f"return_3m_slider_{rk}"
-)
-
-return_6m_min, return_6m_max = adaptive_float_slider(
-    "6M Return %",
-    df["return_6m"],
-    step=0.1,
-    key=f"return_6m_slider_{rk}"
-)
+distance_min, distance_max = adaptive_float_slider("Distance From 52W Low %", df["distance_pct"], step=0.1, key=f"distance_slider_{rk}")
+high_distance_min, high_distance_max = adaptive_float_slider("Distance From 52W High %", df["distance_from_high_pct"], step=0.1, key=f"high_distance_slider_{rk}")
+rsi_min, rsi_max = adaptive_float_slider("RSI Range", df["rsi"], step=0.1, key=f"rsi_slider_{rk}")
+score_min, score_max = adaptive_float_slider("Score Range", df["score"], step=1.0, key=f"score_slider_{rk}")
+final_score_min, final_score_max = adaptive_float_slider("Final Conviction Score Range", df["final_conviction_score"], step=1.0, key=f"final_score_slider_{rk}")
+technical_score_min, technical_score_max = adaptive_float_slider("Technical Score Range", df["technical_score"], step=1.0, key=f"technical_score_slider_{rk}")
+relative_score_min, relative_score_max = adaptive_float_slider("Relative Strength Score Range", df["relative_strength_score"], step=1.0, key=f"relative_score_slider_{rk}")
+fundamental_score_min, fundamental_score_max = adaptive_float_slider("Fundamental Score Range", df["fundamental_score"], step=1.0, key=f"fundamental_score_slider_{rk}")
+sector_score_min, sector_score_max = adaptive_float_slider("Sector Score Range", df["sector_score"], step=1.0, key=f"sector_score_slider_{rk}")
+risk_penalty_min, risk_penalty_max = adaptive_float_slider("Risk Penalty Range", df["risk_penalty"], step=1.0, key=f"risk_penalty_slider_{rk}")
+volume_min, volume_max = adaptive_float_slider("Volume Ratio Range", df["volume_ratio"], step=0.1, key=f"volume_slider_{rk}")
+day_change_min, day_change_max = adaptive_float_slider("Day Change %", df["day_change_pct"], step=0.1, key=f"day_change_slider_{rk}")
+price_min, price_max = adaptive_float_slider("Current Price Range", df["current_price"], step=1.0, key=f"price_slider_{rk}")
+return_1m_min, return_1m_max = adaptive_float_slider("1M Return %", df["return_1m"], step=0.1, key=f"return_1m_slider_{rk}")
+return_3m_min, return_3m_max = adaptive_float_slider("3M Return %", df["return_3m"], step=0.1, key=f"return_3m_slider_{rk}")
+return_6m_min, return_6m_max = adaptive_float_slider("6M Return %", df["return_6m"], step=0.1, key=f"return_6m_slider_{rk}")
 
 st.sidebar.header("Quick Presets")
 
@@ -657,183 +507,61 @@ preset = st.sidebar.selectbox(
 filtered = df.copy()
 
 if search_ignore_filters and search_symbol.strip():
-    filtered = df[
-        df["symbol"].str.contains(
-            search_symbol.upper(),
-            case=False,
-            na=False
-        )
-    ]
+    filtered = df[df["symbol"].str.contains(search_symbol.upper(), case=False, na=False)]
 else:
-    filtered = filtered[
-        filtered["sector"].isin(selected_sectors)
-    ]
-
-    filtered = filtered[
-        filtered["industry"].isin(selected_industries)
-    ]
-
-    filtered = filtered[
-        filtered["trend"].isin(selected_trends)
-    ]
-
-    filtered = filtered[
-        filtered["distance_pct"].between(distance_min, distance_max)
-    ]
-
-    filtered = filtered[
-        filtered["distance_from_high_pct"].between(high_distance_min, high_distance_max)
-    ]
-
-    filtered = filtered[
-        filtered["rsi"].between(rsi_min, rsi_max)
-    ]
-
-    filtered = filtered[
-        filtered["score"].between(score_min, score_max)
-    ]
-
-    filtered = filtered[
-        filtered["final_conviction_score"].between(final_score_min, final_score_max)
-    ]
-
-    filtered = filtered[
-        filtered["technical_score"].between(technical_score_min, technical_score_max)
-    ]
-
-    filtered = filtered[
-        filtered["relative_strength_score"].between(relative_score_min, relative_score_max)
-    ]
-
-    filtered = filtered[
-        filtered["fundamental_score"].between(fundamental_score_min, fundamental_score_max)
-    ]
-
-    filtered = filtered[
-        filtered["sector_score"].between(sector_score_min, sector_score_max)
-    ]
-
-    filtered = filtered[
-        filtered["risk_penalty"].between(risk_penalty_min, risk_penalty_max)
-    ]
-
-    filtered = filtered[
-        filtered["volume_ratio"].between(volume_min, volume_max)
-    ]
-
-    filtered = filtered[
-        filtered["day_change_pct"].between(day_change_min, day_change_max)
-    ]
-
-    filtered = filtered[
-        filtered["current_price"].between(price_min, price_max)
-    ]
-
-    filtered = filtered[
-        filtered["return_1m"].between(return_1m_min, return_1m_max)
-    ]
-
-    filtered = filtered[
-        filtered["return_3m"].between(return_3m_min, return_3m_max)
-    ]
-
-    filtered = filtered[
-        filtered["return_6m"].between(return_6m_min, return_6m_max)
-    ]
+    filtered = filtered[filtered["sector"].isin(selected_sectors)]
+    filtered = filtered[filtered["industry"].isin(selected_industries)]
+    filtered = filtered[filtered["trend"].isin(selected_trends)]
+    filtered = filtered[filtered["distance_pct"].between(distance_min, distance_max)]
+    filtered = filtered[filtered["distance_from_high_pct"].between(high_distance_min, high_distance_max)]
+    filtered = filtered[filtered["rsi"].between(rsi_min, rsi_max)]
+    filtered = filtered[filtered["score"].between(score_min, score_max)]
+    filtered = filtered[filtered["final_conviction_score"].between(final_score_min, final_score_max)]
+    filtered = filtered[filtered["technical_score"].between(technical_score_min, technical_score_max)]
+    filtered = filtered[filtered["relative_strength_score"].between(relative_score_min, relative_score_max)]
+    filtered = filtered[filtered["fundamental_score"].between(fundamental_score_min, fundamental_score_max)]
+    filtered = filtered[filtered["sector_score"].between(sector_score_min, sector_score_max)]
+    filtered = filtered[filtered["risk_penalty"].between(risk_penalty_min, risk_penalty_max)]
+    filtered = filtered[filtered["volume_ratio"].between(volume_min, volume_max)]
+    filtered = filtered[filtered["day_change_pct"].between(day_change_min, day_change_max)]
+    filtered = filtered[filtered["current_price"].between(price_min, price_max)]
+    filtered = filtered[filtered["return_1m"].between(return_1m_min, return_1m_max)]
+    filtered = filtered[filtered["return_3m"].between(return_3m_min, return_3m_max)]
+    filtered = filtered[filtered["return_6m"].between(return_6m_min, return_6m_max)]
 
     if search_symbol.strip():
-        filtered = filtered[
-            filtered["symbol"].str.contains(
-                search_symbol.upper(),
-                case=False,
-                na=False
-            )
-        ]
+        filtered = filtered[filtered["symbol"].str.contains(search_symbol.upper(), case=False, na=False)]
 
 if search_reason.strip():
-    filtered = filtered[
-        filtered["reasons"].str.contains(
-            search_reason,
-            case=False,
-            na=False
-        )
-    ]
+    filtered = filtered[filtered["reasons"].str.contains(search_reason, case=False, na=False)]
 
 if preset == "52W Low Opportunities":
-    filtered = filtered[
-        filtered["distance_pct"] < 15
-    ]
-
+    filtered = filtered[filtered["distance_pct"] < 15]
 elif preset == "Oversold Bounce":
-    filtered = filtered[
-        (filtered["distance_pct"] < 25)
-        &
-        (filtered["rsi"] < 45)
-    ]
-
+    filtered = filtered[(filtered["distance_pct"] < 25) & (filtered["rsi"] < 45)]
 elif preset == "Volume Spike":
-    filtered = filtered[
-        filtered["volume_ratio"] > 1.3
-    ]
-
+    filtered = filtered[filtered["volume_ratio"] > 1.3]
 elif preset == "Bullish Trend":
-    filtered = filtered[
-        filtered["trend"] == "Bullish"
-    ]
-
+    filtered = filtered[filtered["trend"] == "Bullish"]
 elif preset == "Bearish Weakness":
-    filtered = filtered[
-        filtered["trend"] == "Bearish"
-    ]
-
+    filtered = filtered[filtered["trend"] == "Bearish"]
 elif preset == "Near 52W High Momentum":
-    filtered = filtered[
-        filtered["distance_from_high_pct"] < 15
-    ]
-
+    filtered = filtered[filtered["distance_from_high_pct"] < 15]
 elif preset == "High Conviction":
-    filtered = filtered[
-        filtered["final_conviction_score"] >= 60
-    ]
-
+    filtered = filtered[filtered["final_conviction_score"] >= 60]
 elif preset == "Strong Fundamentals":
-    filtered = filtered[
-        filtered["fundamental_score"] >= 60
-    ]
-
+    filtered = filtered[filtered["fundamental_score"] >= 60]
 elif preset == "Relative Strength Leaders":
-    filtered = filtered[
-        filtered["relative_strength_score"] >= 60
-    ]
-
+    filtered = filtered[filtered["relative_strength_score"] >= 60]
 elif preset == "Low Risk Quality":
-    filtered = filtered[
-        (filtered["risk_penalty"] <= 10)
-        &
-        (filtered["final_conviction_score"] >= 50)
-    ]
-
+    filtered = filtered[(filtered["risk_penalty"] <= 10) & (filtered["final_conviction_score"] >= 50)]
 elif preset == "Weak But Recovering":
-    filtered = filtered[
-        (filtered["rsi"] < 50)
-        &
-        (filtered["trend"] == "Bullish")
-    ]
-
+    filtered = filtered[(filtered["rsi"] < 50) & (filtered["trend"] == "Bullish")]
 elif preset == "Fresh Breakdown Risk":
-    filtered = filtered[
-        (filtered["trend"] == "Bearish")
-        &
-        (filtered["rsi"] < 40)
-        &
-        (filtered["day_change_pct"] < 0)
-    ]
+    filtered = filtered[(filtered["trend"] == "Bearish") & (filtered["rsi"] < 40) & (filtered["day_change_pct"] < 0)]
 
 st.sidebar.header("Advanced Query")
-
-st.sidebar.caption(
-    'Examples: sector == "Technology" and rsi > 60 | final_conviction_score >= 70 and relative_strength_score > 50'
-)
+st.sidebar.caption('Examples: sector == "Technology" and rsi > 60 | final_conviction_score >= 70 and relative_strength_score > 50')
 
 query_text = st.sidebar.text_area(
     "Custom Query",
@@ -850,7 +578,6 @@ if query_text.strip():
 
 if filtered.empty:
     st.warning("No stocks meet the strict criteria.")
-
     col1, col2 = st.columns(2)
 
     with col1:
@@ -858,9 +585,7 @@ if filtered.empty:
             reset_all_filters()
 
     with col2:
-        st.info(
-            "Try relaxing filters, using Search ignores all filters, or searching another stock like IDEA, IDEAFORGE, MTARTECH, INFY."
-        )
+        st.info("Try relaxing filters, using Search ignores all filters, or searching another stock like IDEA, IDEAFORGE, MTARTECH, INFY.")
 
     st.stop()
 
@@ -889,16 +614,9 @@ sort_column = st.sidebar.selectbox(
     key=f"sort_column_{rk}"
 )
 
-sort_order = st.sidebar.radio(
-    "Sort Order",
-    ["Descending", "Ascending"],
-    key=f"sort_order_{rk}"
-)
+sort_order = st.sidebar.radio("Sort Order", ["Descending", "Ascending"], key=f"sort_order_{rk}")
 
-filtered = filtered.sort_values(
-    sort_column,
-    ascending=(sort_order == "Ascending")
-)
+filtered = filtered.sort_values(sort_column, ascending=(sort_order == "Ascending"))
 
 filtered_count = len(filtered)
 
@@ -906,7 +624,6 @@ if filtered_count <= 10:
     result_limit = filtered_count
 else:
     max_rows_displayed = min(filtered_count, 1000)
-
     result_limit = st.sidebar.slider(
         "Max Rows Displayed",
         min_value=10,
@@ -924,16 +641,10 @@ failed_file = Path("data/scans/failed_symbols.csv")
 
 if failed_file.exists():
     failed_df = pd.read_csv(failed_file)
-
     st.sidebar.metric("Failed Symbols", len(failed_df))
-
     with st.sidebar.expander("View Failed Symbols"):
         st.dataframe(failed_df, use_container_width=True)
 
-
-# =========================
-# TABS
-# =========================
 
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "Market Overview",
@@ -946,30 +657,22 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "Fundamentals"
 ])
 
-
-# =========================
-# TAB 1 — MARKET OVERVIEW
-# =========================
-
 with tab1:
     st.header("📊 Market Overview")
 
     col1, col2, col3, col4 = st.columns(4)
-
     col1.metric("Stocks Scanned", len(df))
     col2.metric("Filtered Stocks", len(filtered))
     col3.metric("Near 52W Low", len(df[df["distance_pct"] < 15]))
     col4.metric("Avg RSI", round(df["rsi"].mean(), 2))
 
     col5, col6, col7, col8 = st.columns(4)
-
     col5.metric("Bullish Stocks", len(df[df["trend"] == "Bullish"]))
     col6.metric("Bearish Stocks", len(df[df["trend"] == "Bearish"]))
     col7.metric("Avg Final Conviction", round(df["final_conviction_score"].mean(), 2))
     col8.metric("Volume Spike Stocks", len(df[df["volume_ratio"] > 1.3]))
 
     col9, col10, col11, col12 = st.columns(4)
-
     col9.metric("Avg Technical Score", round(df["technical_score"].mean(), 2))
     col10.metric("Avg Fundamental Score", round(df["fundamental_score"].mean(), 2))
     col11.metric("Avg Relative Strength", round(df["relative_strength_score"].mean(), 2))
@@ -978,51 +681,22 @@ with tab1:
     st.subheader("Filtered Market Table")
 
     market_overview_cols = [
-        "symbol",
-        "sector",
-        "industry",
-        "current_price",
-        "day_change_pct",
-        "market_cap_cr",
-        "final_conviction_score",
-        "technical_score",
-        "fundamental_score",
-        "relative_strength_score",
-        "sector_score",
-        "risk_penalty",
-        "rsi",
-        "volume_ratio",
-        "distance_pct",
-        "distance_from_high_pct",
-        "return_1m",
-        "return_3m",
-        "return_6m",
-        "trend",
-        "reasons"
-]
+        "symbol", "sector", "industry", "current_price", "day_change_pct",
+        "market_cap_cr", "final_conviction_score", "technical_score",
+        "fundamental_score", "relative_strength_score", "sector_score",
+        "risk_penalty", "rsi", "volume_ratio", "distance_pct",
+        "distance_from_high_pct", "return_1m", "return_3m", "return_6m",
+        "trend", "reasons"
+    ]
 
-available_market_cols = [
-    col for col in market_overview_cols
-    if col in filtered.columns
-]
-
-display_table(
-    filtered[available_market_cols]
-)
-
-
-# =========================
-# TAB 2 — HEATMAP
-# =========================
+    available_market_cols = [col for col in market_overview_cols if col in filtered.columns]
+    display_table(filtered[available_market_cols])
 
 with tab2:
     st.header("🔥 Opportunity Heatmap")
 
     heatmap_df = filtered.copy()
-
-    heatmap_df["heatmap_size"] = heatmap_df["final_conviction_score"].apply(
-        lambda x: max(float(x), 1)
-    )
+    heatmap_df["heatmap_size"] = heatmap_df["final_conviction_score"].apply(lambda x: max(float(x), 1))
 
     fig = px.treemap(
         heatmap_df,
@@ -1031,29 +705,18 @@ with tab2:
         color="final_conviction_score",
         color_continuous_scale=["red", "yellow", "green"],
         hover_data=[
-            "current_price",
-            "day_change_pct",
-            "rsi",
-            "volume_ratio",
-            "technical_score",
-            "fundamental_score",
-            "relative_strength_score",
-            "sector_score",
-            "risk_penalty",
-            "final_conviction_score"
+            "current_price", "day_change_pct", "rsi", "volume_ratio",
+            "technical_score", "fundamental_score", "relative_strength_score",
+            "sector_score", "risk_penalty", "final_conviction_score"
         ],
         title="Opportunity Heatmap: Green = Higher Final Conviction, Red = Lower Final Conviction"
     )
-
     st.plotly_chart(fig, use_container_width=True)
 
     st.header("📍 Daily Movement Heatmap")
 
     movement_df = filtered.copy()
-
-    movement_df["heatmap_size"] = movement_df["current_price"].apply(
-        lambda x: max(float(x), 1)
-    )
+    movement_df["heatmap_size"] = movement_df["current_price"].apply(lambda x: max(float(x), 1))
 
     move_fig = px.treemap(
         movement_df,
@@ -1061,30 +724,15 @@ with tab2:
         values="heatmap_size",
         color="day_change_pct",
         color_continuous_scale=["red", "white", "green"],
-        hover_data=[
-            "current_price",
-            "day_change_pct",
-            "rsi",
-            "volume_ratio",
-            "trend",
-            "final_conviction_score"
-        ],
+        hover_data=["current_price", "day_change_pct", "rsi", "volume_ratio", "trend", "final_conviction_score"],
         title="Daily Movement Heatmap: Green = Up Today, Red = Down Today"
     )
-
     st.plotly_chart(move_fig, use_container_width=True)
-
-
-# =========================
-# TAB 3 — OPPORTUNITIES
-# =========================
 
 with tab3:
     st.header("🎯 52W Low Opportunities")
 
-    low_opportunities = filtered[
-        filtered["distance_pct"] <= 15
-    ].sort_values(
+    low_opportunities = filtered[filtered["distance_pct"] <= 15].sort_values(
         ["distance_pct", "final_conviction_score"],
         ascending=[True, False]
     )
@@ -1095,32 +743,15 @@ with tab3:
         display_table(
             low_opportunities,
             [
-                "symbol",
-                "sector",
-                "industry",
-                "current_price",
-                "day_change_pct",
-                "52w_low",
-                "distance_pct",
-                "rsi",
-                "volume_ratio",
-                "technical_score",
-                "fundamental_score",
-                "relative_strength_score",
-                "risk_penalty",
-                "final_conviction_score",
-                "reasons"
+                "symbol", "sector", "industry", "current_price", "day_change_pct",
+                "52w_low", "distance_pct", "rsi", "volume_ratio",
+                "technical_score", "fundamental_score", "relative_strength_score",
+                "risk_penalty", "final_conviction_score", "reasons"
             ]
         )
-
-        render_add_to_watchlist(
-            low_opportunities,
-            "low_opportunity_watchlist",
-            "52W Low Opportunities"
-        )
+        render_add_to_watchlist(low_opportunities, "low_opportunity_watchlist", "52W Low Opportunities")
 
     st.divider()
-
     st.header("⚡ Swing Candidates")
 
     swing = filtered[
@@ -1129,24 +760,15 @@ with tab3:
         (filtered["rsi"] <= 45)
         &
         (filtered["volume_ratio"] >= 1.0)
-    ].sort_values(
-        "final_conviction_score",
-        ascending=False
-    )
+    ].sort_values("final_conviction_score", ascending=False)
 
     if swing.empty:
         st.info("No stocks currently qualify as Swing Candidates under the active filters.")
     else:
         display_table(swing)
-
-        render_add_to_watchlist(
-            swing,
-            "swing_watchlist",
-            "Swing Candidates"
-        )
+        render_add_to_watchlist(swing, "swing_watchlist", "Swing Candidates")
 
     st.divider()
-
     st.header("🚀 Near 52W High Momentum")
 
     high_momentum = filtered[
@@ -1155,26 +777,13 @@ with tab3:
         (filtered["rsi"] >= 50)
         &
         (filtered["trend"] == "Bullish")
-    ].sort_values(
-        ["distance_from_high_pct", "final_conviction_score"],
-        ascending=[True, False]
-    )
+    ].sort_values(["distance_from_high_pct", "final_conviction_score"], ascending=[True, False])
 
     if high_momentum.empty:
         st.info("No stocks currently qualify as Near 52W High Momentum under the active filters.")
     else:
         display_table(high_momentum)
-
-        render_add_to_watchlist(
-            high_momentum,
-            "high_momentum_watchlist",
-            "Near 52W High Momentum"
-        )
-
-
-# =========================
-# TAB 4 — SECTORS + INDUSTRIES
-# =========================
+        render_add_to_watchlist(high_momentum, "high_momentum_watchlist", "Near 52W High Momentum")
 
 with tab4:
     st.header("🏭 Sector Overview")
@@ -1199,40 +808,22 @@ with tab4:
         bearish_count=("trend", lambda x: (x == "Bearish").sum())
     ).reset_index()
 
-    sector_df["bullish_pct"] = round(
-        (sector_df["bullish_count"] / sector_df["stocks"]) * 100,
-        2
-    )
-
-    sector_df = sector_df.sort_values(
-        "avg_final_conviction",
-        ascending=False
-    )
+    sector_df["bullish_pct"] = round((sector_df["bullish_count"] / sector_df["stocks"]) * 100, 2)
+    sector_df = sector_df.sort_values("avg_final_conviction", ascending=False)
 
     display_table(sector_df)
 
     col1, col2 = st.columns(2)
 
     with col1:
-        fig_sector_score = px.bar(
-            sector_df,
-            x="sector",
-            y="avg_final_conviction",
-            title="Sector Average Final Conviction"
-        )
+        fig_sector_score = px.bar(sector_df, x="sector", y="avg_final_conviction", title="Sector Average Final Conviction")
         st.plotly_chart(fig_sector_score, use_container_width=True)
 
     with col2:
-        fig_sector_relative = px.bar(
-            sector_df,
-            x="sector",
-            y="avg_relative_strength",
-            title="Sector Average Relative Strength"
-        )
+        fig_sector_relative = px.bar(sector_df, x="sector", y="avg_relative_strength", title="Sector Average Relative Strength")
         st.plotly_chart(fig_sector_relative, use_container_width=True)
 
     st.divider()
-
     st.header("🏭 Industry Overview")
 
     industry_df = filtered.groupby("industry").agg(
@@ -1251,15 +842,8 @@ with tab4:
         bearish_count=("trend", lambda x: (x == "Bearish").sum())
     ).reset_index()
 
-    industry_df["bullish_pct"] = round(
-        (industry_df["bullish_count"] / industry_df["stocks"]) * 100,
-        2
-    )
-
-    industry_df = industry_df.sort_values(
-        "avg_final_conviction",
-        ascending=False
-    )
+    industry_df["bullish_pct"] = round((industry_df["bullish_count"] / industry_df["stocks"]) * 100, 2)
+    industry_df = industry_df.sort_values("avg_final_conviction", ascending=False)
 
     display_table(industry_df)
 
@@ -1270,61 +854,41 @@ with tab4:
         color="avg_final_conviction",
         color_continuous_scale=["red", "yellow", "green"],
         hover_data=[
-            "avg_technical",
-            "avg_fundamental",
-            "avg_relative_strength",
-            "avg_risk_penalty",
-            "avg_rsi",
-            "avg_1m_return",
-            "avg_3m_return",
+            "avg_technical", "avg_fundamental", "avg_relative_strength",
+            "avg_risk_penalty", "avg_rsi", "avg_1m_return", "avg_3m_return",
             "avg_6m_return"
         ],
         title="Industry Heatmap by Final Conviction"
     )
-
     st.plotly_chart(industry_fig, use_container_width=True)
 
     st.subheader("Top Industries by Final Conviction")
-
     display_table(industry_df.head(25))
-
-
-# =========================
-# TAB 5 — STOCK EXPLORER
-# =========================
 
 with tab5:
     st.header("🔍 Stock Explorer")
 
-    selected_stock = st.selectbox(
-        "Select Stock",
-        sorted(df["symbol"].unique())
-    )
-
+    selected_stock = st.selectbox("Select Stock", sorted(df["symbol"].unique()))
     stock = df[df["symbol"] == selected_stock].iloc[0]
 
     col1, col2, col3, col4 = st.columns(4)
-
     col1.metric("Current Price", stock["current_price"])
     col2.metric("Final Conviction", stock["final_conviction_score"])
     col3.metric("RSI", stock["rsi"])
     col4.metric("Risk Penalty", stock["risk_penalty"])
 
     col5, col6, col7, col8 = st.columns(4)
-
     col5.metric("Technical Score", stock["technical_score"])
     col6.metric("Fundamental Score", stock["fundamental_score"])
     col7.metric("Relative Strength", stock["relative_strength_score"])
     col8.metric("Sector Score", stock["sector_score"])
 
     st.subheader("Stock Details")
-
     st.json(stock.to_dict())
 
     st.subheader("Reason Engine")
 
     reason_value = stock["reasons"]
-
     if pd.isna(reason_value) or str(reason_value).strip() == "":
         st.info("No strong reason generated yet.")
     else:
@@ -1355,44 +919,22 @@ with tab5:
             st.warning(risk_reason)
 
     st.divider()
-
     st.subheader("➕ Add This Stock to Watchlist")
 
-    stock_access_key = st.text_input(
-        "Access key for Stock Explorer watchlist",
-        type="password",
-        key="stock_explorer_watchlist_key"
-    )
+    stock_access_key = st.text_input("Access key for Stock Explorer watchlist", type="password", key="stock_explorer_watchlist_key")
 
     if stock_access_key == get_streamlit_secret("WATCHLIST_SECRET", ""):
-        basket = st.selectbox(
-            "Select Basket",
-            WATCHLIST_BASKETS,
-            key="stock_explorer_basket"
-        )
-
-        notes = st.text_input(
-            "Notes",
-            key="stock_explorer_notes"
-        )
+        basket = st.selectbox("Select Basket", WATCHLIST_BASKETS, key="stock_explorer_basket")
+        notes = st.text_input("Notes", key="stock_explorer_notes")
 
         if st.button("Add This Stock"):
-            ok = add_symbols_to_watchlist(
-                [selected_stock],
-                basket,
-                notes
-            )
+            ok = add_symbols_to_watchlist([selected_stock], basket, notes)
 
             if ok:
                 st.success(f"{selected_stock} added to watchlist.")
                 st.rerun()
     else:
         st.info("Enter access key to add this stock.")
-
-
-# =========================
-# TAB 6 — HISTORY
-# =========================
 
 with tab6:
     st.header("🕰 Historical Snapshots")
@@ -1402,16 +944,12 @@ with tab6:
     if not history_root.exists():
         st.warning("No history folder found yet.")
     else:
-        folders = sorted(
-            [p.name for p in history_root.iterdir() if p.is_dir()],
-            reverse=True
-        )
+        folders = sorted([p.name for p in history_root.iterdir() if p.is_dir()], reverse=True)
 
         if not folders:
             st.warning("No historical snapshots available.")
         else:
             selected_date = st.selectbox("Select Snapshot Date", folders)
-
             history_file = history_root / selected_date / "latest_scan.csv"
 
             if history_file.exists():
@@ -1420,17 +958,9 @@ with tab6:
             else:
                 st.warning("Snapshot file missing.")
 
-
-# =========================
-# TAB 7 — WATCHLIST
-# =========================
-
 with tab7:
     st.header("⭐ Permanent Watchlist")
-
-    st.caption(
-        "This watchlist is saved permanently in GitHub. Visitors can view it, but editing requires your access key."
-    )
+    st.caption("This watchlist is saved permanently in GitHub. Visitors can view it, but editing requires your access key.")
 
     watchlist = load_watchlist_from_github()
 
@@ -1439,136 +969,80 @@ with tab7:
     else:
         watchlist["symbol"] = watchlist["symbol"].astype(str).str.upper()
 
-        merged_watchlist = watchlist.merge(
-            df,
-            on="symbol",
-            how="left"
-        )
+        merged_watchlist = watchlist.merge(df, on="symbol", how="left")
+        baskets = sorted(watchlist["basket"].dropna().unique().tolist())
 
-        baskets = sorted(
-            watchlist["basket"].dropna().unique().tolist()
-        )
-
-        selected_basket_view = st.selectbox(
-            "View Basket",
-            ["All"] + baskets,
-            key="watchlist_basket_view"
-        )
+        selected_basket_view = st.selectbox("View Basket", ["All"] + baskets, key="watchlist_basket_view")
 
         display_watchlist = merged_watchlist.copy()
 
         if selected_basket_view != "All":
-            display_watchlist = display_watchlist[
-                display_watchlist["basket"] == selected_basket_view
-            ]
+            display_watchlist = display_watchlist[display_watchlist["basket"] == selected_basket_view]
 
         st.subheader("Watchlist Table")
-
         display_table(display_watchlist)
 
         st.subheader("Watchlist Summary")
 
-        found_watchlist = display_watchlist[
-            display_watchlist["current_price"].notna()
-        ]
+        found_watchlist = display_watchlist[display_watchlist["current_price"].notna()]
 
         if not found_watchlist.empty:
             col1, col2, col3, col4 = st.columns(4)
-
             col1.metric("Stocks Found", len(found_watchlist))
             col2.metric("Avg RSI", round(found_watchlist["rsi"].mean(), 2))
             col3.metric("Avg Final Conviction", round(found_watchlist["final_conviction_score"].mean(), 2))
-            col4.metric(
-                "Near 52W Low",
-                len(found_watchlist[found_watchlist["distance_pct"] < 15])
-            )
+            col4.metric("Near 52W Low", len(found_watchlist[found_watchlist["distance_pct"] < 15]))
 
             col5, col6, col7, col8 = st.columns(4)
-
             col5.metric("Avg Fundamental", round(found_watchlist["fundamental_score"].mean(), 2))
             col6.metric("Avg Technical", round(found_watchlist["technical_score"].mean(), 2))
             col7.metric("Avg Relative Strength", round(found_watchlist["relative_strength_score"].mean(), 2))
             col8.metric("Avg Risk Penalty", round(found_watchlist["risk_penalty"].mean(), 2))
 
-        missing_watchlist = display_watchlist[
-            display_watchlist["current_price"].isna()
-        ]
+        missing_watchlist = display_watchlist[display_watchlist["current_price"].isna()]
 
         if not missing_watchlist.empty:
             st.warning("Some watchlist stocks were not found in latest scan.")
-            display_table(
-                missing_watchlist,
-                ["symbol", "basket", "notes", "added_at"]
-            )
+            display_table(missing_watchlist, ["symbol", "basket", "notes", "added_at"])
 
         st.divider()
-
         st.subheader("Watchlist by Opportunity Basket")
 
         for basket_name in baskets:
-            basket_df = merged_watchlist[
-                merged_watchlist["basket"] == basket_name
-            ]
-
+            basket_df = merged_watchlist[merged_watchlist["basket"] == basket_name]
             with st.expander(f"{basket_name} ({len(basket_df)})"):
                 display_table(basket_df)
 
     st.divider()
-
     st.subheader("Remove from Watchlist")
 
-    st.text_input(
-        "Access key to remove stocks",
-        type="password",
-        key="watchlist_access_key"
-    )
+    st.text_input("Access key to remove stocks", type="password", key="watchlist_access_key")
 
     if has_watchlist_access():
         if watchlist.empty:
             st.info("Nothing to remove.")
         else:
-            remove_basket = st.selectbox(
-                "Remove from basket",
-                ["All"] + sorted(watchlist["basket"].dropna().unique().tolist()),
-                key="remove_basket"
-            )
+            remove_basket = st.selectbox("Remove from basket", ["All"] + sorted(watchlist["basket"].dropna().unique().tolist()), key="remove_basket")
 
             removable_df = watchlist.copy()
 
             if remove_basket != "All":
-                removable_df = removable_df[
-                    removable_df["basket"] == remove_basket
-                ]
+                removable_df = removable_df[removable_df["basket"] == remove_basket]
 
-            removable_symbols = sorted(
-                removable_df["symbol"].dropna().astype(str).unique().tolist()
-            )
-
-            symbols_to_remove = st.multiselect(
-                "Select symbols to remove",
-                removable_symbols,
-                key="symbols_to_remove"
-            )
+            removable_symbols = sorted(removable_df["symbol"].dropna().astype(str).unique().tolist())
+            symbols_to_remove = st.multiselect("Select symbols to remove", removable_symbols, key="symbols_to_remove")
 
             if st.button("Remove Selected"):
                 if not symbols_to_remove:
                     st.warning("Select at least one symbol.")
                 else:
-                    ok = remove_symbols_from_watchlist(
-                        symbols_to_remove,
-                        None if remove_basket == "All" else remove_basket
-                    )
+                    ok = remove_symbols_from_watchlist(symbols_to_remove, None if remove_basket == "All" else remove_basket)
 
                     if ok:
                         st.success("Selected symbols removed.")
                         st.rerun()
     else:
         st.info("Enter access key to remove stocks.")
-
-
-# =========================
-# TAB 8 — FUNDAMENTALS
-# =========================
 
 with tab8:
     st.header("📚 Fundamentals")
@@ -1589,25 +1063,13 @@ with tab8:
                 fund_time = fundamentals_df["fundamental_scan_time"].dropna().iloc[0]
                 st.caption(f"🕒 Fundamentals last updated on {fund_time}")
 
-            # Merge latest dashboard data
             if "symbol" in df.columns:
                 dashboard_cols = [
-                    "symbol",
-                    "sector",
-                    "industry",
-                    "current_price",
-                    "rsi",
-                    "technical_score",
-                    "relative_strength_score",
-                    "sector_score",
-                    "risk_penalty",
-                    "final_conviction_score"
+                    "symbol", "sector", "industry", "current_price", "rsi",
+                    "technical_score", "relative_strength_score", "sector_score",
+                    "risk_penalty", "final_conviction_score"
                 ]
-
-                available_dashboard_cols = [
-                    col for col in dashboard_cols
-                    if col in df.columns
-                ]
+                available_dashboard_cols = [col for col in dashboard_cols if col in df.columns]
 
                 fundamentals_view = fundamentals_df.merge(
                     df[available_dashboard_cols].drop_duplicates(subset=["symbol"]),
@@ -1628,41 +1090,21 @@ with tab8:
             fundamentals_view["industry"] = fundamentals_view["industry"].fillna("Unknown").astype(str)
 
             numeric_fund_cols = [
-                "fundamental_score",
-                "market_cap_cr",
-                "trailing_pe",
-                "forward_pe",
-                "price_to_book",
-                "debt_to_equity",
-                "roe",
-                "roa",
-                "operating_margin",
-                "net_profit_margin",
-                "gross_margin",
-                "revenue_growth",
-                "earnings_growth",
-                "current_ratio",
-                "quick_ratio",
-                "total_cash_cr",
-                "total_debt_cr",
-                "free_cashflow_cr",
-                "operating_cashflow_cr",
-                "dividend_yield",
-                "beta",
-                "final_conviction_score",
-                "technical_score",
-                "relative_strength_score",
-                "risk_penalty"
+                "fundamental_score", "market_cap_cr", "trailing_pe",
+                "forward_pe", "price_to_book", "debt_to_equity", "roe",
+                "roa", "operating_margin", "net_profit_margin", "gross_margin",
+                "revenue_growth", "earnings_growth", "current_ratio",
+                "quick_ratio", "total_cash_cr", "total_debt_cr",
+                "free_cashflow_cr", "operating_cashflow_cr", "dividend_yield",
+                "beta", "final_conviction_score", "technical_score",
+                "relative_strength_score", "risk_penalty"
             ]
 
             for col in numeric_fund_cols:
                 if col not in fundamentals_view.columns:
                     fundamentals_view[col] = 0
 
-                fundamentals_view[col] = pd.to_numeric(
-                    fundamentals_view[col],
-                    errors="coerce"
-                )
+                fundamentals_view[col] = pd.to_numeric(fundamentals_view[col], errors="coerce")
 
             fundamentals_view[numeric_fund_cols] = fundamentals_view[numeric_fund_cols].fillna(0)
 
@@ -1698,170 +1140,56 @@ with tab8:
                     key="fundamental_search"
                 )
 
-                        # Adaptive slider helper inside Fundamentals tab
-                def fund_slider(label, column, step=1.0, key=None):
-                clean_series = pd.to_numeric(
-                    fundamentals_view[column],
-                    errors="coerce"
-                )
-
-                clean_series = clean_series.replace(
-                    [float("inf"), float("-inf")],
-                    pd.NA
-                ).dropna()
-
-                if clean_series.empty:
-                    min_value = 0.0
-                    max_value = float(step)
-                else:
-                    min_value = float(round(clean_series.min(), 2))
-                    max_value = float(round(clean_series.max(), 2))
-
-                    if min_value == max_value:
-                        max_value = min_value + float(step)
-
-                min_value = float(min_value)
-                max_value = float(max_value)
-                step = float(step)
-
-                if max_value <= min_value:
-                    max_value = min_value + step
-
-                return st.slider(
-                    label,
-                    min_value=min_value,
-                    max_value=max_value,
-                    value=(min_value, max_value),
-                    step=step,
-                    key=key
-                )
-
             fcol4, fcol5, fcol6 = st.columns(3)
 
             with fcol4:
-                fund_score_min, fund_score_max = fund_slider(
-                    "Fundamental Score Range",
-                    "fundamental_score",
-                    step=1.0,
-                    key="fund_score_range_filter"
-                )
+                fund_score_min, fund_score_max = range_slider("Fundamental Score Range", fundamentals_view, "fundamental_score", step=1.0, key="fund_score_range_filter")
 
             with fcol5:
-                roe_min, roe_max = fund_slider(
-                    "ROE % Range",
-                    "roe",
-                    step=0.1,
-                    key="roe_range_filter"
-                )
+                roe_min, roe_max = range_slider("ROE % Range", fundamentals_view, "roe", step=0.1, key="roe_range_filter")
 
             with fcol6:
-                debt_min, debt_max = fund_slider(
-                    "Debt/Equity Range",
-                    "debt_to_equity",
-                    step=1.0,
-                    key="debt_range_filter"
-                )
+                debt_min, debt_max = range_slider("Debt/Equity Range", fundamentals_view, "debt_to_equity", step=1.0, key="debt_range_filter")
 
             fcol7, fcol8, fcol9 = st.columns(3)
 
             with fcol7:
-                revenue_min, revenue_max = fund_slider(
-                    "Revenue Growth % Range",
-                    "revenue_growth",
-                    step=0.1,
-                    key="revenue_growth_range_filter"
-                )
+                revenue_min, revenue_max = range_slider("Revenue Growth % Range", fundamentals_view, "revenue_growth", step=0.1, key="revenue_growth_range_filter")
 
             with fcol8:
-                margin_min, margin_max = fund_slider(
-                    "Net Profit Margin % Range",
-                    "net_profit_margin",
-                    step=0.1,
-                    key="profit_margin_range_filter"
-                )
+                margin_min, margin_max = range_slider("Net Profit Margin % Range", fundamentals_view, "net_profit_margin", step=0.1, key="profit_margin_range_filter")
 
             with fcol9:
-                dividend_min, dividend_max = fund_slider(
-                    "Dividend Yield % Range",
-                    "dividend_yield",
-                    step=0.1,
-                    key="dividend_yield_range_filter"
-                )
+                dividend_min, dividend_max = range_slider("Dividend Yield % Range", fundamentals_view, "dividend_yield", step=0.1, key="dividend_yield_range_filter")
 
             fcol10, fcol11, fcol12 = st.columns(3)
 
             with fcol10:
-                market_cap_min, market_cap_max = fund_slider(
-                    "Market Cap ₹ Cr Range",
-                    "market_cap_cr",
-                    step=100.0,
-                    key="market_cap_cr_range_filter"
-                )
+                market_cap_min, market_cap_max = range_slider("Market Cap ₹ Cr Range", fundamentals_view, "market_cap_cr", step=100.0, key="market_cap_cr_range_filter")
 
             with fcol11:
-                pe_min, pe_max = fund_slider(
-                    "Trailing PE Range",
-                    "trailing_pe",
-                    step=1.0,
-                    key="trailing_pe_range_filter"
-                )
+                pe_min, pe_max = range_slider("Trailing PE Range", fundamentals_view, "trailing_pe", step=1.0, key="trailing_pe_range_filter")
 
             with fcol12:
-                pb_min, pb_max = fund_slider(
-                    "Price to Book Range",
-                    "price_to_book",
-                    step=0.1,
-                    key="price_to_book_range_filter"
-                )
+                pb_min, pb_max = range_slider("Price to Book Range", fundamentals_view, "price_to_book", step=0.1, key="price_to_book_range_filter")
 
             filtered_fundamentals = fundamentals_view.copy()
 
-            # Important: empty sector/industry selection means "All"
             if selected_fund_sectors:
-                filtered_fundamentals = filtered_fundamentals[
-                    filtered_fundamentals["sector"].isin(selected_fund_sectors)
-                ]
+                filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["sector"].isin(selected_fund_sectors)]
 
             if selected_fund_industries:
-                filtered_fundamentals = filtered_fundamentals[
-                    filtered_fundamentals["industry"].isin(selected_fund_industries)
-                ]
+                filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["industry"].isin(selected_fund_industries)]
 
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["fundamental_score"].between(fund_score_min, fund_score_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["roe"].between(roe_min, roe_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["debt_to_equity"].between(debt_min, debt_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["revenue_growth"].between(revenue_min, revenue_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["net_profit_margin"].between(margin_min, margin_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["dividend_yield"].between(dividend_min, dividend_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["market_cap_cr"].between(market_cap_min, market_cap_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["trailing_pe"].between(pe_min, pe_max)
-            ]
-
-            filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["price_to_book"].between(pb_min, pb_max)
-            ]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["fundamental_score"].between(fund_score_min, fund_score_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["roe"].between(roe_min, roe_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["debt_to_equity"].between(debt_min, debt_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["revenue_growth"].between(revenue_min, revenue_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["net_profit_margin"].between(margin_min, margin_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["dividend_yield"].between(dividend_min, dividend_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["market_cap_cr"].between(market_cap_min, market_cap_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["trailing_pe"].between(pe_min, pe_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["price_to_book"].between(pb_min, pb_max)]
 
             if fund_search.strip():
                 search_text = fund_search.strip().upper()
@@ -1883,49 +1211,25 @@ with tab8:
             st.subheader("Fundamental Quality Table")
 
             display_cols = [
-                "symbol",
-                "company_name",
-                "sector",
-                "industry",
-                "market_cap_cr",
-                "fundamental_score",
-                "final_conviction_score",
-                "roe",
-                "roa",
-                "debt_to_equity",
-                "trailing_pe",
-                "price_to_book",
-                "operating_margin",
-                "net_profit_margin",
-                "revenue_growth",
-                "earnings_growth",
-                "operating_cashflow_cr",
-                "free_cashflow_cr",
-                "dividend_yield",
-                "fundamental_reasons",
-                "fundamental_risks"
+                "symbol", "company_name", "sector", "industry", "market_cap_cr",
+                "fundamental_score", "final_conviction_score", "roe", "roa",
+                "debt_to_equity", "trailing_pe", "price_to_book",
+                "operating_margin", "net_profit_margin", "revenue_growth",
+                "earnings_growth", "operating_cashflow_cr", "free_cashflow_cr",
+                "dividend_yield", "fundamental_reasons", "fundamental_risks"
             ]
 
-            available_display_cols = [
-                col for col in display_cols
-                if col in filtered_fundamentals.columns
-            ]
+            available_display_cols = [col for col in display_cols if col in filtered_fundamentals.columns]
 
             st.dataframe(
-                filtered_fundamentals.sort_values(
-                    "fundamental_score",
-                    ascending=False
-                )[available_display_cols],
+                filtered_fundamentals.sort_values("fundamental_score", ascending=False)[available_display_cols],
                 use_container_width=True
             )
 
             st.subheader("Top Fundamental Companies")
 
             st.dataframe(
-                filtered_fundamentals.sort_values(
-                    "fundamental_score",
-                    ascending=False
-                ).head(25)[available_display_cols],
+                filtered_fundamentals.sort_values("fundamental_score", ascending=False).head(25)[available_display_cols],
                 use_container_width=True
             )
 
@@ -1933,10 +1237,7 @@ with tab8:
 
             if "final_conviction_score" in filtered_fundamentals.columns:
                 st.dataframe(
-                    filtered_fundamentals.sort_values(
-                        "final_conviction_score",
-                        ascending=False
-                    ).head(25)[available_display_cols],
+                    filtered_fundamentals.sort_values("final_conviction_score", ascending=False).head(25)[available_display_cols],
                     use_container_width=True
                 )
             else:
