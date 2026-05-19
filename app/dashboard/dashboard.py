@@ -51,6 +51,11 @@ if missing:
 df = df.dropna(subset=["symbol", "distance_pct", "rsi", "score"])
 
 optional_score_cols = [
+    "market_cap_cr",
+    "total_cash_cr",
+    "total_debt_cr",
+    "free_cashflow_cr",
+    "operating_cashflow_cr",
     "technical_score",
     "fundamental_score",
     "sector_score",
@@ -972,7 +977,38 @@ with tab1:
 
     st.subheader("Filtered Market Table")
 
-    display_table(filtered)
+    market_overview_cols = [
+        "symbol",
+        "sector",
+        "industry",
+        "current_price",
+        "day_change_pct",
+        "market_cap_cr",
+        "final_conviction_score",
+        "technical_score",
+        "fundamental_score",
+        "relative_strength_score",
+        "sector_score",
+        "risk_penalty",
+        "rsi",
+        "volume_ratio",
+        "distance_pct",
+        "distance_from_high_pct",
+        "return_1m",
+        "return_3m",
+        "return_6m",
+        "trend",
+        "reasons"
+]
+
+available_market_cols = [
+    col for col in market_overview_cols
+    if col in filtered.columns
+]
+
+display_table(
+    filtered[available_market_cols]
+)
 
 
 # =========================
@@ -1553,7 +1589,7 @@ with tab8:
                 fund_time = fundamentals_df["fundamental_scan_time"].dropna().iloc[0]
                 st.caption(f"🕒 Fundamentals last updated on {fund_time}")
 
-            # Merge latest dashboard sector/industry/technical data
+            # Merge latest dashboard data
             if "symbol" in df.columns:
                 dashboard_cols = [
                     "symbol",
@@ -1582,7 +1618,6 @@ with tab8:
             else:
                 fundamentals_view = fundamentals_df.copy()
 
-            # Ensure missing columns do not break filters
             if "sector" not in fundamentals_view.columns:
                 fundamentals_view["sector"] = fundamentals_view.get("sector_yf", "Unknown")
 
@@ -1635,19 +1670,24 @@ with tab8:
 
             fcol1, fcol2, fcol3 = st.columns(3)
 
+            sector_list = sorted(fundamentals_view["sector"].dropna().unique().tolist())
+            industry_list = sorted(fundamentals_view["industry"].dropna().unique().tolist())
+
             with fcol1:
                 selected_fund_sectors = st.multiselect(
                     "Fundamental Sector",
-                    sorted(fundamentals_view["sector"].dropna().unique().tolist()),
-                    default=sorted(fundamentals_view["sector"].dropna().unique().tolist()),
+                    sector_list,
+                    default=[],
+                    placeholder="Choose sector or leave blank for all",
                     key="fundamental_sector_filter"
                 )
 
             with fcol2:
                 selected_fund_industries = st.multiselect(
                     "Fundamental Industry",
-                    sorted(fundamentals_view["industry"].dropna().unique().tolist()),
-                    default=sorted(fundamentals_view["industry"].dropna().unique().tolist()),
+                    industry_list,
+                    default=[],
+                    placeholder="Choose industry or leave blank for all",
                     key="fundamental_industry_filter"
                 )
 
@@ -1658,105 +1698,172 @@ with tab8:
                     key="fundamental_search"
                 )
 
+            # Adaptive slider helper inside Fundamentals tab
+            def fund_slider(label, column, step=1.0, key=None):
+                clean_series = pd.to_numeric(
+                    fundamentals_view[column],
+                    errors="coerce"
+                ).dropna()
+
+                if clean_series.empty:
+                    min_value = 0.0
+                    max_value = step
+                else:
+                    min_value = float(round(clean_series.min(), 2))
+                    max_value = float(round(clean_series.max(), 2))
+
+                    if min_value == max_value:
+                        max_value = min_value + step
+
+                return st.slider(
+                    label,
+                    min_value=min_value,
+                    max_value=max_value,
+                    value=(min_value, max_value),
+                    step=step,
+                    key=key
+                )
+
             fcol4, fcol5, fcol6 = st.columns(3)
 
             with fcol4:
-                min_fund_score = st.slider(
-                    "Minimum Fundamental Score",
-                    0,
-                    100,
-                    0,
-                    key="min_fund_score_filter"
+                fund_score_min, fund_score_max = fund_slider(
+                    "Fundamental Score Range",
+                    "fundamental_score",
+                    step=1.0,
+                    key="fund_score_range_filter"
                 )
 
             with fcol5:
-                min_roe = st.slider(
-                    "Minimum ROE %",
-                    0,
-                    100,
-                    0,
-                    key="min_roe_filter"
+                roe_min, roe_max = fund_slider(
+                    "ROE % Range",
+                    "roe",
+                    step=0.1,
+                    key="roe_range_filter"
                 )
 
             with fcol6:
-                max_debt_to_equity = st.slider(
-                    "Maximum Debt/Equity",
-                    0,
-                    500,
-                    500,
-                    key="max_debt_filter"
+                debt_min, debt_max = fund_slider(
+                    "Debt/Equity Range",
+                    "debt_to_equity",
+                    step=1.0,
+                    key="debt_range_filter"
                 )
 
             fcol7, fcol8, fcol9 = st.columns(3)
 
             with fcol7:
-                min_revenue_growth = st.slider(
-                    "Minimum Revenue Growth %",
-                    -100,
-                    100,
-                    -100,
-                    key="min_revenue_growth_filter"
+                revenue_min, revenue_max = fund_slider(
+                    "Revenue Growth % Range",
+                    "revenue_growth",
+                    step=0.1,
+                    key="revenue_growth_range_filter"
                 )
 
             with fcol8:
-                min_profit_margin = st.slider(
-                    "Minimum Net Profit Margin %",
-                    -100,
-                    100,
-                    -100,
-                    key="min_profit_margin_filter"
+                margin_min, margin_max = fund_slider(
+                    "Net Profit Margin % Range",
+                    "net_profit_margin",
+                    step=0.1,
+                    key="profit_margin_range_filter"
                 )
 
             with fcol9:
-                min_dividend_yield = st.slider(
-                    "Minimum Dividend Yield %",
-                    0,
-                    20,
-                    0,
-                    key="min_dividend_yield_filter"
+                dividend_min, dividend_max = fund_slider(
+                    "Dividend Yield % Range",
+                    "dividend_yield",
+                    step=0.1,
+                    key="dividend_yield_range_filter"
+                )
+
+            fcol10, fcol11, fcol12 = st.columns(3)
+
+            with fcol10:
+                market_cap_min, market_cap_max = fund_slider(
+                    "Market Cap ₹ Cr Range",
+                    "market_cap_cr",
+                    step=100.0,
+                    key="market_cap_cr_range_filter"
+                )
+
+            with fcol11:
+                pe_min, pe_max = fund_slider(
+                    "Trailing PE Range",
+                    "trailing_pe",
+                    step=1.0,
+                    key="trailing_pe_range_filter"
+                )
+
+            with fcol12:
+                pb_min, pb_max = fund_slider(
+                    "Price to Book Range",
+                    "price_to_book",
+                    step=0.1,
+                    key="price_to_book_range_filter"
                 )
 
             filtered_fundamentals = fundamentals_view.copy()
 
+            # Important: empty sector/industry selection means "All"
+            if selected_fund_sectors:
+                filtered_fundamentals = filtered_fundamentals[
+                    filtered_fundamentals["sector"].isin(selected_fund_sectors)
+                ]
+
+            if selected_fund_industries:
+                filtered_fundamentals = filtered_fundamentals[
+                    filtered_fundamentals["industry"].isin(selected_fund_industries)
+                ]
+
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["sector"].isin(selected_fund_sectors)
+                filtered_fundamentals["fundamental_score"].between(fund_score_min, fund_score_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["industry"].isin(selected_fund_industries)
+                filtered_fundamentals["roe"].between(roe_min, roe_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["fundamental_score"] >= min_fund_score
+                filtered_fundamentals["debt_to_equity"].between(debt_min, debt_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["roe"] >= min_roe
+                filtered_fundamentals["revenue_growth"].between(revenue_min, revenue_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["debt_to_equity"] <= max_debt_to_equity
+                filtered_fundamentals["net_profit_margin"].between(margin_min, margin_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["revenue_growth"] >= min_revenue_growth
+                filtered_fundamentals["dividend_yield"].between(dividend_min, dividend_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["net_profit_margin"] >= min_profit_margin
+                filtered_fundamentals["market_cap_cr"].between(market_cap_min, market_cap_max)
             ]
 
             filtered_fundamentals = filtered_fundamentals[
-                filtered_fundamentals["dividend_yield"] >= min_dividend_yield
+                filtered_fundamentals["trailing_pe"].between(pe_min, pe_max)
+            ]
+
+            filtered_fundamentals = filtered_fundamentals[
+                filtered_fundamentals["price_to_book"].between(pb_min, pb_max)
             ]
 
             if fund_search.strip():
                 search_text = fund_search.strip().upper()
 
+                company_col = (
+                    filtered_fundamentals["company_name"]
+                    if "company_name" in filtered_fundamentals.columns
+                    else pd.Series([""] * len(filtered_fundamentals), index=filtered_fundamentals.index)
+                )
+
                 filtered_fundamentals = filtered_fundamentals[
                     filtered_fundamentals["symbol"].astype(str).str.upper().str.contains(search_text, na=False)
                     |
-                    filtered_fundamentals.get("company_name", "").astype(str).str.upper().str.contains(search_text, na=False)
+                    company_col.astype(str).str.upper().str.contains(search_text, na=False)
                 ]
 
             st.caption(f"Showing {len(filtered_fundamentals)} out of {len(fundamentals_view)} fundamental rows")
