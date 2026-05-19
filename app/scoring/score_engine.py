@@ -24,7 +24,6 @@ def clean_symbol_column(df):
         raise ValueError("symbol column missing")
 
     df["symbol"] = df["symbol"].astype(str).str.upper().str.strip()
-
     df = df.drop_duplicates(subset=["symbol"])
 
     return df
@@ -83,6 +82,10 @@ def calculate_technical_score(row):
     distance_from_high_pct = num(row.get("distance_from_high_pct"))
     day_change_pct = num(row.get("day_change_pct"))
 
+    # =========================
+    # TREND QUALITY — 30
+    # =========================
+
     if sma50 > 0 and current_price > sma50:
         score += 15
         reasons.append("Above 50 DMA")
@@ -90,6 +93,10 @@ def calculate_technical_score(row):
     if sma200 > 0 and current_price > sma200:
         score += 15
         reasons.append("Above 200 DMA")
+
+    # =========================
+    # MOMENTUM HEALTH — 25
+    # =========================
 
     if 50 <= rsi <= 70:
         score += 20
@@ -101,22 +108,30 @@ def calculate_technical_score(row):
         score += 8
         reasons.append("Weak but watchable RSI")
     elif rsi > 70:
-        score += 6
+        score += 7
         reasons.append("Strong but overbought RSI")
     elif rsi < 30:
         score += 4
         reasons.append("Oversold RSI")
 
-    if distance_pct <= 10 and rsi >= 30:
-        score += 10
-        reasons.append("Near 52W low with stable RSI")
-    elif distance_pct <= 25:
-        score += 6
-        reasons.append("Near 52W low zone")
+    # =========================
+    # PRICE LOCATION — 20
+    # =========================
 
     if distance_from_high_pct <= 10 and rsi >= 50:
         score += 10
         reasons.append("Near 52W high momentum")
+
+    if distance_pct <= 10 and rsi >= 30:
+        score += 8
+        reasons.append("Near 52W low with stable RSI")
+    elif distance_pct <= 25:
+        score += 5
+        reasons.append("Near 52W low zone")
+
+    # =========================
+    # VOLUME CONFIRMATION — 20
+    # =========================
 
     if volume_ratio >= 2:
         score += 15
@@ -128,6 +143,10 @@ def calculate_technical_score(row):
         score += 5
         reasons.append("Normal volume support")
 
+    # =========================
+    # DAILY CONFIRMATION — 5
+    # =========================
+
     if day_change_pct > 0:
         score += 5
         reasons.append("Positive day move")
@@ -136,7 +155,7 @@ def calculate_technical_score(row):
 
     return pd.Series({
         "technical_score": round(score, 2),
-        "technical_reasons": ", ".join(reasons)
+        "technical_reasons": ", ".join(dict.fromkeys(reasons))
     })
 
 
@@ -151,29 +170,31 @@ def calculate_risk_penalty(row):
     day_change_pct = num(row.get("day_change_pct"))
     volume_ratio = num(row.get("volume_ratio"))
 
-    debt_to_equity = row.get("debt_to_equity")
-    net_profit_margin = row.get("net_profit_margin")
-    earnings_growth = row.get("earnings_growth")
-    operating_cashflow = row.get("operating_cashflow")
+    debt_to_equity = num(row.get("debt_to_equity"), None)
+    net_profit_margin = num(row.get("net_profit_margin"), None)
+    earnings_growth = num(row.get("earnings_growth"), None)
+    revenue_growth = num(row.get("revenue_growth"), None)
+    operating_cashflow_cr = num(row.get("operating_cashflow_cr"), None)
+    free_cashflow_cr = num(row.get("free_cashflow_cr"), None)
+    fundamental_risk_penalty = num(row.get("fundamental_risk_penalty"), 0)
 
-    debt_to_equity = num(debt_to_equity, None) if debt_to_equity is not None else None
-    net_profit_margin = num(net_profit_margin, None) if net_profit_margin is not None else None
-    earnings_growth = num(earnings_growth, None) if earnings_growth is not None else None
-    operating_cashflow = num(operating_cashflow, None) if operating_cashflow is not None else None
+    # =========================
+    # TECHNICAL RISK
+    # =========================
 
     if sma200 > 0 and current_price < sma200:
-        penalty += 10
+        penalty += 8
         risks.append("Below 200 DMA")
 
     if rsi < 25:
-        penalty += 10
+        penalty += 8
         risks.append("Extreme RSI weakness")
 
     if day_change_pct < -5:
         penalty += 5
         risks.append("Sharp daily fall")
 
-    if distance_from_high_pct > 60:
+    if distance_from_high_pct > 65:
         penalty += 5
         risks.append("Far from 52W high")
 
@@ -181,38 +202,51 @@ def calculate_risk_penalty(row):
         penalty += 3
         risks.append("Low volume participation")
 
+    # =========================
+    # FUNDAMENTAL RISK
+    # =========================
+
     if debt_to_equity is not None and debt_to_equity > 200:
-        penalty += 10
+        penalty += 8
         risks.append("Very high debt")
 
     if net_profit_margin is not None and net_profit_margin < 0:
-        penalty += 10
+        penalty += 8
         risks.append("Negative net margin")
 
-    if earnings_growth is not None and earnings_growth < -10:
-        penalty += 7
-        risks.append("Weak earnings growth")
+    if revenue_growth is not None and revenue_growth < -15:
+        penalty += 5
+        risks.append("Revenue contraction")
 
-    if operating_cashflow is not None and operating_cashflow < 0:
+    if earnings_growth is not None and earnings_growth < -15:
         penalty += 7
+        risks.append("Earnings contraction")
+
+    if operating_cashflow_cr is not None and operating_cashflow_cr < 0:
+        penalty += 5
         risks.append("Negative operating cash flow")
+
+    if free_cashflow_cr is not None and free_cashflow_cr < 0:
+        penalty += 4
+        risks.append("Negative free cash flow")
+
+    # Carry a portion of the fundamental model's own risk penalty
+    penalty += min(fundamental_risk_penalty * 0.5, 10)
 
     penalty = max(0, min(50, penalty))
 
     return pd.Series({
         "risk_penalty": round(penalty, 2),
-        "risk_reasons": ", ".join(risks)
+        "risk_reasons": ", ".join(dict.fromkeys(risks))
     })
 
 
 df = pd.read_csv(SCAN_FILE)
-
 df = clean_symbol_column(df)
-
 df = df.loc[:, ~df.columns.duplicated()]
 
 # =========================
-# CLEAN BASE SCAN COLUMNS
+# BASE COLUMN SAFETY
 # =========================
 
 if "sector" not in df.columns:
@@ -259,6 +293,25 @@ df["fundamental_score"] = pd.to_numeric(
     errors="coerce"
 ).fillna(0)
 
+# Ensure v2 component columns exist
+fundamental_component_cols = [
+    "profitability_score",
+    "growth_score",
+    "balance_sheet_score",
+    "cashflow_score",
+    "valuation_score",
+    "fundamental_risk_penalty"
+]
+
+for col in fundamental_component_cols:
+    if col not in df.columns:
+        df[col] = 0
+
+    df[col] = pd.to_numeric(
+        df[col],
+        errors="coerce"
+    ).fillna(0)
+
 # =========================
 # MERGE RELATIVE STRENGTH
 # =========================
@@ -279,18 +332,41 @@ df["relative_strength_score"] = pd.to_numeric(
 ).fillna(0)
 
 # =========================
-# SECTOR SCORE
+# NUMERIC CLEANUP
 # =========================
 
-df["technical_score"] = pd.to_numeric(
-    df["technical_score"],
-    errors="coerce"
-).fillna(0)
+numeric_needed = [
+    "technical_score",
+    "fundamental_score",
+    "relative_strength_score",
+    "current_price",
+    "rsi",
+    "sma50",
+    "sma200",
+    "volume_ratio",
+    "distance_pct",
+    "distance_from_high_pct",
+    "day_change_pct",
+    "debt_to_equity",
+    "net_profit_margin",
+    "earnings_growth",
+    "revenue_growth",
+    "operating_cashflow_cr",
+    "free_cashflow_cr"
+]
 
-df["relative_strength_score"] = pd.to_numeric(
-    df["relative_strength_score"],
-    errors="coerce"
-).fillna(0)
+for col in numeric_needed:
+    if col not in df.columns:
+        df[col] = 0
+
+    df[col] = pd.to_numeric(
+        df[col],
+        errors="coerce"
+    ).fillna(0)
+
+# =========================
+# SECTOR SCORE
+# =========================
 
 sector_base = df.groupby("sector", dropna=False).agg(
     sector_avg_technical=("technical_score", "mean"),
@@ -299,11 +375,11 @@ sector_base = df.groupby("sector", dropna=False).agg(
 ).reset_index()
 
 sector_base["sector_score"] = (
-    sector_base["sector_avg_technical"] * 0.40
+    sector_base["sector_avg_technical"] * 0.35
     +
     sector_base["sector_avg_relative"] * 0.35
     +
-    sector_base["sector_avg_fundamental"] * 0.25
+    sector_base["sector_avg_fundamental"] * 0.30
 )
 
 sector_base["sector_score"] = sector_base["sector_score"].round(2)
@@ -347,15 +423,15 @@ df["risk_penalty"] = pd.to_numeric(
 ).fillna(0)
 
 # =========================
-# FINAL CONVICTION SCORE
+# FINAL CONVICTION SCORE V2
 # =========================
 
 df["final_conviction_score"] = (
-    df["technical_score"].fillna(0) * 0.35
+    df["technical_score"].fillna(0) * 0.25
     +
-    df["fundamental_score"].fillna(0) * 0.30
+    df["fundamental_score"].fillna(0) * 0.35
     +
-    df["relative_strength_score"].fillna(0) * 0.20
+    df["relative_strength_score"].fillna(0) * 0.25
     +
     df["sector_score"].fillna(0) * 0.15
     -
@@ -363,6 +439,31 @@ df["final_conviction_score"] = (
 )
 
 df["final_conviction_score"] = df["final_conviction_score"].clip(0, 100).round(2)
+
+# =========================
+# SCORE BAND
+# =========================
+
+def classify_score(score):
+    try:
+        score = float(score)
+    except Exception:
+        return "Unknown"
+
+    if score >= 75:
+        return "A+ High Conviction"
+    elif score >= 65:
+        return "A Strong"
+    elif score >= 55:
+        return "B Watchlist"
+    elif score >= 45:
+        return "C Neutral"
+    elif score >= 35:
+        return "D Weak"
+    return "E Avoid"
+
+
+df["score_band"] = df["final_conviction_score"].apply(classify_score)
 
 # Backward compatibility for dashboard
 df["score"] = df["final_conviction_score"]
@@ -374,4 +475,4 @@ df = df.sort_values(
 
 df.to_csv(OUTPUT_FILE, index=False)
 
-print(f"Score engine updated latest_scan.csv: {len(df)} rows")
+print(f"Score engine v2 updated latest_scan.csv: {len(df)} rows")
