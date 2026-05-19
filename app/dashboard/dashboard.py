@@ -1698,44 +1698,43 @@ with tab8:
                     key="fundamental_search"
                 )
 
-            # Adaptive slider helper inside Fundamentals tab
-            def fund_slider(label, column, step=1.0, key=None):
+                        # Adaptive slider helper inside Fundamentals tab
+                def fund_slider(label, column, step=1.0, key=None):
                 clean_series = pd.to_numeric(
-                  fundamentals_view[column],
-                 errors="coerce"
-               )
+                    fundamentals_view[column],
+                    errors="coerce"
+                )
 
-               clean_series = clean_series.replace(
-                   [float("inf"), float("-inf")],
-                   pd.NA
-               ).dropna()
+                clean_series = clean_series.replace(
+                    [float("inf"), float("-inf")],
+                    pd.NA
+                ).dropna()
 
-               if clean_series.empty:
-                      min_value = 0.0
-                      max_value = float(step)
-               else:
-                   min_value = float(round(clean_series.min(), 2)).
-                   max_value = float(round(clean_series.max(), 2))
+                if clean_series.empty:
+                    min_value = 0.0
+                    max_value = float(step)
+                else:
+                    min_value = float(round(clean_series.min(), 2))
+                    max_value = float(round(clean_series.max(), 2))
 
-                   if min_value == max_value:
-                       max_value = min_value + float(step)
+                    if min_value == max_value:
+                        max_value = min_value + float(step)
 
-    # Avoid Streamlit slider crash when numbers are too tiny/awkward
-    min_value = float(min_value)
-    max_value = float(max_value)
-    step = float(step)
+                min_value = float(min_value)
+                max_value = float(max_value)
+                step = float(step)
 
-    if max_value <= min_value:
-        max_value = min_value + step
+                if max_value <= min_value:
+                    max_value = min_value + step
 
-    return st.slider(
-        label,
-        min_value=min_value,
-        max_value=max_value,
-        value=(min_value, max_value),
-        step=step,
-        key=key
-    )
+                return st.slider(
+                    label,
+                    min_value=min_value,
+                    max_value=max_value,
+                    value=(min_value, max_value),
+                    step=step,
+                    key=key
+                )
 
             fcol4, fcol5, fcol6 = st.columns(3)
 
