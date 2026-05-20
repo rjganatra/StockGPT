@@ -635,7 +635,13 @@ sort_order = st.sidebar.radio("Sort Order", ["Descending", "Ascending"], key=f"s
 
 filtered = filtered.sort_values(sort_column, ascending=(sort_order == "Ascending"))
 
-filtered_count = len(filtered)
+# IMPORTANT:
+# filtered_full keeps ALL rows after active filters.
+# filtered_display is only row-limited for display tables/heatmaps.
+# Opportunity baskets use filtered_full so stocks are not hidden by Max Rows Displayed.
+filtered_full = filtered.copy()
+
+filtered_count = len(filtered_full)
 
 if filtered_count <= 10:
     result_limit = filtered_count
@@ -650,9 +656,10 @@ else:
         key=f"rows_{rk}"
     )
 
-filtered = filtered.head(result_limit)
+filtered_display = filtered_full.head(result_limit)
 
-st.sidebar.metric("Results", len(filtered))
+st.sidebar.metric("Results", len(filtered_full))
+st.sidebar.caption(f"Displaying top {len(filtered_display)} rows")
 
 failed_file = Path("data/scans/failed_symbols.csv")
 
@@ -685,8 +692,8 @@ with tab1:
 
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Stocks Scanned", len(df))
-    col2.metric("Filtered Stocks", len(filtered))
-    col3.metric("Near 52W Low", len(df[df["distance_pct"] < 15]))
+    col2.metric("Filtered Stocks", len(filtered_full))
+    col3.metric("Displayed Stocks", len(filtered_display))
     col4.metric("Avg RSI", round(df["rsi"].mean(), 2))
 
     col5, col6, col7, col8 = st.columns(4)
@@ -781,13 +788,13 @@ with tab1:
         "return_6m", "trend", "reasons"
     ]
 
-    display_table(filtered, market_cols)
+    display_table(filtered_display, market_cols)
 
 
 with tab2:
     st.header("🔥 Opportunity Heatmap")
 
-    heatmap_df = filtered.copy()
+    heatmap_df = filtered_display.copy()
     heatmap_df["heatmap_size"] = heatmap_df["final_conviction_score"].apply(lambda x: max(float(x), 1))
 
     fig = px.treemap(
@@ -808,7 +815,7 @@ with tab2:
 
     st.header("📍 Daily Movement Heatmap")
 
-    movement_df = filtered.copy()
+    movement_df = filtered_display.copy()
     movement_df["heatmap_size"] = movement_df["current_price"].apply(lambda x: max(float(x), 1))
 
     move_fig = px.treemap(
@@ -825,10 +832,13 @@ with tab2:
 
 
 with tab3:
+    opportunity_df = filtered_full.copy()
+    st.caption(f"Opportunity baskets are calculated from all {len(opportunity_df)} filtered stocks, not only the displayed top {len(filtered_display)} rows.")
+
     st.header("🎯 52W Low Opportunities")
 
-    low_opportunities = filtered[
-        filtered["distance_pct"] <= 15
+    low_opportunities = opportunity_df[
+        opportunity_df["distance_pct"] <= 15
     ].sort_values(["distance_pct", "final_conviction_score"], ascending=[True, False])
 
     if low_opportunities.empty:
@@ -843,12 +853,12 @@ with tab3:
     st.divider()
     st.header("⚡ Swing Candidates")
 
-    swing = filtered[
-        (filtered["distance_pct"] <= 25)
+    swing = opportunity_df[
+        (opportunity_df["distance_pct"] <= 25)
         &
-        (filtered["rsi"] <= 45)
+        (opportunity_df["rsi"] <= 45)
         &
-        (filtered["volume_ratio"] >= 1.0)
+        (opportunity_df["volume_ratio"] >= 1.0)
     ].sort_values("final_conviction_score", ascending=False)
 
     if swing.empty:
@@ -860,12 +870,12 @@ with tab3:
     st.divider()
     st.header("🚀 Near 52W High Momentum")
 
-    high_momentum = filtered[
-        (filtered["distance_from_high_pct"] <= 15)
+    high_momentum = opportunity_df[
+        (opportunity_df["distance_from_high_pct"] <= 15)
         &
-        (filtered["rsi"] >= 50)
+        (opportunity_df["rsi"] >= 50)
         &
-        (filtered["trend"] == "Bullish")
+        (opportunity_df["trend"] == "Bullish")
     ].sort_values(["distance_from_high_pct", "final_conviction_score"], ascending=[True, False])
 
     if high_momentum.empty:
@@ -878,7 +888,7 @@ with tab3:
 with tab4:
     st.header("🏭 Sector Overview")
 
-    sector_df = filtered.groupby("sector").agg(
+    sector_df = filtered_full.groupby("sector").agg(
         stocks=("symbol", "count"),
         avg_final_conviction=("final_conviction_score", "mean"),
         avg_technical=("technical_score", "mean"),
@@ -913,7 +923,7 @@ with tab4:
     st.divider()
     st.header("🏭 Industry Overview")
 
-    industry_df = filtered.groupby("industry").agg(
+    industry_df = filtered_full.groupby("industry").agg(
         stocks=("symbol", "count"),
         avg_final_conviction=("final_conviction_score", "mean"),
         avg_technical=("technical_score", "mean"),
