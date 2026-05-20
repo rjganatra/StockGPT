@@ -702,7 +702,7 @@ if failed_file.exists():
 # Tabs
 # =========================
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
@@ -710,7 +710,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "Stock Explorer",
     "History",
     "Watchlist",
-    "Fundamentals"
+    "Fundamentals",
+    "Movers & Changes"
 ])
 
 
@@ -1331,3 +1332,259 @@ with tab8:
 
             st.subheader("Best Combined Candidates")
             display_table(filtered_fundamentals.sort_values("final_conviction_score", ascending=False).head(25), display_cols)
+# =========================
+# TAB 9 — MOVERS & CHANGES
+# =========================
+
+with tab9:
+    st.header("📈 Movers & Changes")
+
+    changes_file = Path("data/history/latest_changes.csv")
+
+    if not changes_file.exists():
+        st.warning("No latest_changes.csv found yet. Run phase6_pipeline.yml after adding change_tracker.py.")
+    else:
+        changes_df = pd.read_csv(changes_file)
+
+        if changes_df.empty:
+            st.info("No change data available yet.")
+        else:
+            if "change_scan_time" in changes_df.columns and not changes_df["change_scan_time"].dropna().empty:
+                st.caption(f"🕒 Changes calculated on {changes_df['change_scan_time'].dropna().iloc[0]}")
+
+            changes_df["symbol"] = changes_df["symbol"].astype(str).str.upper().str.strip()
+
+            text_cols = [
+                "sector",
+                "industry",
+                "previous_score_band",
+                "current_score_band",
+                "change_signal"
+            ]
+
+            for col in text_cols:
+                if col not in changes_df.columns:
+                    changes_df[col] = "Unknown"
+
+                changes_df[col] = changes_df[col].fillna("Unknown").astype(str)
+
+            numeric_change_cols = [
+                "current_price",
+                "previous_final_score",
+                "current_final_score",
+                "score_change",
+                "previous_rsi",
+                "current_rsi",
+                "rsi_change",
+                "previous_risk",
+                "current_risk",
+                "risk_change",
+                "technical_score",
+                "fundamental_score",
+                "relative_strength_score",
+                "volume_ratio",
+                "distance_pct",
+                "distance_from_high_pct"
+            ]
+
+            for col in numeric_change_cols:
+                if col not in changes_df.columns:
+                    changes_df[col] = 0
+
+                changes_df[col] = pd.to_numeric(
+                    changes_df[col],
+                    errors="coerce"
+                ).fillna(0)
+
+            st.subheader("Change Filters")
+
+            c1, c2, c3 = st.columns(3)
+
+            with c1:
+                change_sector_filter = st.multiselect(
+                    "Sector",
+                    sorted(changes_df["sector"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="change_sector_filter"
+                )
+
+            with c2:
+                change_signal_filter = st.multiselect(
+                    "Change Signal",
+                    sorted(changes_df["change_signal"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="change_signal_filter"
+                )
+
+            with c3:
+                change_search = st.text_input(
+                    "Search Symbol",
+                    placeholder="Example: RELIANCE, MTARTECH, IDEA",
+                    key="change_search"
+                )
+
+            filtered_changes = changes_df.copy()
+
+            if change_sector_filter:
+                filtered_changes = filtered_changes[
+                    filtered_changes["sector"].isin(change_sector_filter)
+                ]
+
+            if change_signal_filter:
+                filtered_changes = filtered_changes[
+                    filtered_changes["change_signal"].isin(change_signal_filter)
+                ]
+
+            if change_search.strip():
+                filtered_changes = filtered_changes[
+                    filtered_changes["symbol"].str.contains(
+                        change_search.strip().upper(),
+                        case=False,
+                        na=False
+                    )
+                ]
+
+            st.caption(f"Showing {len(filtered_changes)} out of {len(changes_df)} changed rows")
+
+            st.subheader("🚀 Biggest Score Improvers")
+
+            score_improvers = filtered_changes[
+                filtered_changes["score_change"] > 0
+            ].sort_values(
+                "score_change",
+                ascending=False
+            ).head(25)
+
+            display_table(
+                score_improvers,
+                [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "previous_final_score",
+                    "current_final_score",
+                    "score_change",
+                    "previous_score_band",
+                    "current_score_band",
+                    "change_signal"
+                ]
+            )
+
+            st.subheader("⚠️ Biggest Score Droppers")
+
+            score_droppers = filtered_changes[
+                filtered_changes["score_change"] < 0
+            ].sort_values(
+                "score_change",
+                ascending=True
+            ).head(25)
+
+            display_table(
+                score_droppers,
+                [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "previous_final_score",
+                    "current_final_score",
+                    "score_change",
+                    "previous_score_band",
+                    "current_score_band",
+                    "change_signal"
+                ]
+            )
+
+            st.subheader("🟢 New / Improved Conviction")
+
+            improved_conviction = filtered_changes[
+                filtered_changes["change_signal"].str.contains(
+                    "Entered Strong Zone|New High Conviction|Score Improved|RSI Recovery|Fresh Momentum",
+                    case=False,
+                    na=False
+                )
+            ].sort_values(
+                ["score_change", "current_final_score"],
+                ascending=[False, False]
+            ).head(25)
+
+            display_table(
+                improved_conviction,
+                [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "previous_final_score",
+                    "current_final_score",
+                    "score_change",
+                    "previous_rsi",
+                    "current_rsi",
+                    "rsi_change",
+                    "previous_score_band",
+                    "current_score_band",
+                    "change_signal"
+                ]
+            )
+
+            st.subheader("🔴 Risk / Weakness Alerts")
+
+            risk_changes = filtered_changes[
+                filtered_changes["change_signal"].str.contains(
+                    "Risk Increased|New Risk Warning|Score Dropped|Fresh Weakness|Lost High Conviction|Dropped Below Strong Zone",
+                    case=False,
+                    na=False
+                )
+            ].sort_values(
+                ["risk_change", "score_change"],
+                ascending=[False, True]
+            ).head(25)
+
+            display_table(
+                risk_changes,
+                [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "previous_risk",
+                    "current_risk",
+                    "risk_change",
+                    "previous_final_score",
+                    "current_final_score",
+                    "score_change",
+                    "previous_score_band",
+                    "current_score_band",
+                    "change_signal"
+                ]
+            )
+
+            st.subheader("📋 Full Change Table")
+
+            display_table(
+                filtered_changes.sort_values(
+                    ["score_change", "current_final_score"],
+                    ascending=[False, False]
+                ),
+                [
+                    "symbol",
+                    "sector",
+                    "industry",
+                    "current_price",
+                    "previous_final_score",
+                    "current_final_score",
+                    "score_change",
+                    "previous_rsi",
+                    "current_rsi",
+                    "rsi_change",
+                    "previous_risk",
+                    "current_risk",
+                    "risk_change",
+                    "previous_score_band",
+                    "current_score_band",
+                    "change_signal"
+                ]
+            )
