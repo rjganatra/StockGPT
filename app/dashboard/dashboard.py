@@ -22,9 +22,36 @@ if not SCAN_FILE.exists():
 df = pd.read_csv(SCAN_FILE)
 
 if "scan_time" in df.columns and not df["scan_time"].dropna().empty:
-    st.caption(f"🕒 Last scanned on {df['scan_time'].dropna().iloc[0]}")
+    last_scan_time_text = str(df["scan_time"].dropna().iloc[0])
+    st.caption(f"🕒 Last scanned on {last_scan_time_text}")
+
+    try:
+        last_scan_dt = datetime.strptime(
+            last_scan_time_text,
+            "%d.%m.%Y at %I:%M %p IST"
+        ).replace(tzinfo=ZoneInfo("Asia/Kolkata"))
+
+        now_ist = datetime.now(ZoneInfo("Asia/Kolkata"))
+        hours_old = (now_ist - last_scan_dt).total_seconds() / 3600
+
+        if hours_old > 16:
+            st.error(
+                f"⚠️ Data may be stale. Last scan was around {round(hours_old, 1)} hours ago."
+            )
+        elif hours_old > 8:
+            st.warning(
+                f"⚠️ Data is getting old. Last scan was around {round(hours_old, 1)} hours ago."
+            )
+        else:
+            st.success(
+                f"✅ Data freshness looks okay. Last scan was around {round(hours_old, 1)} hours ago."
+            )
+
+    except Exception:
+        st.warning("⚠️ Could not verify scan freshness from scan_time format.")
 else:
     st.caption("🕒 Last scanned time unavailable")
+    st.warning("⚠️ Scan time is missing, so data freshness cannot be verified.")
 
 required_cols = [
     "symbol",
