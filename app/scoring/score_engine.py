@@ -23,7 +23,13 @@ def clean_symbol_column(df):
     if "symbol" not in df.columns:
         raise ValueError("symbol column missing")
 
-    df["symbol"] = df["symbol"].astype(str).str.upper().str.strip()
+    df["symbol"] = (
+        df["symbol"]
+        .astype(str)
+        .str.upper()
+        .str.strip()
+    )
+
     df = df.drop_duplicates(subset=["symbol"])
 
     return df
@@ -56,7 +62,10 @@ def safe_merge(left, right, on="symbol"):
         if col in left.columns and col != on
     ]
 
-    right = right.drop(columns=overlapping_cols, errors="ignore")
+    right = right.drop(
+        columns=overlapping_cols,
+        errors="ignore"
+    )
 
     merged = left.merge(
         right,
@@ -83,7 +92,7 @@ def calculate_technical_score(row):
     day_change_pct = num(row.get("day_change_pct"))
 
     # =========================
-    # TREND QUALITY — 30
+    # TREND QUALITY â 30
     # =========================
 
     if sma50 > 0 and current_price > sma50:
@@ -95,7 +104,7 @@ def calculate_technical_score(row):
         reasons.append("Above 200 DMA")
 
     # =========================
-    # MOMENTUM HEALTH — 25
+    # MOMENTUM HEALTH â 25
     # =========================
 
     if 50 <= rsi <= 70:
@@ -115,7 +124,7 @@ def calculate_technical_score(row):
         reasons.append("Oversold RSI")
 
     # =========================
-    # PRICE LOCATION — 20
+    # PRICE LOCATION â 20
     # =========================
 
     if distance_from_high_pct <= 10 and rsi >= 50:
@@ -130,7 +139,7 @@ def calculate_technical_score(row):
         reasons.append("Near 52W low zone")
 
     # =========================
-    # VOLUME CONFIRMATION — 20
+    # VOLUME CONFIRMATION â 20
     # =========================
 
     if volume_ratio >= 2:
@@ -144,7 +153,7 @@ def calculate_technical_score(row):
         reasons.append("Normal volume support")
 
     # =========================
-    # DAILY CONFIRMATION — 5
+    # DAILY CONFIRMATION â 5
     # =========================
 
     if day_change_pct > 0:
@@ -230,7 +239,7 @@ def calculate_risk_penalty(row):
         penalty += 4
         risks.append("Negative free cash flow")
 
-    # Carry a portion of the fundamental model's own risk penalty
+    # Carry a portion of the fundamental model's own risk penalty.
     penalty += min(fundamental_risk_penalty * 0.5, 10)
 
     penalty = max(0, min(50, penalty))
@@ -240,6 +249,10 @@ def calculate_risk_penalty(row):
         "risk_reasons": ", ".join(dict.fromkeys(risks))
     })
 
+
+# =========================
+# LOAD LATEST SCAN
+# =========================
 
 df = pd.read_csv(SCAN_FILE)
 df = clean_symbol_column(df)
@@ -262,7 +275,10 @@ df["industry"] = df["industry"].fillna("Unknown").astype(str)
 # TECHNICAL SCORE
 # =========================
 
-technical_df = df.apply(calculate_technical_score, axis=1)
+technical_df = df.apply(
+    calculate_technical_score,
+    axis=1
+)
 
 df = pd.concat(
     [
@@ -293,24 +309,42 @@ df["fundamental_score"] = pd.to_numeric(
     errors="coerce"
 ).fillna(0)
 
-# Ensure v2 component columns exist
+# v3 sector-adjusted fallback:
+# If v3 fundamentals exist, use sector_adjusted_fundamental_score.
+# If not, safely fall back to plain fundamental_score.
+if "sector_adjusted_fundamental_score" not in df.columns:
+    df["sector_adjusted_fundamental_score"] = df["fundamental_score"]
+
+df["sector_adjusted_fundamental_score"] = pd.to_numeric(
+    df["sector_adjusted_fundamental_score"],
+    errors="coerce"
+).fillna(df["fundamental_score"])
+
+df["active_fundamental_score"] = df["sector_adjusted_fundamental_score"]
+
+# Ensure component columns exist
 fundamental_component_cols = [
+    "sector_bucket",
     "profitability_score",
     "growth_score",
     "balance_sheet_score",
     "cashflow_score",
     "valuation_score",
-    "fundamental_risk_penalty"
+    "fundamental_risk_penalty",
+    "sector_fundamental_adjustment",
+    "sector_adjusted_fundamental_score",
+    "active_fundamental_score"
 ]
 
 for col in fundamental_component_cols:
     if col not in df.columns:
-        df[col] = 0
+        df[col] = "Unknown" if col == "sector_bucket" else 0
 
-    df[col] = pd.to_numeric(
-        df[col],
-        errors="coerce"
-    ).fillna(0)
+    if col != "sector_bucket":
+        df[col] = pd.to_numeric(
+            df[col],
+            errors="coerce"
+        ).fillna(0)
 
 # =========================
 # MERGE RELATIVE STRENGTH
@@ -338,6 +372,8 @@ df["relative_strength_score"] = pd.to_numeric(
 numeric_needed = [
     "technical_score",
     "fundamental_score",
+    "sector_adjusted_fundamental_score",
+    "active_fundamental_score",
     "relative_strength_score",
     "current_price",
     "rsi",
@@ -371,7 +407,7 @@ for col in numeric_needed:
 sector_base = df.groupby("sector", dropna=False).agg(
     sector_avg_technical=("technical_score", "mean"),
     sector_avg_relative=("relative_strength_score", "mean"),
-    sector_avg_fundamental=("fundamental_score", "mean")
+    sector_avg_fundamental=("active_fundamental_score", "mean")
 ).reset_index()
 
 sector_base["sector_score"] = (
@@ -402,7 +438,10 @@ df["sector_score"] = pd.to_numeric(
 # RISK PENALTY
 # =========================
 
-risk_df = df.apply(calculate_risk_penalty, axis=1)
+risk_df = df.apply(
+    calculate_risk_penalty,
+    axis=1
+)
 
 df = pd.concat(
     [
@@ -423,13 +462,13 @@ df["risk_penalty"] = pd.to_numeric(
 ).fillna(0)
 
 # =========================
-# FINAL CONVICTION SCORE V2
+# FINAL CONVICTION SCORE V3
 # =========================
 
 df["final_conviction_score"] = (
     df["technical_score"].fillna(0) * 0.25
     +
-    df["fundamental_score"].fillna(0) * 0.35
+    df["active_fundamental_score"].fillna(0) * 0.35
     +
     df["relative_strength_score"].fillna(0) * 0.25
     +
@@ -438,11 +477,12 @@ df["final_conviction_score"] = (
     df["risk_penalty"].fillna(0)
 )
 
-df["final_conviction_score"] = df["final_conviction_score"].clip(0, 100).round(2)
+df["final_conviction_score"] = (
+    df["final_conviction_score"]
+    .clip(0, 100)
+    .round(2)
+)
 
-# =========================
-# SCORE BAND
-# =========================
 
 def classify_score(score):
     try:
@@ -460,6 +500,7 @@ def classify_score(score):
         return "C Neutral"
     elif score >= 35:
         return "D Weak"
+
     return "E Avoid"
 
 
@@ -473,6 +514,10 @@ df = df.sort_values(
     ascending=False
 )
 
-df.to_csv(OUTPUT_FILE, index=False)
+df.to_csv(
+    OUTPUT_FILE,
+    index=False
+)
 
-print(f"Score engine v2 updated latest_scan.csv: {len(df)} rows")
+print(f"Score engine v3 updated latest_scan.csv: {len(df)} rows")
+print("Final model uses active_fundamental_score = sector_adjusted_fundamental_score")
