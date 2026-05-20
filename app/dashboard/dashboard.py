@@ -1332,6 +1332,7 @@ with tab8:
 
             st.subheader("Best Combined Candidates")
             display_table(filtered_fundamentals.sort_values("final_conviction_score", ascending=False).head(25), display_cols)
+
 # =========================
 # TAB 9 — MOVERS & CHANGES
 # =========================
@@ -1352,7 +1353,12 @@ with tab9:
             if "change_scan_time" in changes_df.columns and not changes_df["change_scan_time"].dropna().empty:
                 st.caption(f"🕒 Changes calculated on {changes_df['change_scan_time'].dropna().iloc[0]}")
 
-            changes_df["symbol"] = changes_df["symbol"].astype(str).str.upper().str.strip()
+            changes_df["symbol"] = (
+                changes_df["symbol"]
+                .astype(str)
+                .str.upper()
+                .str.strip()
+            )
 
             text_cols = [
                 "sector",
@@ -1396,6 +1402,84 @@ with tab9:
                     errors="coerce"
                 ).fillna(0)
 
+            st.subheader("Change Summary")
+
+            col1, col2, col3, col4 = st.columns(4)
+
+            col1.metric(
+                "Rows Compared",
+                len(changes_df)
+            )
+
+            col2.metric(
+                "Score Improvers",
+                len(changes_df[changes_df["score_change"] > 0])
+            )
+
+            col3.metric(
+                "Score Droppers",
+                len(changes_df[changes_df["score_change"] < 0])
+            )
+
+            col4.metric(
+                "Risk Increased",
+                len(changes_df[changes_df["risk_change"] > 0])
+            )
+
+            col5, col6, col7, col8 = st.columns(4)
+
+            col5.metric(
+                "New High Conviction",
+                len(
+                    changes_df[
+                        changes_df["change_signal"].str.contains(
+                            "New High Conviction",
+                            case=False,
+                            na=False
+                        )
+                    ]
+                )
+            )
+
+            col6.metric(
+                "Entered Strong Zone",
+                len(
+                    changes_df[
+                        changes_df["change_signal"].str.contains(
+                            "Entered Strong Zone",
+                            case=False,
+                            na=False
+                        )
+                    ]
+                )
+            )
+
+            col7.metric(
+                "RSI Recovery",
+                len(
+                    changes_df[
+                        changes_df["change_signal"].str.contains(
+                            "RSI Recovery|Fresh Momentum",
+                            case=False,
+                            na=False
+                        )
+                    ]
+                )
+            )
+
+            col8.metric(
+                "Risk Warnings",
+                len(
+                    changes_df[
+                        changes_df["change_signal"].str.contains(
+                            "Risk Increased|New Risk Warning",
+                            case=False,
+                            na=False
+                        )
+                    ]
+                )
+            )
+
             st.subheader("Change Filters")
 
             c1, c2, c3 = st.columns(3)
@@ -1410,9 +1494,17 @@ with tab9:
                 )
 
             with c2:
+                available_signals = sorted(
+                    changes_df["change_signal"]
+                    .dropna()
+                    .astype(str)
+                    .unique()
+                    .tolist()
+                )
+
                 change_signal_filter = st.multiselect(
                     "Change Signal",
-                    sorted(changes_df["change_signal"].dropna().unique().tolist()),
+                    available_signals,
                     default=[],
                     placeholder="Leave blank for all",
                     key="change_signal_filter"
@@ -1446,7 +1538,9 @@ with tab9:
                     )
                 ]
 
-            st.caption(f"Showing {len(filtered_changes)} out of {len(changes_df)} changed rows")
+            st.caption(
+                f"Showing {len(filtered_changes)} out of {len(changes_df)} changed rows"
+            )
 
             st.subheader("🚀 Biggest Score Improvers")
 
