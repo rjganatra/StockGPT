@@ -1113,7 +1113,16 @@ with tab4:
         values="stocks",
         color="avg_final_conviction",
         color_continuous_scale=["red", "yellow", "green"],
-        hover_data=["avg_technical", "avg_fundamental", "avg_relative_strength", "avg_risk_penalty", "avg_rsi"],
+        hover_data=[
+            "avg_technical",
+            "avg_raw_fundamental",
+            "avg_sector_adjusted_fundamental",
+            "avg_active_fundamental",
+            "avg_sector_fundamental_adjustment",
+            "avg_relative_strength",
+            "avg_risk_penalty",
+            "avg_rsi"
+        ],
         title="Industry Heatmap by Final Conviction"
     )
 
