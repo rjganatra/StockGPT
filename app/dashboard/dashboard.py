@@ -82,6 +82,10 @@ optional_cols = [
     "relative_strength_score",
     "risk_penalty",
     "final_conviction_score",
+    "sector_bucket",
+    "sector_fundamental_adjustment",
+    "sector_adjusted_fundamental_score",
+    "active_fundamental_score",
     "return_1m",
     "return_3m",
     "return_6m",
@@ -118,6 +122,9 @@ numeric_cols = [
     "relative_strength_score",
     "risk_penalty",
     "final_conviction_score",
+    "sector_fundamental_adjustment",
+    "sector_adjusted_fundamental_score",
+    "active_fundamental_score",
     "return_1m",
     "return_3m",
     "return_6m",
@@ -149,6 +156,7 @@ df["industry"] = df["industry"].fillna("Unknown").astype(str)
 df["trend"] = df["trend"].fillna("Unknown").astype(str)
 df["reasons"] = df["reasons"].fillna("").astype(str)
 df["score_band"] = df["score_band"].fillna("Unknown").astype(str)
+df["sector_bucket"] = df["sector_bucket"].fillna("Unknown").astype(str)
 
 if "final_conviction_score" not in df.columns or df["final_conviction_score"].sum() == 0:
     df["final_conviction_score"] = df["score"]
@@ -511,12 +519,41 @@ selected_score_bands = st.sidebar.multiselect(
     key=f"score_bands_{rk}"
 )
 
+sector_bucket_options = sorted(df["sector_bucket"].dropna().unique().tolist())
+
+selected_sector_buckets = st.sidebar.multiselect(
+    "Sector Bucket",
+    sector_bucket_options,
+    default=sector_bucket_options,
+    key=f"sector_buckets_{rk}"
+)
+
 distance_min, distance_max = safe_range_slider("Distance From 52W Low %", df["distance_pct"], step=0.1, key=f"dist_low_{rk}")
 high_distance_min, high_distance_max = safe_range_slider("Distance From 52W High %", df["distance_from_high_pct"], step=0.1, key=f"dist_high_{rk}")
 rsi_min, rsi_max = safe_range_slider("RSI Range", df["rsi"], step=0.1, key=f"rsi_{rk}")
 final_score_min, final_score_max = safe_range_slider("Final Conviction Score", df["final_conviction_score"], step=1.0, key=f"final_{rk}")
 technical_min, technical_max = safe_range_slider("Technical Score", df["technical_score"], step=1.0, key=f"tech_{rk}")
 fundamental_min, fundamental_max = safe_range_slider("Fundamental Score", df["fundamental_score"], step=1.0, key=f"fund_{rk}")
+adjusted_fundamental_min, adjusted_fundamental_max = safe_range_slider(
+    "Sector Adjusted Fundamental Score",
+    df["sector_adjusted_fundamental_score"],
+    step=1.0,
+    key=f"adjusted_fund_{rk}"
+)
+
+active_fundamental_min, active_fundamental_max = safe_range_slider(
+    "Active Fundamental Score",
+    df["active_fundamental_score"],
+    step=1.0,
+    key=f"active_fund_{rk}"
+)
+
+sector_adjustment_min, sector_adjustment_max = safe_range_slider(
+    "Sector Fundamental Adjustment",
+    df["sector_fundamental_adjustment"],
+    step=1.0,
+    key=f"sector_fund_adj_{rk}"
+)
 relative_min, relative_max = safe_range_slider("Relative Strength Score", df["relative_strength_score"], step=1.0, key=f"rel_{rk}")
 risk_min, risk_max = safe_range_slider("Risk Penalty", df["risk_penalty"], step=1.0, key=f"risk_{rk}")
 volume_min, volume_max = safe_range_slider("Volume Ratio", df["volume_ratio"], step=0.1, key=f"vol_{rk}")
@@ -557,12 +594,33 @@ else:
     filtered = filtered[filtered["industry"].isin(selected_industries)]
     filtered = filtered[filtered["trend"].isin(selected_trends)]
     filtered = filtered[filtered["score_band"].isin(selected_score_bands)]
+    filtered = filtered[filtered["sector_bucket"].isin(selected_sector_buckets)]
     filtered = filtered[filtered["distance_pct"].between(distance_min, distance_max)]
     filtered = filtered[filtered["distance_from_high_pct"].between(high_distance_min, high_distance_max)]
     filtered = filtered[filtered["rsi"].between(rsi_min, rsi_max)]
     filtered = filtered[filtered["final_conviction_score"].between(final_score_min, final_score_max)]
     filtered = filtered[filtered["technical_score"].between(technical_min, technical_max)]
     filtered = filtered[filtered["fundamental_score"].between(fundamental_min, fundamental_max)]
+    filtered = filtered[
+        filtered["sector_adjusted_fundamental_score"].between(
+            adjusted_fundamental_min,
+            adjusted_fundamental_max
+        )
+    ]
+
+    filtered = filtered[
+        filtered["active_fundamental_score"].between(
+            active_fundamental_min,
+            active_fundamental_max
+        )
+    ]
+
+    filtered = filtered[
+        filtered["sector_fundamental_adjustment"].between(
+            sector_adjustment_min,
+            sector_adjustment_max
+        )
+    ]
     filtered = filtered[filtered["relative_strength_score"].between(relative_min, relative_max)]
     filtered = filtered[filtered["risk_penalty"].between(risk_min, risk_max)]
     filtered = filtered[filtered["volume_ratio"].between(volume_min, volume_max)]
@@ -810,7 +868,9 @@ with tab1:
     market_cols = [
         "symbol", "sector", "industry", "current_price", "day_change_pct",
         "market_cap_cr", "score_band", "final_conviction_score",
-        "technical_score", "fundamental_score", "relative_strength_score",
+        "technical_score", "fundamental_score", "sector_bucket",
+        "sector_fundamental_adjustment", "sector_adjusted_fundamental_score",
+        "active_fundamental_score", "relative_strength_score",
         "sector_score", "risk_penalty", "rsi", "volume_ratio",
         "distance_pct", "distance_from_high_pct", "return_1m", "return_3m",
         "return_6m", "trend", "reasons"
@@ -999,6 +1059,28 @@ with tab5:
     c7.metric("Relative Strength", stock["relative_strength_score"])
     c8.metric("Sector Score", stock["sector_score"])
 
+    c9, c10, c11, c12 = st.columns(4)
+
+    c9.metric(
+        "Sector Adjusted Fundamental",
+        stock.get("sector_adjusted_fundamental_score", 0)
+    )
+
+    c10.metric(
+        "Sector Adjustment",
+        stock.get("sector_fundamental_adjustment", 0)
+    )
+
+    c11.metric(
+        "Active Fundamental Score",
+        stock.get("active_fundamental_score", 0)
+    )
+
+    c12.metric(
+        "Sector Bucket",
+        stock.get("sector_bucket", "Unknown")
+    )
+
     st.subheader("Stock Details")
     st.json(stock.to_dict())
 
@@ -1094,7 +1176,8 @@ with tab7:
         watch_cols = [
             "symbol", "basket", "notes", "added_at", "sector", "industry",
             "current_price", "score_band", "final_conviction_score",
-            "fundamental_score", "relative_strength_score", "risk_penalty",
+            "fundamental_score", "sector_bucket", "sector_fundamental_adjustment",
+            "sector_adjusted_fundamental_score", "active_fundamental_score", "relative_strength_score", "risk_penalty",
             "rsi", "distance_pct", "distance_from_high_pct"
         ]
 
@@ -1199,6 +1282,11 @@ with tab8:
 
             fundamentals_view["sector"] = fundamentals_view["sector"].fillna("Unknown").astype(str)
             fundamentals_view["industry"] = fundamentals_view["industry"].fillna("Unknown").astype(str)
+           
+            if "sector_bucket" not in fundamentals_view.columns:
+                fundamentals_view["sector_bucket"] = "Unknown"
+
+fundamentals_view["sector_bucket"] = fundamentals_view["sector_bucket"].fillna("Unknown").astype(str)
 
             fund_numeric = [
                 "fundamental_score", "profitability_score", "growth_score",
@@ -1210,7 +1298,8 @@ with tab8:
                 "quick_ratio", "total_cash_cr", "total_debt_cr",
                 "free_cashflow_cr", "operating_cashflow_cr", "dividend_yield",
                 "beta", "final_conviction_score", "technical_score",
-                "relative_strength_score", "risk_penalty"
+                "relative_strength_score", "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score", "active_fundamental_score", "risk_penalty"
             ]
 
             for col in fund_numeric:
@@ -1314,7 +1403,8 @@ with tab8:
 
             display_cols = [
                 "symbol", "company_name", "sector", "industry", "market_cap_cr",
-                "fundamental_score", "profitability_score", "growth_score",
+                "fundamental_score", "sector_bucket", "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score", "active_fundamental_score", "profitability_score", "growth_score",
                 "balance_sheet_score", "cashflow_score", "valuation_score",
                 "fundamental_risk_penalty", "final_conviction_score",
                 "score_band", "roe", "roa", "debt_to_equity", "trailing_pe",
