@@ -1286,7 +1286,7 @@ with tab8:
             if "sector_bucket" not in fundamentals_view.columns:
                 fundamentals_view["sector_bucket"] = "Unknown"
 
-fundamentals_view["sector_bucket"] = fundamentals_view["sector_bucket"].fillna("Unknown").astype(str)
+            fundamentals_view["sector_bucket"] = fundamentals_view["sector_bucket"].fillna("Unknown").astype(str)
 
             fund_numeric = [
                 "fundamental_score", "profitability_score", "growth_score",
