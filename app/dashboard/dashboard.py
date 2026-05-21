@@ -841,7 +841,29 @@ with tab1:
     col5.metric("Bullish Stocks", len(df[df["trend"] == "Bullish"]))
     col6.metric("Bearish Stocks", len(df[df["trend"] == "Bearish"]))
     col7.metric("Avg Final Conviction", round(df["final_conviction_score"].mean(), 2))
-    col8.metric("Volume Spike Stocks", len(df[df["volume_ratio"] > 1.3]))
+    col8.metric("Avg Active Fundamental", round(df["active_fundamental_score"].mean(), 2))
+
+    col9, col10, col11, col12 = st.columns(4)
+
+    col9.metric("Avg Sector Adj. Fundamental", round(df["sector_adjusted_fundamental_score"].mean(), 2))
+    col10.metric("Avg Sector Adjustment", round(df["sector_fundamental_adjustment"].mean(), 2))
+    col11.metric("Volume Spike Stocks", len(df[df["volume_ratio"] > 1.3]))
+    col12.metric(
+        "Avoid / Risky Stocks",
+        len(
+            df[
+                (df["score_band"] == "E Avoid")
+                |
+                (df["risk_penalty"] >= 25)
+                |
+                (
+                    (df["active_fundamental_score"] < 30)
+                    &
+                    (df["relative_strength_score"] < 40)
+                )
+            ]
+        )
+    )
 
     st.subheader("📡 Market Breadth")
 
@@ -920,7 +942,21 @@ with tab1:
 
         display_table(
             avoid_risky,
-            ["symbol", "sector", "industry", "sector_bucket", "final_conviction_score", "active_fundamental_score", "relative_strength_score", "risk_penalty", "score_band", "risk_reasons"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "final_conviction_score",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "risk_penalty",
+                "score_band",
+                "risk_reasons"
+            ]
         )
 
         st.markdown("**Near 52W High Momentum**")
@@ -933,7 +969,22 @@ with tab1:
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             high_momentum,
-            ["symbol", "sector", "industry", "distance_from_high_pct", "rsi", "final_conviction_score", "score_band"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "distance_from_high_pct",
+                "rsi",
+                "technical_score",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "final_conviction_score",
+                "score_band"
+            ]
         )
 
     st.subheader("Filtered Market Table")
