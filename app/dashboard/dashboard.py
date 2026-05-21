@@ -105,7 +105,7 @@ optional_cols = [
 
 for col in optional_cols:
     if col not in df.columns:
-        df[col] = "Unknown" if col == "score_band" else 0
+        df[col] = "Unknown" if col in ["score_band", "sector_bucket"] else 0
 
 numeric_cols = [
     "current_price",
@@ -577,10 +577,12 @@ preset = st.sidebar.selectbox(
         "Near 52W High Momentum",
         "High Conviction",
         "Strong Fundamentals",
+        "Sector-Adjusted Quality",
         "Relative Strength Leaders",
         "Low Risk Quality",
         "Weak But Recovering",
-        "Fresh Breakdown Risk"
+        "Fresh Breakdown Risk",
+        "Avoid / Risky"
     ],
     key=f"preset_{rk}"
 )
@@ -651,15 +653,65 @@ elif preset == "Near 52W High Momentum":
 elif preset == "High Conviction":
     filtered = filtered[filtered["final_conviction_score"] >= 60]
 elif preset == "Strong Fundamentals":
-    filtered = filtered[filtered["fundamental_score"] >= 60]
+    filtered = filtered[filtered["active_fundamental_score"] >= 60]
+elif preset == "Sector-Adjusted Quality":
+    filtered = filtered[
+        (filtered["sector_adjusted_fundamental_score"] >= 60)
+        &
+        (filtered["sector_fundamental_adjustment"] >= 0)
+    ]
+
+elif preset == "Sector-Adjusted Quality":
+    filtered = filtered[
+        (filtered["sector_adjusted_fundamental_score"] >= 60)
+        &
+        (filtered["sector_fundamental_adjustment"] >= 0)
+    ]
+
 elif preset == "Relative Strength Leaders":
     filtered = filtered[filtered["relative_strength_score"] >= 60]
 elif preset == "Low Risk Quality":
-    filtered = filtered[(filtered["risk_penalty"] <= 10) & (filtered["final_conviction_score"] >= 50)]
+    filtered = filtered[
+        (filtered["risk_penalty"] <= 10)
+        &
+        (filtered["active_fundamental_score"] >= 55)
+        &
+        (filtered["final_conviction_score"] >= 50)
+    ]
 elif preset == "Weak But Recovering":
     filtered = filtered[(filtered["rsi"] < 50) & (filtered["trend"] == "Bullish")]
 elif preset == "Fresh Breakdown Risk":
     filtered = filtered[(filtered["trend"] == "Bearish") & (filtered["rsi"] < 40) & (filtered["day_change_pct"] < 0)]
+
+elif preset == "Avoid / Risky":
+    filtered = filtered[
+        (filtered["score_band"] == "E Avoid")
+        |
+        (filtered["final_conviction_score"] < 35)
+        |
+        (filtered["risk_penalty"] >= 25)
+        |
+        (
+            (filtered["active_fundamental_score"] < 30)
+            &
+            (filtered["relative_strength_score"] < 40)
+        )
+    ]
+
+elif preset == "Avoid / Risky":
+    filtered = filtered[
+        (filtered["score_band"] == "E Avoid")
+        |
+        (filtered["final_conviction_score"] < 35)
+        |
+        (filtered["risk_penalty"] >= 25)
+        |
+        (
+            (filtered["active_fundamental_score"] < 30)
+            &
+            (filtered["relative_strength_score"] < 40)
+        )
+    ]
 
 st.sidebar.header("Advanced Query")
 st.sidebar.caption('Examples: sector == "Technology" and rsi > 60 | final_conviction_score >= 70 and risk_penalty <= 10')
@@ -700,6 +752,9 @@ sort_column = st.sidebar.selectbox(
         "score",
         "technical_score",
         "fundamental_score",
+        "sector_adjusted_fundamental_score",
+        "active_fundamental_score",
+        "sector_fundamental_adjustment",
         "relative_strength_score",
         "sector_score",
         "risk_penalty",
@@ -809,29 +864,29 @@ with tab1:
         st.markdown("**Top Final Conviction**")
         display_table(
             df.sort_values("final_conviction_score", ascending=False).head(10),
-            ["symbol", "sector", "industry", "current_price", "score_band", "final_conviction_score", "fundamental_score", "relative_strength_score", "risk_penalty"]
+            ["symbol", "sector", "industry", "sector_bucket", "current_price", "score_band", "final_conviction_score", "active_fundamental_score", "sector_fundamental_adjustment", "relative_strength_score", "risk_penalty"]
         )
 
-        st.markdown("**52W Low + Strong Fundamentals**")
+        st.markdown("**52W Low + Sector-Adjusted Quality**")
         low_quality = df[
             (df["distance_pct"] <= 20)
             &
-            (df["fundamental_score"] >= 55)
+            (df["active_fundamental_score"] >= 55)
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             low_quality,
-            ["symbol", "sector", "industry", "current_price", "distance_pct", "fundamental_score", "final_conviction_score", "score_band"]
+            ["symbol", "sector", "industry", "sector_bucket", "current_price", "distance_pct", "fundamental_score", "sector_fundamental_adjustment", "sector_adjusted_fundamental_score", "active_fundamental_score", "final_conviction_score", "score_band"]
         )
 
-        st.markdown("**High Fundamentals + Low Risk**")
+        st.markdown("**High Sector-Adjusted Quality + Low Risk**")
         quality_low_risk = df[
-            (df["fundamental_score"] >= 60)
+            (df["active_fundamental_score"] >= 60)
             &
             (df["risk_penalty"] <= 10)
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             quality_low_risk,
-            ["symbol", "sector", "industry", "fundamental_score", "risk_penalty", "final_conviction_score", "score_band"]
+            ["symbol", "sector", "industry", "sector_bucket", "fundamental_score", "sector_fundamental_adjustment", "active_fundamental_score", "risk_penalty", "final_conviction_score", "score_band"]
         )
 
     with signal2:
@@ -847,7 +902,25 @@ with tab1:
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             volume_breakouts,
-            ["symbol", "sector", "industry", "volume_ratio", "rsi", "final_conviction_score", "score_band"]
+            ["symbol", "sector", "industry", "volume_ratio", "rsi", "active_fundamental_score", "final_conviction_score", "score_band"]
+        )
+
+        st.markdown("**Avoid / Risky Watch**")
+        avoid_risky = df[
+            (df["score_band"] == "E Avoid")
+            |
+            (df["risk_penalty"] >= 25)
+            |
+            (
+                (df["active_fundamental_score"] < 30)
+                &
+                (df["relative_strength_score"] < 40)
+            )
+        ].sort_values(["risk_penalty", "final_conviction_score"], ascending=[False, True]).head(10)
+
+        display_table(
+            avoid_risky,
+            ["symbol", "sector", "industry", "sector_bucket", "final_conviction_score", "active_fundamental_score", "relative_strength_score", "risk_penalty", "score_band", "risk_reasons"]
         )
 
         st.markdown("**Near 52W High Momentum**")
@@ -934,7 +1007,7 @@ with tab3:
     else:
         display_table(
             low_opportunities,
-            ["symbol", "sector", "industry", "current_price", "day_change_pct", "52w_low", "distance_pct", "rsi", "volume_ratio", "fundamental_score", "final_conviction_score", "score_band", "reasons"]
+            ["symbol", "sector", "industry", "sector_bucket", "current_price", "day_change_pct", "52w_low", "distance_pct", "rsi", "volume_ratio", "fundamental_score", "sector_fundamental_adjustment", "sector_adjusted_fundamental_score", "active_fundamental_score", "relative_strength_score", "final_conviction_score", "score_band", "reasons"]
         )
         render_add_to_watchlist(low_opportunities, "low_opp_watchlist", "52W Low Opportunities")
 
@@ -980,7 +1053,10 @@ with tab4:
         stocks=("symbol", "count"),
         avg_final_conviction=("final_conviction_score", "mean"),
         avg_technical=("technical_score", "mean"),
-        avg_fundamental=("fundamental_score", "mean"),
+        avg_raw_fundamental=("fundamental_score", "mean"),
+        avg_sector_adjusted_fundamental=("sector_adjusted_fundamental_score", "mean"),
+        avg_active_fundamental=("active_fundamental_score", "mean"),
+        avg_sector_fundamental_adjustment=("sector_fundamental_adjustment", "mean"),
         avg_relative_strength=("relative_strength_score", "mean"),
         avg_sector_score=("sector_score", "mean"),
         avg_risk_penalty=("risk_penalty", "mean"),
@@ -1015,7 +1091,10 @@ with tab4:
         stocks=("symbol", "count"),
         avg_final_conviction=("final_conviction_score", "mean"),
         avg_technical=("technical_score", "mean"),
-        avg_fundamental=("fundamental_score", "mean"),
+        avg_raw_fundamental=("fundamental_score", "mean"),
+        avg_sector_adjusted_fundamental=("sector_adjusted_fundamental_score", "mean"),
+        avg_active_fundamental=("active_fundamental_score", "mean"),
+        avg_sector_fundamental_adjustment=("sector_fundamental_adjustment", "mean"),
         avg_relative_strength=("relative_strength_score", "mean"),
         avg_risk_penalty=("risk_penalty", "mean"),
         avg_rsi=("rsi", "mean"),
@@ -1261,7 +1340,9 @@ with tab8:
 
             dashboard_cols = [
                 "symbol", "sector", "industry", "current_price", "rsi",
-                "technical_score", "relative_strength_score", "sector_score",
+                "technical_score", "fundamental_score", "sector_bucket",
+                "sector_fundamental_adjustment", "sector_adjusted_fundamental_score",
+                "active_fundamental_score", "relative_strength_score", "sector_score",
                 "risk_penalty", "final_conviction_score", "score_band"
             ]
 
@@ -1371,6 +1452,54 @@ with tab8:
             with f12:
                 pb_min, pb_max = safe_range_slider("Price to Book", fundamentals_view["price_to_book"], step=0.1, key="fund_pb", sidebar=False)
 
+            adjusted_fs_min, adjusted_fs_max = safe_range_slider(
+                "Sector Adjusted Fundamental Score",
+                fundamentals_view["sector_adjusted_fundamental_score"],
+                step=1.0,
+                key="fund_adjusted_fs",
+                sidebar=False
+            )
+
+            active_fs_min, active_fs_max = safe_range_slider(
+                "Active Fundamental Score",
+                fundamentals_view["active_fundamental_score"],
+                step=1.0,
+                key="fund_active_fs",
+                sidebar=False
+            )
+
+            sector_adj_min, sector_adj_max = safe_range_slider(
+                "Sector Fundamental Adjustment",
+                fundamentals_view["sector_fundamental_adjustment"],
+                step=1.0,
+                key="fund_sector_adj",
+                sidebar=False
+            )
+
+            adjusted_fs_min, adjusted_fs_max = safe_range_slider(
+                "Sector Adjusted Fundamental Score",
+                fundamentals_view["sector_adjusted_fundamental_score"],
+                step=1.0,
+                key="fund_adjusted_fs",
+                sidebar=False
+            )
+
+            active_fs_min, active_fs_max = safe_range_slider(
+                "Active Fundamental Score",
+                fundamentals_view["active_fundamental_score"],
+                step=1.0,
+                key="fund_active_fs",
+                sidebar=False
+            )
+
+            sector_adj_min, sector_adj_max = safe_range_slider(
+                "Sector Fundamental Adjustment",
+                fundamentals_view["sector_fundamental_adjustment"],
+                step=1.0,
+                key="fund_sector_adj",
+                sidebar=False
+            )
+
             filtered_fundamentals = fundamentals_view.copy()
 
             if selected_fund_sectors:
@@ -1380,6 +1509,9 @@ with tab8:
                 filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["industry"].isin(selected_fund_industries)]
 
             filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["fundamental_score"].between(fs_min, fs_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["sector_adjusted_fundamental_score"].between(adjusted_fs_min, adjusted_fs_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["active_fundamental_score"].between(active_fs_min, active_fs_max)]
+            filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["sector_fundamental_adjustment"].between(sector_adj_min, sector_adj_max)]
             filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["roe"].between(roe_min2, roe_max2)]
             filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["debt_to_equity"].between(debt_min2, debt_max2)]
             filtered_fundamentals = filtered_fundamentals[filtered_fundamentals["revenue_growth"].between(rev_min, rev_max)]
@@ -1415,10 +1547,10 @@ with tab8:
             ]
 
             st.subheader("Fundamental Quality Table")
-            display_table(filtered_fundamentals.sort_values("fundamental_score", ascending=False), display_cols)
+            display_table(filtered_fundamentals.sort_values("active_fundamental_score", ascending=False), display_cols)
 
-            st.subheader("Top Fundamental Companies")
-            display_table(filtered_fundamentals.sort_values("fundamental_score", ascending=False).head(25), display_cols)
+            st.subheader("Top Sector-Adjusted Fundamental Companies")
+            display_table(filtered_fundamentals.sort_values("sector_adjusted_fundamental_score", ascending=False).head(25), display_cols)
 
             st.subheader("Best Combined Candidates")
             display_table(filtered_fundamentals.sort_values("final_conviction_score", ascending=False).head(25), display_cols)
