@@ -680,10 +680,14 @@ def command_compare(df, text):
 
 
 def handle_command(text, df):
+    print(f"RAW COMMAND TEXT: {text}")
+
     # Telegram group commands may arrive as /why@BotUsername.
     # Normalize /why@BotUsername to /why.
     command = text.strip().split()[0].lower()
     command = command.split("@")[0]
+
+    print(f"NORMALIZED COMMAND: {command}")
 
     if command in ["/help", "/start"]:
         return command_help()
