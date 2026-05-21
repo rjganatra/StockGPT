@@ -886,7 +886,23 @@ with tab1:
         st.markdown("**Top Final Conviction**")
         display_table(
             df.sort_values("final_conviction_score", ascending=False).head(10),
-            ["symbol", "sector", "industry", "sector_bucket", "current_price", "score_band", "final_conviction_score", "active_fundamental_score", "sector_fundamental_adjustment", "relative_strength_score", "risk_penalty"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "current_price",
+                "score_band",
+                "final_conviction_score",
+                "technical_score",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "sector_score",
+                "risk_penalty",
+            ]
         )
 
         st.markdown("**52W Low + Sector-Adjusted Quality**")
@@ -897,7 +913,22 @@ with tab1:
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             low_quality,
-            ["symbol", "sector", "industry", "sector_bucket", "current_price", "distance_pct", "fundamental_score", "sector_fundamental_adjustment", "sector_adjusted_fundamental_score", "active_fundamental_score", "final_conviction_score", "score_band"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "current_price",
+                "distance_pct",
+                "rsi",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "final_conviction_score",
+                "score_band",
+            ]
         )
 
         st.markdown("**High Sector-Adjusted Quality + Low Risk**")
@@ -908,14 +939,41 @@ with tab1:
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             quality_low_risk,
-            ["symbol", "sector", "industry", "sector_bucket", "fundamental_score", "sector_fundamental_adjustment", "active_fundamental_score", "risk_penalty", "final_conviction_score", "score_band"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "current_price",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "risk_penalty",
+                "final_conviction_score",
+                "score_band",
+            ]
         )
 
     with signal2:
         st.markdown("**Relative Strength Leaders**")
         display_table(
             df.sort_values("relative_strength_score", ascending=False).head(10),
-            ["symbol", "sector", "industry", "return_1m", "return_3m", "return_6m", "relative_strength_score", "final_conviction_score", "score_band"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "return_1m",
+                "return_3m",
+                "return_6m",
+                "relative_strength_score",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "final_conviction_score",
+                "score_band",
+            ]
         )
 
         st.markdown("**Volume Breakout Candidates**")
@@ -924,7 +982,23 @@ with tab1:
         ].sort_values("final_conviction_score", ascending=False).head(10)
         display_table(
             volume_breakouts,
-            ["symbol", "sector", "industry", "volume_ratio", "rsi", "active_fundamental_score", "final_conviction_score", "score_band"]
+            [
+                "symbol",
+                "sector",
+                "industry",
+                "sector_bucket",
+                "current_price",
+                "volume_ratio",
+                "rsi",
+                "technical_score",
+                "fundamental_score",
+                "sector_fundamental_adjustment",
+                "sector_adjusted_fundamental_score",
+                "active_fundamental_score",
+                "relative_strength_score",
+                "final_conviction_score",
+                "score_band",
+            ]
         )
 
         st.markdown("**Avoid / Risky Watch**")
@@ -947,15 +1021,18 @@ with tab1:
                 "sector",
                 "industry",
                 "sector_bucket",
+                "current_price",
                 "final_conviction_score",
+                "technical_score",
                 "fundamental_score",
                 "sector_fundamental_adjustment",
                 "sector_adjusted_fundamental_score",
                 "active_fundamental_score",
                 "relative_strength_score",
+                "sector_score",
                 "risk_penalty",
                 "score_band",
-                "risk_reasons"
+                "risk_reasons",
             ]
         )
 
@@ -974,6 +1051,7 @@ with tab1:
                 "sector",
                 "industry",
                 "sector_bucket",
+                "current_price",
                 "distance_from_high_pct",
                 "rsi",
                 "technical_score",
@@ -983,7 +1061,7 @@ with tab1:
                 "active_fundamental_score",
                 "relative_strength_score",
                 "final_conviction_score",
-                "score_band"
+                "score_band",
             ]
         )
 
