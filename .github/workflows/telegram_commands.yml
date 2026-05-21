@@ -1,3 +1,44 @@
-schedule:
-  - cron: "*/15 * * * *"
-workflow_dispatch:
+name: Telegram Commands
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  telegram-commands:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas requests
+
+      - name: Process Telegram Commands
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python app/alerts/telegram_bot_commands.py
+
+      - name: Commit Telegram State
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add data/telegram/last_update_id.txt
+          git commit -m "Update Telegram command offset" || echo "No command state changes"
+          git pull --rebase origin main
+          git push
