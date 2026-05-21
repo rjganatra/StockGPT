@@ -1536,30 +1536,6 @@ with tab8:
                 sidebar=False
             )
 
-            adjusted_fs_min, adjusted_fs_max = safe_range_slider(
-                "Sector Adjusted Fundamental Score",
-                fundamentals_view["sector_adjusted_fundamental_score"],
-                step=1.0,
-                key="fund_adjusted_fs",
-                sidebar=False
-            )
-
-            active_fs_min, active_fs_max = safe_range_slider(
-                "Active Fundamental Score",
-                fundamentals_view["active_fundamental_score"],
-                step=1.0,
-                key="fund_active_fs",
-                sidebar=False
-            )
-
-            sector_adj_min, sector_adj_max = safe_range_slider(
-                "Sector Fundamental Adjustment",
-                fundamentals_view["sector_fundamental_adjustment"],
-                step=1.0,
-                key="fund_sector_adj",
-                sidebar=False
-            )
-
             filtered_fundamentals = fundamentals_view.copy()
 
             if selected_fund_sectors:
