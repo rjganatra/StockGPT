@@ -550,6 +550,7 @@ COMMANDS = {
     "/swing": command_swing, "/high": command_high, "/risk": command_risk, "/watchlist": command_watchlist,
     "/stock": command_stock, "/why": command_why, "/sector": command_sector, "/basket": command_basket,
     "/compare": command_compare,
+    "/range": command_range,
 }
 
 
