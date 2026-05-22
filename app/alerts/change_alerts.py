@@ -4,7 +4,6 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
 def parse_chat_ids(value):
     return [
         str(chat_id).strip()
@@ -13,12 +12,9 @@ def parse_chat_ids(value):
     ]
 
 
-CHANGES_FILE = "data/history/latest_changes.csv"
-
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 TELEGRAM_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
-
 
 
 def send_telegram_message(message):
@@ -57,6 +53,14 @@ def send_telegram_message(message):
             print(f"Telegram send error for {chat_id}: {e}")
 
     return success_count > 0
+
+
+
+
+CHANGES_FILE = "data/history/latest_changes.csv"
+
+
+
 
 
 def safe_num(value, default=0):

@@ -4,57 +4,63 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
-SCAN_FILE = "data/scans/latest_scan.csv"
-WATCHLIST_FILE = "data/watchlist/watchlist.csv"
-
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
-TELEGRAM_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
-
 def parse_chat_ids(value):
     return [
         str(chat_id).strip()
-        for chat_id in str(value).replace("\n", ",").split(",")
+        for chat_id in str(value).replace("\\n", ",").split(",")
         if str(chat_id).strip()
     ]
 
 
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+TELEGRAM_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
+
 
 def send_telegram_message(message):
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
-        print("Telegram token/chat id missing. Skipping watchlist alert.")
+    if not TELEGRAM_BOT_TOKEN:
+        print("TELEGRAM_BOT_TOKEN missing.")
+        return False
+
+    if not TELEGRAM_CHAT_IDS:
+        print("No TELEGRAM_CHAT_ID found.")
         return False
 
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
-    payload = {
-        "chat_id": chat_id,
-        "text": message,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True
-    }
+    success_count = 0
 
-    try:
-        success_count = 0
-
-        for chat_id in TELEGRAM_CHAT_IDS:
-
+    for chat_id in TELEGRAM_CHAT_IDS:
+        try:
             response = requests.post(
-            url,
-            json=payload,
-            timeout=20
-        )
+                url,
+                json={
+                    "chat_id": chat_id,
+                    "text": message,
+                    "parse_mode": "HTML",
+                    "disable_web_page_preview": True,
+                },
+                timeout=20,
+            )
 
-        if response.status_code != 200:
-            print(f"Telegram send failed: {response.text}")
-            return False
+            if response.status_code == 200 and response.json().get("ok"):
+                success_count += 1
+                print(f"Telegram sent to {chat_id}")
+            else:
+                print(f"Telegram send failed for {chat_id}: {response.text}")
 
-        return True
+        except Exception as e:
+            print(f"Telegram send error for {chat_id}: {e}")
 
-    except Exception as e:
-        print(f"Telegram error: {e}")
-        return False
+    return success_count > 0
+
+SCAN_FILE = "data/scans/latest_scan.csv"
+WATCHLIST_FILE = "data/watchlist/watchlist.csv"
+
+
+
+
+
 
 
 def safe_num(value, default=0):
