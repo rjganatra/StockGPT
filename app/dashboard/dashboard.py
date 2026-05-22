@@ -815,7 +815,7 @@ if failed_file.exists():
 # Tabs
 # =========================
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
@@ -824,7 +824,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
     "History",
     "Watchlist",
     "Fundamentals",
-    "Movers & Changes"
+    "Movers & Changes",
+    "Range Bound"
 ])
 
 
@@ -2018,3 +2019,136 @@ with tab9:
                     "change_signal"
                 ]
             )
+
+
+# =========================
+# TAB 10 — RANGE BOUND
+# =========================
+
+with tab10:
+    st.header("📦 Range Bound / Mean Reversion Scanner")
+
+    range_file = Path("data/range/range_bound.csv")
+
+    if not range_file.exists():
+        st.warning("Range-bound file not found. Run Phase6 Pipeline after adding range_bound_scanner.py.")
+    else:
+        range_df = pd.read_csv(range_file)
+
+        if range_df.empty:
+            st.info("Range-bound file exists but has no rows.")
+        else:
+            range_df["symbol"] = range_df["symbol"].astype(str).str.upper().str.strip()
+
+            if "range_scan_time" in range_df.columns and not range_df["range_scan_time"].dropna().empty:
+                st.caption(f"🕒 Range scan updated on {range_df['range_scan_time'].dropna().iloc[0]}")
+
+            latest_cols = [
+                "symbol", "sector", "industry", "sector_bucket", "current_price",
+                "final_conviction_score", "technical_score", "active_fundamental_score",
+                "relative_strength_score", "risk_penalty", "score_band"
+            ]
+
+            available_latest_cols = [col for col in latest_cols if col in df.columns]
+
+            range_view = range_df.merge(
+                df[available_latest_cols].drop_duplicates(subset=["symbol"]),
+                on="symbol",
+                how="left"
+            )
+
+            numeric_range_cols = [
+                "range_score", "range_low", "range_high", "range_width_pct",
+                "current_position_pct", "upside_to_range_high_pct",
+                "downside_to_range_low_pct", "inside_range_pct", "range_stability_score",
+                "range_width_score", "range_position_score", "range_bounce_score",
+                "range_quality_risk_score", "range_rsi", "range_volume_ratio",
+                "final_conviction_score", "active_fundamental_score", "risk_penalty"
+            ]
+
+            for col in numeric_range_cols:
+                if col not in range_view.columns:
+                    range_view[col] = 0
+                range_view[col] = pd.to_numeric(range_view[col], errors="coerce").fillna(0)
+
+            for col in ["sector", "industry", "sector_bucket", "range_status", "range_reasons"]:
+                if col not in range_view.columns:
+                    range_view[col] = "Unknown"
+                range_view[col] = range_view[col].fillna("Unknown").astype(str)
+
+            st.subheader("Range Filters")
+            r1, r2, r3 = st.columns(3)
+
+            with r1:
+                selected_range_status = st.multiselect(
+                    "Range Status",
+                    sorted(range_view["range_status"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="range_status_filter"
+                )
+
+            with r2:
+                selected_range_sector = st.multiselect(
+                    "Sector Bucket",
+                    sorted(range_view["sector_bucket"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="range_sector_filter"
+                )
+
+            with r3:
+                range_search = st.text_input(
+                    "Search Symbol",
+                    placeholder="Example: RECLTD, PFC, RELIANCE",
+                    key="range_search"
+                )
+
+            r4, r5, r6 = st.columns(3)
+            with r4:
+                range_score_min, range_score_max = safe_range_slider("Range Score", range_view["range_score"], step=1.0, key="range_score_slider", sidebar=False)
+            with r5:
+                position_min, position_max = safe_range_slider("Current Position Inside Range %", range_view["current_position_pct"], step=1.0, key="range_position_slider", sidebar=False)
+            with r6:
+                width_min, width_max = safe_range_slider("Range Width %", range_view["range_width_pct"], step=1.0, key="range_width_slider", sidebar=False)
+
+            filtered_range = range_view.copy()
+            if selected_range_status:
+                filtered_range = filtered_range[filtered_range["range_status"].isin(selected_range_status)]
+            if selected_range_sector:
+                filtered_range = filtered_range[filtered_range["sector_bucket"].isin(selected_range_sector)]
+            if range_search.strip():
+                filtered_range = filtered_range[filtered_range["symbol"].str.contains(range_search.strip().upper(), case=False, na=False)]
+
+            filtered_range = filtered_range[filtered_range["range_score"].between(range_score_min, range_score_max)]
+            filtered_range = filtered_range[filtered_range["current_position_pct"].between(position_min, position_max)]
+            filtered_range = filtered_range[filtered_range["range_width_pct"].between(width_min, width_max)]
+
+            st.caption(f"Showing {len(filtered_range)} out of {len(range_view)} range rows")
+
+            range_cols = [
+                "symbol", "sector", "industry", "sector_bucket", "current_price",
+                "range_status", "range_score", "range_low", "range_high", "range_width_pct",
+                "current_position_pct", "upside_to_range_high_pct", "downside_to_range_low_pct",
+                "inside_range_pct", "range_rsi", "range_volume_ratio", "final_conviction_score",
+                "active_fundamental_score", "relative_strength_score", "risk_penalty", "score_band", "range_reasons"
+            ]
+
+            st.subheader("🟢 Accumulation Zone")
+            accumulation = filtered_range[
+                filtered_range["range_status"].isin(["Accumulation Zone", "Lower Range Watch"])
+            ].sort_values(["range_score", "upside_to_range_high_pct"], ascending=[False, False])
+            display_table(accumulation, range_cols)
+
+            st.subheader("🟡 Profit Booking Zone")
+            profit_zone = filtered_range[filtered_range["range_status"] == "Profit Booking Zone"].sort_values(["current_position_pct", "range_score"], ascending=[False, False])
+            display_table(profit_zone, range_cols)
+
+            st.subheader("🔴 Breakdown / Volatility Risk")
+            risk_zone = filtered_range[
+                filtered_range["range_status"].isin(["Range Breakdown Risk", "Wide / Volatile Range", "Not Range Bound"])
+            ].sort_values(["risk_penalty", "range_score"], ascending=[False, True])
+            display_table(risk_zone, range_cols)
+
+            st.subheader("📋 Full Range Bound Table")
+            display_table(filtered_range.sort_values("range_score", ascending=False), range_cols)

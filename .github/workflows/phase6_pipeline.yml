@@ -41,6 +41,9 @@ jobs:
       - name: Run Final Score Engine
         run: python app/scoring/score_engine.py
 
+      - name: Run Range Bound Scanner
+        run: python app/scanners/range_bound_scanner.py
+
       - name: Track Scan Changes
         run: python app/history/change_tracker.py
 
