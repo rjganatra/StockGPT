@@ -10,15 +10,6 @@ STATE_FILE = Path("data/telegram/last_update_id.txt")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
-def parse_chat_ids(value):
-    return [
-        str(chat_id).strip()
-        for chat_id in str(value).replace("\n", ",").split(",")
-        if str(chat_id).strip()
-    ]
-
-ALLOWED_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
-
 STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 
@@ -594,7 +585,7 @@ def main():
         text = clean_text(message.get("text", ""))
         if not text.startswith("/"):
             continue
-        if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
+        if TELEGRAM_CHAT_ID and chat_id != TELEGRAM_CHAT_ID:
             print(f"Ignoring unauthorized chat_id={chat_id}")
             continue
         print(f"Processing command from chat_id={chat_id}: {text}")

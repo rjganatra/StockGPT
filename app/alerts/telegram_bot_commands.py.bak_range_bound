@@ -10,15 +10,6 @@ STATE_FILE = Path("data/telegram/last_update_id.txt")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
-def parse_chat_ids(value):
-    return [
-        str(chat_id).strip()
-        for chat_id in str(value).replace("\n", ",").split(",")
-        if str(chat_id).strip()
-    ]
-
-ALLOWED_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
-
 STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 
@@ -256,8 +247,6 @@ def command_help():
 /swing - Swing candidates
 /high - Near 52W high momentum
 /risk - Avoid / risky stocks
-/range - Top range-bound opportunities
-/range SYMBOL - Range snapshot for one stock
 /watchlist - Watchlist summary
 /stock SYMBOL - Full stock snapshot
 /why SYMBOL - Explain stock score
@@ -487,64 +476,6 @@ def command_compare(df, text):
     return message.strip()
 
 
-
-
-def command_range(df, text):
-    range_file = Path("data/range/range_bound.csv")
-    if not range_file.exists():
-        return "Range-bound data not found. Run Phase6 Pipeline first."
-
-    range_df = pd.read_csv(range_file)
-    if range_df.empty:
-        return "Range-bound data file exists but has no rows."
-
-    range_df["symbol"] = range_df["symbol"].astype(str).str.upper().str.strip()
-    parts = text.strip().split()
-
-    if len(parts) >= 2:
-        symbol = parts[1].upper().strip()
-        stock_df = range_df[range_df["symbol"] == symbol]
-        if stock_df.empty:
-            matches = range_df[range_df["symbol"].str.contains(symbol, case=False, na=False)]
-            if matches.empty:
-                return f"<b>{escape_html(symbol)}</b> not found in range-bound data."
-            suggestions = ", ".join(matches["symbol"].head(10).tolist())
-            return f"<b>{escape_html(symbol)}</b> not found exactly.\nPossible matches: {escape_html(suggestions)}"
-
-        row = stock_df.iloc[0]
-        message = f"<b>📦 Range Snapshot: {escape_html(symbol)}</b>\n"
-        message += f"Status: <b>{escape_html(row.get('range_status', ''))}</b>\n"
-        message += f"Range Score: {safe_num(row.get('range_score')):.1f}\n"
-        message += f"Range Low: ₹{safe_num(row.get('range_low')):.2f}\n"
-        message += f"Range High: ₹{safe_num(row.get('range_high')):.2f}\n"
-        message += f"Range Width: {safe_num(row.get('range_width_pct')):.1f}%\n"
-        message += f"Current Position: {safe_num(row.get('current_position_pct')):.1f}% inside range\n"
-        message += f"Upside to Range High: {safe_num(row.get('upside_to_range_high_pct')):.1f}%\n"
-        message += f"Downside to Range Low: {safe_num(row.get('downside_to_range_low_pct')):.1f}%\n"
-        message += f"Inside Range Days: {safe_num(row.get('inside_range_pct')):.1f}%\n"
-        message += f"Range RSI: {safe_num(row.get('range_rsi')):.1f}\n"
-        message += f"Range Volume Ratio: {safe_num(row.get('range_volume_ratio')):.2f}x\n\n"
-        reasons = clean_text(row.get("range_reasons", ""))
-        if reasons:
-            message += f"<b>Range Reasons</b>\n{escape_html(reasons[:1200])}\n\n"
-        message += "<i>Not financial advice. Research tool only.</i>"
-        return message.strip()
-
-    top = range_df[range_df["range_status"].isin(["Accumulation Zone", "Lower Range Watch"])].sort_values(["range_score", "upside_to_range_high_pct"], ascending=[False, False]).head(10)
-    if top.empty:
-        top = range_df.sort_values("range_score", ascending=False).head(10)
-
-    message = "<b>📦 Top Range Bound Opportunities</b>\n"
-    for _, row in top.iterrows():
-        message += (
-            f"\n<b>{escape_html(row.get('symbol', ''))}</b> | {escape_html(row.get('range_status', ''))}\n"
-            f"Score: {safe_num(row.get('range_score')):.1f} | Position: {safe_num(row.get('current_position_pct')):.1f}% | Width: {safe_num(row.get('range_width_pct')):.1f}%\n"
-            f"Low: ₹{safe_num(row.get('range_low')):.2f} | High: ₹{safe_num(row.get('range_high')):.2f} | Upside: {safe_num(row.get('upside_to_range_high_pct')):.1f}%"
-        )
-    message += "\n\nUse /range SYMBOL for details. Example: /range RECLTD"
-    message += "\n\n<i>Not financial advice. Research tool only.</i>"
-    return message.strip()
-
 COMMANDS = {
     "/help": command_help, "/start": command_help, "/top": command_top, "/low": command_low,
     "/swing": command_swing, "/high": command_high, "/risk": command_risk, "/watchlist": command_watchlist,
@@ -594,7 +525,7 @@ def main():
         text = clean_text(message.get("text", ""))
         if not text.startswith("/"):
             continue
-        if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
+        if TELEGRAM_CHAT_ID and chat_id != TELEGRAM_CHAT_ID:
             print(f"Ignoring unauthorized chat_id={chat_id}")
             continue
         print(f"Processing command from chat_id={chat_id}: {text}")
