@@ -5,18 +5,18 @@ from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+def parse_chat_ids(value):
+    return [
+        str(chat_id).strip()
+        for chat_id in str(value).replace("\\n", ",").split(",")
+        if str(chat_id).strip()
+    ]
+
 CHANGES_FILE = "data/history/latest_changes.csv"
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 TELEGRAM_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
-
-def parse_chat_ids(value):
-    return [
-        str(chat_id).strip()
-        for chat_id in str(value).replace("\n", ",").split(",")
-        if str(chat_id).strip()
-    ]
 
 
 
