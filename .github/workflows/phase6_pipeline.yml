@@ -53,6 +53,9 @@ jobs:
       - name: Store Scan In Database
         run: python app/database/store_scan.py
 
+      - name: Run Signal Performance Tracker
+        run: python app/performance/signal_performance.py
+
       - name: Send Change Telegram Alerts
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

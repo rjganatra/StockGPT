@@ -815,7 +815,7 @@ if failed_file.exists():
 # Tabs
 # =========================
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs([
     "Market Overview",
     "Heatmap",
     "Opportunities",
@@ -825,7 +825,8 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
     "Watchlist",
     "Fundamentals",
     "Movers & Changes",
-    "Range Bound"
+    "Range Bound",
+    "Model Performance"
 ])
 
 
@@ -2152,3 +2153,213 @@ with tab10:
 
             st.subheader("📋 Full Range Bound Table")
             display_table(filtered_range.sort_values("range_score", ascending=False), range_cols)
+
+
+# =========================
+# TAB 11 — MODEL PERFORMANCE
+# =========================
+
+with tab11:
+    st.header("📊 Model Performance / Signal Tracker")
+
+    performance_file = Path("data/performance/signal_performance.csv")
+
+    if not performance_file.exists():
+        st.warning("Signal performance file not found. Run Phase6 Pipeline after adding signal_performance.py.")
+    else:
+        perf_df = pd.read_csv(performance_file)
+
+        if perf_df.empty:
+            st.info("Signal performance file exists but has no rows yet. It needs historical snapshots and latest scan data.")
+        else:
+            if "performance_scan_time" in perf_df.columns and not perf_df["performance_scan_time"].dropna().empty:
+                st.caption("🕒 Performance calculated on " + str(perf_df["performance_scan_time"].dropna().iloc[0]))
+
+            text_cols = [
+                "symbol", "sector", "industry", "sector_bucket", "signal_type",
+                "signal_direction", "horizon_bucket", "result_status",
+                "entry_score_band", "latest_score_band", "entry_range_status", "latest_range_status"
+            ]
+
+            for col in text_cols:
+                if col not in perf_df.columns:
+                    perf_df[col] = ""
+                perf_df[col] = perf_df[col].fillna("").astype(str)
+
+            numeric_cols = [
+                "days_passed", "entry_price", "latest_price", "return_pct",
+                "entry_final_score", "latest_final_score",
+                "entry_active_fundamental_score", "latest_active_fundamental_score",
+                "entry_risk_penalty", "latest_risk_penalty", "entry_range_score", "latest_range_score"
+            ]
+
+            for col in numeric_cols:
+                if col not in perf_df.columns:
+                    perf_df[col] = 0
+                perf_df[col] = pd.to_numeric(perf_df[col], errors="coerce").fillna(0)
+
+            if "is_success" not in perf_df.columns:
+                perf_df["is_success"] = False
+
+            perf_df["is_success"] = perf_df["is_success"].astype(bool)
+
+            st.subheader("Performance Filters")
+
+            p1, p2, p3, p4 = st.columns(4)
+
+            with p1:
+                selected_perf_signals = st.multiselect(
+                    "Signal Type",
+                    sorted(perf_df["signal_type"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="perf_signal_filter"
+                )
+
+            with p2:
+                selected_perf_horizons = st.multiselect(
+                    "Horizon",
+                    sorted(perf_df["horizon_bucket"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="perf_horizon_filter"
+                )
+
+            with p3:
+                selected_perf_sectors = st.multiselect(
+                    "Sector Bucket",
+                    sorted(perf_df["sector_bucket"].dropna().unique().tolist()),
+                    default=[],
+                    placeholder="Leave blank for all",
+                    key="perf_sector_filter"
+                )
+
+            with p4:
+                perf_search = st.text_input(
+                    "Search Symbol",
+                    placeholder="Example: RELIANCE, RECLTD",
+                    key="perf_symbol_search"
+                )
+
+            filtered_perf = perf_df.copy()
+
+            if selected_perf_signals:
+                filtered_perf = filtered_perf[filtered_perf["signal_type"].isin(selected_perf_signals)]
+
+            if selected_perf_horizons:
+                filtered_perf = filtered_perf[filtered_perf["horizon_bucket"].isin(selected_perf_horizons)]
+
+            if selected_perf_sectors:
+                filtered_perf = filtered_perf[filtered_perf["sector_bucket"].isin(selected_perf_sectors)]
+
+            if perf_search.strip():
+                filtered_perf = filtered_perf[
+                    filtered_perf["symbol"].str.contains(
+                        perf_search.strip().upper(),
+                        case=False,
+                        na=False
+                    )
+                ]
+
+            st.caption("Showing " + str(len(filtered_perf)) + " out of " + str(len(perf_df)) + " signal performance rows")
+
+            total_signals = len(filtered_perf)
+            win_rate = round(filtered_perf["is_success"].mean() * 100, 2) if total_signals else 0
+            avg_return = round(filtered_perf["return_pct"].mean(), 2) if total_signals else 0
+            median_return = round(filtered_perf["return_pct"].median(), 2) if total_signals else 0
+
+            m1, m2, m3, m4 = st.columns(4)
+            m1.metric("Signals Tested", total_signals)
+            m2.metric("Win Rate", str(win_rate) + "%")
+            m3.metric("Avg Return", str(avg_return) + "%")
+            m4.metric("Median Return", str(median_return) + "%")
+
+            st.subheader("Signal Type Performance")
+
+            if filtered_perf.empty:
+                st.info("No performance rows under selected filters.")
+            else:
+                signal_summary = (
+                    filtered_perf.groupby(["signal_type", "horizon_bucket"])
+                    .agg(
+                        signals=("symbol", "count"),
+                        win_rate=("is_success", "mean"),
+                        avg_return=("return_pct", "mean"),
+                        median_return=("return_pct", "median"),
+                        best_return=("return_pct", "max"),
+                        worst_return=("return_pct", "min")
+                    )
+                    .reset_index()
+                )
+
+                signal_summary["win_rate"] = (signal_summary["win_rate"] * 100).round(2)
+                signal_summary["avg_return"] = signal_summary["avg_return"].round(2)
+                signal_summary["median_return"] = signal_summary["median_return"].round(2)
+                signal_summary["best_return"] = signal_summary["best_return"].round(2)
+                signal_summary["worst_return"] = signal_summary["worst_return"].round(2)
+
+                display_table(
+                    signal_summary.sort_values(["avg_return", "win_rate"], ascending=[False, False])
+                )
+
+                perf_cols = [
+                    "signal_date", "horizon_bucket", "symbol", "sector", "industry",
+                    "signal_type", "signal_direction", "entry_price", "latest_price",
+                    "return_pct", "result_status", "entry_final_score", "latest_final_score",
+                    "entry_range_status", "latest_range_status"
+                ]
+
+                st.subheader("Best Performing Signals")
+                display_table(filtered_perf.sort_values("return_pct", ascending=False).head(30), perf_cols)
+
+                st.subheader("Worst Performing Signals")
+                display_table(filtered_perf.sort_values("return_pct", ascending=True).head(30), perf_cols)
+
+                st.subheader("Range Signal Performance")
+
+                range_perf = filtered_perf[
+                    filtered_perf["signal_type"].str.contains("Range", case=False, na=False)
+                ]
+
+                if range_perf.empty:
+                    st.info("No range signal performance rows under selected filters.")
+                else:
+                    range_summary = (
+                        range_perf.groupby(["signal_type", "horizon_bucket"])
+                        .agg(
+                            signals=("symbol", "count"),
+                            win_rate=("is_success", "mean"),
+                            avg_return=("return_pct", "mean"),
+                            median_return=("return_pct", "median"),
+                            best_return=("return_pct", "max"),
+                            worst_return=("return_pct", "min")
+                        )
+                        .reset_index()
+                    )
+
+                    range_summary["win_rate"] = (range_summary["win_rate"] * 100).round(2)
+                    range_summary["avg_return"] = range_summary["avg_return"].round(2)
+                    range_summary["median_return"] = range_summary["median_return"].round(2)
+                    range_summary["best_return"] = range_summary["best_return"].round(2)
+                    range_summary["worst_return"] = range_summary["worst_return"].round(2)
+
+                    display_table(
+                        range_summary.sort_values(["avg_return", "win_rate"], ascending=[False, False])
+                    )
+
+                st.subheader("Full Performance Table")
+
+                full_cols = [
+                    "performance_scan_time", "signal_date", "days_passed", "horizon_bucket",
+                    "symbol", "sector", "industry", "sector_bucket", "signal_type",
+                    "signal_direction", "entry_price", "latest_price", "return_pct",
+                    "is_success", "result_status", "entry_final_score", "latest_final_score",
+                    "entry_active_fundamental_score", "latest_active_fundamental_score",
+                    "entry_risk_penalty", "latest_risk_penalty", "entry_range_status",
+                    "latest_range_status", "entry_range_score", "latest_range_score"
+                ]
+
+                display_table(
+                    filtered_perf.sort_values(["signal_date", "return_pct"], ascending=[False, False]),
+                    full_cols
+                )

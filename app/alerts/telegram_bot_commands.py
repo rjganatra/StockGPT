@@ -257,6 +257,8 @@ def command_help():
 /high - Near 52W high momentum
 /risk - Avoid / risky stocks
 /range - Top range-bound opportunities
+/performance - Signal performance tracker
+/performance QUERY - Filter performance by signal/symbol
 /range SYMBOL - Range snapshot for one stock
 /watchlist - Watchlist summary
 /stock SYMBOL - Full stock snapshot
@@ -545,12 +547,172 @@ def command_range(df, text):
     message += "\n\n<i>Not financial advice. Research tool only.</i>"
     return message.strip()
 
+
+
+def command_performance(df, text):
+    performance_file = Path("data/performance/signal_performance.csv")
+
+    if not performance_file.exists():
+        return (
+            "<b>📊 Signal Performance</b>\n\n"
+            "Performance data is not available yet.\n"
+            "Run Phase6 Pipeline first, then try:\n"
+            "/performance\n"
+            "/performance range\n"
+            "/performance swing\n"
+            "/performance RELIANCE"
+        )
+
+    try:
+        perf_df = pd.read_csv(performance_file)
+    except Exception as e:
+        return f"Could not read performance file: {escape_html(str(e))}"
+
+    if perf_df.empty:
+        return "Performance file exists but has no rows yet."
+
+    needed_text_cols = [
+        "symbol", "signal_type", "signal_direction", "horizon_bucket",
+        "result_status", "sector", "industry", "sector_bucket"
+    ]
+
+    for col in needed_text_cols:
+        if col not in perf_df.columns:
+            perf_df[col] = ""
+        perf_df[col] = perf_df[col].fillna("").astype(str)
+
+    needed_numeric_cols = [
+        "return_pct", "entry_price", "latest_price", "days_passed",
+        "entry_final_score", "latest_final_score"
+    ]
+
+    for col in needed_numeric_cols:
+        if col not in perf_df.columns:
+            perf_df[col] = 0
+        perf_df[col] = pd.to_numeric(perf_df[col], errors="coerce").fillna(0)
+
+    if "is_success" not in perf_df.columns:
+        perf_df["is_success"] = False
+
+    perf_df["is_success"] = perf_df["is_success"].astype(bool)
+
+    parts = text.strip().split(maxsplit=1)
+    title_suffix = "All Signals"
+    filtered = perf_df.copy()
+
+    if len(parts) >= 2:
+        query = parts[1].strip()
+        query_upper = query.upper()
+        query_lower = query.lower()
+        symbol_df = perf_df[perf_df["symbol"].astype(str).str.upper() == query_upper]
+
+        if not symbol_df.empty:
+            filtered = symbol_df
+            title_suffix = query_upper
+        else:
+            alias_map = {
+                "range": "Range",
+                "swing": "Swing",
+                "risk": "Risk|Avoid|Breakdown",
+                "avoid": "Avoid|Risk",
+                "top": "Top Final",
+                "high": "High Conviction|High Momentum",
+                "low": "52W Low",
+                "fundamental": "Fundamental",
+                "rs": "Relative Strength",
+                "relative": "Relative Strength",
+            }
+
+            pattern = alias_map.get(query_lower, query)
+
+            filtered = perf_df[
+                perf_df["signal_type"].str.contains(pattern, case=False, na=False)
+                |
+                perf_df["sector"].str.contains(query, case=False, na=False)
+                |
+                perf_df["industry"].str.contains(query, case=False, na=False)
+                |
+                perf_df["sector_bucket"].str.contains(query, case=False, na=False)
+            ]
+            title_suffix = query
+
+    if filtered.empty:
+        return f"No performance rows found for: <b>{escape_html(parts[1] if len(parts) >= 2 else 'All')}</b>"
+
+    total = len(filtered)
+    win_rate = filtered["is_success"].mean() * 100 if total else 0
+    avg_return = filtered["return_pct"].mean() if total else 0
+    median_return = filtered["return_pct"].median() if total else 0
+
+    message = f"<b>📊 Signal Performance: {escape_html(title_suffix)}</b>\n"
+
+    if "performance_scan_time" in filtered.columns and not filtered["performance_scan_time"].dropna().empty:
+        message += f"<b>Updated:</b> {escape_html(filtered['performance_scan_time'].dropna().iloc[0])}\n"
+
+    message += f"\nSignals Tested: {total}\n"
+    message += f"Win Rate: {win_rate:.1f}%\n"
+    message += f"Avg Return: {avg_return:.2f}%\n"
+    message += f"Median Return: {median_return:.2f}%\n"
+
+    summary = (
+        filtered.groupby(["signal_type", "horizon_bucket"])
+        .agg(
+            signals=("symbol", "count"),
+            win_rate=("is_success", "mean"),
+            avg_return=("return_pct", "mean"),
+            best_return=("return_pct", "max"),
+            worst_return=("return_pct", "min"),
+        )
+        .reset_index()
+        .sort_values(["avg_return", "win_rate"], ascending=[False, False])
+        .head(10)
+    )
+
+    message += "\n<b>Top Signal Groups</b>\n"
+
+    for _, row in summary.iterrows():
+        message += (
+            f"\n<b>{escape_html(row['signal_type'])}</b> | {escape_html(row['horizon_bucket'])}\n"
+            f"Signals: {int(row['signals'])}"
+            f" | Win: {safe_num(row['win_rate']) * 100:.1f}%"
+            f" | Avg: {safe_num(row['avg_return']):.2f}%"
+            f" | Best: {safe_num(row['best_return']):.2f}%"
+            f" | Worst: {safe_num(row['worst_return']):.2f}%"
+        )
+
+    best = filtered.sort_values("return_pct", ascending=False).head(5)
+    worst = filtered.sort_values("return_pct", ascending=True).head(5)
+
+    message += "\n\n<b>Best Signals</b>\n"
+    for _, row in best.iterrows():
+        message += (
+            f"\n{escape_html(row['symbol'])}"
+            f" | {escape_html(row['signal_type'])}"
+            f" | {safe_num(row['return_pct']):.2f}%"
+            f" | {escape_html(row['horizon_bucket'])}"
+        )
+
+    message += "\n\n<b>Worst Signals</b>\n"
+    for _, row in worst.iterrows():
+        message += (
+            f"\n{escape_html(row['symbol'])}"
+            f" | {escape_html(row['signal_type'])}"
+            f" | {safe_num(row['return_pct']):.2f}%"
+            f" | {escape_html(row['horizon_bucket'])}"
+        )
+
+    message += "\n\nExamples: /performance range | /performance swing | /performance RELIANCE"
+    message += "\n\n<i>Not financial advice. Research tool only.</i>"
+
+    return message.strip()
+
 COMMANDS = {
     "/help": command_help, "/start": command_help, "/top": command_top, "/low": command_low,
     "/swing": command_swing, "/high": command_high, "/risk": command_risk, "/watchlist": command_watchlist,
     "/stock": command_stock, "/why": command_why, "/sector": command_sector, "/basket": command_basket,
     "/compare": command_compare,
     "/range": command_range,
+    "/performance": command_performance,
 }
 
 
