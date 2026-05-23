@@ -10,20 +10,40 @@ from datetime import datetime
 # UX V4 FINAL — MENU + NATURAL ROUTER
 # =========================
 
+
+TELEGRAM_WEBAPP_URL = os.getenv(
+    "TELEGRAM_WEBAPP_URL",
+    "https://rjganatra.github.io/StockGPT/"
+).strip()
+
+
+def stockgpt_webapp_url(action=""):
+    base = TELEGRAM_WEBAPP_URL.rstrip("/")
+
+    if not action:
+        return base + "/"
+
+    return base + "/?action=" + str(action).strip()
+
 MAIN_MENU_REPLY_MARKUP = {
     "keyboard": [
+        [{"text": "🧠 Ask StockGPT", "web_app": {"url": stockgpt_webapp_url()}}],
+        [{"text": "🔍 Stock Analysis", "web_app": {"url": stockgpt_webapp_url("stock_analysis")}},
+         {"text": "📦 Stock Range", "web_app": {"url": stockgpt_webapp_url("stock_range")}}],
+        [{"text": "📊 Stock Performance", "web_app": {"url": stockgpt_webapp_url("stock_performance")}},
+         {"text": "⚖️ Compare Stocks", "web_app": {"url": stockgpt_webapp_url("compare")}}],
+        [{"text": "🏭 Sector View", "web_app": {"url": stockgpt_webapp_url("sector")}}],
         [{"text": "📊 Top Ideas"}, {"text": "📦 Range Bound"}],
         [{"text": "⚡ Swing"}, {"text": "📉 52W Low"}],
         [{"text": "🚀 Momentum"}, {"text": "⚠️ Risky / Avoid"}],
         [{"text": "⭐ Watchlist"}, {"text": "📈 Performance"}],
-        [{"text": "🔍 Stock Analysis"}, {"text": "📦 Stock Range"}],
-        [{"text": "📊 Stock Performance"}, {"text": "⚖️ Compare Stocks"}],
-        [{"text": "🏭 Sector View"}, {"text": "❓ Help"}],
+        [{"text": "❓ Help"}],
     ],
     "resize_keyboard": True,
     "one_time_keyboard": False,
     "is_persistent": True,
 }
+
 
 
 
@@ -1311,6 +1331,166 @@ def route_pending_session(df, text, session):
         "clear": True,
     }
 
+
+# =========================
+# UX V6 — Telegram WebApp Payload Router
+# =========================
+
+def route_webapp_payload(df, payload_text):
+    """
+    Telegram WebApp sends one complete JSON payload.
+    This converts it into normal StockGPT bot commands.
+    """
+    try:
+        payload = json.loads(str(payload_text or "{}"))
+    except Exception as e:
+        return {
+            "reply": f"Could not read WebApp request: {escape_html(str(e))}",
+            "command": "",
+        }
+
+    if not isinstance(payload, dict):
+        return {
+            "reply": "Invalid WebApp request.",
+            "command": "",
+        }
+
+    action = clean_text(payload.get("action", "")).lower().strip()
+
+    # Normalize aliases from old/new webapp labels
+    action_aliases = {
+        "analysis": "stock_analysis",
+        "stock": "stock_analysis",
+        "why": "stock_analysis",
+        "range": "stock_range",
+        "stockrange": "stock_range",
+        "performance": "stock_performance",
+        "stockperformance": "stock_performance",
+        "compare_stocks": "compare",
+        "sector_view": "sector",
+    }
+
+    action = action_aliases.get(action, action)
+
+    symbol = clean_text(payload.get("symbol", ""))
+    query = clean_text(payload.get("query", ""))
+    symbol_a = clean_text(payload.get("symbol_a", ""))
+    symbol_b = clean_text(payload.get("symbol_b", ""))
+
+    if action == "stock_analysis":
+        found = ux_find_symbol(df, symbol or query)
+
+        if found:
+            return {"reply": "", "command": f"/why {found}"}
+
+        return {
+            "reply": command_suggest(df, "/suggest " + (symbol or query)),
+            "command": "",
+        }
+
+    if action == "stock_range":
+        found = ux_find_symbol(df, symbol or query)
+
+        if found:
+            return {"reply": "", "command": f"/range {found}"}
+
+        return {
+            "reply": command_suggest(df, "/suggest " + (symbol or query)),
+            "command": "",
+        }
+
+    if action == "stock_performance":
+        value = symbol or query
+        found = ux_find_symbol(df, value)
+
+        if found:
+            return {"reply": "", "command": f"/performance {found}"}
+
+        value_clean = clean_text(value).lower()
+
+        if not value_clean:
+            return {"reply": "", "command": "/performance"}
+
+        for item in ["range", "swing", "risk", "avoid", "top", "low", "fundamental", "relative", "rs"]:
+            if item in value_clean:
+                return {"reply": "", "command": f"/performance {item}"}
+
+        return {"reply": "", "command": f"/performance {value_clean}"}
+
+    if action == "compare":
+        a = ux_find_symbol(df, symbol_a)
+        b = ux_find_symbol(df, symbol_b)
+
+        # Also support "RECLTD PFC" in query field
+        if (not a or not b) and query:
+            try:
+                symbols = extract_two_symbols(df, query)
+            except Exception:
+                symbols = []
+
+            if len(symbols) >= 2:
+                a, b = symbols[0], symbols[1]
+
+        if a and b:
+            return {"reply": "", "command": f"/compare {a} {b}"}
+
+        return {
+            "reply": (
+                "<b>⚖️ Compare Stocks</b>\n\n"
+                "I could not identify two valid stocks.\n\n"
+                "Use examples like:\n"
+                "RECLTD and PFC\n"
+                "RELIANCE and TCS"
+            ),
+            "command": "",
+        }
+
+    if action == "sector":
+        sector_query = query or symbol
+
+        if sector_query:
+            return {"reply": "", "command": f"/sector {sector_query.upper()}"}
+
+        return {
+            "reply": (
+                "<b>🏭 Sector View</b>\n\n"
+                "Please enter a sector or industry like Bank, Power, Finance, IT, Auto."
+            ),
+            "command": "",
+        }
+
+    if action == "top":
+        return {"reply": "", "command": "/top"}
+
+    if action == "range_list":
+        return {"reply": "", "command": "/range"}
+
+    if action == "swing":
+        return {"reply": "", "command": "/swing"}
+
+    if action == "low":
+        return {"reply": "", "command": "/low"}
+
+    if action == "high":
+        return {"reply": "", "command": "/high"}
+
+    if action == "risk":
+        return {"reply": "", "command": "/risk"}
+
+    if action == "watchlist":
+        return {"reply": "", "command": "/watchlist"}
+
+    if action == "performance":
+        return {"reply": "", "command": "/performance"}
+
+    return {
+        "reply": (
+            "<b>🧠 Ask StockGPT</b>\n\n"
+            "Invalid request from form. Please reopen the StockGPT form and try again."
+        ),
+        "command": "",
+    }
+
 COMMANDS = {
     "/help": command_menu,
     "/start": command_menu,
@@ -1370,11 +1550,39 @@ def main():
         message = update.get("message", {})
         chat = message.get("chat", {})
         chat_id = str(chat.get("id", "")).strip()
+        webapp_data = message.get("web_app_data", {})
+        webapp_payload = ""
+
+        if isinstance(webapp_data, dict):
+            webapp_payload = clean_text(webapp_data.get("data", ""))
+
         text = clean_text(message.get("text", ""))
-        if not text:
-            continue
 
         chat_ref = safe_chat_ref(chat_id)
+
+        if webapp_payload:
+            parsed_webapp = route_webapp_payload(df, webapp_payload)
+
+            # WebApp is a complete one-shot query; clear any previous guided state.
+            try:
+                clear_chat_session(chat_id)
+            except Exception:
+                pass
+
+            if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
+                print(f"Ignoring unauthorized WebApp request: {chat_ref}")
+                continue
+
+            if parsed_webapp.get("reply"):
+                print(f"Processing WebApp request from {chat_ref}: reply")
+                send_message(chat_id, parsed_webapp["reply"])
+                processed += 1
+                continue
+
+            text = clean_text(parsed_webapp.get("command", ""))
+
+        if not text:
+            continue
 
         if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
             print(f"Ignoring unauthorized chat: {chat_ref}")

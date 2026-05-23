@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StockGPT</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #334155;
+      --accent: #22c55e;
+      --accent2: #38bdf8;
+      --danger: #f97316;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #020617, #0f172a);
+      color: var(--text);
+      padding: 18px;
+    }
+
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.1;
+      margin: 0 0 8px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 14px 0 7px;
+    }
+
+    select, input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 14px;
+      background: #020617;
+      color: var(--text);
+      font-size: 16px;
+      outline: none;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--accent2);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .submit {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 15px;
+      margin-top: 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #020617;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .error {
+      color: #fca5a5;
+      margin-top: 10px;
+      font-size: 14px;
+      min-height: 20px;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #cbd5e1;
+      }
+
+      body {
+        background: linear-gradient(145deg, #f8fafc, #e0f2fe);
+      }
+
+      .card, select, input, .chip {
+        background: white;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>🧠 StockGPT</h1>
+      <p>Ask once. Submit once. Run your bot shortcut once.</p>
+    </div>
+
+    <div class="card">
+      <label for="action">What do you want?</label>
+      <select id="action">
+        <option value="stock_analysis">🔍 Stock Analysis</option>
+        <option value="stock_range">📦 Stock Range</option>
+        <option value="stock_performance">📊 Stock / Signal Performance</option>
+        <option value="compare">⚖️ Compare Stocks</option>
+        <option value="sector">🏭 Sector View</option>
+        <option value="top">📊 Top Ideas</option>
+        <option value="range_list">📦 Range Bound List</option>
+        <option value="swing">⚡ Swing Candidates</option>
+        <option value="low">📉 52W Low</option>
+        <option value="high">🚀 Momentum</option>
+        <option value="risk">⚠️ Risky / Avoid</option>
+        <option value="watchlist">⭐ Watchlist</option>
+        <option value="performance">📈 Overall Performance</option>
+      </select>
+
+      <div id="singleBox">
+        <label id="singleLabel" for="singleInput">Stock / Query</label>
+        <input id="singleInput" autocomplete="off" placeholder="Example: RECLTD" />
+        <div class="chips" id="quickSymbols">
+          <button class="chip" data-fill="RECLTD">RECLTD</button>
+          <button class="chip" data-fill="PFC">PFC</button>
+          <button class="chip" data-fill="RELIANCE">RELIANCE</button>
+          <button class="chip" data-fill="TCS">TCS</button>
+          <button class="chip" data-fill="HDFCBANK">HDFCBANK</button>
+          <button class="chip" data-fill="INFY">INFY</button>
+        </div>
+      </div>
+
+      <div id="compareBox" class="hidden">
+        <div class="grid">
+          <div>
+            <label for="symbolA">Stock 1</label>
+            <input id="symbolA" autocomplete="off" placeholder="RECLTD" />
+          </div>
+          <div>
+            <label for="symbolB">Stock 2</label>
+            <input id="symbolB" autocomplete="off" placeholder="PFC" />
+          </div>
+        </div>
+      </div>
+
+      <div class="chips" id="quickActions">
+        <button class="chip" data-action="stock_analysis" data-fill="RECLTD">Analyse RECLTD</button>
+        <button class="chip" data-action="stock_range" data-fill="RECLTD">Range RECLTD</button>
+        <button class="chip" data-action="stock_performance" data-fill="range">Performance Range</button>
+        <button class="chip" data-action="sector" data-fill="Bank">Sector Bank</button>
+      </div>
+
+      <div class="error" id="error"></div>
+
+      <button class="submit" id="submitBtn">Submit to StockGPT</button>
+
+      <div class="hint" id="hint">
+        Submit the form, then run your StockGPT Bot shortcut once.
+      </div>
+    </div>
+
+    <div class="footer">Research tool only. Not financial advice.</div>
+  </div>
+
+<script>
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    tg.ready();
+    tg.expand();
+  }
+
+  const actionEl = document.getElementById("action");
+  const singleBox = document.getElementById("singleBox");
+  const compareBox = document.getElementById("compareBox");
+  const singleInput = document.getElementById("singleInput");
+  const singleLabel = document.getElementById("singleLabel");
+  const symbolA = document.getElementById("symbolA");
+  const symbolB = document.getElementById("symbolB");
+  const errorEl = document.getElementById("error");
+
+  const params = new URLSearchParams(window.location.search);
+  const initialAction = params.get("action");
+
+  if (initialAction) {
+    const allowed = Array.from(actionEl.options).map(o => o.value);
+    if (allowed.includes(initialAction)) {
+      actionEl.value = initialAction;
+    }
+  }
+
+  function needsNoInput(action) {
+    return ["top", "range_list", "swing", "low", "high", "risk", "watchlist", "performance"].includes(action);
+  }
+
+  function refreshForm() {
+    const action = actionEl.value;
+    errorEl.textContent = "";
+
+    compareBox.classList.toggle("hidden", action !== "compare");
+    singleBox.classList.toggle("hidden", action === "compare" || needsNoInput(action));
+
+    if (action === "stock_analysis") {
+      singleLabel.textContent = "Which stock?";
+      singleInput.placeholder = "Example: RECLTD";
+    } else if (action === "stock_range") {
+      singleLabel.textContent = "Which stock for range analysis?";
+      singleInput.placeholder = "Example: RECLTD";
+    } else if (action === "stock_performance") {
+      singleLabel.textContent = "Stock or signal";
+      singleInput.placeholder = "Example: RECLTD, range, swing, risk";
+    } else if (action === "sector") {
+      singleLabel.textContent = "Sector or industry";
+      singleInput.placeholder = "Example: Bank, Power, IT, Auto";
+    }
+  }
+
+  actionEl.addEventListener("change", refreshForm);
+  refreshForm();
+
+  document.querySelectorAll("[data-fill]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.action) {
+        actionEl.value = btn.dataset.action;
+        refreshForm();
+      }
+
+      singleInput.value = btn.dataset.fill;
+      singleInput.focus();
+    });
+  });
+
+  function buildPayload() {
+    const action = actionEl.value;
+
+    if (action === "compare") {
+      const a = symbolA.value.trim();
+      const b = symbolB.value.trim();
+
+      if (!a || !b) {
+        throw new Error("Enter both stocks to compare.");
+      }
+
+      return {
+        source: "telegram_webapp",
+        action,
+        symbol_a: a,
+        symbol_b: b
+      };
+    }
+
+    if (needsNoInput(action)) {
+      return {
+        source: "telegram_webapp",
+        action
+      };
+    }
+
+    const value = singleInput.value.trim();
+
+    if (!value) {
+      throw new Error("Enter required value.");
+    }
+
+    if (["stock_analysis", "stock_range"].includes(action)) {
+      return {
+        source: "telegram_webapp",
+        action,
+        symbol: value
+      };
+    }
+
+    return {
+      source: "telegram_webapp",
+      action,
+      query: value,
+      symbol: value
+    };
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    try {
+      const payload = buildPayload();
+      const data = JSON.stringify(payload);
+
+      if (tg && tg.sendData) {
+        tg.sendData(data);
+        tg.close();
+      } else {
+        navigator.clipboard?.writeText(data);
+        errorEl.textContent = "Telegram WebApp not detected. JSON copied for debugging.";
+      }
+    } catch (e) {
+      errorEl.textContent = e.message || String(e);
+    }
+  });
+</script>
+</body>
+</html>
