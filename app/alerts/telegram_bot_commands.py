@@ -2,6 +2,315 @@ import os
 import requests
 import pandas as pd
 from pathlib import Path
+# =========================
+# UX V4 FINAL — MENU + NATURAL ROUTER
+# =========================
+
+MAIN_MENU_REPLY_MARKUP = {
+    "keyboard": [
+        [{"text": "📊 Top Ideas"}, {"text": "📦 Range Bound"}],
+        [{"text": "⚡ Swing"}, {"text": "📉 52W Low"}],
+        [{"text": "🚀 Momentum"}, {"text": "⚠️ Risky / Avoid"}],
+        [{"text": "⭐ Watchlist"}, {"text": "📈 Performance"}],
+        [{"text": "🔍 Stock Analysis"}, {"text": "❓ Help"}],
+    ],
+    "resize_keyboard": True,
+    "one_time_keyboard": False,
+    "is_persistent": True,
+}
+
+
+def command_menu():
+    return (
+        "<b>🚀 Welcome to StockGPT Bot</b>\n\n"
+        "Tap a button below or type naturally.\n\n"
+        "<b>Examples:</b>\n"
+        "• RELIANCE\n"
+        "• why RECLTD\n"
+        "• range RECLTD\n"
+        "• compare RELIANCE TCS\n"
+        "• performance range\n"
+        "• top stocks\n\n"
+        "<i>After sending/tapping, run your StockGPT Bot shortcut.</i>"
+    )
+
+
+def ux_symbols(df):
+    if df is None or df.empty or "symbol" not in df.columns:
+        return []
+
+    return sorted(
+        df["symbol"]
+        .dropna()
+        .astype(str)
+        .str.upper()
+        .str.strip()
+        .unique()
+        .tolist()
+    )
+
+
+def ux_alias_map():
+    return {
+        "hdfc": "HDFCBANK",
+        "hdfc bank": "HDFCBANK",
+        "hdfcbank": "HDFCBANK",
+        "rec": "RECLTD",
+        "rec ltd": "RECLTD",
+        "recltd": "RECLTD",
+        "recl": "RECLTD",
+        "pfc": "PFC",
+        "reliance": "RELIANCE",
+        "ril": "RELIANCE",
+        "tcs": "TCS",
+        "infosys": "INFY",
+        "infy": "INFY",
+        "sbi": "SBIN",
+        "sbin": "SBIN",
+        "icici": "ICICIBANK",
+        "icici bank": "ICICIBANK",
+        "axis": "AXISBANK",
+        "axis bank": "AXISBANK",
+        "kotak": "KOTAKBANK",
+        "kotak bank": "KOTAKBANK",
+        "tata motors": "TATAMOTORS",
+        "tata steel": "TATASTEEL",
+        "bajaj finance": "BAJFINANCE",
+        "asian paints": "ASIANPAINT",
+        "pidilite": "PIDILITIND",
+        "dmart": "DMART",
+        "zomato": "ETERNAL",
+        "eternal": "ETERNAL",
+    }
+
+
+def ux_clean_user_text(value):
+    value = str(value or "").strip()
+
+    # remove bot username from commands like /range@BotName RECLTD
+    if value.startswith("/") and "@" in value.split()[0]:
+        parts = value.split(maxsplit=1)
+        first = parts[0].split("@", 1)[0]
+        value = first + (" " + parts[1] if len(parts) > 1 else "")
+
+    return " ".join(value.split())
+
+
+def ux_normalize_symbol_text(value):
+    value = str(value or "").lower().strip()
+
+    noise = [
+        "please", "pls", "stock", "share", "analysis", "analyse", "analyze",
+        "tell me about", "show me", "what about", "how about", "why",
+        "details", "detail", "view", "of", "the", "for", "is"
+    ]
+
+    for word in noise:
+        value = value.replace(word, " ")
+
+    value = re.sub(r"[^a-z0-9& ]", " ", value)
+    return " ".join(value.split())
+
+
+def ux_find_symbol(df, value):
+    symbols = ux_symbols(df)
+    symbol_set = set(symbols)
+
+    raw = str(value or "").strip()
+    clean = ux_normalize_symbol_text(raw)
+
+    if not clean:
+        return ""
+
+    aliases = ux_alias_map()
+
+    if clean in aliases and aliases[clean] in symbol_set:
+        return aliases[clean]
+
+    compact = re.sub(r"[^A-Z0-9&]", "", clean.upper())
+
+    if compact in symbol_set:
+        return compact
+
+    for token in clean.upper().split():
+        token = re.sub(r"[^A-Z0-9&]", "", token)
+
+        if token in symbol_set:
+            return token
+
+    for symbol in symbols:
+        if compact == re.sub(r"[^A-Z0-9&]", "", symbol.upper()):
+            return symbol
+
+    return ""
+
+
+def ux_suggest_symbols(df, query, limit=8):
+    query = re.sub(r"[^A-Z0-9&]", "", str(query or "").upper())
+
+    if not query:
+        return []
+
+    suggestions = []
+
+    for symbol in ux_symbols(df):
+        compact = re.sub(r"[^A-Z0-9&]", "", symbol.upper())
+
+        if compact.startswith(query):
+            suggestions.append(symbol)
+
+    for symbol in ux_symbols(df):
+        compact = re.sub(r"[^A-Z0-9&]", "", symbol.upper())
+
+        if query in compact and symbol not in suggestions:
+            suggestions.append(symbol)
+
+    return suggestions[:limit]
+
+
+def command_suggest(df, text):
+    parts = str(text or "").split(maxsplit=1)
+    query = parts[1] if len(parts) > 1 else ""
+    suggestions = ux_suggest_symbols(df, query)
+
+    if not suggestions:
+        return (
+            "<b>🤔 I could not understand that.</b>\n\n"
+            "Try:\n"
+            "• RELIANCE\n"
+            "• range RECLTD\n"
+            "• top stocks\n"
+            "• performance range\n"
+            "• compare RELIANCE TCS"
+        )
+
+    message = "<b>Did you mean:</b>\n\n"
+
+    for symbol in suggestions:
+        message += f"• {escape_html(symbol)}\n"
+
+    message += "\nType one symbol directly, example: <b>RELIANCE</b>"
+    return message.strip()
+
+
+def ux_route_natural_message(df, incoming_text):
+    text = ux_clean_user_text(incoming_text)
+
+    if not text:
+        return "/menu"
+
+    lowered = text.lower().strip()
+    simple = re.sub(r"[^a-z0-9& ]", " ", lowered)
+    simple = " ".join(simple.split())
+
+    if text.startswith("/"):
+        command = text.split(maxsplit=1)[0].split("@", 1)[0].lower()
+        rest = text.split(maxsplit=1)[1] if len(text.split(maxsplit=1)) > 1 else ""
+
+        if command in ["/start", "/menu"]:
+            return "/menu"
+
+        return command + (" " + rest if rest else "")
+
+    button_routes = {
+        "📊 top ideas": "/top",
+        "top ideas": "/top",
+        "📦 range bound": "/range",
+        "range bound": "/range",
+        "⚡ swing": "/swing",
+        "swing": "/swing",
+        "📉 52w low": "/low",
+        "52w low": "/low",
+        "🚀 momentum": "/high",
+        "momentum": "/high",
+        "⚠️ risky / avoid": "/risk",
+        "risky / avoid": "/risk",
+        "risky avoid": "/risk",
+        "⭐ watchlist": "/watchlist",
+        "watchlist": "/watchlist",
+        "📈 performance": "/performance",
+        "performance": "/performance",
+        "🔍 stock analysis": "/menu",
+        "stock analysis": "/menu",
+        "❓ help": "/menu",
+        "help": "/menu",
+        "menu": "/menu",
+    }
+
+    if lowered in button_routes:
+        return button_routes[lowered]
+
+    if simple.startswith("compare "):
+        body = simple.replace("compare", "", 1).replace(" and ", " ")
+        found = []
+
+        for token in body.split():
+            symbol = ux_find_symbol(df, token)
+
+            if symbol and symbol not in found:
+                found.append(symbol)
+
+        if len(found) >= 2:
+            return f"/compare {found[0]} {found[1]}"
+
+    if any(word in simple for word in ["range", "range bound", "rangebound", "sideways", "mean reversion", "support", "resistance"]):
+        cleaned = simple
+
+        for word in ["range bound", "rangebound", "range", "sideways", "mean reversion", "support", "resistance"]:
+            cleaned = cleaned.replace(word, " ")
+
+        symbol = ux_find_symbol(df, cleaned) or ux_find_symbol(df, simple)
+
+        if symbol:
+            return f"/range {symbol}"
+
+        return "/range"
+
+    if any(word in simple for word in ["performance", "accuracy", "backtest", "back test", "did it work", "result", "worked"]):
+        symbol = ux_find_symbol(df, simple)
+
+        if symbol:
+            return f"/performance {symbol}"
+
+        if "range" in simple:
+            return "/performance range"
+        if "swing" in simple or "bounce" in simple:
+            return "/performance swing"
+        if "risk" in simple or "avoid" in simple:
+            return "/performance risk"
+        if "top" in simple or "conviction" in simple:
+            return "/performance top"
+
+        return "/performance"
+
+    list_routes = [
+        (["top", "best", "best stocks", "top stocks", "top ideas", "high conviction", "conviction"], "/top"),
+        (["low", "near low", "52w low", "52 week low", "cheap", "discount"], "/low"),
+        (["swing", "bounce", "oversold", "short term", "short term stocks"], "/swing"),
+        (["high", "near high", "52w high", "52 week high", "momentum", "breakout"], "/high"),
+        (["risk", "avoid", "weak", "danger", "risky"], "/risk"),
+        (["watchlist", "my watchlist"], "/watchlist"),
+    ]
+
+    for phrases, route in list_routes:
+        if simple in phrases:
+            return route
+
+    if simple.startswith("sector "):
+        sector_query = simple.replace("sector", "", 1).strip()
+
+        if sector_query:
+            return f"/sector {sector_query.upper()}"
+
+    symbol = ux_find_symbol(df, simple)
+
+    if symbol:
+        return f"/why {symbol}"
+
+    if len(simple.split()) <= 3:
+        return f"/suggest {simple}"
+
+    return "/menu"
 
 SCAN_FILE = Path("data/scans/latest_scan.csv")
 WATCHLIST_FILE = Path("data/watchlist/watchlist.csv")
@@ -91,6 +400,7 @@ def send_message(chat_id, message):
             "chat_id": chat_id,
             "text": chunk,
             "parse_mode": "HTML",
+            "reply_markup": MAIN_MENU_REPLY_MARKUP,
             "disable_web_page_preview": True,
         })
         if not data or not data.get("ok"):
@@ -707,9 +1017,20 @@ def command_performance(df, text):
     return message.strip()
 
 COMMANDS = {
-    "/help": command_help, "/start": command_help, "/top": command_top, "/low": command_low,
-    "/swing": command_swing, "/high": command_high, "/risk": command_risk, "/watchlist": command_watchlist,
-    "/stock": command_stock, "/why": command_why, "/sector": command_sector, "/basket": command_basket,
+    "/help": command_menu,
+    "/start": command_menu,
+    "/menu": command_menu,
+    "/suggest": command_suggest,
+    "/top": command_top,
+    "/low": command_low,
+    "/swing": command_swing,
+    "/high": command_high,
+    "/risk": command_risk,
+    "/watchlist": command_watchlist,
+    "/stock": command_stock,
+    "/why": command_why,
+    "/sector": command_sector,
+    "/basket": command_basket,
     "/compare": command_compare,
     "/range": command_range,
     "/performance": command_performance,
@@ -729,7 +1050,7 @@ def handle_command(text, df):
         print(f"Unknown command routed to help: {command}")
         return command_help()
     print(f"ROUTED COMMAND: {command}")
-    if command in ["/help", "/start"]:
+    if command in ["/help", "/start", "/menu"]:
         return handler()
     if df.empty:
         return "Latest scan data not found or empty. Run Phase6 pipeline first."
@@ -755,8 +1076,11 @@ def main():
         chat = message.get("chat", {})
         chat_id = str(chat.get("id", "")).strip()
         text = clean_text(message.get("text", ""))
-        if not text.startswith("/"):
+        if not text:
             continue
+
+        text = ux_route_natural_message(df, text)
+
         if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
             print(f"Ignoring unauthorized chat_id={chat_id}")
             continue
