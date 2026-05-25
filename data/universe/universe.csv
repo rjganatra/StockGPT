@@ -628,7 +628,6 @@ FLAIR,Flair Writing Industries Limited,EQ,INE00Y201027,Industrials,Business Equi
 FLEXITUFF,Flexituff Ventures International Limited,EQ,INE060J01017,Consumer Cyclical,Textile Manufacturing
 FLUOROCHEM,Gujarat Fluorochemicals Limited,EQ,INE09N301011,Basic Materials,Specialty Chemicals
 FMGOETZE,Federal-Mogul Goetze (India) Limited.,EQ,INE529A01010,Consumer Cyclical,Auto Parts
-FMNL,Future Market Networks Limited,EQ,INE360L01017,Real Estate,Real Estate Services
 FOCUS,Focus Lighting and Fixtures Limited,EQ,INE593W01028,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 FOODSIN,Foods & Inns Limited,EQ,INE976E01023,Consumer Defensive,Packaged Foods
 FORCEMOT,FORCE MOTORS LTD,EQ,INE451A01017,Consumer Cyclical,Auto Manufacturers
@@ -688,7 +687,6 @@ GLOBALVECT,Global Vectra Helicorp Limited,EQ,INE792H01019,Industrials,Airports &
 GLOBE,GLOBE ENTERPRISES (INDIA) LIMITED,EQ,INE581X01021,Consumer Cyclical,Textile Manufacturing
 GLOBUSSPR,Globus Spirits Limited,EQ,INE615I01010,Consumer Defensive,Beverages - Wineries & Distilleries
 GLOSTERLTD,Gloster Limited,EQ,INE350Z01018,Consumer Cyclical,Textile Manufacturing
-GLOTTIS,Glottis Limited,EQ,INE0TQE01026,Industrials,Integrated Freight & Logistics
 GMBREW,GM Breweries Limited,EQ,INE075D01018,Consumer Defensive,Beverages - Wineries & Distilleries
 GMDCLTD,Gujarat Mineral Development Corporation Limited,EQ,INE131A01031,Energy,Thermal Coal
 GMMPFAUDLR,GMM Pfaudler Limited,EQ,INE541A01023,Industrials,Specialty Industrial Machinery
@@ -1099,6 +1097,7 @@ LAOPALA,La Opala RG Limited,EQ,INE059D01020,Consumer Cyclical,"Furnishings, Fixt
 LASA,Lasa Supergenerics Limited,EQ,INE670X01014,Healthcare,Drug Manufacturers - Specialty & Generic
 LATENTVIEW,Latent View Analytics Limited,EQ,INE0I7C01011,Industrials,Consulting Services
 LAURUSLABS,Laurus Labs Limited,EQ,INE947Q01028,Healthcare,Drug Manufacturers - Specialty & Generic
+LAXMICOT,Laxmi Cotspin Limited,EQ,INE801V01019,Unknown,Unknown
 LAXMIDENTL,Laxmi Dental Limited,EQ,INE0WO601020,Healthcare,Medical Instruments & Supplies
 LEMERITE,Le Merite Exports Limited,EQ,INE0G1L01017,Consumer Cyclical,Textile Manufacturing
 LEMONTREE,Lemon Tree Hotels Limited,EQ,INE970X01018,Consumer Cyclical,Lodging
@@ -1341,7 +1340,6 @@ NKIND,NK Industries Limited,EQ,INE542C01019,Consumer Defensive,Household & Perso
 NLCINDIA,NLC India Limited,EQ,INE589A01014,Utilities,Utilities - Regulated Electric
 NMDC,NMDC Limited,EQ,INE584A01023,Basic Materials,Steel
 NOCIL,NOCIL Limited,EQ,INE163A01018,Basic Materials,Specialty Chemicals
-NOIDATOLL,Noida Toll Bridge Company Limited,EQ,INE781B01015,Industrials,Infrastructure Operations
 NORBTEAEXP,Norben Tea & Exports Limited,EQ,INE369C01017,Consumer Defensive,Farm Products
 NORTHARC,Northern Arc Capital Limited,EQ,INE850M01015,Financial Services,Credit Services
 NOVAAGRI,Nova Agritech Limited,EQ,INE02H701025,Basic Materials,Agricultural Inputs
@@ -1394,6 +1392,7 @@ ORIENTPPR,Orient Paper & Industries Limited,EQ,INE592A01026,Basic Materials,Pape
 ORIENTTECH,Orient Technologies Limited,EQ,INE0PPK01015,Technology,Information Technology Services
 ORISSAMINE,The Orissa Minerals Development Company Limited,EQ,INE725E01024,Basic Materials,Steel
 ORKLAINDIA,Orkla India Limited,EQ,INE16NZ01023,Consumer Defensive,Packaged Foods
+ORTINGLOBE,ORTIN GLOBAL LIMITED,EQ,INE749B01020,Unknown,Unknown
 OSWALGREEN,Oswal Greentech Limited,EQ,INE143A01010,Financial Services,Asset Management
 OSWALPUMPS,Oswal Pumps Limited,EQ,INE0BYP01024,Industrials,Electrical Equipment & Parts
 OSWALSEEDS,ShreeOswal Seeds And Chemicals Limited,EQ,INE00IK01029,Basic Materials,Agricultural Inputs
@@ -1738,6 +1737,7 @@ SICAGEN,Sicagen India Limited,EQ,INE176J01011,Unknown,Unknown
 SIEMENS,Siemens Limited,EQ,INE003A01024,Industrials,Specialty Industrial Machinery
 SIGIND,Signet Industries Limited,EQ,INE529F01035,Industrials,Conglomerates
 SIGMA,Sigma Solve Limited,EQ,INE0A0S01028,Technology,Information Technology Services
+SIGMAADV,SIGMA ADVANCED SYSTEMS LIMITED,EQ,INE933B01012,Unknown,Unknown
 SIGNATURE,Signatureglobal (India) Limited,EQ,INE903U01023,Real Estate,Real Estate - Development
 SIGNPOST,Signpost India Limited,EQ,INE0KGZ01021,Communication Services,Advertising Agencies
 SIKA,Sika Interplant Systems Limited,EQ,INE438E01032,Unknown,Unknown
@@ -2012,7 +2012,6 @@ UNIONBANK,Union Bank of India,EQ,INE692A01016,Financial Services,Banks - Regiona
 UNIPARTS,Uniparts India Limited,EQ,INE244O01017,Industrials,Farm & Heavy Construction Machinery
 UNITDSPR,United Spirits Limited,EQ,INE854D01024,Consumer Defensive,Beverages - Wineries & Distilleries
 UNITECH,Unitech Limited,EQ,INE694A01020,Real Estate,Real Estate - Diversified
-UNITEDPOLY,United Polyfab Gujarat Limited,EQ,INE368U01029,Consumer Cyclical,Textile Manufacturing
 UNITEDTEA,The United Nilgiri Tea Estates Company Limited,EQ,INE458F01011,Consumer Defensive,Farm Products
 UNIVASTU,Univastu India Limited,EQ,INE562X01013,Industrials,Engineering & Construction
 UNIVCABLES,Universal Cables Limited,EQ,INE279A01012,Industrials,Electrical Equipment & Parts
