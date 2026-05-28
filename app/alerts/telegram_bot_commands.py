@@ -1713,6 +1713,109 @@ def handle_command(text, df):
     return handler(df, text)
 
 
+
+# =========================
+# UX V7 FINAL — Global Telegram Reply Quality Wrapper
+# =========================
+
+def stockgpt_command_family(command_text):
+    raw = str(command_text or "").strip()
+    command = raw.split(maxsplit=1)[0].lower() if raw else ""
+
+    mapping = {
+        "/top": ("📊 Top Ideas", "Highest ranked opportunities from the latest scan."),
+        "/range": ("📦 Range View", "Range-bound or stock-specific range analysis."),
+        "/swing": ("⚡ Swing Candidates", "Short-term opportunity candidates from the scan."),
+        "/low": ("📉 52W Low View", "Stocks closer to 52-week low zones."),
+        "/high": ("🚀 Momentum View", "Stocks closer to strength / 52-week high zones."),
+        "/risk": ("⚠️ Risk / Avoid Watch", "Stocks with weaker or risky characteristics."),
+        "/watchlist": ("⭐ Watchlist", "Your configured watchlist view."),
+        "/performance": ("📈 Performance", "Signal or stock performance review."),
+        "/why": ("🔍 Stock Analysis", "Single-stock explanation from latest scan."),
+        "/stock": ("🔍 Stock Analysis", "Single-stock explanation from latest scan."),
+        "/sector": ("🏭 Sector View", "Sector or industry-filtered scan output."),
+        "/basket": ("🧺 Basket View", "Basket-filtered scan output."),
+        "/compare": ("⚖️ Compare Stocks", "Side-by-side stock comparison."),
+        "/high_conviction": ("🎯 High Conviction Ideas", "Highest conviction names after ranking and risk checks."),
+        "/low_risk_quality": ("🛡️ Low Risk Quality", "Quality names with controlled risk penalty."),
+        "/sector_adjusted_quality": ("🏭 Sector-Adjusted Quality", "Quality names after sector-relative adjustment."),
+        "/range_accumulation": ("📦 Range Accumulation Zone", "Potential range support / accumulation watchlist."),
+        "/range_profit_booking": ("💰 Range Profit Booking Zone", "Potential upper-range / resistance watchlist."),
+        "/range_breakdown_risk": ("⚠️ Range Breakdown Risk", "Range names with weakness or breakdown risk."),
+    }
+
+    return mapping.get(command, ("🧠 StockGPT", "Latest StockGPT scan output."))
+
+
+def stockgpt_has_disclaimer(reply):
+    text = str(reply or "").lower()
+    return (
+        "not financial advice" in text
+        or "research tool only" in text
+        or "paper/research use only" in text
+    )
+
+
+def stockgpt_clean_reply(reply):
+    reply = str(reply or "").strip()
+    reply = re.sub(r"\n{4,}", "\n\n\n", reply)
+    return reply
+
+
+def stockgpt_quality_footer(command_text):
+    title, interpretation = stockgpt_command_family(command_text)
+
+    return chr(10).join([
+        "",
+        "<b>How to use:</b> " + escape_html(interpretation),
+        "<b>Watch:</b> Do not act only on this bot output. Check chart, liquidity, news, broader market and position sizing.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+
+def stockgpt_should_add_context(reply):
+    reply = str(reply or "")
+
+    if not reply.strip():
+        return False
+
+    # Do not over-wrap tiny errors repeatedly.
+    if "Command failed:" in reply:
+        return True
+
+    return True
+
+
+def stockgpt_polish_reply(command_text, reply):
+    reply = stockgpt_clean_reply(reply)
+
+    if not stockgpt_should_add_context(reply):
+        return reply
+
+    footer_needed = not stockgpt_has_disclaimer(reply)
+    how_to_needed = "<b>How to use:</b>" not in reply and "<b>How to read:</b>" not in reply
+
+    if footer_needed and how_to_needed:
+        reply += stockgpt_quality_footer(command_text)
+    elif footer_needed:
+        reply += chr(10) + chr(10) + "<i>Research tool only. Not financial advice.</i>"
+    elif how_to_needed:
+        title, interpretation = stockgpt_command_family(command_text)
+        reply += chr(10) + chr(10) + "<b>How to use:</b> " + escape_html(interpretation)
+
+    return stockgpt_clean_reply(reply)
+
+
+# Keep original command engine intact. Wrap output only.
+_stockgpt_original_handle_command = handle_command
+
+
+def handle_command(text, df):
+    reply = _stockgpt_original_handle_command(text, df)
+    return stockgpt_polish_reply(text, reply)
+
+
 def main():
     if not TELEGRAM_BOT_TOKEN:
         print("TELEGRAM_BOT_TOKEN missing. Exiting.")

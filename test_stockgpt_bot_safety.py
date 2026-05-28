@@ -153,3 +153,45 @@ assert "setupCombo" in webapp_html, "setupCombo missing"
 assert "<datalist" not in webapp_html.lower(), "datalist found; iPhone dropdown may fail again"
 
 print("✅ StockGPT bot safety tests passed")
+
+
+# Global reply quality checks
+quality_commands = [
+    "/top",
+    "/range",
+    "/swing",
+    "/low",
+    "/high",
+    "/risk",
+    "/performance",
+    "/why RECLTD",
+    "/range RECLTD",
+    "/compare RECLTD PFC",
+    "/sector BANK",
+]
+
+for command in [
+    "/high_conviction",
+    "/low_risk_quality",
+    "/sector_adjusted_quality",
+    "/range_accumulation",
+    "/range_profit_booking",
+    "/range_breakdown_risk",
+]:
+    if command in getattr(bot, "COMMANDS", {}):
+        quality_commands.append(command)
+
+for command in quality_commands:
+    reply = bot.handle_command(command, df)
+    assert isinstance(reply, str) and reply.strip(), f"Empty reply for {command}"
+    assert (
+        "Research tool only" in reply
+        or "Not financial advice" in reply
+        or "not financial advice" in reply.lower()
+    ), f"Missing disclaimer for {command}"
+    assert (
+        "<b>How to use:</b>" in reply
+        or "<b>How to read:</b>" in reply
+    ), f"Missing usage guidance for {command}"
+
+print("✅ Global reply quality checks passed")
