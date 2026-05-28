@@ -16,6 +16,7 @@
       --accent: #22c55e;
       --accent2: #38bdf8;
       --danger: #f97316;
+      --chip: #020617;
     }
 
     * { box-sizing: border-box; }
@@ -51,7 +52,7 @@
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.92);
+      background: rgba(15, 23, 42, 0.94);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 16px;
@@ -87,24 +88,35 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
+    }
+
+    .chips-title {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+      margin-bottom: 8px;
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .chip {
       border: 1px solid var(--border);
-      background: #020617;
+      background: var(--chip);
       color: var(--text);
       border-radius: 999px;
       padding: 8px 11px;
       font-size: 13px;
       cursor: pointer;
+    }
+
+    .chip.primary {
+      border-color: rgba(56, 189, 248, 0.65);
     }
 
     .submit {
@@ -140,6 +152,12 @@
       text-align: center;
     }
 
+    .small-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f8fafc;
@@ -147,13 +165,14 @@
         --text: #0f172a;
         --muted: #475569;
         --border: #cbd5e1;
+        --chip: #ffffff;
       }
 
       body {
         background: linear-gradient(145deg, #f8fafc, #e0f2fe);
       }
 
-      .card, select, input, .chip {
+      .card, select, input {
         background: white;
       }
     }
@@ -163,7 +182,7 @@
   <div class="wrap">
     <div class="hero">
       <h1>🧠 StockGPT</h1>
-      <p>Ask once. Submit once. Run your bot shortcut once.</p>
+      <p>Choose one task, enter the required query once, submit, then run your bot shortcut once.</p>
     </div>
 
     <div class="card">
@@ -186,35 +205,29 @@
 
       <div id="singleBox">
         <label id="singleLabel" for="singleInput">Stock / Query</label>
-        <input id="singleInput" autocomplete="off" placeholder="Example: RECLTD" />
-        <div class="chips" id="quickSymbols">
-          <button class="chip" data-fill="RECLTD">RECLTD</button>
-          <button class="chip" data-fill="PFC">PFC</button>
-          <button class="chip" data-fill="RELIANCE">RELIANCE</button>
-          <button class="chip" data-fill="TCS">TCS</button>
-          <button class="chip" data-fill="HDFCBANK">HDFCBANK</button>
-          <button class="chip" data-fill="INFY">INFY</button>
-        </div>
+        <input id="singleInput" list="symbolList" autocomplete="off" placeholder="Example: RECLTD" />
+        <datalist id="symbolList"></datalist>
+
+        <div class="chips-title" id="chipsTitle">Suggestions</div>
+        <div class="chips" id="contextChips"></div>
+
+        <div class="small-note" id="smallNote"></div>
       </div>
 
       <div id="compareBox" class="hidden">
         <div class="grid">
           <div>
             <label for="symbolA">Stock 1</label>
-            <input id="symbolA" autocomplete="off" placeholder="RECLTD" />
+            <input id="symbolA" list="symbolList" autocomplete="off" placeholder="RECLTD" />
           </div>
           <div>
             <label for="symbolB">Stock 2</label>
-            <input id="symbolB" autocomplete="off" placeholder="PFC" />
+            <input id="symbolB" list="symbolList" autocomplete="off" placeholder="PFC" />
           </div>
         </div>
-      </div>
 
-      <div class="chips" id="quickActions">
-        <button class="chip" data-action="stock_analysis" data-fill="RECLTD">Analyse RECLTD</button>
-        <button class="chip" data-action="stock_range" data-fill="RECLTD">Range RECLTD</button>
-        <button class="chip" data-action="stock_performance" data-fill="range">Performance Range</button>
-        <button class="chip" data-action="sector" data-fill="Bank">Sector Bank</button>
+        <div class="chips-title">Popular comparisons</div>
+        <div class="chips" id="compareChips"></div>
       </div>
 
       <div class="error" id="error"></div>
@@ -222,7 +235,7 @@
       <button class="submit" id="submitBtn">Submit to StockGPT</button>
 
       <div class="hint" id="hint">
-        Submit the form, then run your StockGPT Bot shortcut once.
+        After submitting, run your StockGPT Bot shortcut once.
       </div>
     </div>
 
@@ -236,6 +249,35 @@
     tg.expand();
   }
 
+  const REPO_RAW_SCAN = "https://raw.githubusercontent.com/rjganatra/StockGPT/main/data/scans/latest_scan.csv";
+
+  const fallbackSymbols = [
+    "RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK",
+    "INFY", "SBIN", "AXISBANK", "KOTAKBANK", "ITC", "TATAMOTORS",
+    "TATASTEEL", "BAJFINANCE", "ASIANPAINT", "PIDILITIND", "DMART"
+  ];
+
+  const sectorSuggestions = [
+    "Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma",
+    "Metal", "Cement", "Chemical", "Energy", "Consumer", "Infrastructure",
+    "Realty", "Telecom", "Capital Goods"
+  ];
+
+  const performanceSuggestions = [
+    "range", "swing", "risk", "top", "low", "fundamental", "relative"
+  ];
+
+  const comparePairs = [
+    ["RECLTD", "PFC"],
+    ["RELIANCE", "TCS"],
+    ["HDFCBANK", "ICICIBANK"],
+    ["SBIN", "BANKBARODA"],
+    ["INFY", "TCS"],
+    ["TATAMOTORS", "M&M"]
+  ];
+
+  let stockSymbols = [...fallbackSymbols];
+
   const actionEl = document.getElementById("action");
   const singleBox = document.getElementById("singleBox");
   const compareBox = document.getElementById("compareBox");
@@ -244,6 +286,11 @@
   const symbolA = document.getElementById("symbolA");
   const symbolB = document.getElementById("symbolB");
   const errorEl = document.getElementById("error");
+  const contextChips = document.getElementById("contextChips");
+  const compareChips = document.getElementById("compareChips");
+  const chipsTitle = document.getElementById("chipsTitle");
+  const smallNote = document.getElementById("smallNote");
+  const symbolList = document.getElementById("symbolList");
 
   const params = new URLSearchParams(window.location.search);
   const initialAction = params.get("action");
@@ -257,6 +304,99 @@
 
   function needsNoInput(action) {
     return ["top", "range_list", "swing", "low", "high", "risk", "watchlist", "performance"].includes(action);
+  }
+
+  function clearChips(container) {
+    container.innerHTML = "";
+  }
+
+  function addChip(container, label, onClick, primary=false) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "chip" + (primary ? " primary" : "");
+    btn.textContent = label;
+    btn.addEventListener("click", onClick);
+    container.appendChild(btn);
+  }
+
+  function refreshDatalist() {
+    symbolList.innerHTML = "";
+
+    stockSymbols.slice(0, 700).forEach(symbol => {
+      const option = document.createElement("option");
+      option.value = symbol;
+      symbolList.appendChild(option);
+    });
+  }
+
+  function stockChips() {
+    return stockSymbols.length ? stockSymbols.slice(0, 10) : fallbackSymbols;
+  }
+
+  function refreshCompareChips() {
+    clearChips(compareChips);
+
+    comparePairs.forEach(([a, b]) => {
+      addChip(compareChips, `${a} vs ${b}`, () => {
+        symbolA.value = a;
+        symbolB.value = b;
+      }, true);
+    });
+  }
+
+  function refreshContextChips(action) {
+    clearChips(contextChips);
+    smallNote.textContent = "";
+
+    if (action === "stock_analysis" || action === "stock_range") {
+      chipsTitle.textContent = "Popular stocks";
+      stockChips().forEach(symbol => {
+        addChip(contextChips, symbol, () => {
+          singleInput.value = symbol;
+          singleInput.focus();
+        }, true);
+      });
+
+      smallNote.textContent = stockSymbols.length > fallbackSymbols.length
+        ? "Symbol suggestions loaded from latest scan."
+        : "Using fallback symbols. You can still type any NSE symbol.";
+      return;
+    }
+
+    if (action === "stock_performance") {
+      chipsTitle.textContent = "Signal shortcuts or stock symbols";
+      performanceSuggestions.forEach(item => {
+        addChip(contextChips, item, () => {
+          singleInput.value = item;
+          singleInput.focus();
+        }, true);
+      });
+
+      stockChips().slice(0, 6).forEach(symbol => {
+        addChip(contextChips, symbol, () => {
+          singleInput.value = symbol;
+          singleInput.focus();
+        });
+      });
+
+      smallNote.textContent = "Use a signal like range/swing/risk, or type a stock symbol.";
+      return;
+    }
+
+    if (action === "sector") {
+      chipsTitle.textContent = "Sector / industry suggestions";
+      sectorSuggestions.forEach(sector => {
+        addChip(contextChips, sector, () => {
+          singleInput.value = sector;
+          singleInput.focus();
+        }, true);
+      });
+
+      smallNote.textContent = "Sector search will not be treated as a stock symbol.";
+      return;
+    }
+
+    chipsTitle.textContent = "Suggestions";
   }
 
   function refreshForm() {
@@ -279,22 +419,56 @@
       singleLabel.textContent = "Sector or industry";
       singleInput.placeholder = "Example: Bank, Power, IT, Auto";
     }
+
+    refreshContextChips(action);
+    refreshCompareChips();
   }
 
   actionEl.addEventListener("change", refreshForm);
-  refreshForm();
 
-  document.querySelectorAll("[data-fill]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      if (btn.dataset.action) {
-        actionEl.value = btn.dataset.action;
-        refreshForm();
+  async function loadSymbols() {
+    try {
+      const response = await fetch(REPO_RAW_SCAN, { cache: "no-store" });
+
+      if (!response.ok) {
+        throw new Error("latest_scan fetch failed");
       }
 
-      singleInput.value = btn.dataset.fill;
-      singleInput.focus();
-    });
-  });
+      const csv = await response.text();
+      const lines = csv.split(/\r?\n/).filter(Boolean);
+
+      if (lines.length < 2) {
+        throw new Error("latest_scan empty");
+      }
+
+      const headers = lines[0].split(",");
+      const symbolIndex = headers.findIndex(h => h.trim().replace(/^"|"$/g, "") === "symbol");
+
+      if (symbolIndex < 0) {
+        throw new Error("symbol column not found");
+      }
+
+      const symbols = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const parts = lines[i].split(",");
+        const symbol = (parts[symbolIndex] || "").replace(/^"|"$/g, "").trim().toUpperCase();
+
+        if (symbol && !symbols.includes(symbol)) {
+          symbols.push(symbol);
+        }
+      }
+
+      if (symbols.length > 50) {
+        stockSymbols = symbols.sort();
+        refreshDatalist();
+        refreshForm();
+      }
+    } catch (e) {
+      refreshDatalist();
+      refreshForm();
+    }
+  }
 
   function buildPayload() {
     const action = actionEl.value;
@@ -336,6 +510,14 @@
       };
     }
 
+    if (action === "sector") {
+      return {
+        source: "telegram_webapp",
+        action,
+        query: value
+      };
+    }
+
     return {
       source: "telegram_webapp",
       action,
@@ -360,6 +542,10 @@
       errorEl.textContent = e.message || String(e);
     }
   });
+
+  refreshDatalist();
+  refreshForm();
+  loadSymbols();
 </script>
 </body>
 </html>
