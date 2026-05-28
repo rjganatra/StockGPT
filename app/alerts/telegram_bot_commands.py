@@ -1063,11 +1063,170 @@ def command_performance(df, text):
 # UX V6 — Telegram WebApp Payload Router
 # =========================
 
+
+def normalize_query_text(value):
+    value = clean_text(value)
+    value = re.sub(r"[^A-Za-z0-9& ]", " ", value)
+    return " ".join(value.split())
+
+
+def exact_symbol_or_alias(df, value):
+    raw = normalize_query_text(value)
+
+    if not raw:
+        return ""
+
+    symbols = ux_symbols(df)
+    symbol_set = set(symbols)
+
+    aliases = ux_alias_map()
+    lowered = raw.lower().strip()
+
+    if lowered in aliases and aliases[lowered] in symbol_set:
+        return aliases[lowered]
+
+    compact = re.sub(r"[^A-Z0-9&]", "", raw.upper())
+
+    if compact in symbol_set:
+        return compact
+
+    compact_lower = lowered.replace(" ", "")
+
+    if compact_lower in aliases and aliases[compact_lower] in symbol_set:
+        return aliases[compact_lower]
+
+    return ""
+
+
+def safe_symbol_suggestions(df, query, limit=8):
+    q = normalize_query_text(query).upper()
+    q_compact = re.sub(r"[^A-Z0-9&]", "", q)
+
+    if len(q_compact) < 2:
+        return []
+
+    symbols = ux_symbols(df)
+
+    starts = []
+    contains = []
+
+    for symbol in symbols:
+        compact_symbol = re.sub(r"[^A-Z0-9&]", "", str(symbol).upper())
+
+        if compact_symbol.startswith(q_compact):
+            starts.append(symbol)
+        elif len(q_compact) >= 3 and q_compact in compact_symbol:
+            contains.append(symbol)
+
+    out = []
+
+    for symbol in starts + contains:
+        if symbol not in out:
+            out.append(symbol)
+
+    return out[:limit]
+
+
+def html_lines(items):
+    return chr(10).join(items)
+
+
+def stock_not_found_message(df, query, purpose="stock"):
+    query = clean_text(query)
+
+    if not query:
+        return html_lines([
+            "<b>Stock required</b>",
+            "",
+            "Please enter a valid stock symbol like:",
+            "RECLTD",
+            "RELIANCE",
+            "TCS",
+        ])
+
+    suggestions = safe_symbol_suggestions(df, query)
+
+    if not suggestions:
+        return html_lines([
+            f"<b>I could not find this {escape_html(purpose)}:</b> {escape_html(query)}",
+            "",
+            "Try exact NSE symbol or common name.",
+            "Examples:",
+            "RECLTD",
+            "RELIANCE",
+            "HDFCBANK",
+        ])
+
+    lines = [
+        f"<b>I could not find exact match for:</b> {escape_html(query)}",
+        "",
+        "<b>Did you mean:</b>",
+    ]
+
+    for symbol in suggestions:
+        lines.append(f"• {escape_html(symbol)}")
+
+    lines.extend([
+        "",
+        "Submit the exact symbol from the form.",
+    ])
+
+    return html_lines(lines)
+
+
+def route_stock_payload_strict(df, value, command_prefix, purpose):
+    found = exact_symbol_or_alias(df, value)
+
+    if found:
+        return {"reply": "", "command": f"{command_prefix} {found}"}
+
+    return {
+        "reply": stock_not_found_message(df, value, purpose),
+        "command": "",
+    }
+
+
+def route_compare_payload_strict(df, symbol_a, symbol_b, query=""):
+    a = exact_symbol_or_alias(df, symbol_a)
+    b = exact_symbol_or_alias(df, symbol_b)
+
+    if (not a or not b) and query:
+        cleaned = normalize_query_text(query)
+        tokens = cleaned.replace(",", " ").replace(" and ", " ").split()
+
+        found = []
+
+        for token in tokens:
+            symbol = exact_symbol_or_alias(df, token)
+
+            if symbol and symbol not in found:
+                found.append(symbol)
+
+        if len(found) >= 2:
+            a, b = found[0], found[1]
+
+    if a and b:
+        return {
+            "reply": "",
+            "command": f"/compare {a} {b}",
+        }
+
+    return {
+        "reply": html_lines([
+            "<b>⚖️ Compare Stocks</b>",
+            "",
+            "I need two exact stock symbols.",
+            "",
+            "Examples:",
+            "RECLTD and PFC",
+            "RELIANCE and TCS",
+            "HDFCBANK and ICICIBANK",
+        ]),
+        "command": "",
+    }
+
+
 def route_webapp_payload(df, payload_text):
-    """
-    Telegram WebApp sends one complete JSON payload.
-    This converts it into normal StockGPT bot commands.
-    """
     try:
         payload = json.loads(str(payload_text or "{}"))
     except Exception as e:
@@ -1084,7 +1243,6 @@ def route_webapp_payload(df, payload_text):
 
     action = clean_text(payload.get("action", "")).lower().strip()
 
-    # Normalize aliases from old/new webapp labels
     action_aliases = {
         "analysis": "stock_analysis",
         "stock": "stock_analysis",
@@ -1105,118 +1263,101 @@ def route_webapp_payload(df, payload_text):
     symbol_b = clean_text(payload.get("symbol_b", ""))
 
     if action == "stock_analysis":
-        found = ux_find_symbol(df, symbol or query)
-
-        if found:
-            return {"reply": "", "command": f"/why {found}"}
-
-        return {
-            "reply": command_suggest(df, "/suggest " + (symbol or query)),
-            "command": "",
-        }
+        return route_stock_payload_strict(df, symbol or query, "/why", "stock")
 
     if action == "stock_range":
-        found = ux_find_symbol(df, symbol or query)
-
-        if found:
-            return {"reply": "", "command": f"/range {found}"}
-
-        return {
-            "reply": command_suggest(df, "/suggest " + (symbol or query)),
-            "command": "",
-        }
+        return route_stock_payload_strict(df, symbol or query, "/range", "stock")
 
     if action == "stock_performance":
         value = symbol or query
-        found = ux_find_symbol(df, value)
+        found = exact_symbol_or_alias(df, value)
 
         if found:
             return {"reply": "", "command": f"/performance {found}"}
 
-        value_clean = clean_text(value).lower()
+        value_clean = normalize_query_text(value).lower()
 
         if not value_clean:
             return {"reply": "", "command": "/performance"}
 
-        for item in ["range", "swing", "risk", "avoid", "top", "low", "fundamental", "relative", "rs"]:
-            if item in value_clean:
-                return {"reply": "", "command": f"/performance {item}"}
+        signal_aliases = {
+            "range": "range",
+            "range bound": "range",
+            "rangebound": "range",
+            "swing": "swing",
+            "bounce": "swing",
+            "risk": "risk",
+            "avoid": "risk",
+            "top": "top",
+            "conviction": "top",
+            "low": "low",
+            "52w low": "low",
+            "fundamental": "fundamental",
+            "relative": "relative",
+            "rs": "relative",
+        }
 
-        return {"reply": "", "command": f"/performance {value_clean}"}
-
-    if action == "compare":
-        a = ux_find_symbol(df, symbol_a)
-        b = ux_find_symbol(df, symbol_b)
-
-        # Also support "RECLTD PFC" in query field
-        if (not a or not b) and query:
-            try:
-                symbols = extract_two_symbols(df, query)
-            except Exception:
-                symbols = []
-
-            if len(symbols) >= 2:
-                a, b = symbols[0], symbols[1]
-
-        if a and b:
-            return {"reply": "", "command": f"/compare {a} {b}"}
+        for key, target in signal_aliases.items():
+            if key in value_clean:
+                return {"reply": "", "command": f"/performance {target}"}
 
         return {
-            "reply": (
-                "<b>⚖️ Compare Stocks</b>\n\n"
-                "I could not identify two valid stocks.\n\n"
-                "Use examples like:\n"
-                "RECLTD and PFC\n"
-                "RELIANCE and TCS"
-            ),
+            "reply": html_lines([
+                "<b>📊 Performance</b>",
+                "",
+                "Enter a valid stock or signal.",
+                "",
+                "Examples:",
+                "RECLTD",
+                "range",
+                "swing",
+                "risk",
+                "top",
+            ]),
             "command": "",
         }
 
+    if action == "compare":
+        return route_compare_payload_strict(df, symbol_a, symbol_b, query)
+
     if action == "sector":
-        sector_query = query or symbol
+        sector_query = clean_text(query or symbol)
 
         if sector_query:
             return {"reply": "", "command": f"/sector {sector_query.upper()}"}
 
         return {
-            "reply": (
-                "<b>🏭 Sector View</b>\n\n"
-                "Please enter a sector or industry like Bank, Power, Finance, IT, Auto."
-            ),
+            "reply": html_lines([
+                "<b>🏭 Sector View</b>",
+                "",
+                "Please enter a sector or industry like Bank, Power, Finance, IT, Auto.",
+            ]),
             "command": "",
         }
 
-    if action == "top":
-        return {"reply": "", "command": "/top"}
+    simple_actions = {
+        "top": "/top",
+        "range_list": "/range",
+        "swing": "/swing",
+        "low": "/low",
+        "high": "/high",
+        "risk": "/risk",
+        "watchlist": "/watchlist",
+        "performance": "/performance",
+    }
 
-    if action == "range_list":
-        return {"reply": "", "command": "/range"}
-
-    if action == "swing":
-        return {"reply": "", "command": "/swing"}
-
-    if action == "low":
-        return {"reply": "", "command": "/low"}
-
-    if action == "high":
-        return {"reply": "", "command": "/high"}
-
-    if action == "risk":
-        return {"reply": "", "command": "/risk"}
-
-    if action == "watchlist":
-        return {"reply": "", "command": "/watchlist"}
-
-    if action == "performance":
-        return {"reply": "", "command": "/performance"}
+    if action in simple_actions:
+        return {"reply": "", "command": simple_actions[action]}
 
     return {
-        "reply": (
-            "<b>🧠 Ask StockGPT</b>\n\n"
-            "Invalid request from form. Please reopen the StockGPT form and try again."
-        ),
+        "reply": html_lines([
+            "<b>🧠 Ask StockGPT</b>",
+            "",
+            "Invalid request from form. Please reopen the StockGPT form and try again.",
+        ]),
         "command": "",
     }
+
 
 COMMANDS = {
     "/help": command_menu,
