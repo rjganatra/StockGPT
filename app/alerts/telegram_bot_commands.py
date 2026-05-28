@@ -50,20 +50,18 @@ MAIN_MENU_REPLY_MARKUP = {
 def command_menu():
     return (
         "<b>🚀 Welcome to StockGPT Bot</b>\n\n"
-        "Tap a button below or type naturally.\n\n"
-        "<b>Direct buttons:</b> Top Ideas, Range Bound, Swing, 52W Low, Momentum, Risky, Watchlist, Performance.\n\n"
-        "<b>Guided buttons:</b>\n"
-        "🔍 Stock Analysis → bot asks for stock\n"
-        "📦 Stock Range → bot asks for stock\n"
-        "📊 Stock Performance → bot asks for stock/signal\n"
-        "⚖️ Compare Stocks → bot asks for two stocks\n"
-        "🏭 Sector View → bot asks for sector\n\n"
-        "<b>You can also type:</b>\n"
+        "Use the WebApp buttons below for one-shot queries.\n\n"
+        "<b>Best flow:</b>\n"
+        "1. Tap 🧠 Ask StockGPT or a form button\n"
+        "2. Fill the form once\n"
+        "3. Submit\n"
+        "4. Run your StockGPT Bot shortcut once\n\n"
+        "<b>You can also type naturally:</b>\n"
         "RECLTD\n"
         "range RECLTD\n"
         "compare RELIANCE TCS\n"
         "performance range\n\n"
-        "<i>After sending/tapping, run your StockGPT Bot shortcut.</i>"
+        "<i>Research tool only. Not financial advice.</i>"
     )
 
 
@@ -1049,288 +1047,6 @@ def command_performance(df, text):
     return message.strip()
 
 
-# =========================
-# UX V5 — Stateful Guided Flow
-# =========================
-
-CHAT_SESSIONS_FILE = Path("data/telegram/chat_sessions.json")
-
-
-def safe_chat_ref(chat_id):
-    """
-    Safe non-reversible-ish reference for logs.
-    Does not expose raw Telegram chat ID.
-    """
-    salt = TELEGRAM_BOT_TOKEN or "stockgpt"
-    raw = f"{salt}:{str(chat_id)}"
-    return "chat_" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:10]
-
-
-def chat_session_key(chat_id):
-    """
-    Key used in chat_sessions.json.
-    Raw chat IDs are never saved.
-    """
-    salt = os.getenv("TELEGRAM_SESSION_SALT", "").strip() or TELEGRAM_BOT_TOKEN or "stockgpt"
-    raw = f"{salt}:{str(chat_id)}"
-    return "chat_" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
-
-
-def load_chat_sessions():
-    try:
-        if CHAT_SESSIONS_FILE.exists():
-            with open(CHAT_SESSIONS_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-
-            if isinstance(data, dict):
-                return data
-    except Exception as e:
-        print(f"Could not load chat sessions: {e}")
-
-    return {}
-
-
-def save_chat_sessions(sessions):
-    CHAT_SESSIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
-
-    with open(CHAT_SESSIONS_FILE, "w", encoding="utf-8") as f:
-        json.dump(sessions, f, indent=2, sort_keys=True)
-
-
-def set_chat_session(chat_id, waiting_for):
-    sessions = load_chat_sessions()
-    key = chat_session_key(chat_id)
-
-    sessions[key] = {
-        "waiting_for": waiting_for,
-        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    }
-
-    save_chat_sessions(sessions)
-
-
-def get_chat_session(chat_id):
-    sessions = load_chat_sessions()
-    key = chat_session_key(chat_id)
-    session = sessions.get(key, {})
-
-    if not isinstance(session, dict):
-        return {}
-
-    return session
-
-
-def clear_chat_session(chat_id):
-    sessions = load_chat_sessions()
-    key = chat_session_key(chat_id)
-
-    if key in sessions:
-        del sessions[key]
-        save_chat_sessions(sessions)
-
-
-def guided_button_mode(text):
-    lowered = str(text or "").lower().strip()
-
-    mapping = {
-        "🔍 stock analysis": "stock_analysis",
-        "stock analysis": "stock_analysis",
-        "📦 stock range": "stock_range",
-        "stock range": "stock_range",
-        "📊 stock performance": "stock_performance",
-        "stock performance": "stock_performance",
-        "⚖️ compare stocks": "compare_stocks",
-        "compare stocks": "compare_stocks",
-        "🏭 sector view": "sector_view",
-        "sector view": "sector_view",
-    }
-
-    return mapping.get(lowered, "")
-
-
-def prompt_for_mode(mode):
-    if mode == "stock_analysis":
-        return (
-            "<b>🔍 Stock Analysis</b>\n\n"
-            "Which stock do you want to analyse?\n\n"
-            "Type a symbol/name like:\n"
-            "RECLTD\n"
-            "RELIANCE\n"
-            "HDFC Bank\n\n"
-            "Quick examples: RECLTD | PFC | RELIANCE | TCS"
-        )
-
-    if mode == "stock_range":
-        return (
-            "<b>📦 Stock Range Analysis</b>\n\n"
-            "Which stock do you want range-bound analysis for?\n\n"
-            "Example:\n"
-            "RECLTD"
-        )
-
-    if mode == "stock_performance":
-        return (
-            "<b>📊 Stock / Signal Performance</b>\n\n"
-            "Type a stock or signal:\n\n"
-            "Examples:\n"
-            "RECLTD\n"
-            "range\n"
-            "swing\n"
-            "risk\n"
-            "top"
-        )
-
-    if mode == "compare_stocks":
-        return (
-            "<b>⚖️ Compare Stocks</b>\n\n"
-            "Enter two stocks to compare.\n\n"
-            "Examples:\n"
-            "RECLTD PFC\n"
-            "RELIANCE TCS\n"
-            "HDFCBANK ICICIBANK"
-        )
-
-    if mode == "sector_view":
-        return (
-            "<b>🏭 Sector View</b>\n\n"
-            "Which sector or industry do you want to check?\n\n"
-            "Examples:\n"
-            "Bank\n"
-            "Power\n"
-            "Finance\n"
-            "IT\n"
-            "Auto"
-        )
-
-    return command_menu()
-
-
-def extract_two_symbols(df, text):
-    cleaned = str(text or "").replace(",", " ").replace(" and ", " ")
-    tokens = [t.strip() for t in cleaned.split() if t.strip()]
-    found = []
-
-    # First try token by token.
-    for token in tokens:
-        symbol = ux_find_symbol(df, token)
-        if symbol and symbol not in found:
-            found.append(symbol)
-
-    if len(found) >= 2:
-        return found[:2]
-
-    # Then try two-word chunks for names like HDFC Bank.
-    for i in range(len(tokens) - 1):
-        chunk = tokens[i] + " " + tokens[i + 1]
-        symbol = ux_find_symbol(df, chunk)
-        if symbol and symbol not in found:
-            found.append(symbol)
-
-    return found[:2]
-
-
-def route_pending_session(df, text, session):
-    mode = session.get("waiting_for", "")
-    raw = clean_text(text)
-
-    if not raw:
-        return {
-            "reply": prompt_for_mode(mode),
-            "command": "",
-            "clear": False,
-        }
-
-    if raw.lower().strip() in ["/cancel", "cancel", "back", "menu"]:
-        return {
-            "reply": "Cancelled. Use /menu to start again.",
-            "command": "",
-            "clear": True,
-        }
-
-    if mode == "stock_analysis":
-        symbol = ux_find_symbol(df, raw)
-
-        if symbol:
-            return {"reply": "", "command": f"/why {symbol}", "clear": True}
-
-        return {
-            "reply": command_suggest(df, "/suggest " + raw),
-            "command": "",
-            "clear": False,
-        }
-
-    if mode == "stock_range":
-        symbol = ux_find_symbol(df, raw)
-
-        if symbol:
-            return {"reply": "", "command": f"/range {symbol}", "clear": True}
-
-        return {
-            "reply": command_suggest(df, "/suggest " + raw),
-            "command": "",
-            "clear": False,
-        }
-
-    if mode == "stock_performance":
-        symbol = ux_find_symbol(df, raw)
-
-        if symbol:
-            return {"reply": "", "command": f"/performance {symbol}", "clear": True}
-
-        query = raw.lower().strip()
-
-        allowed = ["range", "swing", "risk", "avoid", "top", "low", "fundamental", "relative", "rs"]
-
-        for item in allowed:
-            if item in query:
-                return {"reply": "", "command": f"/performance {item}", "clear": True}
-
-        return {
-            "reply": (
-                "<b>📊 Performance</b>\n\n"
-                "Type a stock or one of these signals:\n"
-                "range, swing, risk, top, low\n\n"
-                "Example: range"
-            ),
-            "command": "",
-            "clear": False,
-        }
-
-    if mode == "compare_stocks":
-        symbols = extract_two_symbols(df, raw)
-
-        if len(symbols) >= 2:
-            return {
-                "reply": "",
-                "command": f"/compare {symbols[0]} {symbols[1]}",
-                "clear": True,
-            }
-
-        return {
-            "reply": (
-                "<b>⚖️ Compare Stocks</b>\n\n"
-                "I need two valid stocks.\n\n"
-                "Examples:\n"
-                "RECLTD PFC\n"
-                "RELIANCE TCS"
-            ),
-            "command": "",
-            "clear": False,
-        }
-
-    if mode == "sector_view":
-        return {
-            "reply": "",
-            "command": f"/sector {raw.upper()}",
-            "clear": True,
-        }
-
-    return {
-        "reply": "",
-        "command": ux_route_natural_message(df, raw),
-        "clear": True,
-    }
-
 
 # =========================
 # UX V6 — Telegram WebApp Payload Router
@@ -1563,12 +1279,6 @@ def main():
         if webapp_payload:
             parsed_webapp = route_webapp_payload(df, webapp_payload)
 
-            # WebApp is a complete one-shot query; clear any previous guided state.
-            try:
-                clear_chat_session(chat_id)
-            except Exception:
-                pass
-
             if ALLOWED_CHAT_IDS and chat_id not in ALLOWED_CHAT_IDS:
                 print(f"Ignoring unauthorized WebApp request: {chat_ref}")
                 continue
@@ -1588,32 +1298,7 @@ def main():
             print(f"Ignoring unauthorized chat: {chat_ref}")
             continue
 
-        mode = guided_button_mode(text)
-
-        if mode:
-            set_chat_session(chat_id, mode)
-            print(f"Guided mode set for {chat_ref}: {mode}")
-            send_message(chat_id, prompt_for_mode(mode))
-            processed += 1
-            continue
-
-        session = get_chat_session(chat_id)
-
-        if session:
-            routed = route_pending_session(df, text, session)
-
-            if routed.get("clear"):
-                clear_chat_session(chat_id)
-
-            if routed.get("reply"):
-                print(f"Guided reply for {chat_ref}: {session.get('waiting_for', '')}")
-                send_message(chat_id, routed["reply"])
-                processed += 1
-                continue
-
-            text = routed.get("command", text)
-        else:
-            text = ux_route_natural_message(df, text)
+        text = ux_route_natural_message(df, text)
 
         print(f"Processing command from {chat_ref}: {text}")
 
