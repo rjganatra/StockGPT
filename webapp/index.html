@@ -288,7 +288,18 @@
         <option value="risk">⚠️ Risky / Avoid</option>
         <option value="watchlist">⭐ Watchlist</option>
         <option value="performance">📈 Overall Performance</option>
-      </select>
+      
+        <option value="high_conviction">🎯 High Conviction</option>
+        <option value="low_risk_quality">🛡️ Low Risk Quality</option>
+        <option value="sector_adjusted_quality">🏭 Sector-Adjusted Quality</option>
+        <option value="range_accumulation">📦 Range Accumulation Zone</option>
+        <option value="range_profit_booking">💰 Range Profit Booking Zone</option>
+        <option value="range_breakdown_risk">⚠️ Range Breakdown Risk</option>
+        <option value="performance_range">📊 Performance: Range</option>
+        <option value="performance_swing">📊 Performance: Swing</option>
+        <option value="performance_risk">📊 Performance: Risk</option>
+        <option value="performance_top">📊 Performance: Top</option>
+</select>
 
       <div class="pillbar">
         <button class="pill" data-action="stock_analysis">Analyse</button>
@@ -406,7 +417,26 @@
   }
 
   function needsNoInput(action) {
-    return ["top", "range_list", "swing", "low", "high", "risk", "watchlist", "performance"].includes(action);
+    return [
+      "top",
+      "range_list",
+      "swing",
+      "low",
+      "high",
+      "risk",
+      "watchlist",
+      "performance",
+      "high_conviction",
+      "low_risk_quality",
+      "sector_adjusted_quality",
+      "range_accumulation",
+      "range_profit_booking",
+      "range_breakdown_risk",
+      "performance_range",
+      "performance_swing",
+      "performance_risk",
+      "performance_top"
+    ].includes(action);
   }
 
   function uniqueSorted(values) {

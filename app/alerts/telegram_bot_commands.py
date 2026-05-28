@@ -1344,6 +1344,16 @@ def route_webapp_payload(df, payload_text):
         "risk": "/risk",
         "watchlist": "/watchlist",
         "performance": "/performance",
+        "high_conviction": "/high_conviction",
+        "low_risk_quality": "/low_risk_quality",
+        "sector_adjusted_quality": "/sector_adjusted_quality",
+        "range_accumulation": "/range_accumulation",
+        "range_profit_booking": "/range_profit_booking",
+        "range_breakdown_risk": "/range_breakdown_risk",
+        "performance_range": "/performance range",
+        "performance_swing": "/performance swing",
+        "performance_risk": "/performance risk",
+        "performance_top": "/performance top",
     }
 
     if action in simple_actions:
@@ -1358,6 +1368,295 @@ def route_webapp_payload(df, payload_text):
         "command": "",
     }
 
+
+
+# =========================
+# UX V6.4 — Advanced WebApp Action Commands
+# =========================
+
+def sg_num(value, default=0.0):
+    try:
+        if pd.isna(value):
+            return default
+        return float(value)
+    except Exception:
+        return default
+
+
+def sg_col(df, preferred, fallbacks=None, default=0):
+    fallbacks = fallbacks or []
+
+    if preferred in df.columns:
+        return preferred
+
+    for col in fallbacks:
+        if col in df.columns:
+            return col
+
+    df[preferred] = default
+    return preferred
+
+
+def sg_text(value):
+    try:
+        if pd.isna(value):
+            return ""
+    except Exception:
+        pass
+    return str(value or "").strip()
+
+
+def sg_html_lines(lines):
+    return chr(10).join(lines)
+
+
+def sg_score_band(row):
+    for col in ["score_band", "band"]:
+        if col in row.index and sg_text(row.get(col)):
+            return sg_text(row.get(col))
+    return ""
+
+
+def sg_row_line(row, include_range=False):
+    symbol = escape_html(sg_text(row.get("symbol", "")))
+    sector = escape_html(sg_text(row.get("sector", "")))
+    price = sg_num(row.get("current_price", 0))
+    final_score = sg_num(row.get("final_conviction_score", row.get("score", 0)))
+    active_fund = sg_num(row.get("active_fundamental_score", row.get("fundamental_score", 0)))
+    adjusted_fund = sg_num(row.get("sector_adjusted_fundamental_score", active_fund))
+    risk = sg_num(row.get("risk_penalty", 0))
+    rsi = sg_num(row.get("rsi", 0))
+
+    line = (
+        f"• <b>{symbol}</b>"
+        f" | ₹{price:.2f}"
+        f" | Final {final_score:.1f}"
+        f" | Active Fund {active_fund:.1f}"
+        f" | Adj Fund {adjusted_fund:.1f}"
+        f" | Risk {risk:.1f}"
+        f" | RSI {rsi:.1f}"
+    )
+
+    if sector:
+        line += f" | {sector}"
+
+    if include_range:
+        distance_low = sg_num(row.get("distance_pct", 0))
+        distance_high = sg_num(row.get("distance_from_high_pct", 0))
+        line += f" | From Low {distance_low:.1f}% | From High {distance_high:.1f}%"
+
+    return line
+
+
+def sg_table_message(title, subtitle, data, include_range=False, limit=12):
+    if data is None or data.empty:
+        return sg_html_lines([
+            f"<b>{title}</b>",
+            "",
+            "No stocks matched this filter in the latest scan.",
+        ])
+
+    lines = [
+        f"<b>{title}</b>",
+    ]
+
+    if subtitle:
+        lines.extend(["", subtitle])
+
+    lines.append("")
+
+    for _, row in data.head(limit).iterrows():
+        lines.append(sg_row_line(row, include_range=include_range))
+
+    lines.extend([
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return sg_html_lines(lines)
+
+
+def command_high_conviction(df, text):
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    risk_col = sg_col(df, "risk_penalty", [], 0)
+
+    data = df.copy()
+    data[score_col] = pd.to_numeric(data[score_col], errors="coerce").fillna(0)
+    data[risk_col] = pd.to_numeric(data[risk_col], errors="coerce").fillna(0)
+
+    filtered = data[
+        data[score_col] >= 60
+    ].sort_values(
+        [score_col, risk_col],
+        ascending=[False, True]
+    )
+
+    return sg_table_message(
+        "🎯 High Conviction Ideas",
+        "Sorted by final conviction score with lower risk preferred.",
+        filtered,
+        include_range=False,
+        limit=12,
+    )
+
+
+def command_low_risk_quality(df, text):
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    risk_col = sg_col(df, "risk_penalty", [], 0)
+    active_col = sg_col(df, "active_fundamental_score", ["sector_adjusted_fundamental_score", "fundamental_score"], 0)
+
+    data = df.copy()
+    for col in [score_col, risk_col, active_col]:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    filtered = data[
+        (data[active_col] >= 55)
+        &
+        (data[risk_col] <= 10)
+        &
+        (data[score_col] >= 50)
+    ].sort_values(
+        [score_col, active_col, risk_col],
+        ascending=[False, False, True]
+    )
+
+    return sg_table_message(
+        "🛡️ Low Risk Quality",
+        "Active fundamentals above threshold, low risk penalty, and decent conviction.",
+        filtered,
+        include_range=False,
+        limit=12,
+    )
+
+
+def command_sector_adjusted_quality(df, text):
+    adjusted_col = sg_col(df, "sector_adjusted_fundamental_score", ["active_fundamental_score", "fundamental_score"], 0)
+    active_col = sg_col(df, "active_fundamental_score", [adjusted_col, "fundamental_score"], 0)
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    risk_col = sg_col(df, "risk_penalty", [], 0)
+
+    data = df.copy()
+    for col in [adjusted_col, active_col, score_col, risk_col]:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    filtered = data[
+        (data[adjusted_col] >= 55)
+        &
+        (data[active_col] >= 50)
+        &
+        (data[risk_col] <= 15)
+    ].sort_values(
+        [adjusted_col, score_col, risk_col],
+        ascending=[False, False, True]
+    )
+
+    return sg_table_message(
+        "🏭 Sector-Adjusted Quality",
+        "Prioritises sector-adjusted fundamentals, active fundamental strength, and controlled risk.",
+        filtered,
+        include_range=False,
+        limit=12,
+    )
+
+
+def command_range_accumulation(df, text):
+    distance_low_col = sg_col(df, "distance_pct", [], 0)
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    rsi_col = sg_col(df, "rsi", [], 0)
+    risk_col = sg_col(df, "risk_penalty", [], 0)
+
+    data = df.copy()
+    for col in [distance_low_col, score_col, rsi_col, risk_col]:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    if "range_signal" in data.columns:
+        mask = data["range_signal"].astype(str).str.contains("accumulation|lower|support", case=False, na=False)
+    else:
+        mask = (
+            (data[distance_low_col] <= 20)
+            &
+            (data[rsi_col].between(35, 60))
+            &
+            (data[risk_col] <= 18)
+        )
+
+    filtered = data[mask].sort_values(
+        [score_col, distance_low_col, risk_col],
+        ascending=[False, True, True]
+    )
+
+    return sg_table_message(
+        "📦 Range Accumulation Zone",
+        "Stocks closer to lower/support area with acceptable RSI and risk.",
+        filtered,
+        include_range=True,
+        limit=12,
+    )
+
+
+def command_range_profit_booking(df, text):
+    distance_high_col = sg_col(df, "distance_from_high_pct", [], 0)
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    rsi_col = sg_col(df, "rsi", [], 0)
+
+    data = df.copy()
+    for col in [distance_high_col, score_col, rsi_col]:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    if "range_signal" in data.columns:
+        mask = data["range_signal"].astype(str).str.contains("profit|upper|resistance|booking", case=False, na=False)
+    else:
+        mask = (
+            (data[distance_high_col] <= 15)
+            |
+            (data[rsi_col] >= 65)
+        )
+
+    filtered = data[mask].sort_values(
+        [distance_high_col, score_col],
+        ascending=[True, False]
+    )
+
+    return sg_table_message(
+        "💰 Range Profit Booking Zone",
+        "Stocks near upper range/resistance area or showing higher RSI.",
+        filtered,
+        include_range=True,
+        limit=12,
+    )
+
+
+def command_range_breakdown_risk(df, text):
+    distance_low_col = sg_col(df, "distance_pct", [], 0)
+    score_col = sg_col(df, "final_conviction_score", ["score"], 0)
+    rsi_col = sg_col(df, "rsi", [], 0)
+    risk_col = sg_col(df, "risk_penalty", [], 0)
+
+    data = df.copy()
+    for col in [distance_low_col, score_col, rsi_col, risk_col]:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    if "range_signal" in data.columns:
+        mask = data["range_signal"].astype(str).str.contains("breakdown|risk|weak", case=False, na=False)
+    else:
+        mask = (
+            (data[risk_col] >= 15)
+            |
+            ((data[distance_low_col] <= 10) & (data[rsi_col] < 40))
+        )
+
+    filtered = data[mask].sort_values(
+        [risk_col, score_col],
+        ascending=[False, True]
+    )
+
+    return sg_table_message(
+        "⚠️ Range Breakdown Risk",
+        "Stocks with elevated risk, weak RSI, or lower-range breakdown characteristics.",
+        filtered,
+        include_range=True,
+        limit=12,
+    )
 
 COMMANDS = {
     "/help": command_menu,
@@ -1377,6 +1676,12 @@ COMMANDS = {
     "/compare": command_compare,
     "/range": command_range,
     "/performance": command_performance,
+    "/high_conviction": command_high_conviction,
+    "/low_risk_quality": command_low_risk_quality,
+    "/sector_adjusted_quality": command_sector_adjusted_quality,
+    "/range_accumulation": command_range_accumulation,
+    "/range_profit_booking": command_range_profit_booking,
+    "/range_breakdown_risk": command_range_breakdown_risk,
 }
 
 
