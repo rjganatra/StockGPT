@@ -16,7 +16,9 @@
       --accent: #22c55e;
       --accent2: #38bdf8;
       --chip: #020617;
-      --warn: #f97316;
+      --dropdown: #020617;
+      --dropdownHover: #111827;
+      --danger: #fca5a5;
     }
 
     * { box-sizing: border-box; }
@@ -92,14 +94,78 @@
       box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
     }
 
+    .hidden {
+      display: none !important;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .hidden {
-      display: none !important;
+    .pillbar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.65);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px;
+      font-size: 13px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .combo {
+      position: relative;
+    }
+
+    .combo-list {
+      position: absolute;
+      z-index: 50;
+      left: 0;
+      right: 0;
+      top: calc(100% + 6px);
+      max-height: 260px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: var(--dropdown);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+      padding: 6px;
+    }
+
+    .combo-item {
+      padding: 12px 12px;
+      border-radius: 12px;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .combo-item:hover,
+    .combo-item.active {
+      background: var(--dropdownHover);
+    }
+
+    .combo-main {
+      font-weight: 700;
+    }
+
+    .combo-sub {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
     }
 
     .chips-title {
@@ -158,17 +224,10 @@
     }
 
     .error {
-      color: #fca5a5;
+      color: var(--danger);
       margin-top: 10px;
       font-size: 14px;
       min-height: 20px;
-    }
-
-    .footer {
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
     }
 
     .small-note {
@@ -177,22 +236,11 @@
       font-size: 12px;
     }
 
-    .pillbar {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .pill {
-      border: 1px solid var(--border);
-      background: rgba(2, 6, 23, 0.65);
-      color: var(--text);
-      border-radius: 14px;
-      padding: 10px;
-      font-size: 13px;
+    .footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
       text-align: center;
-      cursor: pointer;
     }
 
     @media (prefers-color-scheme: light) {
@@ -203,6 +251,8 @@
         --muted: #475569;
         --border: #cbd5e1;
         --chip: #ffffff;
+        --dropdown: #ffffff;
+        --dropdownHover: #f1f5f9;
       }
 
       body {
@@ -219,7 +269,7 @@
   <div class="wrap">
     <div class="hero">
       <h1>🧠 StockGPT</h1>
-      <p>One form. One submit. One bot run.</p>
+      <p>Searchable mobile dropdowns. One form. One bot run.</p>
     </div>
 
     <div class="card">
@@ -249,38 +299,43 @@
 
       <div id="singleBox">
         <label id="singleLabel" for="singleInput">Stock / Query</label>
-        <input id="singleInput" list="symbolList" autocomplete="off" placeholder="Example: RECLTD" />
-        <datalist id="symbolList"></datalist>
+        <div class="combo">
+          <input id="singleInput" autocomplete="off" placeholder="Type to search..." />
+          <div id="singleList" class="combo-list hidden"></div>
+        </div>
 
         <div class="chips-title" id="chipsTitle">Suggestions</div>
         <div class="chips" id="contextChips"></div>
-
         <div class="small-note" id="smallNote"></div>
       </div>
 
       <div id="sectorBox" class="hidden">
-        <label for="sectorSelect">Choose sector / industry</label>
-        <select id="sectorSelect"></select>
-
-        <div id="customSectorBox" class="hidden">
-          <label for="customSectorInput">Custom sector / industry</label>
-          <input id="customSectorInput" autocomplete="off" placeholder="Example: Defence, Jewellery, Packaging" />
+        <label for="sectorInput">Sector / industry</label>
+        <div class="combo">
+          <input id="sectorInput" autocomplete="off" placeholder="Type bank, power, IT..." />
+          <div id="sectorList" class="combo-list hidden"></div>
         </div>
 
         <div class="chips-title">Sector suggestions</div>
         <div class="chips" id="sectorChips"></div>
-        <div class="small-note">This is a real mobile dropdown, not a stock suggestion dropdown.</div>
+        <div class="small-note">Type to search sectors/industries. Works on iPhone without datalist.</div>
       </div>
 
       <div id="compareBox" class="hidden">
         <div class="grid">
           <div>
             <label for="symbolA">Stock 1</label>
-            <input id="symbolA" list="symbolList" autocomplete="off" placeholder="RECLTD" />
+            <div class="combo">
+              <input id="symbolA" autocomplete="off" placeholder="RECLTD" />
+              <div id="symbolAList" class="combo-list hidden"></div>
+            </div>
           </div>
           <div>
             <label for="symbolB">Stock 2</label>
-            <input id="symbolB" list="symbolList" autocomplete="off" placeholder="PFC" />
+            <div class="combo">
+              <input id="symbolB" autocomplete="off" placeholder="PFC" />
+              <div id="symbolBList" class="combo-list hidden"></div>
+            </div>
           </div>
         </div>
 
@@ -292,7 +347,7 @@
 
       <button class="submit" id="submitBtn">Submit to StockGPT</button>
 
-      <div class="hint" id="hint">
+      <div class="hint">
         After submitting, run your StockGPT Bot shortcut once.
       </div>
     </div>
@@ -310,30 +365,35 @@
   const REPO_RAW_SCAN = "https://raw.githubusercontent.com/rjganatra/StockGPT/main/data/scans/latest_scan.csv";
   const FAVORITES_URL = "favorites.json";
 
-  let favoriteSymbols = ["RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK", "INFY", "SBIN", "AXISBANK", "ITC"];
-  let favoritePairs = [["RECLTD", "PFC"], ["HDFCBANK", "ICICIBANK"], ["RELIANCE", "TCS"], ["INFY", "TCS"]];
-  let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods", "Infrastructure", "Realty", "Telecom", "Cement", "Chemical", "Consumer", "Healthcare", "Oil & Gas"];
-  let performanceSuggestions = ["range", "swing", "risk", "avoid", "top", "conviction", "low", "52w low", "fundamental", "relative", "sector adjusted", "overall"];
+  let favoriteSymbols = ["RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "HDFCLIFE", "HDFCAMC", "ICICIBANK", "INFY", "SBIN", "AXISBANK", "ITC"];
+  let favoritePairs = [["RECLTD", "PFC"], ["HDFCBANK", "ICICIBANK"], ["HDFCLIFE", "SBILIFE"], ["RELIANCE", "TCS"], ["INFY", "TCS"]];
+  let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods", "Infrastructure", "Realty", "Telecom", "Cement", "Chemical", "Consumer", "Healthcare", "Oil & Gas", "Defence", "Jewellery", "Packaging"];
+  let performanceSuggestions = ["range", "range bound", "swing", "risk", "avoid", "top", "conviction", "low", "52w low", "fundamental", "relative", "sector adjusted", "overall"];
   let stockSymbols = [...favoriteSymbols];
 
   const actionEl = document.getElementById("action");
   const singleBox = document.getElementById("singleBox");
   const sectorBox = document.getElementById("sectorBox");
-  const sectorSelect = document.getElementById("sectorSelect");
-  const customSectorBox = document.getElementById("customSectorBox");
-  const customSectorInput = document.getElementById("customSectorInput");
-  const sectorChips = document.getElementById("sectorChips");
   const compareBox = document.getElementById("compareBox");
+
   const singleInput = document.getElementById("singleInput");
+  const singleList = document.getElementById("singleList");
   const singleLabel = document.getElementById("singleLabel");
+
+  const sectorInput = document.getElementById("sectorInput");
+  const sectorList = document.getElementById("sectorList");
+  const sectorChips = document.getElementById("sectorChips");
+
   const symbolA = document.getElementById("symbolA");
   const symbolB = document.getElementById("symbolB");
+  const symbolAList = document.getElementById("symbolAList");
+  const symbolBList = document.getElementById("symbolBList");
+
   const errorEl = document.getElementById("error");
   const contextChips = document.getElementById("contextChips");
   const compareChips = document.getElementById("compareChips");
   const chipsTitle = document.getElementById("chipsTitle");
   const smallNote = document.getElementById("smallNote");
-  const symbolList = document.getElementById("symbolList");
 
   const params = new URLSearchParams(window.location.search);
   const initialAction = params.get("action");
@@ -348,6 +408,108 @@
   function needsNoInput(action) {
     return ["top", "range_list", "swing", "low", "high", "risk", "watchlist", "performance"].includes(action);
   }
+
+  function uniqueSorted(values) {
+    const clean = [];
+    values.forEach(v => {
+      const text = String(v || "").trim();
+      if (text && text.toLowerCase() !== "unknown" && !clean.includes(text)) {
+        clean.push(text);
+      }
+    });
+    return clean.sort((a, b) => a.localeCompare(b));
+  }
+
+  function normalize(value) {
+    return String(value || "").toUpperCase().replace(/[^A-Z0-9&]/g, "");
+  }
+
+  function filterItems(items, query, limit = 12) {
+    const q = normalize(query);
+
+    if (!q) {
+      return items.slice(0, limit);
+    }
+
+    const starts = [];
+    const contains = [];
+
+    items.forEach(item => {
+      const itemNorm = normalize(item);
+
+      if (itemNorm.startsWith(q)) {
+        starts.push(item);
+      } else if (itemNorm.includes(q)) {
+        contains.push(item);
+      }
+    });
+
+    return [...starts, ...contains].slice(0, limit);
+  }
+
+  function closeAllDropdowns() {
+    [singleList, sectorList, symbolAList, symbolBList].forEach(el => el.classList.add("hidden"));
+  }
+
+  function renderDropdown(input, listEl, items, typeLabel, limit = 12) {
+    const matches = filterItems(items, input.value, limit);
+    listEl.innerHTML = "";
+
+    if (!matches.length) {
+      const empty = document.createElement("div");
+      empty.className = "combo-item";
+      empty.innerHTML = `<span class="combo-main">No match</span><span class="combo-sub">type custom</span>`;
+      listEl.appendChild(empty);
+      listEl.classList.remove("hidden");
+      return;
+    }
+
+    matches.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "combo-item";
+      row.innerHTML = `<span class="combo-main">${item}</span><span class="combo-sub">${typeLabel}</span>`;
+
+      row.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        input.value = item;
+        listEl.classList.add("hidden");
+      });
+
+      row.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        input.value = item;
+        listEl.classList.add("hidden");
+        input.blur();
+      }, { passive: false });
+
+      listEl.appendChild(row);
+    });
+
+    listEl.classList.remove("hidden");
+  }
+
+  function setupCombo(input, listEl, getItems, typeLabel) {
+    input.addEventListener("input", () => {
+      renderDropdown(input, listEl, getItems(), typeLabel);
+    });
+
+    input.addEventListener("focus", () => {
+      closeAllDropdowns();
+      renderDropdown(input, listEl, getItems(), typeLabel);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        listEl.classList.add("hidden");
+      }
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".combo")) {
+      closeAllDropdowns();
+    }
+  });
 
   function clearChips(container) {
     container.innerHTML = "";
@@ -384,59 +546,6 @@
     return out.map(x => x.replace(/^"|"$/g, "").trim());
   }
 
-  function uniqueSorted(values) {
-    const clean = [];
-    values.forEach(v => {
-      const text = String(v || "").trim();
-      if (text && text.toLowerCase() !== "unknown" && !clean.includes(text)) {
-        clean.push(text);
-      }
-    });
-    return clean.sort((a, b) => a.localeCompare(b));
-  }
-
-  function refreshDatalist() {
-    symbolList.innerHTML = "";
-    stockSymbols.slice(0, 1000).forEach(symbol => {
-      const option = document.createElement("option");
-      option.value = symbol;
-      symbolList.appendChild(option);
-    });
-  }
-
-  function refreshSectorDropdown() {
-    sectorSelect.innerHTML = "";
-
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "Select sector / industry";
-    sectorSelect.appendChild(placeholder);
-
-    uniqueSorted(sectorSuggestions).forEach(sector => {
-      const option = document.createElement("option");
-      option.value = sector;
-      option.textContent = sector;
-      sectorSelect.appendChild(option);
-    });
-
-    const custom = document.createElement("option");
-    custom.value = "__custom__";
-    custom.textContent = "Other / Custom";
-    sectorSelect.appendChild(custom);
-  }
-
-  function refreshSectorChips() {
-    clearChips(sectorChips);
-
-    uniqueSorted(sectorSuggestions).slice(0, 18).forEach(sector => {
-      addChip(sectorChips, sector, () => {
-        sectorSelect.value = sector;
-        customSectorBox.classList.add("hidden");
-        customSectorInput.value = "";
-      }, "orange");
-    });
-  }
-
   function bestStockChips() {
     const merged = [...favoriteSymbols];
 
@@ -448,6 +557,17 @@
     return merged.slice(0, 12);
   }
 
+  function refreshSectorChips() {
+    clearChips(sectorChips);
+
+    sectorSuggestions.slice(0, 18).forEach(sector => {
+      addChip(sectorChips, sector, () => {
+        sectorInput.value = sector;
+        closeAllDropdowns();
+      }, "orange");
+    });
+  }
+
   function refreshCompareChips() {
     clearChips(compareChips);
 
@@ -455,6 +575,7 @@
       addChip(compareChips, `${a} vs ${b}`, () => {
         symbolA.value = a;
         symbolB.value = b;
+        closeAllDropdowns();
       }, "primary");
     });
   }
@@ -468,11 +589,11 @@
       bestStockChips().forEach(symbol => {
         addChip(contextChips, symbol, () => {
           singleInput.value = symbol;
-          singleInput.focus();
+          closeAllDropdowns();
         }, "primary");
       });
 
-      smallNote.textContent = "Only stock suggestions are shown here.";
+      smallNote.textContent = "Type to search stocks. Works on iPhone without datalist.";
       return;
     }
 
@@ -481,18 +602,18 @@
       performanceSuggestions.forEach(item => {
         addChip(contextChips, item, () => {
           singleInput.value = item;
-          singleInput.focus();
+          closeAllDropdowns();
         }, "green");
       });
 
       bestStockChips().slice(0, 8).forEach(symbol => {
         addChip(contextChips, symbol, () => {
           singleInput.value = symbol;
-          singleInput.focus();
+          closeAllDropdowns();
         }, "primary");
       });
 
-      smallNote.textContent = "Use a performance shortcut, or type/select a stock from the dropdown.";
+      smallNote.textContent = "Type to search signals or stocks. Dropdown works on iPhone.";
       return;
     }
 
@@ -502,6 +623,7 @@
   function refreshForm() {
     const action = actionEl.value;
     errorEl.textContent = "";
+    closeAllDropdowns();
 
     singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || needsNoInput(action));
     sectorBox.classList.toggle("hidden", action !== "sector");
@@ -509,46 +631,34 @@
 
     if (action === "stock_analysis") {
       singleLabel.textContent = "Which stock?";
-      singleInput.placeholder = "Example: RECLTD";
-      singleInput.setAttribute("list", "symbolList");
+      singleInput.placeholder = "Type hdfc, reliance, rec...";
     } else if (action === "stock_range") {
       singleLabel.textContent = "Which stock for range analysis?";
-      singleInput.placeholder = "Example: RECLTD";
-      singleInput.setAttribute("list", "symbolList");
+      singleInput.placeholder = "Type recltd, pfc, reliance...";
     } else if (action === "stock_performance") {
       singleLabel.textContent = "Stock or signal";
-      singleInput.placeholder = "Example: RECLTD, range, swing, risk, top";
-      singleInput.setAttribute("list", "symbolList");
-    } else {
-      singleInput.removeAttribute("list");
+      singleInput.placeholder = "Type range, swing, hdfc...";
     }
 
     refreshContextChips(action);
-    refreshCompareChips();
-    refreshSectorDropdown();
     refreshSectorChips();
+    refreshCompareChips();
   }
-
-  sectorSelect.addEventListener("change", () => {
-    if (sectorSelect.value === "__custom__") {
-      customSectorBox.classList.remove("hidden");
-      customSectorInput.focus();
-    } else {
-      customSectorBox.classList.add("hidden");
-      customSectorInput.value = "";
-    }
-  });
 
   document.querySelectorAll("[data-action]").forEach(btn => {
     btn.addEventListener("click", () => {
       actionEl.value = btn.dataset.action;
       refreshForm();
 
-      if (btn.dataset.action === "sector") {
-        sectorSelect.focus();
-      } else {
-        singleInput.focus();
-      }
+      setTimeout(() => {
+        if (btn.dataset.action === "sector") {
+          sectorInput.focus();
+        } else if (btn.dataset.action === "compare") {
+          symbolA.focus();
+        } else {
+          singleInput.focus();
+        }
+      }, 80);
     });
   });
 
@@ -570,11 +680,11 @@
       }
 
       if (Array.isArray(data.favorite_sectors) && data.favorite_sectors.length) {
-        sectorSuggestions = data.favorite_sectors;
+        sectorSuggestions = data.favorite_sectors.map(x => String(x).trim()).filter(Boolean);
       }
 
       if (Array.isArray(data.performance_shortcuts) && data.performance_shortcuts.length) {
-        performanceSuggestions = data.performance_shortcuts;
+        performanceSuggestions = data.performance_shortcuts.map(x => String(x).trim()).filter(Boolean);
       }
     } catch (e) {
       // fallback already present
@@ -657,20 +767,16 @@
     }
 
     if (action === "sector") {
-      let sectorValue = sectorSelect.value;
+      const value = sectorInput.value.trim();
 
-      if (sectorValue === "__custom__") {
-        sectorValue = customSectorInput.value.trim();
-      }
-
-      if (!sectorValue) {
-        throw new Error("Select or enter a sector / industry.");
+      if (!value) {
+        throw new Error("Enter sector / industry.");
       }
 
       return {
         source: "telegram_webapp",
         action,
-        query: sectorValue
+        query: value
       };
     }
 
@@ -713,12 +819,28 @@
     }
   });
 
+  setupCombo(singleInput, singleList, () => {
+    const action = actionEl.value;
+
+    if (action === "stock_performance") {
+      return uniqueSorted([...performanceSuggestions, ...stockSymbols]);
+    }
+
+    return stockSymbols;
+  }, "match");
+
+  setupCombo(sectorInput, sectorList, () => sectorSuggestions, "sector");
+  setupCombo(symbolA, symbolAList, () => stockSymbols, "stock");
+  setupCombo(symbolB, symbolBList, () => stockSymbols, "stock");
+
   async function boot() {
     await loadFavorites();
     await loadScanData();
-    refreshDatalist();
-    refreshSectorDropdown();
-    refreshSectorChips();
+
+    stockSymbols = uniqueSorted([...favoriteSymbols, ...stockSymbols]).map(x => x.toUpperCase());
+    sectorSuggestions = uniqueSorted(sectorSuggestions);
+    performanceSuggestions = uniqueSorted(performanceSuggestions);
+
     refreshForm();
   }
 

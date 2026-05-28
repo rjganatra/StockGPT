@@ -5,11 +5,16 @@
     "RELIANCE",
     "TCS",
     "HDFCBANK",
+    "HDFCLIFE",
+    "HDFCAMC",
     "ICICIBANK",
     "INFY",
     "SBIN",
     "AXISBANK",
-    "ITC"
+    "ITC",
+    "TATAMOTORS",
+    "BAJFINANCE",
+    "PIDILITIND"
   ],
   "favorite_pairs": [
     [
@@ -19,6 +24,10 @@
     [
       "HDFCBANK",
       "ICICIBANK"
+    ],
+    [
+      "HDFCLIFE",
+      "SBILIFE"
     ],
     [
       "RELIANCE",
@@ -53,10 +62,14 @@
     "Healthcare",
     "Oil & Gas",
     "Textile",
-    "Media"
+    "Media",
+    "Defence",
+    "Jewellery",
+    "Packaging"
   ],
   "performance_shortcuts": [
     "range",
+    "range bound",
     "swing",
     "risk",
     "avoid",
