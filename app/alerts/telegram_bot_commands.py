@@ -1816,6 +1816,773 @@ def handle_command(text, df):
     return stockgpt_polish_reply(text, reply)
 
 
+
+# =========================
+# UX V8 — Human Telegram Reply Renderer
+# =========================
+
+def r8_num(value, default=0.0):
+    try:
+        if pd.isna(value):
+            return default
+        return float(value)
+    except Exception:
+        return default
+
+
+def r8_text(value):
+    try:
+        if pd.isna(value):
+            return ""
+    except Exception:
+        pass
+    return str(value or "").strip()
+
+
+def r8_lines(items):
+    return chr(10).join([str(x) for x in items])
+
+
+def r8_col(df, preferred, fallbacks=None, default=0):
+    fallbacks = fallbacks or []
+
+    if preferred in df.columns:
+        return preferred
+
+    for col in fallbacks:
+        if col in df.columns:
+            return col
+
+    df[preferred] = default
+    return preferred
+
+
+def r8_price(value):
+    value = r8_num(value, 0)
+
+    if value <= 0:
+        return "NA"
+
+    return f"₹{value:.2f}"
+
+
+def r8_pct(value):
+    return f"{r8_num(value, 0):.1f}%"
+
+
+def r8_clean(value, max_len=120):
+    value = r8_text(value)
+    value = re.sub(r"\\s+", " ", value).strip()
+
+    if not value:
+        return ""
+
+    if len(value) > max_len:
+        value = value[:max_len].rstrip() + "..."
+
+    return escape_html(value)
+
+
+def r8_prepare_df(df):
+    data = df.copy()
+
+    numeric_cols = [
+        "current_price",
+        "final_conviction_score",
+        "score",
+        "technical_score",
+        "fundamental_score",
+        "active_fundamental_score",
+        "sector_adjusted_fundamental_score",
+        "risk_penalty",
+        "rsi",
+        "volume_ratio",
+        "distance_pct",
+        "distance_from_high_pct",
+        "market_cap",
+    ]
+
+    for col in numeric_cols:
+        if col in data.columns:
+            data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    return data
+
+
+def r8_symbol_exact(df, value):
+    value = r8_text(value)
+
+    if not value:
+        return ""
+
+    try:
+        found = exact_symbol_or_alias(df, value)
+        if found:
+            return found
+    except Exception:
+        pass
+
+    try:
+        found = ux_find_symbol(df, value)
+        if found:
+            return found
+    except Exception:
+        pass
+
+    compact = re.sub(r"[^A-Z0-9&]", "", value.upper())
+
+    if "symbol" in df.columns:
+        symbols = df["symbol"].dropna().astype(str).str.upper().str.strip().tolist()
+
+        if compact in set(symbols):
+            return compact
+
+    return ""
+
+
+def r8_find_row(df, value):
+    symbol = r8_symbol_exact(df, value)
+
+    if not symbol or "symbol" not in df.columns:
+        return None, ""
+
+    rows = df[df["symbol"].astype(str).str.upper().str.strip() == symbol]
+
+    if rows.empty:
+        return None, symbol
+
+    return rows.iloc[0], symbol
+
+
+def r8_score_label(value, high_good=True):
+    value = r8_num(value, 0)
+
+    if high_good:
+        if value >= 75:
+            return "excellent"
+        if value >= 65:
+            return "strong"
+        if value >= 50:
+            return "decent"
+        if value >= 35:
+            return "mixed"
+        return "weak"
+
+    if value <= 6:
+        return "low"
+    if value <= 12:
+        return "controlled"
+    if value <= 18:
+        return "moderate"
+    return "high"
+
+
+def r8_stock_one_liner(row, mode="general"):
+    symbol = escape_html(r8_text(row.get("symbol", "")))
+    sector = escape_html(r8_text(row.get("sector", "")))
+    price = r8_price(row.get("current_price", 0))
+    final_score = r8_num(row.get("final_conviction_score", row.get("score", 0)))
+    active = r8_num(row.get("active_fundamental_score", row.get("fundamental_score", 0)))
+    adjusted = r8_num(row.get("sector_adjusted_fundamental_score", active))
+    risk = r8_num(row.get("risk_penalty", 0))
+    rsi = r8_num(row.get("rsi", 0))
+
+    line = (
+        f"• <b>{symbol}</b> | {price} | Final {final_score:.1f} | "
+        f"Active {active:.1f} | Adj {adjusted:.1f} | Risk {risk:.1f} | RSI {rsi:.1f}"
+    )
+
+    if sector:
+        line += f" | {sector}"
+
+    if mode.startswith("range"):
+        line += (
+            f" | Low+ {r8_pct(row.get('distance_pct', 0))}"
+            f" | High- {r8_pct(row.get('distance_from_high_pct', 0))}"
+        )
+
+    return line
+
+
+def r8_stock_detail(row, mode="general"):
+    symbol = escape_html(r8_text(row.get("symbol", "")))
+    company = escape_html(r8_text(row.get("company_name", "")))
+    sector = escape_html(r8_text(row.get("sector", "")))
+    industry = escape_html(r8_text(row.get("industry", "")))
+
+    final_score = r8_num(row.get("final_conviction_score", row.get("score", 0)))
+    tech = r8_num(row.get("technical_score", 0))
+    fund = r8_num(row.get("fundamental_score", 0))
+    active = r8_num(row.get("active_fundamental_score", fund))
+    adjusted = r8_num(row.get("sector_adjusted_fundamental_score", active))
+    risk = r8_num(row.get("risk_penalty", 0))
+    rsi = r8_num(row.get("rsi", 0))
+    volume = r8_num(row.get("volume_ratio", 0))
+    low_distance = r8_num(row.get("distance_pct", 0))
+    high_distance = r8_num(row.get("distance_from_high_pct", 0))
+
+    title = f"<b>{symbol}</b>"
+
+    if company and company.upper() != symbol.upper():
+        title += f" — {company}"
+
+    lines = [
+        title,
+        f"Price: <b>{r8_price(row.get('current_price', 0))}</b>",
+    ]
+
+    if sector or industry:
+        if sector and industry and sector != industry:
+            lines.append(f"Sector: {sector} / {industry}")
+        else:
+            lines.append(f"Sector: {sector or industry}")
+
+    lines.extend([
+        "",
+        "<b>Scorecard:</b>",
+        f"Final conviction: <b>{final_score:.1f}</b> ({r8_score_label(final_score)})",
+        f"Technical: {tech:.1f} | Fundamental: {fund:.1f}",
+        f"Active fundamental: {active:.1f} | Sector-adjusted: {adjusted:.1f}",
+        f"Risk penalty: <b>{risk:.1f}</b> ({r8_score_label(risk, high_good=False)})",
+        "",
+        "<b>Market behaviour:</b>",
+        f"RSI: {rsi:.1f} | Volume: {volume:.2f}x",
+        f"Range: {low_distance:.1f}% above 52W low | {high_distance:.1f}% below 52W high",
+    ])
+
+    reason = (
+        r8_clean(row.get("reasons", ""))
+        or r8_clean(row.get("technical_reasons", ""))
+        or r8_clean(row.get("fundamental_reasons", ""))
+    )
+
+    if reason:
+        lines.extend([
+            "",
+            "<b>Why it is showing up:</b>",
+            reason,
+        ])
+
+    quick = "Mixed setup. Use it as a watchlist candidate, not a direct trade."
+
+    if final_score >= 65 and risk <= 12:
+        quick = "Strong scan profile with controlled risk."
+    elif adjusted >= 60 and active >= 55:
+        quick = "Quality is strong versus sector/active fundamental filters."
+    elif risk >= 18:
+        quick = "Risk is elevated. Treat this as caution-first."
+    elif mode.startswith("range"):
+        quick = "Range context matters more than conviction alone here."
+
+    lines.extend([
+        "",
+        "<b>Quick read:</b>",
+        quick,
+        "",
+        "<b>How to use:</b>",
+        "Use this as a stock-specific research summary. Compare score, quality, risk and range context before deciding.",
+        "",
+        "<b>What to watch:</b>",
+        "Check chart confirmation, liquidity, news and broader market direction before acting.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return r8_lines(lines)
+
+
+def r8_list_message(title, quick_read, logic, data, mode="general", limit=8):
+    if data is None or data.empty:
+        return r8_lines([
+            f"<b>{title}</b>",
+            "",
+            "<b>Quick read:</b>",
+            "No stocks matched this filter in the latest scan.",
+            "",
+            "<b>What to do next</b>",
+            "Try another filter or wait for the next scan update.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    lines = [
+        f"<b>{title}</b>",
+        "",
+        "<b>Quick read:</b>",
+        escape_html(quick_read),
+        "",
+        "<b>Filter logic:</b>",
+        escape_html(logic),
+        "",
+        "<b>Top results:</b>",
+    ]
+
+    for _, row in data.head(limit).iterrows():
+        lines.append(r8_stock_one_liner(row, mode=mode))
+
+    lines.extend([
+        "",
+        "<b>How to use:</b>",
+        "Use this as a shortlist. Open individual stock analysis before making any decision.",
+        "",
+        "<b>What to watch:</b>",
+        "Avoid chasing gaps. Confirm trend, support/resistance, liquidity and news.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return r8_lines(lines)
+
+
+def r8_sort(data, columns, ascending):
+    available_cols = []
+    available_asc = []
+
+    for col, asc in zip(columns, ascending):
+        if col in data.columns:
+            available_cols.append(col)
+            available_asc.append(asc)
+
+    if not available_cols:
+        return data
+
+    return data.sort_values(available_cols, ascending=available_asc)
+
+
+def r8_top(df):
+    data = r8_prepare_df(df)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+
+    data = r8_sort(data, [score_col, risk_col], [False, True])
+
+    return r8_list_message(
+        "📊 Top Ideas",
+        "Highest ranked names from the latest scan, with risk used as a secondary check.",
+        "Sorted by final conviction score, then lower risk penalty.",
+        data,
+        mode="general",
+    )
+
+
+def r8_swing(df):
+    data = r8_prepare_df(df)
+    tech_col = r8_col(data, "technical_score", [], 0)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    rsi_col = r8_col(data, "rsi", [], 0)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+
+    filtered = data[
+        (data[rsi_col].between(35, 70))
+        &
+        (data[risk_col] <= 18)
+    ]
+
+    filtered = r8_sort(filtered, [tech_col, score_col, risk_col], [False, False, True])
+
+    return r8_list_message(
+        "⚡ Swing Candidates",
+        "Short-term candidates with acceptable RSI and controlled risk penalty.",
+        "RSI 35–70, risk penalty ≤ 18, sorted by technical and conviction strength.",
+        filtered,
+        mode="general",
+    )
+
+
+def r8_low(df):
+    data = r8_prepare_df(df)
+    low_col = r8_col(data, "distance_pct", [], 0)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+
+    filtered = data[data[low_col] >= 0]
+    filtered = r8_sort(filtered, [low_col, score_col, risk_col], [True, False, True])
+
+    return r8_list_message(
+        "📉 52W Low Watch",
+        "Stocks closer to their 52-week low area. These may be value setups or falling knives.",
+        "Sorted by distance from 52W low, then conviction score.",
+        filtered,
+        mode="range",
+    )
+
+
+def r8_high(df):
+    data = r8_prepare_df(df)
+    high_col = r8_col(data, "distance_from_high_pct", [], 0)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    tech_col = r8_col(data, "technical_score", [], 0)
+
+    filtered = data[data[high_col] >= 0]
+    filtered = r8_sort(filtered, [high_col, score_col, tech_col], [True, False, False])
+
+    return r8_list_message(
+        "🚀 Momentum / 52W High Watch",
+        "Stocks closer to strength zones. Good for momentum watch, risky for chasing.",
+        "Sorted by closeness to 52W high, then conviction and technical score.",
+        filtered,
+        mode="range",
+    )
+
+
+def r8_risk(df):
+    data = r8_prepare_df(df)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+
+    filtered = data[data[risk_col] > 0]
+    filtered = r8_sort(filtered, [risk_col, score_col], [False, True])
+
+    return r8_list_message(
+        "⚠️ Risk / Avoid Watch",
+        "Names with elevated risk penalty or weaker scan characteristics.",
+        "Sorted by highest risk penalty first.",
+        filtered,
+        mode="general",
+    )
+
+
+def r8_range_list(df):
+    data = r8_prepare_df(df)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    low_col = r8_col(data, "distance_pct", [], 0)
+    high_col = r8_col(data, "distance_from_high_pct", [], 0)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+
+    if "range_score" in data.columns:
+        data["range_score"] = pd.to_numeric(data["range_score"], errors="coerce").fillna(0)
+        filtered = r8_sort(data, ["range_score", score_col, risk_col], [False, False, True])
+        logic = "Sorted by range score, conviction and lower risk."
+    else:
+        filtered = data[
+            (data[low_col] >= 0)
+            &
+            (data[high_col] >= 0)
+            &
+            (data[risk_col] <= 20)
+        ]
+        filtered = r8_sort(filtered, [score_col, risk_col], [False, True])
+        logic = "Range-compatible names with available 52W low/high distance and controlled risk."
+
+    return r8_list_message(
+        "📦 Range Bound Opportunities",
+        "Potential range or mean-reversion candidates from the latest scan.",
+        logic,
+        filtered,
+        mode="range",
+    )
+
+
+def r8_range_symbol(df, symbol):
+    row, found = r8_find_row(df, symbol)
+
+    if row is None:
+        return r8_lines([
+            "<b>📦 Range Analysis</b>",
+            "",
+            f"I could not find exact stock: <b>{escape_html(symbol)}</b>",
+            "",
+            "Try exact NSE symbol like RECLTD, PFC, RELIANCE.",
+            "",
+            "<b>How to use:</b>",
+            "Submit an exact NSE symbol from the WebApp searchable dropdown.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    return r8_stock_detail(row, mode="range")
+
+
+def r8_why(df, symbol):
+    row, found = r8_find_row(df, symbol)
+
+    if row is None:
+        return r8_lines([
+            "<b>🔍 Stock Analysis</b>",
+            "",
+            f"I could not find exact stock: <b>{escape_html(symbol)}</b>",
+            "",
+            "Try exact NSE symbol like RECLTD, PFC, RELIANCE.",
+            "",
+            "<b>How to use:</b>",
+            "Submit an exact NSE symbol from the WebApp searchable dropdown.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    return r8_stock_detail(row, mode="why")
+
+
+def r8_compare(df, a, b):
+    row_a, sym_a = r8_find_row(df, a)
+    row_b, sym_b = r8_find_row(df, b)
+
+    if row_a is None or row_b is None:
+        return r8_lines([
+            "<b>⚖️ Compare Stocks</b>",
+            "",
+            "I need two exact valid symbols.",
+            "",
+            "Examples:",
+            "RECLTD PFC",
+            "RELIANCE TCS",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    metrics = [
+        ("Price", r8_price(row_a.get("current_price", 0)), r8_price(row_b.get("current_price", 0))),
+        ("Final conviction", f"{r8_num(row_a.get('final_conviction_score', row_a.get('score', 0))):.1f}", f"{r8_num(row_b.get('final_conviction_score', row_b.get('score', 0))):.1f}"),
+        ("Technical", f"{r8_num(row_a.get('technical_score', 0)):.1f}", f"{r8_num(row_b.get('technical_score', 0)):.1f}"),
+        ("Active fundamental", f"{r8_num(row_a.get('active_fundamental_score', row_a.get('fundamental_score', 0))):.1f}", f"{r8_num(row_b.get('active_fundamental_score', row_b.get('fundamental_score', 0))):.1f}"),
+        ("Sector-adjusted", f"{r8_num(row_a.get('sector_adjusted_fundamental_score', 0)):.1f}", f"{r8_num(row_b.get('sector_adjusted_fundamental_score', 0)):.1f}"),
+        ("Risk penalty", f"{r8_num(row_a.get('risk_penalty', 0)):.1f}", f"{r8_num(row_b.get('risk_penalty', 0)):.1f}"),
+        ("RSI", f"{r8_num(row_a.get('rsi', 0)):.1f}", f"{r8_num(row_b.get('rsi', 0)):.1f}"),
+    ]
+
+    score_a = r8_num(row_a.get("final_conviction_score", row_a.get("score", 0)))
+    score_b = r8_num(row_b.get("final_conviction_score", row_b.get("score", 0)))
+    risk_a = r8_num(row_a.get("risk_penalty", 0))
+    risk_b = r8_num(row_b.get("risk_penalty", 0))
+
+    winner = sym_a if (score_a - risk_a) >= (score_b - risk_b) else sym_b
+
+    lines = [
+        "<b>⚖️ Compare Stocks</b>",
+        "",
+        f"<b>Quick read:</b> On score-minus-risk basis, <b>{escape_html(winner)}</b> looks stronger in the latest scan.",
+        "",
+        f"<b>{escape_html(sym_a)}</b> vs <b>{escape_html(sym_b)}</b>",
+        "",
+    ]
+
+    for label, va, vb in metrics:
+        lines.append(f"• {label}: <b>{escape_html(sym_a)}</b> {va} | <b>{escape_html(sym_b)}</b> {vb}")
+
+    lines.extend([
+        "",
+        "<b>How to use:</b>",
+        "Prefer the stock with stronger conviction and lower risk only after checking chart and news.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return r8_lines(lines)
+
+
+def r8_sector(df, query):
+    query = r8_text(query)
+
+    if not query:
+        return r8_lines([
+            "<b>🏭 Sector View</b>",
+            "",
+            "Enter a sector or industry like Bank, Power, IT, Auto.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    data = r8_prepare_df(df)
+
+    mask = pd.Series([False] * len(data))
+
+    for col in ["sector", "industry", "sector_bucket"]:
+        if col in data.columns:
+            mask = mask | data[col].astype(str).str.contains(query, case=False, na=False)
+
+    filtered = data[mask]
+    score_col = r8_col(filtered, "final_conviction_score", ["score"], 0) if not filtered.empty else "final_conviction_score"
+    risk_col = r8_col(filtered, "risk_penalty", [], 0) if not filtered.empty else "risk_penalty"
+
+    if not filtered.empty:
+        filtered = r8_sort(filtered, [score_col, risk_col], [False, True])
+
+    return r8_list_message(
+        f"🏭 Sector View: {query.upper()}",
+        f"Best matching names from sector/industry search for '{query}'.",
+        "Filtered by sector, industry or sector bucket, then sorted by conviction and risk.",
+        filtered,
+        mode="general",
+    )
+
+
+def r8_advanced(df, mode):
+    data = r8_prepare_df(df)
+    score_col = r8_col(data, "final_conviction_score", ["score"], 0)
+    active_col = r8_col(data, "active_fundamental_score", ["fundamental_score"], 0)
+    adjusted_col = r8_col(data, "sector_adjusted_fundamental_score", [active_col], 0)
+    risk_col = r8_col(data, "risk_penalty", [], 0)
+    rsi_col = r8_col(data, "rsi", [], 0)
+    low_col = r8_col(data, "distance_pct", [], 0)
+    high_col = r8_col(data, "distance_from_high_pct", [], 0)
+
+    if mode == "high_conviction":
+        filtered = data[data[score_col] >= 60]
+        filtered = r8_sort(filtered, [score_col, risk_col], [False, True])
+        return r8_list_message(
+            "🎯 High Conviction Ideas",
+            "Strongest conviction names from the latest scan.",
+            "Final conviction ≥ 60, sorted by conviction and lower risk.",
+            filtered,
+            mode="general",
+        )
+
+    if mode == "low_risk_quality":
+        filtered = data[(data[active_col] >= 55) & (data[risk_col] <= 10)]
+        filtered = r8_sort(filtered, [active_col, score_col, risk_col], [False, False, True])
+        return r8_list_message(
+            "🛡️ Low Risk Quality",
+            "Quality candidates where risk penalty is controlled.",
+            "Active fundamental ≥ 55 and risk penalty ≤ 10.",
+            filtered,
+            mode="general",
+        )
+
+    if mode == "sector_adjusted_quality":
+        filtered = data[(data[adjusted_col] >= 55) & (data[active_col] >= 50) & (data[risk_col] <= 15)]
+        filtered = r8_sort(filtered, [adjusted_col, score_col, risk_col], [False, False, True])
+        return r8_list_message(
+            "🏭 Sector-Adjusted Quality",
+            "Quality candidates after sector-relative adjustment.",
+            "Sector-adjusted fundamental ≥ 55, active fundamental ≥ 50, risk ≤ 15.",
+            filtered,
+            mode="general",
+        )
+
+    if mode == "range_accumulation":
+        filtered = data[(data[low_col] <= 20) & (data[rsi_col].between(35, 60)) & (data[risk_col] <= 18)]
+        filtered = r8_sort(filtered, [score_col, low_col, risk_col], [False, True, True])
+        return r8_list_message(
+            "📦 Range Accumulation Zone",
+            "Possible lower-range/support watchlist names.",
+            "Distance from low ≤ 20%, RSI 35–60, risk ≤ 18.",
+            filtered,
+            mode="range",
+        )
+
+    if mode == "range_profit_booking":
+        filtered = data[(data[high_col] <= 15) | (data[rsi_col] >= 65)]
+        filtered = r8_sort(filtered, [high_col, score_col], [True, False])
+        return r8_list_message(
+            "💰 Range Profit Booking Zone",
+            "Names closer to upper-range/resistance areas.",
+            "Distance from 52W high ≤ 15% or RSI ≥ 65.",
+            filtered,
+            mode="range",
+        )
+
+    if mode == "range_breakdown_risk":
+        filtered = data[(data[risk_col] >= 15) | ((data[low_col] <= 10) & (data[rsi_col] < 40))]
+        filtered = r8_sort(filtered, [risk_col, score_col], [False, True])
+        return r8_list_message(
+            "⚠️ Range Breakdown Risk",
+            "Caution list for range failure or weak setups.",
+            "Risk ≥ 15 or near low with weak RSI.",
+            filtered,
+            mode="range",
+        )
+
+    return ""
+
+
+def r8_human_handle_command(text, df):
+    raw = r8_text(text)
+    parts = raw.split()
+    command = parts[0].lower() if parts else ""
+    args = parts[1:]
+
+    if command == "/top":
+        return r8_top(df)
+
+    if command == "/swing":
+        return r8_swing(df)
+
+    if command == "/low":
+        return r8_low(df)
+
+    if command == "/high":
+        return r8_high(df)
+
+    if command == "/risk":
+        return r8_risk(df)
+
+    if command == "/range":
+        if args:
+            return r8_range_symbol(df, args[0])
+        return r8_range_list(df)
+
+    if command in ["/why", "/stock"]:
+        if args:
+            return r8_why(df, args[0])
+        return r8_lines([
+            "<b>🔍 Stock Analysis</b>",
+            "",
+            "Please provide a stock symbol.",
+            "Example: /why RECLTD",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    if command == "/compare":
+        if len(args) >= 2:
+            return r8_compare(df, args[0], args[1])
+        return r8_lines([
+            "<b>⚖️ Compare Stocks</b>",
+            "",
+            "Please provide two symbols.",
+            "Example: /compare RECLTD PFC",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    if command == "/sector":
+        return r8_sector(df, " ".join(args))
+
+    if command == "/high_conviction":
+        return r8_advanced(df, "high_conviction")
+
+    if command == "/low_risk_quality":
+        return r8_advanced(df, "low_risk_quality")
+
+    if command == "/sector_adjusted_quality":
+        return r8_advanced(df, "sector_adjusted_quality")
+
+    if command == "/range_accumulation":
+        return r8_advanced(df, "range_accumulation")
+
+    if command == "/range_profit_booking":
+        return r8_advanced(df, "range_profit_booking")
+
+    if command == "/range_breakdown_risk":
+        return r8_advanced(df, "range_breakdown_risk")
+
+    # Performance and watchlist may rely on existing project-specific history/config.
+    if command in ["/performance", "/watchlist", "/basket"]:
+        old_reply = _stockgpt_v8_previous_handle_command(raw, df)
+        return r8_lines([
+            f"<b>{'📈 Performance' if command == '/performance' else '⭐ Watchlist' if command == '/watchlist' else '🧺 Basket View'}</b>",
+            "",
+            "<b>Quick read:</b>",
+            "This view uses the existing StockGPT backend output.",
+            "",
+            old_reply,
+            "",
+            "<b>How to use:</b>",
+            "Use this as a research summary and verify the underlying details before acting.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    return _stockgpt_v8_previous_handle_command(raw, df)
+
+
+_stockgpt_v8_previous_handle_command = handle_command
+
+
+def handle_command(text, df):
+    return r8_human_handle_command(text, df)
+
+
 def main():
     if not TELEGRAM_BOT_TOKEN:
         print("TELEGRAM_BOT_TOKEN missing. Exiting.")

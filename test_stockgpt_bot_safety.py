@@ -195,3 +195,40 @@ for command in quality_commands:
     ), f"Missing usage guidance for {command}"
 
 print("✅ Global reply quality checks passed")
+
+
+# V8 human reply renderer checks
+v8_quality_commands = [
+    "/top",
+    "/range",
+    "/swing",
+    "/low",
+    "/high",
+    "/risk",
+    "/watchlist",
+    "/performance",
+    "/why RECLTD",
+    "/range RECLTD",
+    "/compare RECLTD PFC",
+    "/sector BANK",
+]
+
+for command in [
+    "/high_conviction",
+    "/low_risk_quality",
+    "/sector_adjusted_quality",
+    "/range_accumulation",
+    "/range_profit_booking",
+    "/range_breakdown_risk",
+]:
+    if command in getattr(bot, "COMMANDS", {}):
+        v8_quality_commands.append(command)
+
+for command in v8_quality_commands:
+    reply = bot.handle_command(command, df)
+    assert isinstance(reply, str) and reply.strip(), f"Empty reply for {command}"
+    assert "<b>" in reply, f"Missing HTML structure for {command}"
+    assert "Quick read" in reply, f"Missing Quick read for {command}"
+    assert "Research tool only" in reply, f"Missing disclaimer for {command}"
+
+print("✅ V8 human reply renderer checks passed")
