@@ -1,0 +1,54 @@
+name: Test StockGPT Bot Safety
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/alerts/telegram_bot_commands.py"
+      - "webapp/**"
+      - "test_stockgpt_bot_safety.py"
+      - ".github/workflows/test_stockgpt_bot.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "app/alerts/telegram_bot_commands.py"
+      - "webapp/**"
+      - "test_stockgpt_bot_safety.py"
+      - ".github/workflows/test_stockgpt_bot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-bot-safety:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests
+
+      - name: Compile Telegram bot
+        run: |
+          python -m py_compile app/alerts/telegram_bot_commands.py
+
+      - name: Run StockGPT bot safety tests
+        env:
+          TELEGRAM_BOT_TOKEN: dummy_token_for_tests
+          TELEGRAM_CHAT_ID: "123456789"
+        run: |
+          python test_stockgpt_bot_safety.py
