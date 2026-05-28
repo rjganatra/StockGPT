@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StockGPT</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -236,6 +239,16 @@
       font-size: 12px;
     }
 
+    .version-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
     .footer {
       margin-top: 14px;
       font-size: 12px;
@@ -363,10 +376,14 @@
       </div>
     </div>
 
-    <div class="footer">Research tool only. Not financial advice.</div>
+    <div class="footer">
+      Research tool only. Not financial advice.<br>
+      <span class="version-badge" id="versionBadge">Loading version...</span>
+    </div>
   </div>
 
 <script>
+  const WEBAPP_VERSION = "v202605281357";
   const tg = window.Telegram?.WebApp;
   if (tg) {
     tg.ready();
@@ -862,6 +879,11 @@
   setupCombo(sectorInput, sectorList, () => sectorSuggestions, "sector");
   setupCombo(symbolA, symbolAList, () => stockSymbols, "stock");
   setupCombo(symbolB, symbolBList, () => stockSymbols, "stock");
+
+  const versionBadge = document.getElementById("versionBadge");
+  if (versionBadge) {
+    versionBadge.textContent = "WebApp " + WEBAPP_VERSION;
+  }
 
   async function boot() {
     await loadFavorites();

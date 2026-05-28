@@ -11,6 +11,8 @@ from datetime import datetime
 # =========================
 
 
+TELEGRAM_WEBAPP_VERSION = "v202605281357"
+
 TELEGRAM_WEBAPP_URL = os.getenv(
     "TELEGRAM_WEBAPP_URL",
     "https://rjganatra.github.io/StockGPT/"
@@ -19,6 +21,12 @@ TELEGRAM_WEBAPP_URL = os.getenv(
 
 def stockgpt_webapp_url(action=""):
     base = TELEGRAM_WEBAPP_URL.rstrip("/")
+    version = TELEGRAM_WEBAPP_VERSION
+
+    if not action:
+        return base + "/?v=" + version
+
+    return base + "/?action=" + str(action).strip() + "&v=" + version
 
     if not action:
         return base + "/"
