@@ -82,6 +82,11 @@
       outline: none;
     }
 
+    select {
+      appearance: auto;
+      -webkit-appearance: menulist;
+    }
+
     select:focus, input:focus {
       border-color: var(--accent2);
       box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
@@ -253,6 +258,20 @@
         <div class="small-note" id="smallNote"></div>
       </div>
 
+      <div id="sectorBox" class="hidden">
+        <label for="sectorSelect">Choose sector / industry</label>
+        <select id="sectorSelect"></select>
+
+        <div id="customSectorBox" class="hidden">
+          <label for="customSectorInput">Custom sector / industry</label>
+          <input id="customSectorInput" autocomplete="off" placeholder="Example: Defence, Jewellery, Packaging" />
+        </div>
+
+        <div class="chips-title">Sector suggestions</div>
+        <div class="chips" id="sectorChips"></div>
+        <div class="small-note">This is a real mobile dropdown, not a stock suggestion dropdown.</div>
+      </div>
+
       <div id="compareBox" class="hidden">
         <div class="grid">
           <div>
@@ -293,25 +312,17 @@
 
   let favoriteSymbols = ["RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK", "INFY", "SBIN", "AXISBANK", "ITC"];
   let favoritePairs = [["RECLTD", "PFC"], ["HDFCBANK", "ICICIBANK"], ["RELIANCE", "TCS"], ["INFY", "TCS"]];
-  let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods"];
-  let performanceSuggestions = [
-    "range",
-    "swing",
-    "risk",
-    "top",
-    "low",
-    "fundamental",
-    "relative",
-    "overall",
-    "avoid",
-    "conviction",
-    "52w low",
-    "sector adjusted"
-  ];
+  let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods", "Infrastructure", "Realty", "Telecom", "Cement", "Chemical", "Consumer", "Healthcare", "Oil & Gas"];
+  let performanceSuggestions = ["range", "swing", "risk", "avoid", "top", "conviction", "low", "52w low", "fundamental", "relative", "sector adjusted", "overall"];
   let stockSymbols = [...favoriteSymbols];
 
   const actionEl = document.getElementById("action");
   const singleBox = document.getElementById("singleBox");
+  const sectorBox = document.getElementById("sectorBox");
+  const sectorSelect = document.getElementById("sectorSelect");
+  const customSectorBox = document.getElementById("customSectorBox");
+  const customSectorInput = document.getElementById("customSectorInput");
+  const sectorChips = document.getElementById("sectorChips");
   const compareBox = document.getElementById("compareBox");
   const singleInput = document.getElementById("singleInput");
   const singleLabel = document.getElementById("singleLabel");
@@ -351,12 +362,78 @@
     container.appendChild(btn);
   }
 
+  function parseCSVLine(line) {
+    const out = [];
+    let cur = "";
+    let quote = false;
+
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+
+      if (c === '"') {
+        quote = !quote;
+      } else if (c === "," && !quote) {
+        out.push(cur);
+        cur = "";
+      } else {
+        cur += c;
+      }
+    }
+
+    out.push(cur);
+    return out.map(x => x.replace(/^"|"$/g, "").trim());
+  }
+
+  function uniqueSorted(values) {
+    const clean = [];
+    values.forEach(v => {
+      const text = String(v || "").trim();
+      if (text && text.toLowerCase() !== "unknown" && !clean.includes(text)) {
+        clean.push(text);
+      }
+    });
+    return clean.sort((a, b) => a.localeCompare(b));
+  }
+
   function refreshDatalist() {
     symbolList.innerHTML = "";
     stockSymbols.slice(0, 1000).forEach(symbol => {
       const option = document.createElement("option");
       option.value = symbol;
       symbolList.appendChild(option);
+    });
+  }
+
+  function refreshSectorDropdown() {
+    sectorSelect.innerHTML = "";
+
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Select sector / industry";
+    sectorSelect.appendChild(placeholder);
+
+    uniqueSorted(sectorSuggestions).forEach(sector => {
+      const option = document.createElement("option");
+      option.value = sector;
+      option.textContent = sector;
+      sectorSelect.appendChild(option);
+    });
+
+    const custom = document.createElement("option");
+    custom.value = "__custom__";
+    custom.textContent = "Other / Custom";
+    sectorSelect.appendChild(custom);
+  }
+
+  function refreshSectorChips() {
+    clearChips(sectorChips);
+
+    uniqueSorted(sectorSuggestions).slice(0, 18).forEach(sector => {
+      addChip(sectorChips, sector, () => {
+        sectorSelect.value = sector;
+        customSectorBox.classList.add("hidden");
+        customSectorInput.value = "";
+      }, "orange");
     });
   }
 
@@ -415,20 +492,7 @@
         }, "primary");
       });
 
-      smallNote.textContent = "Use a performance signal shortcut, or type/select a stock from the dropdown.";
-      return;
-    }
-
-    if (action === "sector") {
-      chipsTitle.textContent = "Sector / industry suggestions";
-      sectorSuggestions.forEach(sector => {
-        addChip(contextChips, sector, () => {
-          singleInput.value = sector;
-          singleInput.focus();
-        }, "orange");
-      });
-
-      smallNote.textContent = "Sector search has no stock dropdown. It is sent only as a sector/industry query.";
+      smallNote.textContent = "Use a performance shortcut, or type/select a stock from the dropdown.";
       return;
     }
 
@@ -439,8 +503,9 @@
     const action = actionEl.value;
     errorEl.textContent = "";
 
+    singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || needsNoInput(action));
+    sectorBox.classList.toggle("hidden", action !== "sector");
     compareBox.classList.toggle("hidden", action !== "compare");
-    singleBox.classList.toggle("hidden", action === "compare" || needsNoInput(action));
 
     if (action === "stock_analysis") {
       singleLabel.textContent = "Which stock?";
@@ -454,23 +519,36 @@
       singleLabel.textContent = "Stock or signal";
       singleInput.placeholder = "Example: RECLTD, range, swing, risk, top";
       singleInput.setAttribute("list", "symbolList");
-    } else if (action === "sector") {
-      singleLabel.textContent = "Sector or industry";
-      singleInput.placeholder = "Example: Bank, Power, IT, Auto";
-      singleInput.removeAttribute("list");
     } else {
       singleInput.removeAttribute("list");
     }
 
     refreshContextChips(action);
     refreshCompareChips();
+    refreshSectorDropdown();
+    refreshSectorChips();
   }
+
+  sectorSelect.addEventListener("change", () => {
+    if (sectorSelect.value === "__custom__") {
+      customSectorBox.classList.remove("hidden");
+      customSectorInput.focus();
+    } else {
+      customSectorBox.classList.add("hidden");
+      customSectorInput.value = "";
+    }
+  });
 
   document.querySelectorAll("[data-action]").forEach(btn => {
     btn.addEventListener("click", () => {
       actionEl.value = btn.dataset.action;
       refreshForm();
-      singleInput.focus();
+
+      if (btn.dataset.action === "sector") {
+        sectorSelect.focus();
+      } else {
+        singleInput.focus();
+      }
     });
   });
 
@@ -503,7 +581,7 @@
     }
   }
 
-  async function loadSymbols() {
+  async function loadScanData() {
     try {
       const response = await fetch(REPO_RAW_SCAN, { cache: "no-store" });
       if (!response.ok) throw new Error("latest_scan fetch failed");
@@ -513,23 +591,39 @@
 
       if (lines.length < 2) throw new Error("latest_scan empty");
 
-      const headers = lines[0].split(",");
-      const symbolIndex = headers.findIndex(h => h.trim().replace(/^"|"$/g, "") === "symbol");
-
-      if (symbolIndex < 0) throw new Error("symbol column not found");
+      const headers = parseCSVLine(lines[0]).map(h => h.trim().replace(/^"|"$/g, ""));
+      const symbolIndex = headers.indexOf("symbol");
+      const sectorIndex = headers.indexOf("sector");
+      const industryIndex = headers.indexOf("industry");
 
       const symbols = [];
-      for (let i = 1; i < lines.length; i++) {
-        const parts = lines[i].split(",");
-        const symbol = (parts[symbolIndex] || "").replace(/^"|"$/g, "").trim().toUpperCase();
+      const sectors = [...sectorSuggestions];
 
-        if (symbol && !symbols.includes(symbol)) {
-          symbols.push(symbol);
+      for (let i = 1; i < lines.length; i++) {
+        const parts = parseCSVLine(lines[i]);
+
+        if (symbolIndex >= 0) {
+          const symbol = String(parts[symbolIndex] || "").trim().toUpperCase();
+          if (symbol && !symbols.includes(symbol)) symbols.push(symbol);
+        }
+
+        if (sectorIndex >= 0) {
+          const sector = String(parts[sectorIndex] || "").trim();
+          if (sector && sector.toLowerCase() !== "unknown" && !sectors.includes(sector)) sectors.push(sector);
+        }
+
+        if (industryIndex >= 0) {
+          const industry = String(parts[industryIndex] || "").trim();
+          if (industry && industry.toLowerCase() !== "unknown" && !sectors.includes(industry)) sectors.push(industry);
         }
       }
 
       if (symbols.length > 50) {
         stockSymbols = symbols.sort();
+      }
+
+      if (sectors.length > sectorSuggestions.length) {
+        sectorSuggestions = uniqueSorted(sectors);
       }
     } catch (e) {
       stockSymbols = [...favoriteSymbols];
@@ -562,6 +656,24 @@
       };
     }
 
+    if (action === "sector") {
+      let sectorValue = sectorSelect.value;
+
+      if (sectorValue === "__custom__") {
+        sectorValue = customSectorInput.value.trim();
+      }
+
+      if (!sectorValue) {
+        throw new Error("Select or enter a sector / industry.");
+      }
+
+      return {
+        source: "telegram_webapp",
+        action,
+        query: sectorValue
+      };
+    }
+
     const value = singleInput.value.trim();
 
     if (!value) {
@@ -573,14 +685,6 @@
         source: "telegram_webapp",
         action,
         symbol: value
-      };
-    }
-
-    if (action === "sector") {
-      return {
-        source: "telegram_webapp",
-        action,
-        query: value
       };
     }
 
@@ -611,8 +715,10 @@
 
   async function boot() {
     await loadFavorites();
-    await loadSymbols();
+    await loadScanData();
     refreshDatalist();
+    refreshSectorDropdown();
+    refreshSectorChips();
     refreshForm();
   }
 

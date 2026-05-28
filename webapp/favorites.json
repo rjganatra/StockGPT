@@ -43,15 +43,30 @@
     "Pharma",
     "Metal",
     "Energy",
-    "Capital Goods"
+    "Capital Goods",
+    "Infrastructure",
+    "Realty",
+    "Telecom",
+    "Cement",
+    "Chemical",
+    "Consumer",
+    "Healthcare",
+    "Oil & Gas",
+    "Textile",
+    "Media"
   ],
   "performance_shortcuts": [
     "range",
     "swing",
     "risk",
+    "avoid",
     "top",
+    "conviction",
     "low",
+    "52w low",
     "fundamental",
-    "relative"
+    "relative",
+    "sector adjusted",
+    "overall"
   ]
 }
