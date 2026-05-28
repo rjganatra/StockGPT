@@ -1,0 +1,57 @@
+{
+  "favorite_symbols": [
+    "RECLTD",
+    "PFC",
+    "RELIANCE",
+    "TCS",
+    "HDFCBANK",
+    "ICICIBANK",
+    "INFY",
+    "SBIN",
+    "AXISBANK",
+    "ITC"
+  ],
+  "favorite_pairs": [
+    [
+      "RECLTD",
+      "PFC"
+    ],
+    [
+      "HDFCBANK",
+      "ICICIBANK"
+    ],
+    [
+      "RELIANCE",
+      "TCS"
+    ],
+    [
+      "INFY",
+      "TCS"
+    ],
+    [
+      "SBIN",
+      "BANKBARODA"
+    ]
+  ],
+  "favorite_sectors": [
+    "Bank",
+    "Finance",
+    "Power",
+    "IT",
+    "Auto",
+    "FMCG",
+    "Pharma",
+    "Metal",
+    "Energy",
+    "Capital Goods"
+  ],
+  "performance_shortcuts": [
+    "range",
+    "swing",
+    "risk",
+    "top",
+    "low",
+    "fundamental",
+    "relative"
+  ]
+}

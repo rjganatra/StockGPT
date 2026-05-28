@@ -15,8 +15,8 @@
       --border: #334155;
       --accent: #22c55e;
       --accent2: #38bdf8;
-      --danger: #f97316;
       --chip: #020617;
+      --warn: #f97316;
     }
 
     * { box-sizing: border-box; }
@@ -25,7 +25,10 @@
       margin: 0;
       min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(145deg, #020617, #0f172a);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.22), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(34,197,94,0.18), transparent 28%),
+        linear-gradient(145deg, #020617, #0f172a);
       color: var(--text);
       padding: 18px;
     }
@@ -40,9 +43,10 @@
     }
 
     h1 {
-      font-size: 28px;
-      line-height: 1.1;
+      font-size: 30px;
+      line-height: 1.05;
       margin: 0 0 8px;
+      letter-spacing: -0.03em;
     }
 
     p {
@@ -54,9 +58,10 @@
     .card {
       background: rgba(15, 23, 42, 0.94);
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 16px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
     }
 
     label {
@@ -69,8 +74,8 @@
     select, input {
       width: 100%;
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 13px 14px;
+      border-radius: 15px;
+      padding: 14px 14px;
       background: #020617;
       color: var(--text);
       font-size: 16px;
@@ -79,6 +84,7 @@
 
     select:focus, input:focus {
       border-color: var(--accent2);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
     }
 
     .grid {
@@ -94,7 +100,7 @@
     .chips-title {
       font-size: 12px;
       color: var(--muted);
-      margin-top: 12px;
+      margin-top: 14px;
       margin-bottom: 8px;
     }
 
@@ -116,19 +122,27 @@
     }
 
     .chip.primary {
-      border-color: rgba(56, 189, 248, 0.65);
+      border-color: rgba(56, 189, 248, 0.7);
+    }
+
+    .chip.green {
+      border-color: rgba(34, 197, 94, 0.7);
+    }
+
+    .chip.orange {
+      border-color: rgba(249, 115, 22, 0.75);
     }
 
     .submit {
       width: 100%;
       border: 0;
-      border-radius: 16px;
+      border-radius: 17px;
       padding: 15px;
       margin-top: 18px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       color: #020617;
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 850;
       cursor: pointer;
     }
 
@@ -158,6 +172,24 @@
       font-size: 12px;
     }
 
+    .pillbar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: rgba(2, 6, 23, 0.65);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px;
+      font-size: 13px;
+      text-align: center;
+      cursor: pointer;
+    }
+
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f8fafc;
@@ -172,7 +204,7 @@
         background: linear-gradient(145deg, #f8fafc, #e0f2fe);
       }
 
-      .card, select, input {
+      .card, select, input, .pill {
         background: white;
       }
     }
@@ -182,7 +214,7 @@
   <div class="wrap">
     <div class="hero">
       <h1>🧠 StockGPT</h1>
-      <p>Choose one task, enter the required query once, submit, then run your bot shortcut once.</p>
+      <p>One form. One submit. One bot run.</p>
     </div>
 
     <div class="card">
@@ -202,6 +234,13 @@
         <option value="watchlist">⭐ Watchlist</option>
         <option value="performance">📈 Overall Performance</option>
       </select>
+
+      <div class="pillbar">
+        <button class="pill" data-action="stock_analysis">Analyse</button>
+        <button class="pill" data-action="stock_range">Range</button>
+        <button class="pill" data-action="compare">Compare</button>
+        <button class="pill" data-action="sector">Sector</button>
+      </div>
 
       <div id="singleBox">
         <label id="singleLabel" for="singleInput">Stock / Query</label>
@@ -250,33 +289,13 @@
   }
 
   const REPO_RAW_SCAN = "https://raw.githubusercontent.com/rjganatra/StockGPT/main/data/scans/latest_scan.csv";
+  const FAVORITES_URL = "favorites.json";
 
-  const fallbackSymbols = [
-    "RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK",
-    "INFY", "SBIN", "AXISBANK", "KOTAKBANK", "ITC", "TATAMOTORS",
-    "TATASTEEL", "BAJFINANCE", "ASIANPAINT", "PIDILITIND", "DMART"
-  ];
-
-  const sectorSuggestions = [
-    "Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma",
-    "Metal", "Cement", "Chemical", "Energy", "Consumer", "Infrastructure",
-    "Realty", "Telecom", "Capital Goods"
-  ];
-
-  const performanceSuggestions = [
-    "range", "swing", "risk", "top", "low", "fundamental", "relative"
-  ];
-
-  const comparePairs = [
-    ["RECLTD", "PFC"],
-    ["RELIANCE", "TCS"],
-    ["HDFCBANK", "ICICIBANK"],
-    ["SBIN", "BANKBARODA"],
-    ["INFY", "TCS"],
-    ["TATAMOTORS", "M&M"]
-  ];
-
-  let stockSymbols = [...fallbackSymbols];
+  let favoriteSymbols = ["RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK", "INFY", "SBIN", "AXISBANK", "ITC"];
+  let favoritePairs = [["RECLTD", "PFC"], ["HDFCBANK", "ICICIBANK"], ["RELIANCE", "TCS"], ["INFY", "TCS"]];
+  let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods"];
+  let performanceSuggestions = ["range", "swing", "risk", "top", "low", "fundamental", "relative"];
+  let stockSymbols = [...favoriteSymbols];
 
   const actionEl = document.getElementById("action");
   const singleBox = document.getElementById("singleBox");
@@ -310,10 +329,10 @@
     container.innerHTML = "";
   }
 
-  function addChip(container, label, onClick, primary=false) {
+  function addChip(container, label, onClick, tone="primary") {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "chip" + (primary ? " primary" : "");
+    btn.className = "chip " + tone;
     btn.textContent = label;
     btn.addEventListener("click", onClick);
     container.appendChild(btn);
@@ -321,26 +340,32 @@
 
   function refreshDatalist() {
     symbolList.innerHTML = "";
-
-    stockSymbols.slice(0, 700).forEach(symbol => {
+    stockSymbols.slice(0, 1000).forEach(symbol => {
       const option = document.createElement("option");
       option.value = symbol;
       symbolList.appendChild(option);
     });
   }
 
-  function stockChips() {
-    return stockSymbols.length ? stockSymbols.slice(0, 10) : fallbackSymbols;
+  function bestStockChips() {
+    const merged = [...favoriteSymbols];
+
+    for (const symbol of stockSymbols) {
+      if (!merged.includes(symbol)) merged.push(symbol);
+      if (merged.length >= 12) break;
+    }
+
+    return merged.slice(0, 12);
   }
 
   function refreshCompareChips() {
     clearChips(compareChips);
 
-    comparePairs.forEach(([a, b]) => {
+    favoritePairs.forEach(([a, b]) => {
       addChip(compareChips, `${a} vs ${b}`, () => {
         symbolA.value = a;
         symbolB.value = b;
-      }, true);
+      }, "primary");
     });
   }
 
@@ -349,34 +374,32 @@
     smallNote.textContent = "";
 
     if (action === "stock_analysis" || action === "stock_range") {
-      chipsTitle.textContent = "Popular stocks";
-      stockChips().forEach(symbol => {
+      chipsTitle.textContent = "Favorite stocks";
+      bestStockChips().forEach(symbol => {
         addChip(contextChips, symbol, () => {
           singleInput.value = symbol;
           singleInput.focus();
-        }, true);
+        }, "primary");
       });
 
-      smallNote.textContent = stockSymbols.length > fallbackSymbols.length
-        ? "Symbol suggestions loaded from latest scan."
-        : "Using fallback symbols. You can still type any NSE symbol.";
+      smallNote.textContent = "Only stock suggestions are shown here.";
       return;
     }
 
     if (action === "stock_performance") {
-      chipsTitle.textContent = "Signal shortcuts or stock symbols";
+      chipsTitle.textContent = "Performance shortcuts";
       performanceSuggestions.forEach(item => {
         addChip(contextChips, item, () => {
           singleInput.value = item;
           singleInput.focus();
-        }, true);
+        }, "green");
       });
 
-      stockChips().slice(0, 6).forEach(symbol => {
+      bestStockChips().slice(0, 6).forEach(symbol => {
         addChip(contextChips, symbol, () => {
           singleInput.value = symbol;
           singleInput.focus();
-        });
+        }, "primary");
       });
 
       smallNote.textContent = "Use a signal like range/swing/risk, or type a stock symbol.";
@@ -389,10 +412,10 @@
         addChip(contextChips, sector, () => {
           singleInput.value = sector;
           singleInput.focus();
-        }, true);
+        }, "orange");
       });
 
-      smallNote.textContent = "Sector search will not be treated as a stock symbol.";
+      smallNote.textContent = "Sector inputs are sent as sector queries, not stock symbols.";
       return;
     }
 
@@ -424,32 +447,59 @@
     refreshCompareChips();
   }
 
+  document.querySelectorAll("[data-action]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      actionEl.value = btn.dataset.action;
+      refreshForm();
+      singleInput.focus();
+    });
+  });
+
   actionEl.addEventListener("change", refreshForm);
+
+  async function loadFavorites() {
+    try {
+      const response = await fetch(FAVORITES_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("favorites not available");
+
+      const data = await response.json();
+
+      if (Array.isArray(data.favorite_symbols) && data.favorite_symbols.length) {
+        favoriteSymbols = data.favorite_symbols.map(x => String(x).toUpperCase().trim()).filter(Boolean);
+      }
+
+      if (Array.isArray(data.favorite_pairs) && data.favorite_pairs.length) {
+        favoritePairs = data.favorite_pairs;
+      }
+
+      if (Array.isArray(data.favorite_sectors) && data.favorite_sectors.length) {
+        sectorSuggestions = data.favorite_sectors;
+      }
+
+      if (Array.isArray(data.performance_shortcuts) && data.performance_shortcuts.length) {
+        performanceSuggestions = data.performance_shortcuts;
+      }
+    } catch (e) {
+      // fallback already present
+    }
+  }
 
   async function loadSymbols() {
     try {
       const response = await fetch(REPO_RAW_SCAN, { cache: "no-store" });
-
-      if (!response.ok) {
-        throw new Error("latest_scan fetch failed");
-      }
+      if (!response.ok) throw new Error("latest_scan fetch failed");
 
       const csv = await response.text();
       const lines = csv.split(/\r?\n/).filter(Boolean);
 
-      if (lines.length < 2) {
-        throw new Error("latest_scan empty");
-      }
+      if (lines.length < 2) throw new Error("latest_scan empty");
 
       const headers = lines[0].split(",");
       const symbolIndex = headers.findIndex(h => h.trim().replace(/^"|"$/g, "") === "symbol");
 
-      if (symbolIndex < 0) {
-        throw new Error("symbol column not found");
-      }
+      if (symbolIndex < 0) throw new Error("symbol column not found");
 
       const symbols = [];
-
       for (let i = 1; i < lines.length; i++) {
         const parts = lines[i].split(",");
         const symbol = (parts[symbolIndex] || "").replace(/^"|"$/g, "").trim().toUpperCase();
@@ -461,12 +511,9 @@
 
       if (symbols.length > 50) {
         stockSymbols = symbols.sort();
-        refreshDatalist();
-        refreshForm();
       }
     } catch (e) {
-      refreshDatalist();
-      refreshForm();
+      stockSymbols = [...favoriteSymbols];
     }
   }
 
@@ -543,9 +590,14 @@
     }
   });
 
-  refreshDatalist();
-  refreshForm();
-  loadSymbols();
+  async function boot() {
+    await loadFavorites();
+    await loadSymbols();
+    refreshDatalist();
+    refreshForm();
+  }
+
+  boot();
 </script>
 </body>
 </html>
