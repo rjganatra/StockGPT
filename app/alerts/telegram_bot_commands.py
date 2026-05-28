@@ -358,6 +358,17 @@ def parse_chat_ids(value):
 
 ALLOWED_CHAT_IDS = parse_chat_ids(TELEGRAM_CHAT_ID)
 
+def safe_chat_ref(chat_id):
+    """
+    Privacy-safe chat reference for logs.
+    Never prints or stores raw Telegram chat ID.
+    """
+    salt = TELEGRAM_BOT_TOKEN or "stockgpt"
+    raw = f"{salt}:{str(chat_id)}"
+    return "chat_" + hashlib.sha256(raw.encode("utf-8")).hexdigest()[:10]
+
+
+
 STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 
