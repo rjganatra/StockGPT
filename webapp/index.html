@@ -294,7 +294,20 @@
   let favoriteSymbols = ["RECLTD", "PFC", "RELIANCE", "TCS", "HDFCBANK", "ICICIBANK", "INFY", "SBIN", "AXISBANK", "ITC"];
   let favoritePairs = [["RECLTD", "PFC"], ["HDFCBANK", "ICICIBANK"], ["RELIANCE", "TCS"], ["INFY", "TCS"]];
   let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods"];
-  let performanceSuggestions = ["range", "swing", "risk", "top", "low", "fundamental", "relative"];
+  let performanceSuggestions = [
+    "range",
+    "swing",
+    "risk",
+    "top",
+    "low",
+    "fundamental",
+    "relative",
+    "overall",
+    "avoid",
+    "conviction",
+    "52w low",
+    "sector adjusted"
+  ];
   let stockSymbols = [...favoriteSymbols];
 
   const actionEl = document.getElementById("action");
@@ -395,14 +408,14 @@
         }, "green");
       });
 
-      bestStockChips().slice(0, 6).forEach(symbol => {
+      bestStockChips().slice(0, 8).forEach(symbol => {
         addChip(contextChips, symbol, () => {
           singleInput.value = symbol;
           singleInput.focus();
         }, "primary");
       });
 
-      smallNote.textContent = "Use a signal like range/swing/risk, or type a stock symbol.";
+      smallNote.textContent = "Use a performance signal shortcut, or type/select a stock from the dropdown.";
       return;
     }
 
@@ -415,7 +428,7 @@
         }, "orange");
       });
 
-      smallNote.textContent = "Sector inputs are sent as sector queries, not stock symbols.";
+      smallNote.textContent = "Sector search has no stock dropdown. It is sent only as a sector/industry query.";
       return;
     }
 
@@ -432,15 +445,21 @@
     if (action === "stock_analysis") {
       singleLabel.textContent = "Which stock?";
       singleInput.placeholder = "Example: RECLTD";
+      singleInput.setAttribute("list", "symbolList");
     } else if (action === "stock_range") {
       singleLabel.textContent = "Which stock for range analysis?";
       singleInput.placeholder = "Example: RECLTD";
+      singleInput.setAttribute("list", "symbolList");
     } else if (action === "stock_performance") {
       singleLabel.textContent = "Stock or signal";
-      singleInput.placeholder = "Example: RECLTD, range, swing, risk";
+      singleInput.placeholder = "Example: RECLTD, range, swing, risk, top";
+      singleInput.setAttribute("list", "symbolList");
     } else if (action === "sector") {
       singleLabel.textContent = "Sector or industry";
       singleInput.placeholder = "Example: Bank, Power, IT, Auto";
+      singleInput.removeAttribute("list");
+    } else {
+      singleInput.removeAttribute("list");
     }
 
     refreshContextChips(action);
