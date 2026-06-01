@@ -249,6 +249,22 @@
       font-size: 11px;
     }
 
+    .combo-builder-help {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .chip.selected {
+      background: linear-gradient(135deg, rgba(34,197,94,0.25), rgba(56,189,248,0.20));
+      border-color: rgba(34,197,94,0.9);
+      font-weight: 700;
+    }
+
     .footer {
       margin-top: 14px;
       font-size: 12px;
@@ -315,6 +331,8 @@
       >📊 Performance: Top</option>
         <option value="range_plan">📦 Range Plan</option>
         <option value=>📊 Combo Signal Performance</option>
+        <option value=>🧩 Combo Strategy Builder</option>
+        <option value="performance_combo">🧩 Combo Strategy Builder</option>
 </select>
 
       <div class="pillbar">
@@ -417,7 +435,7 @@
   </div>
 
 <script>
-  const WEBAPP_VERSION = "v202605281357";
+  const WEBAPP_VERSION = "v202606011908";
   const tg = window.Telegram?.WebApp;
   if (tg) {
     tg.ready();
@@ -741,7 +759,7 @@
     ],
     behavior: [
       ["bearish", "Bearish"],
-      ["bullish_or_stable", "Bullish/Stable"],
+      ["bullish_or_stable", "Bullish / Stable"],
       ["watchable_rsi", "Watchable RSI"],
       ["oversold_rsi", "Oversold RSI"],
       ["hot_rsi", "Hot RSI"]
@@ -775,38 +793,47 @@
     } else {
       selectedComboFactors.push(key);
     }
+
     refreshComboBuilder();
   }
 
   function renderComboGroup(container, items, tone) {
     if (!container) return;
+
     clearChips(container);
 
     items.forEach(([key, label]) => {
       const active = selectedComboFactors.includes(key);
-      addChip(container, active ? "✓ " + label : label, () => {
+      const btnLabel = active ? "✓ " + label : label;
+
+      addChip(container, btnLabel, () => {
         toggleComboFactor(key);
-      }, active ? "green" : tone);
+      }, active ? "green selected" : tone);
     });
   }
 
   function refreshComboSelected() {
     if (!comboSelectedChips) return;
+
     clearChips(comboSelectedChips);
 
     if (!selectedComboFactors.length) {
       addChip(comboSelectedChips, "Overview only", () => {}, "primary");
-      if (comboNote) comboNote.textContent = "No condition selected: submit will show combo overview.";
+      if (comboNote) {
+        comboNote.textContent = "No condition selected: submit will show combo overview.";
+      }
       return;
     }
 
     selectedComboFactors.forEach(key => {
       addChip(comboSelectedChips, "× " + comboLabel(key), () => {
         toggleComboFactor(key);
-      }, "green");
+      }, "green selected");
     });
 
-    if (comboNote) comboNote.textContent = "Submit will test this exact multi-condition recipe.";
+    if (comboNote) {
+      comboNote.textContent = "Selected " + selectedComboFactors.length + " condition(s). Submit when ready.";
+    }
   }
 
   function refreshComboBuilder() {
@@ -826,6 +853,9 @@
     compareBox.classList.toggle("hidden", action !== "compare");
     if (comboBuilderBox) {
       comboBuilderBox.classList.toggle("hidden", action !== "performance_combo");
+    }
+    if (comboBuilderBox) {
+      comboBuilderBox.classList.toggle("hidden", action !== );
     }
     if (rangePlanBox) {
       rangePlanBox.classList.toggle("hidden", action !== "range_plan");
@@ -964,7 +994,7 @@
       };
     }
 
-    if (action === "performance_combo") {
+    if (action === ) {
       if (!selectedComboFactors.length) {
         return {
           source: "telegram_webapp",
