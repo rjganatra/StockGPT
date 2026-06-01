@@ -312,6 +312,7 @@
         <option value="performance_swing">📊 Performance: Swing</option>
         <option value="performance_risk">📊 Performance: Risk</option>
         <option value="performance_top">📊 Performance: Top</option>
+        <option value="range_plan">📦 Range Plan</option>
 </select>
 
       <div class="pillbar">
@@ -319,6 +320,7 @@
         <button class="pill" data-action="stock_range">Range</button>
         <button class="pill" data-action="compare">Compare</button>
         <button class="pill" data-action="sector">Sector</button>
+        <button class="pill" data-action="range_plan">Range Plan</button>
       </div>
 
       <div id="singleBox">
@@ -345,7 +347,22 @@
         <div class="small-note">Type to search sectors/industries. Works on iPhone without datalist.</div>
       </div>
 
-      <div id="compareBox" class="hidden">
+            <div id="rangePlanBox" class="hidden">
+        <label for="rangePlanSymbol">Stock symbol</label>
+        <div class="combo">
+          <input id="rangePlanSymbol" autocomplete="off" placeholder="Type RECLTD, PFC, HDFC..." />
+          <div id="rangePlanSymbolList" class="combo-list hidden"></div>
+        </div>
+
+        <label for="rangePlanBuyPrice">Your buy price</label>
+        <input id="rangePlanBuyPrice" type="number" inputmode="decimal" step="0.01" autocomplete="off" placeholder="Example: 365" />
+
+        <div class="chips-title">Quick examples</div>
+        <div class="chips" id="rangePlanChips"></div>
+        <div class="small-note">Creates a personal range map using your buy price.</div>
+      </div>
+
+<div id="compareBox" class="hidden">
         <div class="grid">
           <div>
             <label for="symbolA">Stock 1</label>
@@ -403,6 +420,11 @@
   const singleBox = document.getElementById("singleBox");
   const sectorBox = document.getElementById("sectorBox");
   const compareBox = document.getElementById("compareBox");
+  const rangePlanBox = document.getElementById("rangePlanBox");
+  const rangePlanSymbol = document.getElementById("rangePlanSymbol");
+  const rangePlanSymbolList = document.getElementById("rangePlanSymbolList");
+  const rangePlanBuyPrice = document.getElementById("rangePlanBuyPrice");
+  const rangePlanChips = document.getElementById("rangePlanChips");
 
   const singleInput = document.getElementById("singleInput");
   const singleList = document.getElementById("singleList");
@@ -615,6 +637,25 @@
     });
   }
 
+  function refreshRangePlanChips() {
+    if (!rangePlanChips) return;
+
+    clearChips(rangePlanChips);
+
+    [
+      ["RECLTD", "365"],
+      ["PFC", "430"],
+      ["RELIANCE", "2800"],
+      ["HDFCBANK", "1500"]
+    ].forEach(([symbol, price]) => {
+      addChip(rangePlanChips, `${symbol} @ ${price}`, () => {
+        rangePlanSymbol.value = symbol;
+        rangePlanBuyPrice.value = price;
+        closeAllDropdowns();
+      }, "primary");
+    });
+  }
+
   function refreshCompareChips() {
     clearChips(compareChips);
 
@@ -672,9 +713,12 @@
     errorEl.textContent = "";
     closeAllDropdowns();
 
-    singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || needsNoInput(action));
+    singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || action === "range_plan" || needsNoInput(action));
     sectorBox.classList.toggle("hidden", action !== "sector");
     compareBox.classList.toggle("hidden", action !== "compare");
+    if (rangePlanBox) {
+      rangePlanBox.classList.toggle("hidden", action !== "range_plan");
+    }
 
     if (action === "stock_analysis") {
       singleLabel.textContent = "Which stock?";
@@ -690,6 +734,7 @@
     refreshContextChips(action);
     refreshSectorChips();
     refreshCompareChips();
+    refreshRangePlanChips();
   }
 
   document.querySelectorAll("[data-action]").forEach(btn => {
@@ -702,6 +747,8 @@
           sectorInput.focus();
         } else if (btn.dataset.action === "compare") {
           symbolA.focus();
+        } else if (btn.dataset.action === "range_plan") {
+          rangePlanSymbol.focus();
         } else {
           singleInput.focus();
         }
@@ -789,6 +836,22 @@
 
   function buildPayload() {
     const action = actionEl.value;
+
+    if (action === "range_plan") {
+      const symbol = rangePlanSymbol.value.trim();
+      const buyPrice = rangePlanBuyPrice.value.trim();
+
+      if (!symbol || !buyPrice) {
+        throw new Error("Enter stock symbol and buy price.");
+      }
+
+      return {
+        source: "telegram_webapp",
+        action,
+        symbol,
+        buy_price: buyPrice
+      };
+    }
 
     if (action === "compare") {
       const a = symbolA.value.trim();
@@ -879,6 +942,10 @@
   setupCombo(sectorInput, sectorList, () => sectorSuggestions, "sector");
   setupCombo(symbolA, symbolAList, () => stockSymbols, "stock");
   setupCombo(symbolB, symbolBList, () => stockSymbols, "stock");
+
+  if (rangePlanSymbol && rangePlanSymbolList) {
+    setupCombo(rangePlanSymbol, rangePlanSymbolList, () => stockSymbols, "stock");
+  }
 
   const versionBadge = document.getElementById("versionBadge");
   if (versionBadge) {

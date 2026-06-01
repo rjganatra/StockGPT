@@ -923,7 +923,7 @@ def command_performance(df, text):
         )
 
     try:
-        perf_df = pd.read_csv(performance_file)
+        perf_df = pd.read_csv(performance_file, low_memory=False)
     except Exception as e:
         return f"Could not read performance file: {escape_html(str(e))}"
 
@@ -1343,6 +1343,22 @@ def route_webapp_payload(df, payload_text):
             "command": "",
         }
 
+    if action == "range_plan":
+        symbol_value = symbol or query
+        buy_price = clean_text(payload.get("buy_price", ""))
+
+        if not symbol_value or not buy_price:
+            return {
+                "reply": (
+                    "<b>📦 Range Plan</b>\n\n"
+                    "Please enter stock symbol and buy price.\n\n"
+                    "Example: RECLTD and 365"
+                ),
+                "command": "",
+            }
+
+        return {"reply": "", "command": f"/range_plan {symbol_value} {buy_price}"}
+
     simple_actions = {
         "top": "/top",
         "range_list": "/range",
@@ -1666,6 +1682,268 @@ def command_range_breakdown_risk(df, text):
         limit=12,
     )
 
+
+# =========================
+# V9 — Personal Range Plan
+# =========================
+
+def rp_num(value, default=0.0):
+    try:
+        if pd.isna(value):
+            return default
+        return float(value)
+    except Exception:
+        return default
+
+
+def rp_text(value):
+    try:
+        if pd.isna(value):
+            return ""
+    except Exception:
+        pass
+    return str(value or "").strip()
+
+
+def rp_lines(items):
+    return chr(10).join([str(x) for x in items])
+
+
+def rp_price(value):
+    value = rp_num(value, 0)
+
+    if value <= 0:
+        return "NA"
+
+    return f"₹{value:.2f}"
+
+
+def rp_find_symbol(df, value):
+    value = rp_text(value)
+
+    if not value:
+        return ""
+
+    try:
+        found = exact_symbol_or_alias(df, value)
+        if found:
+            return found
+    except Exception:
+        pass
+
+    try:
+        found = ux_find_symbol(df, value)
+        if found:
+            return found
+    except Exception:
+        pass
+
+    compact = re.sub(r"[^A-Z0-9&]", "", value.upper())
+
+    if "symbol" in df.columns:
+        symbols = df["symbol"].dropna().astype(str).str.upper().str.strip().tolist()
+
+        if compact in set(symbols):
+            return compact
+
+    return ""
+
+
+def rp_find_row(df, symbol):
+    symbol = rp_find_symbol(df, symbol)
+
+    if not symbol or "symbol" not in df.columns:
+        return None, symbol
+
+    rows = df[df["symbol"].astype(str).str.upper().str.strip() == symbol]
+
+    if rows.empty:
+        return None, symbol
+
+    return rows.iloc[0], symbol
+
+
+def rp_zone_label(pct):
+    if pct <= -10:
+        return "deep below your buy price"
+    if pct <= -5:
+        return "below your buy price"
+    if pct < 5:
+        return "near your buy price"
+    if pct < 10:
+        return "above your buy price"
+    return "well above your buy price"
+
+
+def rp_action_view(pct_from_buy, distance_low, distance_high, risk, rsi):
+    if risk >= 20:
+        return (
+            "⚠️ Risk-first zone",
+            "Risk penalty is elevated. Avoid averaging down blindly; wait for confirmation."
+        )
+
+    if pct_from_buy <= -7 and distance_low <= 20 and 35 <= rsi <= 60:
+        return (
+            "📦 Accumulation watch zone",
+            "Price is meaningfully below your buy price and closer to lower range/support area."
+        )
+
+    if -7 < pct_from_buy < 7:
+        return (
+            "⏳ Hold / observe zone",
+            "Price is still near your buy band. Let the range confirm before adding or exiting."
+        )
+
+    if pct_from_buy >= 7 or distance_high <= 15 or rsi >= 65:
+        return (
+            "💰 Profit-booking watch zone",
+            "Price is above your buy price or near upper range/resistance. Avoid fresh chasing."
+        )
+
+    return (
+        "🔎 Neutral watch zone",
+        "The setup is not clearly accumulation or profit-booking yet."
+    )
+
+
+def command_range_plan(df, text):
+    parts = str(text or "").split()
+
+    if len(parts) < 3:
+        return rp_lines([
+            "<b>📦 Range Plan</b>",
+            "",
+            "<b>How to use:</b>",
+            "Send stock symbol and your buy price.",
+            "",
+            "Example:",
+            "<code>/range_plan RECLTD 365</code>",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    raw_symbol = parts[1]
+    raw_buy = parts[2].replace(",", "")
+
+    try:
+        buy_price = float(raw_buy)
+    except Exception:
+        return rp_lines([
+            "<b>📦 Range Plan</b>",
+            "",
+            "Buy price should be a number.",
+            "",
+            "Example:",
+            "<code>/range_plan RECLTD 365</code>",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    if buy_price <= 0:
+        return rp_lines([
+            "<b>📦 Range Plan</b>",
+            "",
+            "Buy price must be greater than zero.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    row, symbol = rp_find_row(df, raw_symbol)
+
+    if row is None:
+        return rp_lines([
+            "<b>📦 Range Plan</b>",
+            "",
+            f"I could not find exact stock: <b>{escape_html(raw_symbol)}</b>",
+            "",
+            "Try exact NSE symbol like RECLTD, PFC, RELIANCE.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    company = escape_html(rp_text(row.get("company_name", "")))
+    sector = escape_html(rp_text(row.get("sector", "")))
+    industry = escape_html(rp_text(row.get("industry", "")))
+
+    current_price = rp_num(row.get("current_price", 0))
+    final_score = rp_num(row.get("final_conviction_score", row.get("score", 0)))
+    active_fund = rp_num(row.get("active_fundamental_score", row.get("fundamental_score", 0)))
+    adjusted_fund = rp_num(row.get("sector_adjusted_fundamental_score", active_fund))
+    risk = rp_num(row.get("risk_penalty", 0))
+    rsi = rp_num(row.get("rsi", 0))
+    distance_low = rp_num(row.get("distance_pct", 0))
+    distance_high = rp_num(row.get("distance_from_high_pct", 0))
+    volume = rp_num(row.get("volume_ratio", 0))
+
+    if current_price <= 0:
+        return rp_lines([
+            "<b>📦 Range Plan</b>",
+            "",
+            f"Current price not available for <b>{escape_html(symbol)}</b>.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    pct_from_buy = ((current_price - buy_price) / buy_price) * 100
+    action_title, action_note = rp_action_view(pct_from_buy, distance_low, distance_high, risk, rsi)
+
+    lower_add_zone = buy_price * 0.93
+    upper_book_zone = buy_price * 1.07
+    deeper_risk_zone = buy_price * 0.90
+
+    title = f"<b>📦 Range Plan: {escape_html(symbol)}</b>"
+
+    if company and company.upper() != symbol.upper():
+        title += f" — {company}"
+
+    sector_line = ""
+
+    if sector and industry and sector != industry:
+        sector_line = f"{sector} / {industry}"
+    elif sector or industry:
+        sector_line = sector or industry
+
+    lines = [
+        title,
+    ]
+
+    if sector_line:
+        lines.append(f"Sector: {sector_line}")
+
+    lines.extend([
+        "",
+        "<b>Your position context</b>",
+        f"Buy price: <b>{rp_price(buy_price)}</b>",
+        f"Current price: <b>{rp_price(current_price)}</b>",
+        f"Move from buy: <b>{pct_from_buy:+.2f}%</b> — {rp_zone_label(pct_from_buy)}",
+        "",
+        "<b>Range zones from your buy price</b>",
+        f"Accumulation watch: around <b>{rp_price(lower_add_zone)}</b> or lower (-7%)",
+        f"Profit-booking watch: around <b>{rp_price(upper_book_zone)}</b> or higher (+7%)",
+        f"Breakdown caution: below <b>{rp_price(deeper_risk_zone)}</b> (-10%)",
+        "",
+        "<b>Latest StockGPT scan</b>",
+        f"Final conviction: {final_score:.1f}",
+        f"Active fundamental: {active_fund:.1f} | Sector-adjusted: {adjusted_fund:.1f}",
+        f"Risk penalty: {risk:.1f}",
+        f"RSI: {rsi:.1f} | Volume: {volume:.2f}x",
+        f"52W range context: {distance_low:.1f}% above low | {distance_high:.1f}% below high",
+        "",
+        "<b>Action view</b>",
+        f"{action_title}",
+        action_note,
+        "",
+        "<b>How to use:</b>",
+        "Use this as a range-trading decision map. Do not average down unless price stabilises near support.",
+        "",
+        "<b>What to watch:</b>",
+        "Confirm support/resistance on chart, avoid illiquid names, and keep stop/risk level clear.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return rp_lines(lines)
+
 COMMANDS = {
     "/help": command_menu,
     "/start": command_menu,
@@ -1690,6 +1968,7 @@ COMMANDS = {
     "/range_accumulation": command_range_accumulation,
     "/range_profit_booking": command_range_profit_booking,
     "/range_breakdown_risk": command_range_breakdown_risk,
+    "/range_plan": command_range_plan,
 }
 
 
@@ -2510,6 +2789,9 @@ def r8_human_handle_command(text, df):
         if args:
             return r8_range_symbol(df, args[0])
         return r8_range_list(df)
+
+    if command == "/range_plan":
+        return command_range_plan(df, raw)
 
     if command in ["/why", "/stock"]:
         if args:

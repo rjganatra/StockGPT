@@ -232,3 +232,22 @@ for command in v8_quality_commands:
     assert "Research tool only" in reply, f"Missing disclaimer for {command}"
 
 print("✅ V8 human reply renderer checks passed")
+
+
+# Range Plan v9 checks
+if "/range_plan" in getattr(bot, "COMMANDS", {}):
+    out = bot.route_webapp_payload(df, json.dumps({
+        "action": "range_plan",
+        "symbol": "RECLTD",
+        "buy_price": "365"
+    }))
+    assert out.get("command") == "/range_plan RECLTD 365", out
+
+    reply = bot.handle_command("/range_plan RECLTD 365", df)
+    assert "Range Plan" in reply, reply
+    assert "Buy price" in reply, reply
+    assert "Current price" in reply, reply
+    assert "Action view" in reply, reply
+    assert "Research tool only" in reply, reply
+
+print("✅ Range Plan v9 checks passed")
