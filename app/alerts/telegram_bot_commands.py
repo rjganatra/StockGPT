@@ -1359,6 +1359,20 @@ def route_webapp_payload(df, payload_text):
 
         return {"reply": "", "command": f"/range_plan {symbol_value} {buy_price}"}
 
+    if action == "performance_combo_custom":
+        factors = payload.get("factors", [])
+
+        if isinstance(factors, list):
+            clean_factors = [clean_text(x) for x in factors if clean_text(x)]
+        else:
+            clean_factors = [clean_text(factors)]
+
+        if not clean_factors:
+            return {"reply": "", "command": "/performance_combo"}
+
+        joined = ",".join(clean_factors)
+        return {"reply": "", "command": f"/performance_combo_custom {joined}"}
+
     simple_actions = {
         "top": "/top",
         "range_list": "/range",
@@ -2085,6 +2099,220 @@ def command_performance_combo(df, text):
 
     return combo_perf_lines(lines)
 
+
+# =========================
+# V11 — Custom Combo Strategy Builder
+# =========================
+
+def c11_lines(items):
+    return chr(10).join([str(x) for x in items])
+
+
+def c11_prepare(df):
+    data = df.copy()
+
+    for col in [
+        "current_price", "final_conviction_score", "range_score", "rsi",
+        "risk_penalty", "distance_pct", "distance_from_high_pct",
+        "technical_score", "active_fundamental_score",
+        "sector_adjusted_fundamental_score",
+        "relative_strength_score", "return_1m", "return_3m"
+    ]:
+        if col not in data.columns:
+            data[col] = 0
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+
+    for col in [
+        "trend", "score_band", "range_status", "risk_reasons", "reasons",
+        "technical_reasons", "sector", "industry", "data_completeness_status",
+        "final_conviction_score_source"
+    ]:
+        if col not in data.columns:
+            data[col] = ""
+        data[col] = data[col].astype(str).fillna("")
+
+    return data
+
+
+def c11_catalog():
+    return {
+        "near_52w_low": ("Near 52W Low", "Stock is within 15% of 52-week low."),
+        "near_52w_high": ("Near 52W High", "Stock is within 15% of 52-week high."),
+        "range_accumulation": ("Range Accumulation", "Stock is in lower/support range area."),
+        "range_strong": ("Strong Range", "Range score is 65 or above."),
+        "bearish": ("Bearish / Weak Trend", "Trend or reasons indicate bearish/weak setup."),
+        "bullish_or_stable": ("Bullish / Stable", "Trend or reasons indicate bullish, stable or watchable setup."),
+        "watchable_rsi": ("Watchable RSI", "RSI is between 35 and 55."),
+        "oversold_rsi": ("Oversold RSI", "RSI is below 35."),
+        "hot_rsi": ("Hot RSI", "RSI is 65 or above."),
+        "high_conviction": ("High Conviction", "Final conviction score is 60 or above."),
+        "medium_conviction": ("Medium+ Conviction", "Final conviction score is 40 or above."),
+        "quality": ("Quality / Sector Adjusted", "Active fundamental ≥ 50 or sector-adjusted ≥ 55."),
+        "low_risk": ("Low Risk", "Risk penalty is 10 or below."),
+        "controlled_risk": ("Controlled Risk", "Risk penalty is 18 or below."),
+        "high_risk": ("High Risk", "Risk penalty is 18 or above."),
+        "fundamentals_missing": ("Fundamentals Missing", "Fundamental metrics are unavailable."),
+        "fallback_score": ("Fallback Score", "Final score came from fallback because fundamentals were missing."),
+    }
+
+
+def c11_masks(data):
+    reasons = (
+        data["reasons"] + " " + data["risk_reasons"] + " " + data["technical_reasons"]
+    ).str.lower()
+
+    trend = data["trend"].str.lower()
+    range_status = data["range_status"].str.lower()
+    completeness = data["data_completeness_status"].str.lower()
+    source = data["final_conviction_score_source"].str.lower()
+
+    return {
+        "near_52w_low": data["distance_pct"] <= 15,
+        "near_52w_high": data["distance_from_high_pct"] <= 15,
+        "range_accumulation": range_status.str.contains("accumulation|lower|support", na=False),
+        "range_strong": data["range_score"] >= 65,
+        "bearish": trend.str.contains("bearish|down", na=False) | reasons.str.contains("below 200 dma|bearish|weak", na=False),
+        "bullish_or_stable": trend.str.contains("bullish|up|stable", na=False) | reasons.str.contains("stable|watchable", na=False),
+        "watchable_rsi": data["rsi"].between(35, 55),
+        "oversold_rsi": data["rsi"] < 35,
+        "hot_rsi": data["rsi"] >= 65,
+        "high_conviction": data["final_conviction_score"] >= 60,
+        "medium_conviction": data["final_conviction_score"] >= 40,
+        "quality": (data["active_fundamental_score"] >= 50) | (data["sector_adjusted_fundamental_score"] >= 55),
+        "low_risk": data["risk_penalty"] <= 10,
+        "controlled_risk": data["risk_penalty"] <= 18,
+        "high_risk": data["risk_penalty"] >= 18,
+        "fundamentals_missing": completeness.str.contains("fundamentals missing", na=False),
+        "fallback_score": source.str.contains("fallback", na=False),
+    }
+
+
+def c11_parse(text):
+    parts = str(text or "").split(maxsplit=1)
+    if len(parts) < 2:
+        return []
+    raw = parts[1].replace("|", ",").replace("+", ",").replace(";", ",")
+    factors = []
+    for item in raw.split(","):
+        key = re.sub(r"[^a-z0-9_]", "", item.strip().lower().replace(" ", "_"))
+        if key and key not in factors:
+            factors.append(key)
+    return factors
+
+
+def command_performance_combo_custom(df, text):
+    data = c11_prepare(df)
+    catalog = c11_catalog()
+    masks = c11_masks(data)
+    factors = c11_parse(text)
+
+    if not factors:
+        return c11_lines([
+            "<b>🧩 Custom Combo Strategy</b>",
+            "",
+            "<b>Quick read:</b>",
+            "Build a strategy recipe from multiple signals in the WebApp builder.",
+            "",
+            "<b>Example:</b>",
+            "<code>/performance_combo_custom near_52w_low,bearish,watchable_rsi</code>",
+            "",
+            "<b>Available factors:</b>",
+            *[f"• <code>{escape_html(k)}</code> — {escape_html(v[0])}" for k, v in catalog.items()],
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    invalid = [f for f in factors if f not in catalog]
+    if invalid:
+        return c11_lines([
+            "<b>🧩 Custom Combo Strategy</b>",
+            "",
+            "<b>Invalid factors:</b>",
+            *[f"• <code>{escape_html(x)}</code>" for x in invalid],
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+    mask = pd.Series([True] * len(data), index=data.index)
+    for factor in factors:
+        mask = mask & masks[factor]
+
+    matched = data[mask].copy()
+    if not matched.empty:
+        matched["_combo_sort"] = (
+            matched["final_conviction_score"]
+            + matched["range_score"] * 0.25
+            - matched["risk_penalty"] * 0.75
+        )
+        matched = matched.sort_values("_combo_sort", ascending=False)
+
+    labels = [catalog[f][0] for f in factors]
+    descriptions = [catalog[f][1] for f in factors]
+
+    lines = [
+        "<b>🧩 Custom Combo Strategy Performance</b>",
+        "",
+        "<b>Your signal recipe:</b>",
+        " + ".join([escape_html(x) for x in labels]),
+        "",
+        "<b>What this recipe means:</b>",
+        *[f"• {escape_html(x)}" for x in descriptions],
+        "",
+        "<b>Current matches:</b>",
+        str(len(matched)),
+    ]
+
+    if matched.empty:
+        lines.extend([
+            "",
+            "No stocks matched this exact combination in the latest scan.",
+            "",
+            "<b>How to use:</b>",
+            "Remove one condition or try a broader recipe.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+        return c11_lines(lines)
+
+    ret_1m = matched["return_1m"] if "return_1m" in matched.columns else pd.Series([0] * len(matched))
+    ret_3m = matched["return_3m"] if "return_3m" in matched.columns else pd.Series([0] * len(matched))
+
+    lines.extend([
+        "",
+        "<b>Snapshot stats:</b>",
+        f"Avg final conviction: {float(matched['final_conviction_score'].mean()):.2f}",
+        f"Avg range score: {float(matched['range_score'].mean()):.2f}",
+        f"Avg RSI: {float(matched['rsi'].mean()):.2f}",
+        f"Avg risk penalty: {float(matched['risk_penalty'].mean()):.2f}",
+        f"Positive 1M rate: {float((ret_1m > 0).mean() * 100):.1f}%",
+        f"Positive 3M rate: {float((ret_3m > 0).mean() * 100):.1f}%",
+        "",
+        "<b>Top matching stocks:</b>",
+    ])
+
+    for _, row in matched.head(12).iterrows():
+        lines.append(
+            f"• <b>{escape_html(str(row.get('symbol', '')))}</b>"
+            f" | ₹{float(row.get('current_price', 0)):.2f}"
+            f" | Final {float(row.get('final_conviction_score', 0)):.1f}"
+            f" | Range {float(row.get('range_score', 0)):.1f}"
+            f" | RSI {float(row.get('rsi', 0)):.1f}"
+            f" | Risk {float(row.get('risk_penalty', 0)):.1f}"
+        )
+
+    lines.extend([
+        "",
+        "<b>How to use:</b>",
+        "This is strategy-recipe performance, not a single signal. Compare recipes over time.",
+        "",
+        "<b>What to watch:</b>",
+        "Small sample size can mislead. Confirm chart, news, liquidity and your own risk.",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return c11_lines(lines)
+
 COMMANDS = {
     "/help": command_menu,
     "/start": command_menu,
@@ -2111,6 +2339,7 @@ COMMANDS = {
     "/range_breakdown_risk": command_range_breakdown_risk,
     "/range_plan": command_range_plan,
     "/performance_combo": command_performance_combo,
+    "/performance_combo_custom": command_performance_combo_custom,
 }
 
 

@@ -312,9 +312,9 @@
         <option value="performance_swing">📊 Performance: Swing</option>
         <option value="performance_risk">📊 Performance: Risk</option>
         <option value="performance_top",
-      "performance_combo">📊 Performance: Top</option>
+      >📊 Performance: Top</option>
         <option value="range_plan">📦 Range Plan</option>
-        <option value="performance_combo">📊 Combo Signal Performance</option>
+        <option value=>📊 Combo Signal Performance</option>
 </select>
 
       <div class="pillbar">
@@ -386,7 +386,22 @@
         <div class="chips" id="compareChips"></div>
       </div>
 
-      <div class="error" id="error"></div>
+            <div id="comboBuilderBox" class="hidden">
+        <div class="chips-title">Step 1 — Base setup</div>
+        <div class="chips" id="comboBaseChips"></div>
+
+        <div class="chips-title">Step 2 — Trend / RSI condition</div>
+        <div class="chips" id="comboBehaviorChips"></div>
+
+        <div class="chips-title">Step 3 — Quality / risk condition</div>
+        <div class="chips" id="comboQualityChips"></div>
+
+        <div class="chips-title">Your selected recipe</div>
+        <div class="chips" id="comboSelectedChips"></div>
+        <div class="small-note" id="comboNote">Select conditions step by step. No stock dropdown here.</div>
+      </div>
+
+<div class="error" id="error"></div>
 
       <button class="submit" id="submitBtn">Submit to StockGPT</button>
 
@@ -417,6 +432,7 @@
   let sectorSuggestions = ["Bank", "Finance", "Power", "IT", "Auto", "FMCG", "Pharma", "Metal", "Energy", "Capital Goods", "Infrastructure", "Realty", "Telecom", "Cement", "Chemical", "Consumer", "Healthcare", "Oil & Gas", "Defence", "Jewellery", "Packaging"];
   let performanceSuggestions = ["range", "range bound", "swing", "risk", "avoid", "top", "conviction", "low", "52w low", "fundamental", "relative", "sector adjusted", "overall"];
   let stockSymbols = [...favoriteSymbols];
+  let selectedComboFactors = [];
 
   const actionEl = document.getElementById("action");
   const singleBox = document.getElementById("singleBox");
@@ -442,6 +458,12 @@
   const symbolBList = document.getElementById("symbolBList");
 
   const errorEl = document.getElementById("error");
+  const comboBuilderBox = document.getElementById("comboBuilderBox");
+  const comboBaseChips = document.getElementById("comboBaseChips");
+  const comboBehaviorChips = document.getElementById("comboBehaviorChips");
+  const comboQualityChips = document.getElementById("comboQualityChips");
+  const comboSelectedChips = document.getElementById("comboSelectedChips");
+  const comboNote = document.getElementById("comboNote");
   const contextChips = document.getElementById("contextChips");
   const compareChips = document.getElementById("compareChips");
   const chipsTitle = document.getElementById("chipsTitle");
@@ -710,14 +732,101 @@
     chipsTitle.textContent = "Suggestions";
   }
 
+  const comboFactorGroups = {
+    base: [
+      ["near_52w_low", "52W Low"],
+      ["near_52w_high", "52W High"],
+      ["range_accumulation", "Range Accumulation"],
+      ["range_strong", "Strong Range"]
+    ],
+    behavior: [
+      ["bearish", "Bearish"],
+      ["bullish_or_stable", "Bullish/Stable"],
+      ["watchable_rsi", "Watchable RSI"],
+      ["oversold_rsi", "Oversold RSI"],
+      ["hot_rsi", "Hot RSI"]
+    ],
+    quality: [
+      ["high_conviction", "High Conviction"],
+      ["medium_conviction", "Medium+ Conviction"],
+      ["quality", "Quality"],
+      ["low_risk", "Low Risk"],
+      ["controlled_risk", "Controlled Risk"],
+      ["high_risk", "High Risk"],
+      ["fundamentals_missing", "Fundamentals Missing"],
+      ["fallback_score", "Fallback Score"]
+    ]
+  };
+
+  function comboLabel(key) {
+    const all = [
+      ...comboFactorGroups.base,
+      ...comboFactorGroups.behavior,
+      ...comboFactorGroups.quality
+    ];
+
+    const found = all.find(([k]) => k === key);
+    return found ? found[1] : key;
+  }
+
+  function toggleComboFactor(key) {
+    if (selectedComboFactors.includes(key)) {
+      selectedComboFactors = selectedComboFactors.filter(x => x !== key);
+    } else {
+      selectedComboFactors.push(key);
+    }
+    refreshComboBuilder();
+  }
+
+  function renderComboGroup(container, items, tone) {
+    if (!container) return;
+    clearChips(container);
+
+    items.forEach(([key, label]) => {
+      const active = selectedComboFactors.includes(key);
+      addChip(container, active ? "✓ " + label : label, () => {
+        toggleComboFactor(key);
+      }, active ? "green" : tone);
+    });
+  }
+
+  function refreshComboSelected() {
+    if (!comboSelectedChips) return;
+    clearChips(comboSelectedChips);
+
+    if (!selectedComboFactors.length) {
+      addChip(comboSelectedChips, "Overview only", () => {}, "primary");
+      if (comboNote) comboNote.textContent = "No condition selected: submit will show combo overview.";
+      return;
+    }
+
+    selectedComboFactors.forEach(key => {
+      addChip(comboSelectedChips, "× " + comboLabel(key), () => {
+        toggleComboFactor(key);
+      }, "green");
+    });
+
+    if (comboNote) comboNote.textContent = "Submit will test this exact multi-condition recipe.";
+  }
+
+  function refreshComboBuilder() {
+    renderComboGroup(comboBaseChips, comboFactorGroups.base, "primary");
+    renderComboGroup(comboBehaviorChips, comboFactorGroups.behavior, "orange");
+    renderComboGroup(comboQualityChips, comboFactorGroups.quality, "green");
+    refreshComboSelected();
+  }
+
   function refreshForm() {
     const action = actionEl.value;
     errorEl.textContent = "";
     closeAllDropdowns();
 
-    singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || action === "range_plan" || needsNoInput(action));
+    singleBox.classList.toggle("hidden", action === "compare" || action === "sector" || action === "range_plan" || action === "performance_combo" || needsNoInput(action));
     sectorBox.classList.toggle("hidden", action !== "sector");
     compareBox.classList.toggle("hidden", action !== "compare");
+    if (comboBuilderBox) {
+      comboBuilderBox.classList.toggle("hidden", action !== "performance_combo");
+    }
     if (rangePlanBox) {
       rangePlanBox.classList.toggle("hidden", action !== "range_plan");
     }
@@ -852,6 +961,21 @@
         action,
         symbol,
         buy_price: buyPrice
+      };
+    }
+
+    if (action === "performance_combo") {
+      if (!selectedComboFactors.length) {
+        return {
+          source: "telegram_webapp",
+          action
+        };
+      }
+
+      return {
+        source: "telegram_webapp",
+        action: "performance_combo_custom",
+        factors: selectedComboFactors
       };
     }
 
