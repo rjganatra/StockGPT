@@ -1378,6 +1378,7 @@ def route_webapp_payload(df, payload_text):
         "performance_swing": "/performance swing",
         "performance_risk": "/performance risk",
         "performance_top": "/performance top",
+        "performance_combo": "/performance_combo",
     }
 
     if action in simple_actions:
@@ -1944,6 +1945,146 @@ def command_range_plan(df, text):
 
     return rp_lines(lines)
 
+
+# =========================
+# V10 — Combo Signal Performance
+# =========================
+
+def combo_perf_build_if_needed():
+    from pathlib import Path
+    import subprocess
+    import sys
+
+    summary = Path("data/performance/combo_signal_performance.csv")
+    members = Path("data/performance/combo_signal_members.csv")
+
+    if not summary.exists() or not members.exists():
+        subprocess.run([sys.executable, "app/performance/combo_signal_performance.py"], check=True)
+
+    return summary, members
+
+
+def combo_perf_lines(items):
+    return chr(10).join([str(x) for x in items])
+
+
+def command_performance_combo(df, text):
+    import pandas as pd
+
+    summary_file, members_file = combo_perf_build_if_needed()
+
+    summary = pd.read_csv(summary_file, low_memory=False)
+
+    parts = str(text or "").split()
+    requested_combo = parts[1].strip() if len(parts) > 1 else ""
+
+    if requested_combo:
+        row_df = summary[summary["combo_id"].astype(str).str.lower() == requested_combo.lower()]
+
+        if row_df.empty:
+            available = summary["combo_id"].astype(str).head(12).tolist()
+            return combo_perf_lines([
+                "<b>📊 Combo Signal Performance</b>",
+                "",
+                f"Combo not found: <b>{escape_html(requested_combo)}</b>",
+                "",
+                "<b>Available combos:</b>",
+                *[f"• {escape_html(x)}" for x in available],
+                "",
+                "<i>Research tool only. Not financial advice.</i>",
+            ])
+
+        row = row_df.iloc[0]
+        members = pd.read_csv(members_file, low_memory=False)
+
+        combo_members = members[members["combo_id"].astype(str).str.lower() == requested_combo.lower()]
+
+        lines = [
+            f"<b>📊 Combo Signal: {escape_html(str(row.get('combo_name', requested_combo)))}</b>",
+            "",
+            "<b>Quick read:</b>",
+            escape_html(str(row.get("interpretation", ""))),
+            "",
+            "<b>Signal recipe:</b>",
+            escape_html(str(row.get("description", ""))),
+            "",
+            "<b>Current performance snapshot:</b>",
+            f"Matches now: <b>{int(row.get('current_matches', 0))}</b>",
+            f"Avg final conviction: {float(row.get('avg_final_conviction', 0)):.2f}",
+            f"Avg range score: {float(row.get('avg_range_score', 0)):.2f}",
+            f"Avg RSI: {float(row.get('avg_rsi', 0)):.2f}",
+            f"Avg risk penalty: {float(row.get('avg_risk_penalty', 0)):.2f}",
+            f"Positive 1M rate: {float(row.get('positive_1m_rate', 0)):.1f}%",
+            f"Positive 3M rate: {float(row.get('positive_3m_rate', 0)):.1f}%",
+            "",
+            "<b>Top current matches:</b>",
+        ]
+
+        if combo_members.empty:
+            lines.append("No current symbols matched this combo.")
+        else:
+            for _, m in combo_members.head(10).iterrows():
+                lines.append(
+                    f"• <b>{escape_html(str(m.get('symbol', '')))}</b>"
+                    f" | ₹{float(m.get('current_price', 0)):.2f}"
+                    f" | Final {float(m.get('final_conviction_score', 0)):.1f}"
+                    f" | Range {float(m.get('range_score', 0)):.1f}"
+                    f" | RSI {float(m.get('rsi', 0)):.1f}"
+                    f" | Risk {float(m.get('risk_penalty', 0)):.1f}"
+                )
+
+        lines.extend([
+            "",
+            "<b>How to use:</b>",
+            "This is closer to how real strategy filters work: multiple conditions together, not one isolated signal.",
+            "",
+            "<b>What to watch:</b>",
+            "Small samples can mislead. Confirm chart, liquidity, news and your own risk level.",
+            "",
+            "<i>Research tool only. Not financial advice.</i>",
+        ])
+
+        return combo_perf_lines(lines)
+
+    summary = summary.sort_values(
+        ["positive_1m_rate", "avg_final_conviction", "current_matches"],
+        ascending=[False, False, False],
+    )
+
+    lines = [
+        "<b>📊 Combo Signal Performance</b>",
+        "",
+        "<b>Quick read:</b>",
+        "This checks performance-style snapshots for multi-condition signal recipes.",
+        "",
+        "<b>Why this matters:</b>",
+        "A single signal like 52W low can be weak alone. But 52W low + range accumulation + controlled risk can behave very differently.",
+        "",
+        "<b>Top combo recipes:</b>",
+    ]
+
+    for _, row in summary.head(12).iterrows():
+        lines.append(
+            f"• <b>{escape_html(str(row.get('combo_name', '')))}</b>"
+            f" | ID: <code>{escape_html(str(row.get('combo_id', '')))}</code>"
+            f" | Matches {int(row.get('current_matches', 0))}"
+            f" | 1M+ {float(row.get('positive_1m_rate', 0)):.1f}%"
+            f" | 3M+ {float(row.get('positive_3m_rate', 0)):.1f}%"
+            f" | Avg Final {float(row.get('avg_final_conviction', 0)):.1f}"
+        )
+
+    lines.extend([
+        "",
+        "<b>Open one combo:</b>",
+        "<code>/performance_combo 52w_low_bearish_strong_rsi</code>",
+        "<code>/performance_combo range_accumulation_low_risk</code>",
+        "<code>/performance_combo high_conviction_quality</code>",
+        "",
+        "<i>Research tool only. Not financial advice.</i>",
+    ])
+
+    return combo_perf_lines(lines)
+
 COMMANDS = {
     "/help": command_menu,
     "/start": command_menu,
@@ -1969,6 +2110,7 @@ COMMANDS = {
     "/range_profit_booking": command_range_profit_booking,
     "/range_breakdown_risk": command_range_breakdown_risk,
     "/range_plan": command_range_plan,
+    "/performance_combo": command_performance_combo,
 }
 
 
