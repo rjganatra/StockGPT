@@ -404,22 +404,28 @@
         <div class="chips" id="compareChips"></div>
       </div>
 
-            <div id="comboBuilderBox" class="hidden">
-        <div class="chips-title">Step 1 — Base setup</div>
+
+      <div id="comboBuilderBox" class="hidden">
+        <div class="combo-builder-help">
+          Build your own strategy recipe. Select any number of conditions from any group. You can skip any group. Submit only when your recipe is ready.
+        </div>
+
+        <div class="chips-title">Base setup — optional</div>
         <div class="chips" id="comboBaseChips"></div>
 
-        <div class="chips-title">Step 2 — Trend / RSI condition</div>
+        <div class="chips-title">Trend / RSI — optional</div>
         <div class="chips" id="comboBehaviorChips"></div>
 
-        <div class="chips-title">Step 3 — Quality / risk condition</div>
+        <div class="chips-title">Quality / risk / data — optional</div>
         <div class="chips" id="comboQualityChips"></div>
 
-        <div class="chips-title">Your selected recipe</div>
+        <div class="chips-title">Selected recipe</div>
         <div class="chips" id="comboSelectedChips"></div>
-        <div class="small-note" id="comboNote">Select conditions step by step. No stock dropdown here.</div>
+
+        <div class="small-note" id="comboNote">No condition selected: submit will show combo overview.</div>
       </div>
 
-<div class="error" id="error"></div>
+      <div class="error" id="error"></div>
 
       <button class="submit" id="submitBtn">Submit to StockGPT</button>
 
@@ -435,7 +441,7 @@
   </div>
 
 <script>
-  const WEBAPP_VERSION = "v202606011908";
+  const WEBAPP_VERSION = "v202606051457";
   const tg = window.Telegram?.WebApp;
   if (tg) {
     tg.ready();
@@ -794,7 +800,7 @@
       selectedComboFactors.push(key);
     }
 
-    refreshComboBuilder();
+    
   }
 
   function renderComboGroup(container, items, tone) {
@@ -804,9 +810,7 @@
 
     items.forEach(([key, label]) => {
       const active = selectedComboFactors.includes(key);
-      const btnLabel = active ? "✓ " + label : label;
-
-      addChip(container, btnLabel, () => {
+      addChip(container, active ? "✓ " + label : label, () => {
         toggleComboFactor(key);
       }, active ? "green selected" : tone);
     });
@@ -819,9 +823,7 @@
 
     if (!selectedComboFactors.length) {
       addChip(comboSelectedChips, "Overview only", () => {}, "primary");
-      if (comboNote) {
-        comboNote.textContent = "No condition selected: submit will show combo overview.";
-      }
+      if (comboNote) comboNote.textContent = "No condition selected: submit will show combo overview.";
       return;
     }
 
@@ -875,6 +877,7 @@
     refreshContextChips(action);
     refreshSectorChips();
     refreshCompareChips();
+    refreshComboBuilder();
     refreshRangePlanChips();
   }
 
@@ -1009,6 +1012,7 @@
       };
     }
 
+    
     if (action === "compare") {
       const a = symbolA.value.trim();
       const b = symbolB.value.trim();
