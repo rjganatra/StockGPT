@@ -1,1958 +1,1954 @@
 symbol,sector,industry
-AFSL,Financial Services,Capital Markets
-AHLUCONT,Industrials,Engineering & Construction
-AIIL,Financial Services,Capital Markets
-AMNPLST,Basic Materials,Chemicals
-AVROIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-BALKRISIND,Consumer Cyclical,Auto Parts
-BIRLAMONEY,Financial Services,Capital Markets
-BLUEJET,Healthcare,Biotechnology
-CAPACITE,Industrials,Engineering & Construction
-DABUR,Consumer Defensive,Household & Personal Products
-CLEAN,Basic Materials,Specialty Chemicals
-DANGEE,Consumer Cyclical,Restaurants
-DMART,Consumer Defensive,Discount Stores
-DIXON,Technology,Consumer Electronics
-EPACK,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-GANGAFORGE,Industrials,Metal Fabrication
-GATECH,Financial Services,Asset Management
-GENCON,Industrials,Engineering & Construction
-HIKAL,Healthcare,Drug Manufacturers - Specialty & Generic
-HMVL,Communication Services,Publishing
-INCREDIBLE,Basic Materials,Steel
-JAMNAAUTO,Consumer Cyclical,Auto Parts
-JAYKAY,Industrials,Specialty Business Services
-JUBLINGREA,Basic Materials,Specialty Chemicals
-KALAMANDIR,Consumer Cyclical,Apparel Retail
-KOHINOOR,Consumer Defensive,Packaged Foods
-KALPATARU,Real Estate,Real Estate - Development
-KPITTECH,Technology,Software - Infrastructure
-LPDC,Real Estate,Real Estate Services
-KPRMILL,Consumer Cyclical,Textile Manufacturing
-MRPL,Energy,Oil & Gas Refining & Marketing
-MHRIL,Consumer Cyclical,Resorts & Casinos
-NAGREEKEXP,Consumer Cyclical,Textile Manufacturing
-NCLIND,Basic Materials,Building Materials
-NIRAJISPAT,Consumer Cyclical,Apparel Manufacturing
-OLAELEC,Consumer Cyclical,Auto Manufacturers
-PARASPETRO,Consumer Cyclical,Textile Manufacturing
-PDMJEPAPER,Basic Materials,Paper & Paper Products
-PVP,Industrials,Conglomerates
-RAJTV,Communication Services,Broadcasting
-SGL,Consumer Cyclical,Textile Manufacturing
-RHL,Consumer Cyclical,Lodging
-SHALBY,Healthcare,Medical Care Facilities
-SHREEPUSHK,Basic Materials,Specialty Chemicals
-SHANTI,Consumer Defensive,Farm Products
-SPMLINFRA,Industrials,Engineering & Construction
-SRF,Industrials,Conglomerates
-SUNDRMBRAK,Consumer Cyclical,Auto Parts
-SUPREME,Real Estate,Real Estate - Development
-TIMETECHNO,Consumer Cyclical,Packaging & Containers
-TCIFINANCE,Financial Services,Credit Services
-TVTODAY,Communication Services,Broadcasting
-VADILALIND,Consumer Defensive,Packaged Foods
-VESUVIUS,Industrials,Specialty Industrial Machinery
-VMART,Consumer Cyclical,Department Stores
-WONDERLA,Consumer Cyclical,Leisure
-OFSS,Technology,Software - Infrastructure
-BAJAJCON,Consumer Defensive,Household & Personal Products
-TDPOWERSYS,Industrials,Specialty Industrial Machinery
-GVT&D,Industrials,Specialty Industrial Machinery
-SOLARINDS,Basic Materials,Specialty Chemicals
-KIRLPNU,Industrials,Specialty Industrial Machinery
-BSE,Financial Services,Financial Data & Stock Exchanges
-SAKAR,Healthcare,Drug Manufacturers - Specialty & Generic
-CUPID,Consumer Defensive,Household & Personal Products
-NAM-INDIA,Financial Services,Asset Management
-THYROCARE,Healthcare,Diagnostics & Research
-GRANULES,Healthcare,Drug Manufacturers - Specialty & Generic
-CGPOWER,Industrials,Electrical Equipment & Parts
-USHAMART,Basic Materials,Steel
-PIDILITIND,Basic Materials,Specialty Chemicals
+ARIHANTCAP,Financial Services,Capital Markets
+AARTISURF,Basic Materials,Specialty Chemicals
+ABCOTS,Consumer Cyclical,Textile Manufacturing
+ASIANHOTNR,Consumer Cyclical,Lodging
+BAYERCROP,Basic Materials,Agricultural Inputs
+BHARATCOAL,Basic Materials,Coking Coal
+COMSYN,Consumer Cyclical,Packaging & Containers
+BIL,Consumer Cyclical,Footwear & Accessories
+DYNPRO,Basic Materials,Specialty Chemicals
+GOKEX,Consumer Cyclical,Apparel Manufacturing
+ETHOSLTD,Consumer Cyclical,Luxury Goods
+HGINFRA,Industrials,Engineering & Construction
+HINDUNILVR,Consumer Defensive,Household & Personal Products
+HOMEFIRST,Financial Services,Mortgage Finance
+HPAL,Basic Materials,Specialty Chemicals
+INDTERRAIN,Consumer Cyclical,Apparel Retail
+INNOVANA,Technology,Software - Application
+IVALUE,Technology,Information Technology Services
+IVC,Financial Services,Financial Conglomerates
+JAICORPLTD,Basic Materials,Specialty Chemicals
+JAYSREETEA,Consumer Defensive,Farm Products
+JKIL,Industrials,Engineering & Construction
+JKTYRE,Consumer Cyclical,Auto Parts
+KIOCL,Basic Materials,Steel
+KANANIIND,Consumer Cyclical,Luxury Goods
+KOLTEPATIL,Real Estate,Real Estate - Development
+LEMERITE,Consumer Cyclical,Textile Manufacturing
+MAANALU,Basic Materials,Aluminum
+MAHEPC,Industrials,Farm & Heavy Construction Machinery
+MAHLIFE,Real Estate,Real Estate - Development
+MAXHEALTH,Healthcare,Medical Care Facilities
+MOLDTECH,Industrials,Engineering & Construction
+MUTHOOTCAP,Financial Services,Credit Services
+MUTHOOTFIN,Financial Services,Credit Services
+NATCAPSUQ,Healthcare,Drug Manufacturers - Specialty & Generic
+NAVKARURB,Basic Materials,Building Materials
+ORISSAMINE,Basic Materials,Steel
+OPTIEMUS,Technology,Electronics & Computer Distribution
+ORIENTLTD,Consumer Cyclical,Packaging & Containers
+PATELRMART,Consumer Cyclical,Department Stores
+PIONEEREMB,Consumer Cyclical,Textile Manufacturing
+RAMASTEEL,Basic Materials,Steel
+RECLTD,Financial Services,Credit Services
+RELCHEMQ,Consumer Cyclical,Textile Manufacturing
+RELIABLE,Technology,Information Technology Services
+REPRO,Industrials,Specialty Business Services
+RUCHINFRA,Industrials,Specialty Business Services
+RETAIL,Consumer Defensive,Grocery Stores
+SANDESH,Communication Services,Publishing
+SHILCTECH,Industrials,Electrical Equipment & Parts
+SINCLAIR,Consumer Cyclical,Lodging
+SUDARCOLOR,Basic Materials,Specialty Chemicals
+SUNDARAM,Basic Materials,Paper & Paper Products
+UFLEX,Consumer Cyclical,Packaging & Containers
+TIPSFILMS,Communication Services,Entertainment
+WEIZMANIND,Consumer Cyclical,Textile Manufacturing
+ZEEL,Communication Services,Broadcasting
+VENUSREM,Healthcare,Drug Manufacturers - Specialty & Generic
 TIPSMUSIC,Communication Services,Entertainment
-EMMVEE,Technology,Solar
-NETWEB,Technology,Computer Hardware
-ACUTAAS,Basic Materials,Specialty Chemicals
-GLAND,Healthcare,Drug Manufacturers - Specialty & Generic
-SJS,Consumer Cyclical,Auto Parts
-SYRMA,Technology,Electronic Components
-NATIONALUM,Basic Materials,Aluminum
-MAYURUNIQ,Consumer Cyclical,Textile Manufacturing
-PREMIERENE,Technology,Solar
-GRWRHITECH,Basic Materials,Specialty Chemicals
-SEAMECLTD,Industrials,Marine Shipping
-CAPLIPOINT,Healthcare,Drug Manufacturers - Specialty & Generic
-HINDZINC,Basic Materials,Other Industrial Metals & Mining
-SENORES,Healthcare,Drug Manufacturers - General
-CAMS,Technology,Information Technology Services
-SCHAEFFLER,Consumer Cyclical,Auto Parts
 PARAS,Industrials,Aerospace & Defense
-NAVINFLUOR,Basic Materials,Chemicals
-GALAPREC,Industrials,Specialty Industrial Machinery
-ANTELOPUS,Energy,Oil & Gas E&P
-BHEL,Industrials,Specialty Industrial Machinery
-MONARCH,Financial Services,Capital Markets
-SAREGAMA,Communication Services,Entertainment
-ENRIN,Utilities,Utilities - Renewable
-ADVENZYMES,Basic Materials,Specialty Chemicals
-HSCL,Basic Materials,Specialty Chemicals
-KEI,Industrials,Electrical Equipment & Parts
-KOPRAN,Healthcare,Drug Manufacturers - General
-ZYDUSLIFE,Healthcare,Drug Manufacturers - Specialty & Generic
-AEROFLEX,Industrials,Metal Fabrication
-TRITURBINE,Industrials,Specialty Industrial Machinery
-MARICO,Consumer Defensive,Household & Personal Products
-SHILPAMED,Healthcare,Drug Manufacturers - Specialty & Generic
-TALBROAUTO,Consumer Cyclical,Auto Parts
-OBEROIRLTY,Real Estate,Real Estate - Development
-METROPOLIS,Healthcare,Diagnostics & Research
-APCOTEXIND,Basic Materials,Specialty Chemicals
-DIFFNKG,Industrials,Specialty Industrial Machinery
-IOLCP,Healthcare,Drug Manufacturers - Specialty & Generic
 RPEL,Basic Materials,Chemicals
-SBCL,Industrials,Metal Fabrication
-NRBBEARING,Consumer Cyclical,Auto Parts
-BALAMINES,Basic Materials,Specialty Chemicals
-KILITCH,Healthcare,Drug Manufacturers - Specialty & Generic
-BLSE,Industrials,Specialty Business Services
-COALINDIA,Energy,Thermal Coal
-INOXINDIA,Industrials,Specialty Industrial Machinery
-IKS,Healthcare,Health Information Services
-RRKABEL,Industrials,Electrical Equipment & Parts
-MGEL,Consumer Defensive,Farm Products
-MANKIND,Healthcare,Drug Manufacturers - Specialty & Generic
-EMCURE,Healthcare,Drug Manufacturers - Specialty & Generic
-HESTERBIO,Healthcare,Drug Manufacturers - Specialty & Generic
-CEMPRO,Industrials,Engineering & Construction
-SANGHVIMOV,Industrials,Rental & Leasing Services
-SOTL,Basic Materials,Specialty Chemicals
-INDSWFTLAB,Healthcare,Drug Manufacturers - Specialty & Generic
-SHAILY,Basic Materials,Specialty Chemicals
-BAJAJ-AUTO,Consumer Cyclical,Auto Manufacturers
-SAILIFE,Healthcare,Diagnostics & Research
-NESTLEIND,Consumer Defensive,Packaged Foods
-IGIL,Basic Materials,Other Precious Metals & Mining
-HAPPYFORGE,Industrials,Metal Fabrication
-SUNPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-GVPIL,Industrials,Engineering & Construction
-POLYCAB,Industrials,Electrical Equipment & Parts
-STAR,Healthcare,Drug Manufacturers - Specialty & Generic
-MODISONLTD,Industrials,Electrical Equipment & Parts
-JINDRILL,Energy,Oil & Gas Equipment & Services
-VSTIND,Consumer Defensive,Tobacco
-DIVGIITTS,Consumer Cyclical,Auto Parts
-SKIPPER,Industrials,Engineering & Construction
-APOLLOHOSP,Healthcare,Medical Care Facilities
-LALPATHLAB,Healthcare,Diagnostics & Research
-DIVISLAB,Healthcare,Drug Manufacturers - Specialty & Generic
-PARKHOSPS,Healthcare,Medical Care Facilities
-THANGAMAYL,Consumer Cyclical,Luxury Goods
-MENONBE,Consumer Cyclical,Auto Parts
-AJANTPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-ADANIPOWER,Utilities,Utilities - Independent Power Producers
-SOUTHWEST,Energy,Oil & Gas Equipment & Services
+BAJAJCON,Consumer Defensive,Household & Personal Products
+GRWRHITECH,Basic Materials,Specialty Chemicals
+TDPOWERSYS,Industrials,Specialty Industrial Machinery
+THYROCARE,Healthcare,Diagnostics & Research
 VIJAYA,Healthcare,Diagnostics & Research
-PAGEIND,Consumer Cyclical,Apparel Manufacturing
-WAAREEENER,Technology,Solar
-INNOVACAP,Healthcare,Drug Manufacturers - Specialty & Generic
-LLOYDSME,Basic Materials,Steel
-JGCHEM,Basic Materials,Other Industrial Metals & Mining
-KIRLOSENG,Industrials,Specialty Industrial Machinery
-POWERINDIA,Industrials,Electrical Equipment & Parts
-ABSLAMC,Financial Services,Asset Management
-BOROSCI,Consumer Cyclical,Packaging & Containers
-LUPIN,Healthcare,Drug Manufacturers - Specialty & Generic
-KPIL,Industrials,Engineering & Construction
-ALIVUS,Healthcare,Drug Manufacturers - Specialty & Generic
-SPARC,Healthcare,Drug Manufacturers - Specialty & Generic
-MOTHERSON,Consumer Cyclical,Auto Parts
-TATACONSUM,Consumer Defensive,Packaged Foods
-SASKEN,Technology,Information Technology Services
-GPTHEALTH,Healthcare,Medical Care Facilities
-INDGN,Healthcare,Health Information Services
-DEEPINDS,Energy,Oil & Gas E&P
-CPPLUS,Industrials,Building Products & Equipment
-RISHABH,Technology,Scientific & Technical Instruments
-CEIGALL,Industrials,Engineering & Construction
-HINDCOPPER,Basic Materials,Copper
-MCX,Financial Services,Financial Data & Stock Exchanges
-JNKINDIA,Industrials,Specialty Industrial Machinery
-ATUL,Basic Materials,Specialty Chemicals
-AEROENTER,Basic Materials,Steel
-SONACOMS,Consumer Cyclical,Auto Parts
-RPTECH,Technology,Electronics & Computer Distribution
-PRIVISCL,Basic Materials,Specialty Chemicals
-ASIANENE,Energy,Oil & Gas Equipment & Services
-ANANDRATHI,Financial Services,Asset Management
-AVALON,Technology,Electronic Components
-GNFC,Basic Materials,Chemicals
-CARERATING,Financial Services,Financial Data & Stock Exchanges
-KDDL,Consumer Cyclical,Luxury Goods
-PHOENIXLTD,Real Estate,Real Estate - Diversified
-ASTRAL,Industrials,Building Products & Equipment
-THERMAX,Industrials,Conglomerates
-EICHERMOT,Consumer Cyclical,Auto Manufacturers
-ACMESOLAR,Utilities,Utilities - Renewable
-CHENNPETRO,Energy,Oil & Gas Refining & Marketing
-SIS,Industrials,Security & Protection Services
-LAURUSLABS,Healthcare,Drug Manufacturers - Specialty & Generic
-NGLFINE,Healthcare,Drug Manufacturers - General
-FCL,Basic Materials,Specialty Chemicals
-SANSERA,Consumer Cyclical,Auto Parts
-FINCABLES,Industrials,Electrical Equipment & Parts
-STOVEKRAFT,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ORIENTBELL,Industrials,Building Products & Equipment
-SYNCOMF,Healthcare,Drug Manufacturers - Specialty & Generic
-CARYSIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-HONAUT,Industrials,Electrical Equipment & Parts
-ENDURANCE,Consumer Cyclical,Auto Parts
-SUPRIYA,Healthcare,Biotechnology
-SKYGOLD,Consumer Cyclical,Luxury Goods
-MOLDTKPAC,Consumer Cyclical,Packaging & Containers
-CERA,Industrials,Building Products & Equipment
-UNIVASTU,Industrials,Engineering & Construction
-SHYAMMETL,Basic Materials,Steel
-TIMKEN,Industrials,Tools & Accessories
-AJAXENGG,Industrials,Farm & Heavy Construction Machinery
-SGMART,Industrials,Industrial Distribution
-WELENT,Industrials,Engineering & Construction
-MITCON,Industrials,Engineering & Construction
-BHARATFORG,Consumer Cyclical,Auto Parts
-ANGELONE,Financial Services,Capital Markets
-WEBELSOLAR,Technology,Solar
-APARINDS,Industrials,Electrical Equipment & Parts
-MARKSANS,Healthcare,Drug Manufacturers - General
-FORTIS,Healthcare,Medical Care Facilities
-ADANIPORTS,Industrials,Marine Shipping
-BEPL,Basic Materials,Chemicals
-MANORAMA,Consumer Defensive,Packaged Foods
-ADFFOODS,Consumer Defensive,Packaged Foods
-INDUSTOWER,Communication Services,Telecom Services
-STYL,Technology,Software - Infrastructure
+ACUTAAS,Basic Materials,Specialty Chemicals
+KIRLPNU,Industrials,Specialty Industrial Machinery
+HSCL,Basic Materials,Specialty Chemicals
+VETO,Industrials,Electrical Equipment & Parts
+GVT&D,Industrials,Specialty Industrial Machinery
+OFSS,Technology,Software - Infrastructure
+INOXINDIA,Industrials,Specialty Industrial Machinery
 UNIPARTS,Industrials,Farm & Heavy Construction Machinery
-ONEPOINT,Industrials,Specialty Business Services
-TATATECH,Technology,Information Technology Services
+NAM-INDIA,Financial Services,Asset Management
+CUMMINSIND,Industrials,Specialty Industrial Machinery
+GLAND,Healthcare,Drug Manufacturers - Specialty & Generic
+POWERINDIA,Industrials,Electrical Equipment & Parts
+PASUPTAC,Consumer Cyclical,Textile Manufacturing
+AIAENG,Industrials,Specialty Industrial Machinery
+PGHL,Healthcare,Drug Manufacturers - Specialty & Generic
+SKMEGGPROD,Consumer Defensive,Packaged Foods
+SOLARINDS,Basic Materials,Specialty Chemicals
+GANESHBE,Basic Materials,Specialty Chemicals
+CUPID,Consumer Defensive,Household & Personal Products
+GRINDWELL,Industrials,Building Products & Equipment
+CAPLIPOINT,Healthcare,Drug Manufacturers - Specialty & Generic
+INFOBEAN,Technology,Software - Application
+DEEPINDS,Energy,Oil & Gas E&P
+MARKSANS,Healthcare,Drug Manufacturers - General
+NMDC,Basic Materials,Steel
+CPPLUS,Industrials,Building Products & Equipment
+COALINDIA,Energy,Thermal Coal
+ADVENZYMES,Basic Materials,Specialty Chemicals
+GRANULES,Healthcare,Drug Manufacturers - Specialty & Generic
+APCOTEXIND,Basic Materials,Specialty Chemicals
+CEMPRO,Industrials,Engineering & Construction
+WELENT,Industrials,Engineering & Construction
+SJS,Consumer Cyclical,Auto Parts
+SBCL,Industrials,Metal Fabrication
+MAYURUNIQ,Consumer Cyclical,Textile Manufacturing
+KEI,Industrials,Electrical Equipment & Parts
+SEAMECLTD,Industrials,Marine Shipping
+EMMVEE,Technology,Solar
+AMBIKCO,Consumer Cyclical,Textile Manufacturing
+CGPOWER,Industrials,Electrical Equipment & Parts
+SANGHVIMOV,Industrials,Rental & Leasing Services
+ANTELOPUS,Energy,Oil & Gas E&P
+SANSERA,Consumer Cyclical,Auto Parts
+USHAMART,Basic Materials,Steel
+PREMIERENE,Technology,Solar
+MIDHANI,Basic Materials,Steel
+JNKINDIA,Industrials,Specialty Industrial Machinery
+EMCURE,Healthcare,Drug Manufacturers - Specialty & Generic
 WABAG,Industrials,Engineering & Construction
+SOTL,Basic Materials,Specialty Chemicals
+GALAPREC,Industrials,Specialty Industrial Machinery
+INDOBORAX,Basic Materials,Chemicals
+SUPRIYA,Healthcare,Biotechnology
+IPCALAB,Healthcare,Drug Manufacturers - Specialty & Generic
+MONARCH,Financial Services,Capital Markets
+SYRMA,Technology,Electronic Components
+MANALIPETC,Basic Materials,Specialty Chemicals
+NGLFINE,Healthcare,Drug Manufacturers - General
+BALAMINES,Basic Materials,Specialty Chemicals
+KRISHNADEF,Industrials,Specialty Industrial Machinery
+UNIDT,Energy,Oil & Gas Equipment & Services
+TALBROAUTO,Consumer Cyclical,Auto Parts
+ZYDUSLIFE,Healthcare,Drug Manufacturers - Specialty & Generic
+GULPOLY,Basic Materials,Chemicals
+SAREGAMA,Communication Services,Entertainment
+SIS,Industrials,Security & Protection Services
+PAGEIND,Consumer Cyclical,Apparel Manufacturing
+FINEORG,Basic Materials,Specialty Chemicals
+HESTERBIO,Healthcare,Drug Manufacturers - Specialty & Generic
+ANTHEM,Healthcare,Biotechnology
+STYLAMIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SPECTRUM,Industrials,Electrical Equipment & Parts
+PARKHOSPS,Healthcare,Medical Care Facilities
+SENORES,Healthcare,Drug Manufacturers - General
+BSE,Financial Services,Financial Data & Stock Exchanges
+UNIMECH,Industrials,Aerospace & Defense
+ENRIN,Utilities,Utilities - Renewable
+GPTHEALTH,Healthcare,Medical Care Facilities
+TATATECH,Technology,Information Technology Services
+HONASA,Consumer Defensive,Household & Personal Products
+NRBBEARING,Consumer Cyclical,Auto Parts
+VADILALIND,Consumer Defensive,Packaged Foods
+IKS,Healthcare,Health Information Services
+SHILPAMED,Healthcare,Drug Manufacturers - Specialty & Generic
+THANGAMAYL,Consumer Cyclical,Luxury Goods
+SAKAR,Healthcare,Drug Manufacturers - Specialty & Generic
+VIYASH,Healthcare,Drug Manufacturers - Specialty & Generic
+DATAPATTNS,Industrials,Aerospace & Defense
+SUDEEPPHRM,Healthcare,Drug Manufacturers - Specialty & Generic
+CHENNPETRO,Energy,Oil & Gas Refining & Marketing
 NITINSPIN,Consumer Cyclical,Textile Manufacturing
-GOKULAGRO,Consumer Defensive,Packaged Foods
-MTARTECH,Industrials,Specialty Industrial Machinery
-KINGFA,Basic Materials,Specialty Chemicals
-JPPOWER,Utilities,Utilities - Independent Power Producers
-ATGL,Utilities,Utilities - Regulated Gas
+IOLCP,Healthcare,Drug Manufacturers - Specialty & Generic
+RAINBOW,Healthcare,Medical Care Facilities
+ELGIEQUIP,Industrials,Specialty Industrial Machinery
+SETL,Industrials,Specialty Industrial Machinery
+BLSE,Industrials,Specialty Business Services
+NAVINFLUOR,Basic Materials,Chemicals
+AJANTPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
+SASKEN,Technology,Information Technology Services
+ADFFOODS,Consumer Defensive,Packaged Foods
+JAGRAN,Communication Services,Publishing
+AEROFLEX,Industrials,Metal Fabrication
+VSTIND,Consumer Defensive,Tobacco
+PIDILITIND,Basic Materials,Specialty Chemicals
+20MICRONS,Basic Materials,Other Industrial Metals & Mining
+POLYCAB,Industrials,Electrical Equipment & Parts
+NETWEB,Technology,Computer Hardware
+LLOYDSME,Basic Materials,Steel
+JINDRILL,Energy,Oil & Gas Equipment & Services
+ASIANENE,Energy,Oil & Gas Equipment & Services
+SHAILY,Basic Materials,Specialty Chemicals
+RRKABEL,Industrials,Electrical Equipment & Parts
+IGIL,Basic Materials,Other Precious Metals & Mining
+DIFFNKG,Industrials,Specialty Industrial Machinery
+KILITCH,Healthcare,Drug Manufacturers - Specialty & Generic
+WEBELSOLAR,Technology,Solar
+BEPL,Basic Materials,Chemicals
+ITDC,Consumer Cyclical,Lodging
+DIVGIITTS,Consumer Cyclical,Auto Parts
+CARYSIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SONACOMS,Consumer Cyclical,Auto Parts
+DJML,Industrials,Specialty Business Services
+MEDANTA,Healthcare,Medical Care Facilities
+TRAVELFOOD,Consumer Cyclical,Restaurants
+CENTENKA,Consumer Cyclical,Textile Manufacturing
+SKIPPER,Industrials,Engineering & Construction
+GVPIL,Industrials,Engineering & Construction
+SAILIFE,Healthcare,Diagnostics & Research
+TRITURBINE,Industrials,Specialty Industrial Machinery
+SOUTHWEST,Energy,Oil & Gas Equipment & Services
+SPARC,Healthcare,Drug Manufacturers - Specialty & Generic
+FCL,Basic Materials,Specialty Chemicals
+IZMO,Technology,Software - Application
+ASTERDM,Healthcare,Medical Care Facilities
+LAURUSLABS,Healthcare,Drug Manufacturers - Specialty & Generic
+SUZLON,Industrials,Specialty Industrial Machinery
+JASH,Industrials,Specialty Industrial Machinery
+HAPPYFORGE,Industrials,Metal Fabrication
+BHEL,Industrials,Specialty Industrial Machinery
+ADANIPOWER,Utilities,Utilities - Independent Power Producers
+APOLLOHOSP,Healthcare,Medical Care Facilities
+GOLDIAM,Consumer Cyclical,Luxury Goods
+CHAMBLFERT,Basic Materials,Agricultural Inputs
+ADANIPORTS,Industrials,Marine Shipping
+TIMKEN,Industrials,Tools & Accessories
+AEGISLOG,Energy,Oil & Gas Refining & Marketing
+CHEMCON,Basic Materials,Specialty Chemicals
 CGCL,Financial Services,Credit Services
-MEDPLUS,Healthcare,Pharmaceutical Retailers
+ASIANPAINT,Basic Materials,Specialty Chemicals
+NH,Healthcare,Medical Care Facilities
+FORTIS,Healthcare,Medical Care Facilities
+SPORTKING,Consumer Cyclical,Textile Manufacturing
+KIRLOSENG,Industrials,Specialty Industrial Machinery
+AMNPLST,Basic Materials,Chemicals
+PTL,Real Estate,Real Estate Services
+SARDAEN,Basic Materials,Steel
+POWERMECH,Industrials,Engineering & Construction
+CAMS,Technology,Information Technology Services
+MANORAMA,Consumer Defensive,Packaged Foods
+APOLLO,Industrials,Aerospace & Defense
+LLOYDSENGG,Industrials,Specialty Industrial Machinery
+GLOBAL,Consumer Defensive,Education & Training Services
+BOROSCI,Consumer Cyclical,Packaging & Containers
+HMVL,Communication Services,Publishing
+SANSTAR,Basic Materials,Chemicals
+GOKULAGRO,Consumer Defensive,Packaged Foods
+YATHARTH,Healthcare,Medical Care Facilities
+MOLDTKPAC,Consumer Cyclical,Packaging & Containers
+ZEELEARN,Consumer Defensive,Education & Training Services
+AARVI,Industrials,Staffing & Employment Services
+GHCLTEXTIL,Consumer Cyclical,Textile Manufacturing
+PIXTRANS,Industrials,Specialty Industrial Machinery
+GANDHAR,Energy,Oil & Gas Refining & Marketing
+QUESS,Industrials,Staffing & Employment Services
+TINNARUBR,Basic Materials,Specialty Chemicals
+RATEGAIN,Technology,Software - Application
+AVALON,Technology,Electronic Components
+SRM,Industrials,Engineering & Construction
+CEIGALL,Industrials,Engineering & Construction
+PANAMAPET,Energy,Oil & Gas Refining & Marketing
+ANANDRATHI,Financial Services,Asset Management
+ATGL,Utilities,Utilities - Regulated Gas
+EXIDEIND,Consumer Cyclical,Auto Parts
+AEROENTER,Basic Materials,Steel
+ACMESOLAR,Utilities,Utilities - Renewable
+SOMANYCERA,Industrials,Building Products & Equipment
+RPTECH,Technology,Electronics & Computer Distribution
+KPIL,Industrials,Engineering & Construction
+SFL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+JAYBARMARU,Consumer Cyclical,Auto Parts
+BAJAJ-AUTO,Consumer Cyclical,Auto Manufacturers
+PONNIERODE,Consumer Defensive,Confectioners
+WELCORP,Basic Materials,Steel
+ATALREAL,Industrials,Engineering & Construction
+SHREEJISPG,Industrials,Marine Shipping
+ZENTEC,Industrials,Aerospace & Defense
+MCX,Financial Services,Financial Data & Stock Exchanges
+NEPHROPLUS,Healthcare,Medical Care Facilities
+LUPIN,Healthcare,Drug Manufacturers - Specialty & Generic
+ADANIENT,Energy,Thermal Coal
+FIEMIND,Consumer Cyclical,Auto Parts
+NRL,Industrials,Waste Management
+RAMCOSYS,Technology,Software - Application
+ANGELONE,Financial Services,Capital Markets
+BANCOINDIA,Consumer Cyclical,Auto Parts
+SHYAMMETL,Basic Materials,Steel
+EPACKPEB,Industrials,Engineering & Construction
+PRUDENT,Financial Services,Asset Management
+IMFA,Basic Materials,Other Industrial Metals & Mining
+MINDACORP,Consumer Cyclical,Auto Parts
+VENUSPIPES,Basic Materials,Steel
+GUJTHEM,Healthcare,Drug Manufacturers - Specialty & Generic
+PHOENIXLTD,Real Estate,Real Estate - Diversified
+THERMAX,Industrials,Conglomerates
+VIKRAMSOLR,Technology,Solar
+ADANIENSOL,Utilities,Utilities - Independent Power Producers
+AZAD,Industrials,Specialty Industrial Machinery
+GESHIP,Industrials,Marine Shipping
+CRAFTSMAN,Consumer Cyclical,Auto Parts
+MAHESHWARI,Industrials,Integrated Freight & Logistics
+DLINKINDIA,Technology,Communication Equipment
+MUNJALAU,Consumer Cyclical,Auto Parts
+ARVIND,Consumer Cyclical,Textile Manufacturing
+RISHABH,Technology,Scientific & Technical Instruments
+UDS,Industrials,Specialty Business Services
+APARINDS,Industrials,Electrical Equipment & Parts
+STYL,Technology,Software - Infrastructure
+KDDL,Consumer Cyclical,Luxury Goods
+NESTLEIND,Consumer Defensive,Packaged Foods
+GTL,Communication Services,Telecom Services
+CENTUM,Technology,Electronic Components
+ELECON,Industrials,Specialty Industrial Machinery
+SANDUMA,Basic Materials,Steel
+ONEPOINT,Industrials,Specialty Business Services
+REDTAPE,Consumer Cyclical,Footwear & Accessories
+NBCC,Industrials,Engineering & Construction
+JAMNAAUTO,Consumer Cyclical,Auto Parts
+JBCHEPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
+CLSEL,Consumer Defensive,Packaged Foods
+MTARTECH,Industrials,Specialty Industrial Machinery
+ABSLAMC,Financial Services,Asset Management
+KAMDHENU,Basic Materials,Steel
+METROPOLIS,Healthcare,Diagnostics & Research
+VISAKAIND,Industrials,Building Products & Equipment
+MAHABANK,Financial Services,Banks - Regional
+VOLTAMP,Industrials,Electrical Equipment & Parts
+PRECWIRE,Industrials,Electrical Equipment & Parts
+GNFC,Basic Materials,Chemicals
+SUNPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+SUPRAJIT,Consumer Cyclical,Auto Parts
+MOTHERSON,Consumer Cyclical,Auto Parts
+MANINDS,Basic Materials,Steel
+MARICO,Consumer Defensive,Household & Personal Products
+SIYSIL,Consumer Cyclical,Textile Manufacturing
+HINDCOPPER,Basic Materials,Copper
+HARIOMPIPE,Basic Materials,Steel
+VINCOFE,Consumer Defensive,Beverages - Non-Alcoholic
+JARO,Consumer Defensive,Education & Training Services
+MANKIND,Healthcare,Drug Manufacturers - Specialty & Generic
+UNIVASTU,Industrials,Engineering & Construction
+BCG,Communication Services,Advertising Agencies
+KAJARIACER,Industrials,Building Products & Equipment
+HONAUT,Industrials,Electrical Equipment & Parts
+BAFNAPH,Healthcare,Drug Manufacturers - Specialty & Generic
+PARACABLES,Technology,Communication Equipment
+OIL,Energy,Oil & Gas Integrated
+SSWL,Consumer Cyclical,Auto Parts
+TORNTPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
+TVSSCS,Industrials,Integrated Freight & Logistics
+DIACABS,Industrials,Specialty Industrial Machinery
+INNOVACAP,Healthcare,Drug Manufacturers - Specialty & Generic
+RSWM,Consumer Cyclical,Textile Manufacturing
+CARERATING,Financial Services,Financial Data & Stock Exchanges
+TMB,Financial Services,Banks - Regional
+ABB,Industrials,Specialty Industrial Machinery
+YASHO,Basic Materials,Specialty Chemicals
+PAISALO,Financial Services,Credit Services
+SANDHAR,Consumer Cyclical,Auto Parts
+ENGINERSIN,Industrials,Engineering & Construction
+STOVEKRAFT,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+GREENPLY,Basic Materials,Lumber & Wood Production
+UMIYA-MRO,Real Estate,Real Estate - Development
+NORTHARC,Financial Services,Credit Services
+BLUSPRING,Industrials,Specialty Business Services
+DCM,Industrials,Metal Fabrication
+ANANTRAJ,Real Estate,Real Estate - Development
+WSTCSTPAPR,Basic Materials,Paper & Paper Products
+DENORA,Industrials,Electrical Equipment & Parts
+AJAXENGG,Industrials,Farm & Heavy Construction Machinery
+GEOJITFSL,Financial Services,Capital Markets
+SANOFICONR,Healthcare,Drug Manufacturers - General
+PRIVISCL,Basic Materials,Specialty Chemicals
+LALPATHLAB,Healthcare,Diagnostics & Research
+AVL,Consumer Cyclical,Specialty Retail
+LMW,Industrials,Specialty Industrial Machinery
+NLCINDIA,Utilities,Utilities - Regulated Electric
+JSWSTEEL,Basic Materials,Steel
+CORONA,Healthcare,Drug Manufacturers - General
+HIRECT,Industrials,Electrical Equipment & Parts
+JAGSNPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
+SHADOWFAX,Industrials,Integrated Freight & Logistics
+RHETAN,Basic Materials,Steel
+GROWW,Financial Services,Capital Markets
+ADANIGREEN,Utilities,Utilities - Renewable
+CARBORUNIV,Industrials,Conglomerates
+UTLSOLAR,Technology,Solar
+V2RETAIL,Consumer Cyclical,Apparel Retail
+INDGN,Healthcare,Health Information Services
+SHANTIGOLD,Consumer Cyclical,Luxury Goods
+DIVISLAB,Healthcare,Drug Manufacturers - Specialty & Generic
+GAEL,Consumer Defensive,Packaged Foods
+INDUSTOWER,Communication Services,Telecom Services
+UNIVCABLES,Industrials,Electrical Equipment & Parts
+FRACTAL,Technology,Software - Infrastructure
+PTCIL,Industrials,Metal Fabrication
+OBEROIRLTY,Real Estate,Real Estate - Development
+NATIONALUM,Basic Materials,Aluminum
+SAHYADRI,Industrials,Building Products & Equipment
+EPL,Consumer Cyclical,Packaging & Containers
+EUROPRATIK,Basic Materials,Building Materials
+HARSHA,Industrials,Tools & Accessories
+SATIN,Financial Services,Credit Services
+FEDFINA,Financial Services,Credit Services
+AUROPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+BUILDPRO,Consumer Cyclical,Home Improvement Retail
+VAIBHAVGBL,Consumer Cyclical,Luxury Goods
+MANCREDIT,Financial Services,Credit Services
+ALIVUS,Healthcare,Drug Manufacturers - Specialty & Generic
+J&KBANK,Financial Services,Banks - Regional
+HINDZINC,Basic Materials,Other Industrial Metals & Mining
+BOSCHLTD,Consumer Cyclical,Auto Parts
+AETHER,Basic Materials,Specialty Chemicals
+MWL,Basic Materials,Steel
+GREAVESCOT,Industrials,Specialty Industrial Machinery
+ATHERENERG,Consumer Cyclical,Auto Manufacturers
+GULFPETRO,Energy,Oil & Gas Refining & Marketing
+GOCLCORP,Basic Materials,Specialty Chemicals
+JGCHEM,Basic Materials,Other Industrial Metals & Mining
+JETFREIGHT,Industrials,Integrated Freight & Logistics
+SCI,Industrials,Marine Shipping
+ASTRAMICRO,Technology,Communication Equipment
+PSPPROJECT,Industrials,Engineering & Construction
+WEWORK,Real Estate,Real Estate Services
+MEGASTAR,Consumer Defensive,Packaged Foods
+SKYGOLD,Consumer Cyclical,Luxury Goods
+ORIENTBELL,Industrials,Building Products & Equipment
+ATUL,Basic Materials,Specialty Chemicals
+BHAGERIA,Basic Materials,Specialty Chemicals
+RADICO,Consumer Defensive,Beverages - Wineries & Distilleries
+VBL,Consumer Defensive,Beverages - Non-Alcoholic
+AKUMS,Healthcare,Drug Manufacturers - Specialty & Generic
+BBOX,Technology,Software - Application
+RICOAUTO,Consumer Cyclical,Auto Parts
+JAYNECOIND,Basic Materials,Steel
+SUNDRMBRAK,Consumer Cyclical,Auto Parts
+MENONBE,Consumer Cyclical,Auto Parts
+VSSL,Basic Materials,Steel
+JMA,Consumer Cyclical,Auto Parts
+KRISHANA,Basic Materials,Agricultural Inputs
+ARTEMISMED,Unknown,Unknown
+RANEHOLDIN,Consumer Cyclical,Auto Parts
+IDEA,Communication Services,Telecom Services
+BAJEL,Utilities,Utilities - Regulated Electric
+HCC,Industrials,Engineering & Construction
+NIVABUPA,Financial Services,Insurance - Life
+STEELXIND,Basic Materials,Steel
+AGIIL,Real Estate,Real Estate - Development
+PRIMO,Basic Materials,Chemicals
+FILATEX,Consumer Cyclical,Textile Manufacturing
+MMTC,Industrials,Conglomerates
+ADOR,Industrials,Specialty Industrial Machinery
+CEINSYS,Industrials,Engineering & Construction
+CRAMC,Financial Services,Asset Management
+SGMART,Industrials,Industrial Distribution
+SANGAMIND,Consumer Cyclical,Textile Manufacturing
+MSTCLTD,Industrials,Conglomerates
+VARROC,Consumer Cyclical,Auto Parts
+KTKBANK,Financial Services,Banks - Regional
+FAZE3Q,Consumer Cyclical,Textile Manufacturing
+STAR,Healthcare,Drug Manufacturers - Specialty & Generic
+BFINVEST,Financial Services,Asset Management
+KOTYARK,Basic Materials,Specialty Chemicals
+HNDFDS,Industrials,Conglomerates
+JINDALSAW,Basic Materials,Steel
+GANDHITUBE,Industrials,Metal Fabrication
+NAZARA,Communication Services,Electronic Gaming & Multimedia
+MARINE,Industrials,Electrical Equipment & Parts
+BHARATFORG,Consumer Cyclical,Auto Parts
+BLISSGVS,Healthcare,Drug Manufacturers - Specialty & Generic
+GPTINFRA,Industrials,Engineering & Construction
+PGIL,Consumer Cyclical,Apparel Manufacturing
+VISHNU,Basic Materials,Specialty Chemicals
+PLASTIBLEN,Basic Materials,Specialty Chemicals
+FINCABLES,Industrials,Electrical Equipment & Parts
+JPOLYINVST,Financial Services,Asset Management
+DHANBANK,Financial Services,Banks - Regional
+ASTRAL,Industrials,Building Products & Equipment
+PATINTLOG,Industrials,Integrated Freight & Logistics
+ORKLAINDIA,Consumer Defensive,Packaged Foods
+MARKOLINES,Industrials,Infrastructure Operations
+GAIL,Utilities,Utilities - Regulated Gas
+GOODLUCK,Basic Materials,Steel
+ZFCVINDIA,Consumer Cyclical,Auto Parts
+ARROWGREEN,Consumer Cyclical,Packaging & Containers
+SOUTHBANK,Financial Services,Banks - Regional
+RBLBANK,Financial Services,Banks - Regional
+SECMARK,Industrials,Consulting Services
+EQUITASBNK,Financial Services,Banks - Regional
+GIPCL,Utilities,Utilities - Regulated Electric
+ADVAIT,Industrials,Specialty Industrial Machinery
+ICICIAMC,Financial Services,Asset Management
+NARMADA,Basic Materials,Agricultural Inputs
+SCHNEIDER,Industrials,Electrical Equipment & Parts
+VERANDA,Consumer Defensive,Education & Training Services
+SURYAROSNI,Basic Materials,Steel
+BHARATSE,Consumer Cyclical,Auto Parts
+AURUM,Real Estate,Real Estate Services
+DIAMONDYD,Consumer Defensive,Packaged Foods
+ESABINDIA,Industrials,Tools & Accessories
+CONFIPET,Energy,Oil & Gas Refining & Marketing
+GENUSPOWER,Industrials,Electrical Equipment & Parts
+HINDALCO,Basic Materials,Aluminum
+PRIMESECU,Financial Services,Capital Markets
+TBZ,Consumer Cyclical,Luxury Goods
+STYRENIX,Basic Materials,Chemicals
 ASHIANA,Real Estate,Real Estate - Development
 RUBICON,Healthcare,Drug Manufacturers - General
-SAHYADRI,Industrials,Building Products & Equipment
-MAHABANK,Financial Services,Banks - Regional
-ABB,Industrials,Specialty Industrial Machinery
-JAGSNPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-VISAKAIND,Industrials,Building Products & Equipment
-DJML,Industrials,Specialty Business Services
-SANDUMA,Basic Materials,Steel
-NEULANDLAB,Healthcare,Drug Manufacturers - Specialty & Generic
-RUBFILA,Basic Materials,Specialty Chemicals
-SOMANYCERA,Industrials,Building Products & Equipment
-NRL,Industrials,Waste Management
-AUROPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-SIGNPOST,Communication Services,Advertising Agencies
-ZFCVINDIA,Consumer Cyclical,Auto Parts
-PRUDENT,Financial Services,Asset Management
-DATAPATTNS,Industrials,Aerospace & Defense
-ARVIND,Consumer Cyclical,Textile Manufacturing
-TORNTPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-FRACTAL,Technology,Software - Infrastructure
-KRISHANA,Basic Materials,Agricultural Inputs
-VENUSPIPES,Basic Materials,Steel
-PAISALO,Financial Services,Credit Services
-CENTUM,Technology,Electronic Components
-CRAFTSMAN,Consumer Cyclical,Auto Parts
-PTL,Real Estate,Real Estate Services
-UTLSOLAR,Technology,Solar
-SUZLON,Industrials,Specialty Industrial Machinery
-VENUSREM,Healthcare,Drug Manufacturers - Specialty & Generic
-ELECON,Industrials,Specialty Industrial Machinery
-BLISSGVS,Healthcare,Drug Manufacturers - Specialty & Generic
-BANSALWIRE,Basic Materials,Steel
-WOCKPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-JAYNECOIND,Basic Materials,Steel
-JAYBARMARU,Consumer Cyclical,Auto Parts
-PASUPTAC,Consumer Cyclical,Textile Manufacturing
-PIXTRANS,Industrials,Specialty Industrial Machinery
-ICICIAMC,Financial Services,Asset Management
-JSWSTEEL,Basic Materials,Steel
-INDOBORAX,Basic Materials,Chemicals
-ELGIEQUIP,Industrials,Specialty Industrial Machinery
-ASTERDM,Healthcare,Medical Care Facilities
-HIRECT,Industrials,Electrical Equipment & Parts
-NH,Healthcare,Medical Care Facilities
-MARINE,Industrials,Electrical Equipment & Parts
-APOLLO,Industrials,Aerospace & Defense
-PATINTLOG,Industrials,Integrated Freight & Logistics
-SONAMLTD,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-MINDTECK,Technology,Information Technology Services
-JINDALSAW,Basic Materials,Steel
-RADICO,Consumer Defensive,Beverages - Wineries & Distilleries
-UNIVCABLES,Industrials,Electrical Equipment & Parts
-VBL,Consumer Defensive,Beverages - Non-Alcoholic
-ATLANTAELE,Industrials,Electrical Equipment & Parts
-VETO,Industrials,Electrical Equipment & Parts
-SFL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-RHETAN,Basic Materials,Steel
-NEPHROPLUS,Healthcare,Medical Care Facilities
-WELCORP,Basic Materials,Steel
-STYRENIX,Basic Materials,Chemicals
-SHANTIGOLD,Consumer Cyclical,Luxury Goods
-BUILDPRO,Consumer Cyclical,Home Improvement Retail
-HINDALCO,Basic Materials,Aluminum
-NLCINDIA,Utilities,Utilities - Regulated Electric
-GHCLTEXTIL,Consumer Cyclical,Textile Manufacturing
-ARTEMISMED,Unknown,Unknown
-DLINKINDIA,Technology,Communication Equipment
-LLOYDSENGG,Industrials,Specialty Industrial Machinery
-SPORTKING,Consumer Cyclical,Textile Manufacturing
-FEDFINA,Financial Services,Credit Services
-GPIL,Basic Materials,Steel
-SHREEJISPG,Industrials,Marine Shipping
-NUVAMA,Financial Services,Asset Management
-EXIDEIND,Consumer Cyclical,Auto Parts
-LUMAXTECH,Consumer Cyclical,Auto Parts
-SAIL,Basic Materials,Steel
-CONFIPET,Energy,Oil & Gas Refining & Marketing
-VIYASH,Healthcare,Drug Manufacturers - Specialty & Generic
-KRISHNADEF,Industrials,Specialty Industrial Machinery
-UYFINCORP,Financial Services,Credit Services
-EUROPRATIK,Basic Materials,Building Materials
-ADANIENT,Energy,Thermal Coal
-JBCHEPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-JETFREIGHT,Industrials,Integrated Freight & Logistics
-GPTINFRA,Industrials,Engineering & Construction
-HBLENGINE,Industrials,Electrical Equipment & Parts
-SUDEEPPHRM,Healthcare,Drug Manufacturers - Specialty & Generic
-SUNFLAG,Basic Materials,Steel
-SATIN,Financial Services,Credit Services
-ADANIENSOL,Utilities,Utilities - Independent Power Producers
-MAITHANALL,Basic Materials,Steel
-MOSCHIP,Technology,Semiconductor Equipment & Materials
-SHADOWFAX,Industrials,Integrated Freight & Logistics
-PONNIERODE,Consumer Defensive,Confectioners
-UNIDT,Energy,Oil & Gas Equipment & Services
-GOLDIAM,Consumer Cyclical,Luxury Goods
-GLOBAL,Consumer Defensive,Education & Training Services
-KERNEX,Technology,Software - Application
-PARACABLES,Technology,Communication Equipment
-ATHERENERG,Consumer Cyclical,Auto Manufacturers
-MIDHANI,Basic Materials,Steel
-GOCLCORP,Basic Materials,Specialty Chemicals
-ORIENTCER,Basic Materials,Specialty Chemicals
-HONASA,Consumer Defensive,Household & Personal Products
-SERVOTECH,Industrials,Electrical Equipment & Parts
-VALIANTORG,Basic Materials,Chemicals
-AIAENG,Industrials,Specialty Industrial Machinery
-J&KBANK,Financial Services,Banks - Regional
-SECMARK,Industrials,Consulting Services
-GINNIFILA,Consumer Cyclical,Textile Manufacturing
-TPLPLASTEH,Consumer Cyclical,Packaging & Containers
-KROSS,Consumer Cyclical,Auto Parts
-FABTECH,Healthcare,Health Information Services
-LMW,Industrials,Specialty Industrial Machinery
-NEOGEN,Basic Materials,Specialty Chemicals
-ZENTEC,Industrials,Aerospace & Defense
-JARO,Consumer Defensive,Education & Training Services
-HARSHA,Industrials,Tools & Accessories
-YASHO,Basic Materials,Specialty Chemicals
-LLOYDSENT,Basic Materials,Steel
-SIEMENS,Industrials,Specialty Industrial Machinery
-GESHIP,Industrials,Marine Shipping
-GAEL,Consumer Defensive,Packaged Foods
-SANSTAR,Basic Materials,Chemicals
-ADOR,Industrials,Specialty Industrial Machinery
-VERANDA,Consumer Defensive,Education & Training Services
-YESBANK,Financial Services,Banks - Regional
-BANCOINDIA,Consumer Cyclical,Auto Parts
-GIPCL,Utilities,Utilities - Regulated Electric
-HITECHCORP,Consumer Cyclical,Packaging & Containers
-PLASTIBLEN,Basic Materials,Specialty Chemicals
-GRAPHITE,Industrials,Electrical Equipment & Parts
-IRISDOREME,Consumer Cyclical,Apparel Manufacturing
-KTKBANK,Financial Services,Banks - Regional
-DIACABS,Industrials,Specialty Industrial Machinery
-ALKEM,Healthcare,Drug Manufacturers - Specialty & Generic
-SRM,Industrials,Engineering & Construction
-JKPAPER,Basic Materials,Paper & Paper Products
-MWL,Basic Materials,Steel
-PGHL,Healthcare,Drug Manufacturers - Specialty & Generic
-EBGNG,Technology,Computer Hardware
-POWERMECH,Industrials,Engineering & Construction
-RANEHOLDIN,Consumer Cyclical,Auto Parts
-ATALREAL,Industrials,Engineering & Construction
-MAHESHWARI,Industrials,Integrated Freight & Logistics
-APTECHT,Consumer Defensive,Education & Training Services
-DHANBANK,Financial Services,Banks - Regional
-ENGINERSIN,Industrials,Engineering & Construction
-ASTRAMICRO,Technology,Communication Equipment
-IDEA,Communication Services,Telecom Services
-DRREDDY,Healthcare,Drug Manufacturers - Specialty & Generic
-SPECTRUM,Industrials,Electrical Equipment & Parts
-RBLBANK,Financial Services,Banks - Regional
-AMBIKCO,Consumer Cyclical,Textile Manufacturing
-ROLEXRINGS,Industrials,Metal Fabrication
-BANDHANBNK,Financial Services,Banks - Regional
-NARMADA,Basic Materials,Agricultural Inputs
-RAIN,Basic Materials,Specialty Chemicals
-DREDGECORP,Industrials,Engineering & Construction
-GRINDWELL,Industrials,Building Products & Equipment
-CUMMINSIND,Industrials,Specialty Industrial Machinery
-RAYMOND,Industrials,Specialty Industrial Machinery
-STYLAMIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-CORDSCABLE,Industrials,Electrical Equipment & Parts
-GUJALKALI,Basic Materials,Chemicals
-CARBORUNIV,Industrials,Conglomerates
-PANAMAPET,Energy,Oil & Gas Refining & Marketing
-BLUSPRING,Industrials,Specialty Business Services
-GENUSPOWER,Industrials,Electrical Equipment & Parts
-SCHNEIDER,Industrials,Electrical Equipment & Parts
-PSPPROJECT,Industrials,Engineering & Construction
-RATEGAIN,Technology,Software - Application
-SRGHFL,Financial Services,Mortgage Finance
-YATHARTH,Healthcare,Medical Care Facilities
-DBSTOCKBRO,Financial Services,Capital Markets
-STARHEALTH,Financial Services,Insurance - Life
-HFCL,Technology,Communication Equipment
-NAZARA,Communication Services,Electronic Gaming & Multimedia
-RAYMONDREL,Real Estate,Real Estate - Development
-AVL,Consumer Cyclical,Specialty Retail
-GEOJITFSL,Financial Services,Capital Markets
-CORONA,Healthcare,Drug Manufacturers - General
-MINDACORP,Consumer Cyclical,Auto Parts
-JSWENERGY,Utilities,Utilities - Independent Power Producers
-KMEW,Industrials,Marine Shipping
-MARKOLINES,Industrials,Infrastructure Operations
-BBTCL,Consumer Cyclical,Packaging & Containers
-SUVEN,Healthcare,Drug Manufacturers - Specialty & Generic
-MMTC,Industrials,Conglomerates
-POLICYBZR,Financial Services,Insurance Brokers
-NMDC,Basic Materials,Steel
-GANESHCP,Consumer Defensive,Packaged Foods
-COASTCORP,Consumer Defensive,Packaged Foods
-MANCREDIT,Financial Services,Credit Services
-IVP,Basic Materials,Specialty Chemicals
-LT,Industrials,Engineering & Construction
-XPROINDIA,Basic Materials,Specialty Chemicals
-OIL,Energy,Oil & Gas Integrated
-REDTAPE,Consumer Cyclical,Footwear & Accessories
-HALEOSLABS,Healthcare,Biotechnology
-TIINDIA,Industrials,Conglomerates
-APOLLOPIPE,Industrials,Building Products & Equipment
-TMB,Financial Services,Banks - Regional
-PRECOT,Consumer Cyclical,Textile Manufacturing
-IIFLCAPS,Financial Services,Capital Markets
-GANDHAR,Energy,Oil & Gas Refining & Marketing
-RSWM,Consumer Cyclical,Textile Manufacturing
-MAHSEAMLES,Basic Materials,Steel
-AVTNPL,Basic Materials,Specialty Chemicals
-INGERRAND,Industrials,Specialty Industrial Machinery
-IMFA,Basic Materials,Other Industrial Metals & Mining
-SBC,Industrials,Conglomerates
-ORIENTELEC,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ABCAPITAL,Financial Services,Financial Conglomerates
-NIVABUPA,Financial Services,Insurance - Life
-BHARATGEAR,Consumer Cyclical,Auto Parts
-PERSISTENT,Technology,Information Technology Services
-PNBHOUSING,Financial Services,Mortgage Finance
-SOUTHBANK,Financial Services,Banks - Regional
-TATASTEEL,Basic Materials,Steel
-ADANIGREEN,Utilities,Utilities - Renewable
-IFCI,Financial Services,Credit Services
-SENCO,Consumer Cyclical,Luxury Goods
-ASPINWALL,Consumer Defensive,Farm Products
-AARVI,Industrials,Staffing & Employment Services
-EPL,Consumer Cyclical,Packaging & Containers
-TMCV,Consumer Cyclical,Auto Manufacturers
-VIKRAMSOLR,Technology,Solar
-SKMEGGPROD,Consumer Defensive,Packaged Foods
-REFEX,Energy,Thermal Coal
-MANAKSIA,Industrials,Metal Fabrication
-GLENMARK,Healthcare,Drug Manufacturers - Specialty & Generic
-SGFIN,Financial Services,Capital Markets
-GRASIM,Basic Materials,Building Materials
-GMDCLTD,Energy,Thermal Coal
-AZAD,Industrials,Specialty Industrial Machinery
-JAGRAN,Communication Services,Publishing
-NURECA,Healthcare,Medical Devices
-CEINSYS,Industrials,Engineering & Construction
-DSSL,Technology,Information Technology Services
-DIAMONDYD,Consumer Defensive,Packaged Foods
-LTF,Financial Services,Credit Services
-ANDHRSUGAR,Basic Materials,Chemicals
-ADVAIT,Industrials,Specialty Industrial Machinery
-SWARAJENG,Consumer Cyclical,Auto Parts
-AHCL,Healthcare,Drug Manufacturers - Specialty & Generic
-GULPOLY,Basic Materials,Chemicals
-AEGISLOG,Energy,Oil & Gas Refining & Marketing
-VSSL,Basic Materials,Steel
-KANPRPLA,Consumer Cyclical,Packaging & Containers
-FEDERALBNK,Financial Services,Banks - Regional
-RUBYMILLS,Consumer Cyclical,Textile Manufacturing
 MBAPL,Basic Materials,Agricultural Inputs
-CENTURYPLY,Basic Materials,Lumber & Wood Production
-AYMSYNTEX,Consumer Cyclical,Textile Manufacturing
-AXISCADES,Industrials,Engineering & Construction
-INDOSTAR,Financial Services,Credit Services
-CESC,Utilities,Utilities - Regulated Electric
-NORTHARC,Financial Services,Credit Services
-ARROWGREEN,Consumer Cyclical,Packaging & Containers
-CAPITALSFB,Financial Services,Banks - Regional
-SUYOG,Communication Services,Telecom Services
-AVANTEL,Technology,Communication Equipment
-CLSEL,Consumer Defensive,Packaged Foods
-FIEMIND,Consumer Cyclical,Auto Parts
-TATACOMM,Communication Services,Telecom Services
-BAJEL,Utilities,Utilities - Regulated Electric
-VINDHYATEL,Industrials,Engineering & Construction
-PTC,Utilities,Utilities - Independent Power Producers
-MUNJALSHOW,Consumer Cyclical,Auto Parts
-TNPL,Basic Materials,Paper & Paper Products
-360ONE,Financial Services,Asset Management
-PGIL,Consumer Cyclical,Apparel Manufacturing
-MUKANDLTD,Basic Materials,Steel
-IGPL,Basic Materials,Chemicals
-RML,Consumer Cyclical,Auto Parts
-HCC,Industrials,Engineering & Construction
-E2E,Technology,Software - Infrastructure
-SPAL,Consumer Cyclical,Apparel Manufacturing
-RAINBOW,Healthcare,Medical Care Facilities
-SRHHYPOLTD,Basic Materials,Chemicals
-PRIMO,Basic Materials,Chemicals
-DWARKESH,Consumer Defensive,Confectioners
-ZYDUSWELL,Consumer Defensive,Packaged Foods
-BALPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-KOTYARK,Basic Materials,Specialty Chemicals
-MEDICO,Healthcare,Drug Manufacturers - Specialty & Generic
-RATNAVEER,Basic Materials,Steel
-AETHER,Basic Materials,Specialty Chemicals
-CENTENKA,Consumer Cyclical,Textile Manufacturing
-RVTH,Industrials,Farm & Heavy Construction Machinery
-MANAPPURAM,Financial Services,Credit Services
-NITCO,Industrials,Building Products & Equipment
-GKWLIMITED,Industrials,Specialty Business Services
-BORANA,Consumer Cyclical,Textile Manufacturing
-BFINVEST,Financial Services,Asset Management
-PRECWIRE,Industrials,Electrical Equipment & Parts
-WELSPUNLIV,Consumer Cyclical,Textile Manufacturing
-GANESHBE,Basic Materials,Specialty Chemicals
+IRISDOREME,Consumer Cyclical,Apparel Manufacturing
+STUDDS,Consumer Cyclical,Auto Parts
+FEDERALBNK,Financial Services,Banks - Regional
+CHEVIOT,Consumer Cyclical,Textile Manufacturing
+ORBTEXP,Consumer Cyclical,Textile Manufacturing
+GPIL,Basic Materials,Steel
+GKENERGY,Utilities,Utilities - Renewable
+NUVAMA,Financial Services,Asset Management
+KERNEX,Technology,Software - Application
+VTL,Consumer Cyclical,Textile Manufacturing
+SAIL,Basic Materials,Steel
+SGFIN,Financial Services,Capital Markets
+KANPRPLA,Consumer Cyclical,Packaging & Containers
+INDSWFTLAB,Healthcare,Drug Manufacturers - Specialty & Generic
+JTLIND,Basic Materials,Steel
+IVP,Basic Materials,Specialty Chemicals
+MOSCHIP,Technology,Semiconductor Equipment & Materials
+TVSSRICHAK,Consumer Cyclical,Auto Parts
+DREDGECORP,Industrials,Engineering & Construction
+WOCKPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+FABTECH,Healthcare,Health Information Services
+ORTINGLOBE,Healthcare,Drug Manufacturers - Specialty & Generic
+NIITLTD,Consumer Defensive,Education & Training Services
+RAIN,Basic Materials,Specialty Chemicals
+KINGFA,Basic Materials,Specialty Chemicals
+CYIENTDLM,Technology,Electronic Components
+EFCIL,Real Estate,Real Estate Services
+ROLEXRINGS,Industrials,Metal Fabrication
+NEULANDLAB,Healthcare,Drug Manufacturers - Specialty & Generic
 SUMICHEM,Basic Materials,Agricultural Inputs
-TBZ,Consumer Cyclical,Luxury Goods
-MOTOGENFIN,Real Estate,Real Estate Services
+TEGA,Industrials,Specialty Industrial Machinery
+NEOGEN,Basic Materials,Specialty Chemicals
+RAYMONDREL,Real Estate,Real Estate - Development
+DHAMPURSUG,Consumer Defensive,Confectioners
+YESBANK,Financial Services,Banks - Regional
+GANESHCP,Consumer Defensive,Packaged Foods
+GKWLIMITED,Industrials,Specialty Business Services
+APOLLOPIPE,Industrials,Building Products & Equipment
+TIIL,Industrials,Tools & Accessories
+UFBL,Consumer Cyclical,Restaurants
+SENCO,Consumer Cyclical,Luxury Goods
+SBC,Industrials,Conglomerates
+OAL,Basic Materials,Specialty Chemicals
+SHIVAUM,Basic Materials,Steel
+RAJRATAN,Basic Materials,Steel
+PRECOT,Consumer Cyclical,Textile Manufacturing
+PRAKASH,Basic Materials,Steel
+UTTAMSUGAR,Consumer Defensive,Confectioners
+TATACOMM,Communication Services,Telecom Services
+CESC,Utilities,Utilities - Regulated Electric
+SUNFLAG,Basic Materials,Steel
+KIMS,Healthcare,Medical Care Facilities
+VIMTALABS,Healthcare,Diagnostics & Research
+TITAN,Consumer Cyclical,Luxury Goods
+JSWENERGY,Utilities,Utilities - Independent Power Producers
+LICHSGFIN,Financial Services,Mortgage Finance
+MEDPLUS,Healthcare,Pharmaceutical Retailers
+GRSE,Industrials,Aerospace & Defense
+PANACEABIO,Healthcare,Biotechnology
+LLOYDSENT,Basic Materials,Steel
+SONAMLTD,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+RATNAMANI,Basic Materials,Steel
+CCL,Consumer Defensive,Packaged Foods
+MACPOWER,Industrials,Specialty Industrial Machinery
+UYFINCORP,Financial Services,Credit Services
+SKFINDUS,Industrials,Tools & Accessories
+WELSPUNLIV,Consumer Cyclical,Textile Manufacturing
+TERASOFT,Technology,Information Technology Services
+TIINDIA,Industrials,Conglomerates
+PANACHE,Technology,Communication Equipment
+ABCAPITAL,Financial Services,Financial Conglomerates
+GICRE,Financial Services,Insurance - Reinsurance
+ROSSTECH,Industrials,Aerospace & Defense
+CARRARO,Consumer Cyclical,Auto Parts
+ONGC,Energy,Oil & Gas Integrated
+AVTNPL,Basic Materials,Specialty Chemicals
+VALIANTORG,Basic Materials,Chemicals
+IIFLCAPS,Financial Services,Capital Markets
+IFCI,Financial Services,Credit Services
+KPRMILL,Consumer Cyclical,Textile Manufacturing
+DHARMAJ,Basic Materials,Agricultural Inputs
+PNBHOUSING,Financial Services,Mortgage Finance
+TMCV,Consumer Cyclical,Auto Manufacturers
+CONSOFINVT,Financial Services,Capital Markets
+RATNAVEER,Basic Materials,Steel
+VARDHACRLC,Consumer Cyclical,Textile Manufacturing
+PTC,Utilities,Utilities - Independent Power Producers
+MAHSEAMLES,Basic Materials,Steel
+HEALTHX,Healthcare,Pharmaceutical Retailers
+NAHARINDUS,Consumer Cyclical,Textile Manufacturing
+LINCOLN,Healthcare,Drug Manufacturers - Specialty & Generic
+BORANA,Consumer Cyclical,Textile Manufacturing
+JSFB,Financial Services,Banks - Regional
+MUFIN,Financial Services,Credit Services
+JPPOWER,Utilities,Utilities - Independent Power Producers
+GUFICBIO,Healthcare,Drug Manufacturers - Specialty & Generic
+SERVOTECH,Industrials,Electrical Equipment & Parts
+IGPL,Basic Materials,Chemicals
+OLECTRA,Industrials,Farm & Heavy Construction Machinery
+DWARKESH,Consumer Defensive,Confectioners
+REFEX,Energy,Thermal Coal
+BANKINDIA,Financial Services,Banks - Regional
+PAUSHAKLTD,Basic Materials,Specialty Chemicals
+NSLNISP,Basic Materials,Steel
+ASAL,Consumer Cyclical,Auto Parts
+XPROINDIA,Basic Materials,Specialty Chemicals
+OSWALPUMPS,Industrials,Electrical Equipment & Parts
+ASAHISONG,Basic Materials,Specialty Chemicals
+HINDOILEXP,Energy,Oil & Gas E&P
+LT,Industrials,Engineering & Construction
+GRASIM,Basic Materials,Building Materials
+HFCL,Technology,Communication Equipment
+BANDHANBNK,Financial Services,Banks - Regional
+TATASTEEL,Basic Materials,Steel
+E2E,Technology,Software - Infrastructure
+DAMODARIND,Consumer Cyclical,Textile Manufacturing
+ZYDUSWELL,Consumer Defensive,Packaged Foods
+COFORGE,Technology,Information Technology Services
+KAPSTON,Industrials,Specialty Business Services
+GMRAIRPORT,Industrials,Airports & Air Services
+GUJALKALI,Basic Materials,Chemicals
+CARTRADE,Consumer Cyclical,Auto & Truck Dealerships
+RITES,Industrials,Engineering & Construction
+ALLDIGI,Industrials,Specialty Business Services
+RAYMOND,Industrials,Specialty Industrial Machinery
+OCCLLTD,Basic Materials,Chemicals
+SARLAPOLY,Consumer Cyclical,Textile Manufacturing
+BBTCL,Consumer Cyclical,Packaging & Containers
+MPSLTD,Communication Services,Publishing
+TFCILTD,Financial Services,Credit Services
+CIEINDIA,Consumer Cyclical,Auto Parts
+MMP,Basic Materials,Aluminum
+AVANTEL,Technology,Communication Equipment
+AKASH,Industrials,Engineering & Construction
+INDOAMIN,Basic Materials,Chemicals
+IMPAL,Consumer Cyclical,Auto Parts
+SILVERTUC,Technology,Information Technology Services
+DBSTOCKBRO,Financial Services,Capital Markets
+TAINWALCHM,Basic Materials,Specialty Chemicals
+STARHEALTH,Financial Services,Insurance - Life
+SPAL,Consumer Cyclical,Apparel Manufacturing
+BFUTILITIE,Industrials,Infrastructure Operations
+ANURAS,Basic Materials,Specialty Chemicals
+LOTUSEYE,Healthcare,Medical Care Facilities
+INGERRAND,Industrials,Specialty Industrial Machinery
+SRGHFL,Financial Services,Mortgage Finance
+SMLMAH,Consumer Cyclical,Auto Manufacturers
+STEELCAS,Basic Materials,Steel
+GCSL,Financial Services,Capital Markets
+BMWVENTLTD,Basic Materials,Steel
+SURYODAY,Financial Services,Banks - Regional
 GUJGASLTD,Utilities,Utilities - Regulated Gas
+INSECTICID,Basic Materials,Agricultural Inputs
+CAPILLARY,Technology,Software - Infrastructure
+ASPINWALL,Consumer Defensive,Farm Products
+DEEPAKNTR,Basic Materials,Chemicals
+AYE,Financial Services,Credit Services
+GTECJAINX,Consumer Defensive,Education & Training Services
+MUKTAARTS,Communication Services,Entertainment
+PNBGILTS,Financial Services,Capital Markets
+BALRAMCHIN,Consumer Defensive,Confectioners
+AYMSYNTEX,Consumer Cyclical,Textile Manufacturing
+GMDCLTD,Energy,Thermal Coal
+KMEW,Industrials,Marine Shipping
+INDNIPPON,Consumer Cyclical,Auto Parts
+GKSL,Healthcare,Medical Care Facilities
+HBLENGINE,Industrials,Electrical Equipment & Parts
+APTECHT,Consumer Defensive,Education & Training Services
+JYOTISTRUC,Industrials,Specialty Industrial Machinery
+TATAELXSI,Technology,Software - Application
+DEEPAKFERT,Basic Materials,Chemicals
+WHEELS,Consumer Cyclical,Auto Parts
+IIFL,Financial Services,Credit Services
+VASWANI,Basic Materials,Steel
+VEEDOL,Basic Materials,Specialty Chemicals
+MMFL,Industrials,Metal Fabrication
+BBTC,Consumer Defensive,Packaged Foods
+EBGNG,Technology,Computer Hardware
+RACLGEAR,Consumer Cyclical,Auto Parts
+BHARATGEAR,Consumer Cyclical,Auto Parts
+BBL,Industrials,Electrical Equipment & Parts
+EVEREADY,Industrials,Electrical Equipment & Parts
+SUTLEJTEX,Consumer Cyclical,Textile Manufacturing
+SCHAEFFLER,Consumer Cyclical,Auto Parts
+RAMCOIND,Industrials,Building Products & Equipment
+GLENMARK,Healthcare,Drug Manufacturers - Specialty & Generic
+GRAPHITE,Industrials,Electrical Equipment & Parts
+ISGEC,Industrials,Specialty Industrial Machinery
+PANSARI,Real Estate,Real Estate - Development
+THEMISMED,Healthcare,Drug Manufacturers - Specialty & Generic
+SUPERHOUSE,Consumer Cyclical,Footwear & Accessories
+MUKANDLTD,Basic Materials,Steel
+POLYPLEX,Basic Materials,Specialty Chemicals
+POWERGRID,Utilities,Utilities - Regulated Electric
 ARSSBL,Financial Services,Financial Conglomerates
+BELRISE,Consumer Cyclical,Auto Parts
+SMSPHARMA,Healthcare,Drug Manufacturers - General
+LATENTVIEW,Industrials,Consulting Services
+MIDWESTLTD,Basic Materials,Building Materials
+ICIL,Consumer Cyclical,Textile Manufacturing
+JBMA,Consumer Cyclical,Auto Parts
+WAKEFIT,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SHRIRAMPPS,Real Estate,Real Estate - Development
 NYKAA,Consumer Cyclical,Internet Retail
 GODFRYPHLP,Consumer Defensive,Tobacco
-AKUMS,Healthcare,Drug Manufacturers - Specialty & Generic
-SANDHAR,Consumer Cyclical,Auto Parts
-TANLA,Technology,Software - Application
-THEMISMED,Healthcare,Drug Manufacturers - Specialty & Generic
-AXISBANK,Financial Services,Banks - Regional
-JOCIL,Basic Materials,Specialty Chemicals
-DHARMAJ,Basic Materials,Agricultural Inputs
-SILGO,Consumer Cyclical,Luxury Goods
-STEELXIND,Basic Materials,Steel
-TATAELXSI,Technology,Software - Application
-NTPC,Utilities,Utilities - Regulated Electric
-RACLGEAR,Consumer Cyclical,Auto Parts
-VIMTALABS,Healthcare,Diagnostics & Research
-ASHAPURMIN,Basic Materials,Other Industrial Metals & Mining
-SAGARDEEP,Basic Materials,Copper
-FINPIPE,Industrials,Building Products & Equipment
-JSFB,Financial Services,Banks - Regional
-ENTERO,Healthcare,Medical Distribution
-LIBAS,Consumer Cyclical,Apparel Manufacturing
-GABRIEL,Consumer Cyclical,Auto Parts
-ARFIN,Basic Materials,Aluminum
-GODREJIND,Industrials,Conglomerates
-IEX,Financial Services,Capital Markets
+GEECEE,Real Estate,Real Estate - Development
 SHRIRAMFIN,Financial Services,Credit Services
-DEEPAKFERT,Basic Materials,Chemicals
-VINYLINDIA,Basic Materials,Specialty Chemicals
-OAL,Basic Materials,Specialty Chemicals
-SHRIRAMPPS,Real Estate,Real Estate - Development
-GTLINFRA,Technology,Communication Equipment
-WALCHANNAG,Industrials,Engineering & Construction
-GULFPETRO,Energy,Oil & Gas Refining & Marketing
-ALKALI,Basic Materials,Specialty Chemicals
-EXICOM,Industrials,Electrical Equipment & Parts
-KAPSTON,Industrials,Specialty Business Services
-ORICONENT,Consumer Cyclical,Packaging & Containers
-ASAL,Consumer Cyclical,Auto Parts
-DAMODARIND,Consumer Cyclical,Textile Manufacturing
-INDNIPPON,Consumer Cyclical,Auto Parts
-COFORGE,Technology,Information Technology Services
-AGARWALEYE,Healthcare,Medical Instruments & Supplies
-AYE,Financial Services,Credit Services
-AUBANK,Financial Services,Banks - Regional
-PRAKASH,Basic Materials,Steel
-WHEELS,Consumer Cyclical,Auto Parts
-FAZE3Q,Consumer Cyclical,Textile Manufacturing
-SANGAMIND,Consumer Cyclical,Textile Manufacturing
-ONESOURCE,Healthcare,Biotechnology
-BELRISE,Consumer Cyclical,Auto Parts
-RPGLIFE,Healthcare,Drug Manufacturers - Specialty & Generic
-UFBL,Consumer Cyclical,Restaurants
-NELCAST,Industrials,Metal Fabrication
-TAINWALCHM,Basic Materials,Specialty Chemicals
-TECHM,Technology,Information Technology Services
-LINCOLN,Healthcare,Drug Manufacturers - Specialty & Generic
-ROSSTECH,Industrials,Aerospace & Defense
-V2RETAIL,Consumer Cyclical,Apparel Retail
-JAYAGROGN,Basic Materials,Specialty Chemicals
-VOLTAMP,Industrials,Electrical Equipment & Parts
-GKENERGY,Utilities,Utilities - Renewable
-JTLIND,Basic Materials,Steel
-VARDHACRLC,Consumer Cyclical,Textile Manufacturing
-CRAMC,Financial Services,Asset Management
-EXCELSOFT,Technology,Software - Application
-KARURVYSYA,Financial Services,Banks - Regional
-GRSE,Industrials,Aerospace & Defense
-MUNJALAU,Consumer Cyclical,Auto Parts
-AERONEU,Consumer Cyclical,Packaging & Containers
-KIMS,Healthcare,Medical Care Facilities
-MSPL,Basic Materials,Steel
-GCSL,Financial Services,Capital Markets
-CROMPTON,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ORKLAINDIA,Consumer Defensive,Packaged Foods
-GLOSTERLTD,Consumer Cyclical,Textile Manufacturing
-MUFIN,Financial Services,Credit Services
-SURYODAY,Financial Services,Banks - Regional
-TFCILTD,Financial Services,Credit Services
-RITCO,Industrials,Integrated Freight & Logistics
-POWERGRID,Utilities,Utilities - Regulated Electric
-GKSL,Healthcare,Medical Care Facilities
-WIPRO,Technology,Information Technology Services
-MODIRUBBER,Real Estate,Real Estate Services
-LATENTVIEW,Industrials,Consulting Services
-CYIENTDLM,Technology,Electronic Components
-NDLVENTURE,Communication Services,Entertainment
-BBOX,Technology,Software - Application
-IMPAL,Consumer Cyclical,Auto Parts
-MMP,Basic Materials,Aluminum
-SCI,Industrials,Marine Shipping
-RAMRAT,Industrials,Electrical Equipment & Parts
-AGIIL,Real Estate,Real Estate - Development
-SIYSIL,Consumer Cyclical,Textile Manufacturing
-ARIS,Industrials,Engineering & Construction
-WSTCSTPAPR,Basic Materials,Paper & Paper Products
-EQUITASBNK,Financial Services,Banks - Regional
-BOSCHLTD,Consumer Cyclical,Auto Parts
-GUJTHEM,Healthcare,Drug Manufacturers - Specialty & Generic
-LENSKART,Healthcare,Medical Instruments & Supplies
-PROTEAN,Technology,Information Technology Services
-HARIOMPIPE,Basic Materials,Steel
-VIDYAWIRES,Industrials,Electrical Equipment & Parts
-ELECTHERM,Basic Materials,Steel
-ASIANPAINT,Basic Materials,Specialty Chemicals
-TEJASNET,Technology,Communication Equipment
-FDC,Healthcare,Drug Manufacturers - Specialty & Generic
-DHAMPURSUG,Consumer Defensive,Confectioners
-RICOAUTO,Consumer Cyclical,Auto Parts
-OCCLLTD,Basic Materials,Chemicals
-INSECTICID,Basic Materials,Agricultural Inputs
-GROWW,Financial Services,Capital Markets
-TEMBO,Industrials,Metal Fabrication
-INDOAMIN,Basic Materials,Chemicals
-MPSLTD,Communication Services,Publishing
-SARLAPOLY,Consumer Cyclical,Textile Manufacturing
-TATAPOWER,Utilities,Utilities - Independent Power Producers
-RKFORGE,Industrials,Metal Fabrication
-EPACKPEB,Industrials,Engineering & Construction
-ESABINDIA,Industrials,Tools & Accessories
-INDIAGLYCO,Basic Materials,Chemicals
-INDIGOPNTS,Basic Materials,Specialty Chemicals
-ARMANFIN,Financial Services,Credit Services
-DELHIVERY,Industrials,Integrated Freight & Logistics
-NAHARINDUS,Consumer Cyclical,Textile Manufacturing
-SILVERTUC,Technology,Information Technology Services
-FLUOROCHEM,Basic Materials,Specialty Chemicals
-BIOCON,Healthcare,Biotechnology
-RATNAMANI,Basic Materials,Steel
-DYNAMATECH,Consumer Cyclical,Auto Parts
-CHAMBLFERT,Basic Materials,Agricultural Inputs
-BALMLAWRIE,Industrials,Conglomerates
-HNDFDS,Industrials,Conglomerates
-ICEMAKE,Industrials,Specialty Industrial Machinery
-INDHOTEL,Consumer Cyclical,Lodging
-VISHNU,Basic Materials,Specialty Chemicals
-STEELCAS,Basic Materials,Steel
-ATULAUTO,Consumer Cyclical,Auto Manufacturers
-COFFEEDAY,Consumer Cyclical,Restaurants
-IPCALAB,Healthcare,Drug Manufacturers - Specialty & Generic
-JMA,Consumer Cyclical,Auto Parts
-MPHASIS,Technology,Information Technology Services
-GANDHITUBE,Industrials,Metal Fabrication
-MACPOWER,Industrials,Specialty Industrial Machinery
-TRENT,Consumer Cyclical,Apparel Retail
-DEEPAKNTR,Basic Materials,Chemicals
-NAUKRI,Communication Services,Internet Content & Information
-MEDIASSIST,Healthcare,Healthcare Plans
-JINDALSTEL,Basic Materials,Steel
-IRIS,Technology,Software - Application
-SMLMAH,Consumer Cyclical,Auto Manufacturers
-HEG,Industrials,Electrical Equipment & Parts
-TENNIND,Consumer Cyclical,Auto Parts
-MOTILALOFS,Financial Services,Capital Markets
-HEXT,Technology,Information Technology Services
-SHRIPISTON,Consumer Cyclical,Auto Parts
-CARRARO,Consumer Cyclical,Auto Parts
-CCL,Consumer Defensive,Packaged Foods
-NATCOPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-ABBOTINDIA,Healthcare,Drug Manufacturers - Specialty & Generic
-SUPRAJIT,Consumer Cyclical,Auto Parts
-CAPILLARY,Technology,Software - Infrastructure
-VIDHIING,Basic Materials,Specialty Chemicals
-EXPLEOSOL,Technology,Information Technology Services
-KOTHARIPRO,Industrials,Conglomerates
-SOMATEX,Consumer Cyclical,Textile Manufacturing
-ANURAS,Basic Materials,Specialty Chemicals
-INTLCONV,Industrials,Specialty Industrial Machinery
-FOCUS,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-BHARATWIRE,Basic Materials,Steel
-MANAKALUCO,Basic Materials,Aluminum
-SIMPLEXINF,Industrials,Engineering & Construction
-TCS,Technology,Information Technology Services
-INFY,Technology,Information Technology Services
-KICL,Financial Services,Asset Management
-PANACHE,Technology,Communication Equipment
-POCL,Basic Materials,Specialty Chemicals
-EUROTEXIND,Real Estate,Real Estate - Development
-PANACEABIO,Healthcare,Biotechnology
-ARVSMART,Real Estate,Real Estate - Development
-WINDMACHIN,Industrials,Specialty Industrial Machinery
-GOACARBON,Basic Materials,Specialty Chemicals
-CUB,Financial Services,Banks - Regional
-CIEINDIA,Consumer Cyclical,Auto Parts
-PITTIENG,Industrials,Metal Fabrication
-KAJARIACER,Industrials,Building Products & Equipment
-NSLNISP,Basic Materials,Steel
-RKSWAMY,Communication Services,Advertising Agencies
-ECLERX,Technology,Information Technology Services
-SUPREMEIND,Industrials,Building Products & Equipment
-GARUDA,Industrials,Engineering & Construction
-JYOTISTRUC,Industrials,Specialty Industrial Machinery
-UNIONBANK,Financial Services,Banks - Regional
-LUMAXIND,Consumer Cyclical,Auto Parts
-ASTEC,Basic Materials,Agricultural Inputs
-3MINDIA,Industrials,Conglomerates
-NIBE,Industrials,Conglomerates
-MASTEK,Technology,Information Technology Services
-SMSPHARMA,Healthcare,Drug Manufacturers - General
-BHAGCHEM,Basic Materials,Agricultural Inputs
-HEROMOTOCO,Consumer Cyclical,Auto Manufacturers
-PETRONET,Energy,Oil & Gas Refining & Marketing
-RAJRATAN,Basic Materials,Steel
-VTL,Consumer Cyclical,Textile Manufacturing
-BUTTERFLY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-SOLARWORLD,Technology,Solar
-AARTIIND,Basic Materials,Specialty Chemicals
-LUXIND,Consumer Cyclical,Apparel Manufacturing
-TITAN,Consumer Cyclical,Luxury Goods
-KRISHIVAL,Consumer Defensive,Packaged Foods
-PACEDIGITK,Technology,Communication Equipment
-DAVANGERE,Consumer Defensive,Confectioners
-ANTHEM,Healthcare,Biotechnology
-TSFINV,Financial Services,Asset Management
-INDUSINDBK,Financial Services,Banks - Regional
-GRMOVER,Consumer Defensive,Packaged Foods
-SUPERHOUSE,Consumer Cyclical,Footwear & Accessories
-MEDANTA,Healthcare,Medical Care Facilities
-ONGC,Energy,Oil & Gas Integrated
-SUNDRMFAST,Consumer Cyclical,Auto Parts
-AURUM,Real Estate,Real Estate Services
-MANGLMCEM,Basic Materials,Building Materials
-TIIL,Industrials,Tools & Accessories
-HARDWYN,Industrials,Building Products & Equipment
-PASHUPATI,Consumer Cyclical,Textile Manufacturing
-GUFICBIO,Healthcare,Drug Manufacturers - Specialty & Generic
-SPANDANA,Financial Services,Credit Services
-BBTC,Consumer Defensive,Packaged Foods
-KSOLVES,Technology,Software - Application
-CNL,Technology,Electronics & Computer Distribution
-JLHL,Healthcare,Medical Care Facilities
-AGI,Consumer Cyclical,Packaging & Containers
-MAXESTATES,Real Estate,Real Estate - Development
-FINEORG,Basic Materials,Specialty Chemicals
-JSWINFRA,Industrials,Marine Shipping
-PFC,Financial Services,Credit Services
-PANSARI,Real Estate,Real Estate - Development
-SHRINGARMS,Consumer Cyclical,Luxury Goods
-KSHINTL,Industrials,Electrical Equipment & Parts
-SAMMAANCAP,Financial Services,Mortgage Finance
-SINDHUTRAD,Industrials,Conglomerates
-PIRAMALFIN,Financial Services,Credit Services
-RESPONIND,Basic Materials,Specialty Chemicals
-BHARATSE,Consumer Cyclical,Auto Parts
-GOKUL,Consumer Defensive,Packaged Foods
-TRIVENI,Consumer Defensive,Confectioners
-AMANTA,Healthcare,Drug Manufacturers - Specialty & Generic
-CARTRADE,Consumer Cyclical,Auto & Truck Dealerships
-SCHAND,Communication Services,Publishing
-DRCSYSTEMS,Technology,Information Technology Services
-AUTOAXLES,Consumer Cyclical,Auto Parts
-CONSOFINVT,Financial Services,Capital Markets
-SETL,Industrials,Specialty Industrial Machinery
-COLPAL,Consumer Defensive,Household & Personal Products
-NATHBIOGEN,Basic Materials,Agricultural Inputs
-ORCHPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-UJJIVANSFB,Financial Services,Banks - Regional
-ALLDIGI,Industrials,Specialty Business Services
-SIL,Consumer Cyclical,Textile Manufacturing
-MANINDS,Basic Materials,Steel
-BANSWRAS,Consumer Cyclical,Textile Manufacturing
-RPSGVENT,Technology,Information Technology Services
-TORNTPOWER,Utilities,Utilities - Independent Power Producers
-HPIL,Basic Materials,Specialty Chemicals
-ICIL,Consumer Cyclical,Textile Manufacturing
-INFOBEAN,Technology,Software - Application
-TVSSCS,Industrials,Integrated Freight & Logistics
-FSL,Technology,Information Technology Services
-LTM,Technology,Information Technology Services
-GMRAIRPORT,Industrials,Airports & Air Services
-PYRAMID,Consumer Cyclical,Packaging & Containers
-KFINTECH,Technology,Software - Application
-PREMEXPLN,Basic Materials,Specialty Chemicals
-BALRAMCHIN,Consumer Defensive,Confectioners
-GARFIBRES,Consumer Cyclical,Textile Manufacturing
-ALEMBICLTD,Real Estate,Real Estate - Development
-LINDEINDIA,Basic Materials,Specialty Chemicals
-BAJAJHLDNG,Financial Services,Asset Management
-BBL,Industrials,Electrical Equipment & Parts
-BLS,Industrials,Specialty Business Services
-KPEL,Industrials,Engineering & Construction
-ISGEC,Industrials,Specialty Industrial Machinery
-JINDWORLD,Consumer Cyclical,Textile Manufacturing
-RAJSREESUG,Consumer Defensive,Confectioners
-VEEDOL,Basic Materials,Specialty Chemicals
-HCLTECH,Technology,Information Technology Services
-PROZONER,Real Estate,Real Estate - Diversified
-HINDPETRO,Energy,Oil & Gas Refining & Marketing
-INDIANB,Financial Services,Banks - Regional
-AFFLE,Communication Services,Advertising Agencies
-AMBER,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-STARTECK,Financial Services,Credit Services
-GOODLUCK,Basic Materials,Steel
-AKASH,Industrials,Engineering & Construction
-TVSSRICHAK,Consumer Cyclical,Auto Parts
-ESAFSFB,Financial Services,Banks - Regional
-RBA,Consumer Cyclical,Restaurants
-JSWCEMENT,Basic Materials,Building Materials
-PAUSHAKLTD,Basic Materials,Specialty Chemicals
-ESCORTS,Industrials,Farm & Heavy Construction Machinery
-MODIS,Real Estate,Real Estate - Development
-UPL,Basic Materials,Agricultural Inputs
-ALGOQUANT,Financial Services,Capital Markets
-MUKTAARTS,Communication Services,Entertainment
-MRF,Consumer Cyclical,Auto Parts
-HINDOILEXP,Energy,Oil & Gas E&P
-OMFREIGHT,Industrials,Integrated Freight & Logistics
-CHALET,Consumer Cyclical,Lodging
-VIKRAN,Industrials,Engineering & Construction
-HYUNDAI,Consumer Cyclical,Auto Manufacturers
-UNITEDTEA,Consumer Defensive,Farm Products
-ONWARDTEC,Technology,Information Technology Services
-KREBSBIO,Healthcare,Drug Manufacturers - Specialty & Generic
-DLF,Real Estate,Real Estate - Development
-MARUTI,Consumer Cyclical,Auto Manufacturers
-SAATVIKGL,Technology,Solar
-UNITDSPR,Consumer Defensive,Beverages - Wineries & Distilleries
-KANSAINER,Basic Materials,Specialty Chemicals
-SIGNATURE,Real Estate,Real Estate - Development
-ABMINTLLTD,Basic Materials,Specialty Chemicals
-VMM,Consumer Cyclical,Department Stores
-DALMIASUG,Consumer Defensive,Confectioners
-SHAHALLOYS,Basic Materials,Steel
-AEQUS,Industrials,Aerospace & Defense
-HDFCAMC,Financial Services,Asset Management
 TRUALT,Energy,Oil & Gas Refining & Marketing
-AMRUTANJAN,Healthcare,Drug Manufacturers - Specialty & Generic
-PCJEWELLER,Consumer Cyclical,Luxury Goods
-SHIVAUM,Basic Materials,Steel
-TITAGARH,Industrials,Railroads
-BOSCH-HCIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ITI,Technology,Communication Equipment
-INTELLECT,Technology,Software - Application
-GLAXO,Healthcare,Drug Manufacturers - General
-SANOFICONR,Healthcare,Drug Manufacturers - General
-LODHA,Real Estate,Real Estate - Development
-TINNARUBR,Basic Materials,Specialty Chemicals
-NTPCGREEN,Utilities,Utilities - Renewable
-BPCL,Energy,Oil & Gas Refining & Marketing
-CIPLA,Healthcare,Drug Manufacturers - Specialty & Generic
-NPST,Technology,Software - Application
-ABDL,Consumer Defensive,Beverages - Wineries & Distilleries
-AVANTIFEED,Consumer Defensive,Packaged Foods
-TEAMLEASE,Industrials,Staffing & Employment Services
-QUESS,Industrials,Staffing & Employment Services
-PARAGMILK,Consumer Defensive,Packaged Foods
-PKTEA,Consumer Defensive,Farm Products
-POLYPLEX,Basic Materials,Specialty Chemicals
-ROSSARI,Basic Materials,Specialty Chemicals
-APTUS,Financial Services,Mortgage Finance
-AMAGI,Technology,Software - Application
-M&M,Consumer Cyclical,Auto Manufacturers
-ITC,Consumer Defensive,Tobacco
-HAL,Industrials,Aerospace & Defense
-SIGMAADV,Industrials,Aerospace & Defense
-TVSELECT,Technology,Computer Hardware
-NHPC,Utilities,Utilities - Renewable
-KWIL,Consumer Defensive,Packaged Foods
-IREDA,Financial Services,Credit Services
-KSL,Basic Materials,Steel
-SIGMA,Technology,Information Technology Services
-HUBTOWN,Real Estate,Real Estate - Development
-SBFC,Financial Services,Credit Services
-JBMA,Consumer Cyclical,Auto Parts
-WEWORK,Real Estate,Real Estate Services
-SHAH,Basic Materials,Steel
-NOCIL,Basic Materials,Specialty Chemicals
-METROBRAND,Consumer Cyclical,Apparel Retail
-ROUTE,Communication Services,Telecom Services
-GICRE,Financial Services,Insurance - Reinsurance
-ASKAUTOLTD,Consumer Cyclical,Auto Parts
-MEGASTAR,Consumer Defensive,Packaged Foods
-ACE,Industrials,Farm & Heavy Construction Machinery
-ANANTRAJ,Real Estate,Real Estate - Development
-GTL,Communication Services,Telecom Services
-ACCELYA,Technology,Information Technology Services
-HGM,Technology,Information Technology Services
-ADVANCE,Basic Materials,Agricultural Inputs
-LANCORHOL,Real Estate,Real Estate - Development
-EMAMILTD,Consumer Defensive,Household & Personal Products
-BRITANNIA,Consumer Defensive,Packaged Foods
-GALLANTT,Basic Materials,Steel
-GATECHDVR,Financial Services,Asset Management
-GREENPOWER,Utilities,Utilities - Independent Power Producers
+PREMEXPLN,Basic Materials,Specialty Chemicals
+NIBE,Industrials,Conglomerates
 EDELWEISS,Financial Services,Financial Conglomerates
-KRBL,Consumer Defensive,Packaged Foods
-APEX,Consumer Defensive,Farm Products
-MIDWESTLTD,Basic Materials,Building Materials
-TATAINVEST,Financial Services,Asset Management
-ELLEN,Basic Materials,Chemicals
-TATACAP,Financial Services,Credit Services
-SALONA,Consumer Cyclical,Textile Manufacturing
-BEL,Industrials,Aerospace & Defense
-AHLEAST,Consumer Cyclical,Lodging
-UGARSUGAR,Consumer Defensive,Confectioners
-GREAVESCOT,Industrials,Specialty Industrial Machinery
-GPPL,Industrials,Marine Shipping
-VENTIVE,Consumer Cyclical,Lodging
-BMWVENTLTD,Basic Materials,Steel
-APLAPOLLO,Basic Materials,Steel
-CASTROLIND,Energy,Oil & Gas Refining & Marketing
-BETA,Healthcare,Drug Manufacturers - Specialty & Generic
-MANYAVAR,Consumer Cyclical,Apparel Manufacturing
-SKFINDUS,Industrials,Tools & Accessories
-NUVOCO,Basic Materials,Building Materials
-BSOFT,Technology,Information Technology Services
-DODLA,Consumer Defensive,Food Distribution
-THELEELA,Consumer Cyclical,Lodging
-RITES,Industrials,Engineering & Construction
-BERGEPAINT,Basic Materials,Specialty Chemicals
-SONATSOFTW,Technology,Information Technology Services
-NRAIL,Basic Materials,Paper & Paper Products
-LAGNAM,Consumer Cyclical,Textile Manufacturing
-PDSL,Industrials,Specialty Business Services
-MAPMYINDIA,Technology,Software - Infrastructure
-FINKURVE,Financial Services,Credit Services
-ORBTEXP,Consumer Cyclical,Textile Manufacturing
-NORBTEAEXP,Consumer Defensive,Farm Products
-PWL,Consumer Defensive,Education & Training Services
-LTTS,Technology,Information Technology Services
-MUTHOOTMF,Financial Services,Credit Services
-STUDDS,Consumer Cyclical,Auto Parts
-RVHL,Real Estate,Real Estate - Development
-CYIENT,Industrials,Conglomerates
-OSWALPUMPS,Industrials,Electrical Equipment & Parts
-SHAREINDIA,Financial Services,Capital Markets
-NDRAUTO,Consumer Cyclical,Auto Parts
-MONTECARLO,Consumer Cyclical,Apparel Manufacturing
-CSLFINANCE,Financial Services,Credit Services
-CANTABIL,Consumer Cyclical,Apparel Manufacturing
-APLLTD,Healthcare,Drug Manufacturers - Specialty & Generic
-INDIAMART,Communication Services,Internet Content & Information
-SAMHI,Consumer Cyclical,Lodging
-PUNJABCHEM,Basic Materials,Chemicals
-ORTINGLOBE,Healthcare,Drug Manufacturers - Specialty & Generic
-DBCORP,Communication Services,Publishing
-LORDSCHLO,Basic Materials,Chemicals
-MFSL,Financial Services,Insurance - Life
-SHAKTIPUMP,Industrials,Specialty Industrial Machinery
-THOMASCOTT,Consumer Cyclical,Textile Manufacturing
-GHCL,Basic Materials,Chemicals
-GODREJCP,Consumer Defensive,Household & Personal Products
-SUKHJITS,Basic Materials,Specialty Chemicals
-EMUDHRA,Technology,Software - Application
-ERIS,Healthcare,Drug Manufacturers - Specialty & Generic
-STEELCITY,Financial Services,Capital Markets
-IPL,Basic Materials,Agricultural Inputs
-EPIGRAL,Basic Materials,Chemicals
-FACT,Basic Materials,Agricultural Inputs
-GILLETTE,Consumer Defensive,Household & Personal Products
-HEALTHX,Healthcare,Pharmaceutical Retailers
-NAHARCAP,Financial Services,Capital Markets
-MAZDA,Industrials,Specialty Industrial Machinery
-IRMENERGY,Utilities,Utilities - Regulated Gas
-IOC,Energy,Oil & Gas Refining & Marketing
-DCBBANK,Financial Services,Banks - Regional
-CDSL,Financial Services,Capital Markets
-MSUMI,Consumer Cyclical,Auto Parts
-EIHAHOTELS,Consumer Cyclical,Lodging
-KOTHARIPET,Basic Materials,Specialty Chemicals
-AWL,Consumer Defensive,Packaged Foods
-DOMS,Industrials,Business Equipment & Supplies
-CMSINFO,Industrials,Specialty Business Services
-HINDCOMPOS,Consumer Cyclical,Auto Parts
-HONDAPOWER,Industrials,Specialty Industrial Machinery
-RAILTEL,Communication Services,Telecom Services
-INDIANCARD,Consumer Cyclical,Textile Manufacturing
-AMBUJACEM,Basic Materials,Building Materials
-MANALIPETC,Basic Materials,Specialty Chemicals
-MASTERTR,Financial Services,Capital Markets
+MODIS,Real Estate,Real Estate - Development
+NELCAST,Industrials,Metal Fabrication
+RML,Consumer Cyclical,Auto Parts
+PVP,Industrials,Conglomerates
+ALKYLAMINE,Basic Materials,Specialty Chemicals
+TECHM,Technology,Information Technology Services
+TANLA,Technology,Software - Application
+KARURVYSYA,Financial Services,Banks - Regional
+POCL,Basic Materials,Specialty Chemicals
+GTLINFRA,Technology,Communication Equipment
+DHANUKA,Basic Materials,Agricultural Inputs
+INFY,Technology,Information Technology Services
+OLAELEC,Consumer Cyclical,Auto Manufacturers
+SAMMAANCAP,Financial Services,Mortgage Finance
+PITTIENG,Industrials,Metal Fabrication
+SIEMENS,Industrials,Specialty Industrial Machinery
+ANDHRSUGAR,Basic Materials,Chemicals
+LIBAS,Consumer Cyclical,Apparel Manufacturing
+NDLVENTURE,Communication Services,Entertainment
+PIRAMALFIN,Financial Services,Credit Services
+SYNCOMF,Healthcare,Drug Manufacturers - Specialty & Generic
+AHCL,Healthcare,Drug Manufacturers - Specialty & Generic
+SUYOG,Communication Services,Telecom Services
+TRIVENI,Consumer Defensive,Confectioners
+ARFIN,Basic Materials,Aluminum
+MPHASIS,Technology,Information Technology Services
+FDC,Healthcare,Drug Manufacturers - Specialty & Generic
+AERONEU,Consumer Cyclical,Packaging & Containers
+WALCHANNAG,Industrials,Engineering & Construction
+SUPREMEIND,Industrials,Building Products & Equipment
+MANAKALUCO,Basic Materials,Aluminum
+HEXT,Technology,Information Technology Services
+EXCELSOFT,Technology,Software - Application
+SAATVIKGL,Technology,Solar
+MOTILALOFS,Financial Services,Capital Markets
+LUMAXTECH,Consumer Cyclical,Auto Parts
+BIOCON,Healthcare,Biotechnology
+PACEDIGITK,Technology,Communication Equipment
+TEJASNET,Technology,Communication Equipment
+JINDALSTEL,Basic Materials,Steel
+MASTEK,Technology,Information Technology Services
+SAKSOFT,Technology,Information Technology Services
+MSPL,Basic Materials,Steel
+ELECTHERM,Basic Materials,Steel
+PFC,Financial Services,Credit Services
+DELHIVERY,Industrials,Integrated Freight & Logistics
+SVLL,Industrials,Trucking
+JAYAGROGN,Basic Materials,Specialty Chemicals
+INDUSINDBK,Financial Services,Banks - Regional
+BHAGCHEM,Basic Materials,Agricultural Inputs
+EXPLEOSOL,Technology,Information Technology Services
+TENNIND,Consumer Cyclical,Auto Parts
+APOLSINHOT,Industrials,Specialty Business Services
+TEXINFRA,Real Estate,Real Estate Services
+AUBANK,Financial Services,Banks - Regional
+BLS,Industrials,Specialty Business Services
+INDHOTEL,Consumer Cyclical,Lodging
+MANGLMCEM,Basic Materials,Building Materials
+KRONOX,Basic Materials,Specialty Chemicals
+INDIAGLYCO,Basic Materials,Chemicals
+UNIONBANK,Financial Services,Banks - Regional
+ARMANFIN,Financial Services,Credit Services
+QUADFUTURE,Industrials,Railroads
 WINDLAS,Healthcare,Drug Manufacturers - Specialty & Generic
-GAIL,Utilities,Utilities - Regulated Gas
-COSMOFIRST,Consumer Cyclical,Packaging & Containers
-SUTLEJTEX,Consumer Cyclical,Textile Manufacturing
-CANHLIFE,Financial Services,Insurance - Life
-DOLPHIN,Energy,Oil & Gas Equipment & Services
-TERASOFT,Technology,Information Technology Services
-BLUESTONE,Consumer Cyclical,Luxury Goods
-ZAGGLE,Technology,Software - Infrastructure
-IGL,Utilities,Utilities - Regulated Gas
-GUJRAFFIA,Unknown,Unknown
-BCG,Communication Services,Advertising Agencies
-AARNAV,Unknown,Unknown
-SIRCA,Basic Materials,Specialty Chemicals
-BOMDYEING,Consumer Cyclical,Textile Manufacturing
-MGL,Utilities,Utilities - Regulated Gas
-DYCL,Industrials,Electrical Equipment & Parts
-SEPC,Industrials,Engineering & Construction
-TAJGVK,Consumer Cyclical,Lodging
-PRITIKAUTO,Industrials,Specialty Industrial Machinery
-NBCC,Industrials,Engineering & Construction
-VEDL,Basic Materials,Other Industrial Metals & Mining
-GNA,Consumer Cyclical,Auto Parts
-PNCINFRA,Industrials,Engineering & Construction
-ETERNAL,Consumer Cyclical,Internet Retail
-REMSONSIND,Consumer Cyclical,Auto Parts
-FUSION,Financial Services,Credit Services
-APOLLOTYRE,Consumer Cyclical,Auto Parts
-PINELABS,Technology,Software - Infrastructure
-MURUDCERA,Industrials,Building Products & Equipment
-BIKAJI,Consumer Defensive,Packaged Foods
-SWELECTES,Technology,Solar
-SOLARA,Healthcare,Drug Manufacturers - Specialty & Generic
-CHOLAFIN,Financial Services,Credit Services
-ITDC,Consumer Cyclical,Lodging
-3IINFOLTD,Technology,Information Technology Services
-ADVENTHTL,Consumer Cyclical,Lodging
-TARIL,Industrials,Electrical Equipment & Parts
-BLACKBUCK,Technology,Software - Application
-GREENLAM,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-UTIAMC,Financial Services,Asset Management
-PRAJIND,Industrials,Engineering & Construction
-EVEREADY,Industrials,Electrical Equipment & Parts
-TBOTEK,Consumer Cyclical,Travel Services
-TI,Consumer Defensive,Beverages - Wineries & Distilleries
-VINATIORGA,Basic Materials,Specialty Chemicals
-SHARDAMOTR,Consumer Cyclical,Auto Parts
-NEWGEN,Technology,Software - Infrastructure
-STALLION,Basic Materials,Specialty Chemicals
-VASWANI,Basic Materials,Steel
-20MICRONS,Basic Materials,Other Industrial Metals & Mining
-BHAGERIA,Basic Materials,Specialty Chemicals
-GRAVITA,Industrials,Metal Fabrication
-ORIENTHOT,Consumer Cyclical,Lodging
-BIRLACORPN,Basic Materials,Building Materials
-GODIGIT,Financial Services,Insurance - Property & Casualty
-KPIGREEN,Utilities,Utilities - Renewable
-SREEL,Consumer Cyclical,Footwear & Accessories
-KIRIINDUS,Basic Materials,Specialty Chemicals
-MAZDOCK,Industrials,Aerospace & Defense
-INDIASHLTR,Financial Services,Mortgage Finance
-PFIZER,Healthcare,Drug Manufacturers - General
-NILKAMAL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-LTFOODS,Consumer Defensive,Packaged Foods
-VAIBHAVGBL,Consumer Cyclical,Luxury Goods
-GODAVARIB,Basic Materials,Chemicals
-ANMOL,Energy,Thermal Coal
-MMFL,Industrials,Metal Fabrication
-DCAL,Healthcare,Biotechnology
-ICICIGI,Financial Services,Insurance - Diversified
-LAOPALA,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-BAFNAPH,Healthcare,Drug Manufacturers - Specialty & Generic
-DSFCL,Basic Materials,Specialty Chemicals
+LGEINDIA,Technology,Consumer Electronics
+VINDHYATEL,Industrials,Engineering & Construction
+NTPC,Utilities,Utilities - Regulated Electric
+XCHANGING,Technology,Information Technology Services
+SUVEN,Healthcare,Drug Manufacturers - Specialty & Generic
+SWARAJENG,Consumer Cyclical,Auto Parts
+RKSWAMY,Communication Services,Advertising Agencies
+VIKRAN,Industrials,Engineering & Construction
+FLUOROCHEM,Basic Materials,Specialty Chemicals
+GANESHHOU,Real Estate,Real Estate - Development
+GOKUL,Consumer Defensive,Packaged Foods
 HARRMALAYA,Consumer Defensive,Farm Products
+BALMLAWRIE,Industrials,Conglomerates
+3MINDIA,Industrials,Conglomerates
+PYRAMID,Consumer Cyclical,Packaging & Containers
+KSHINTL,Industrials,Electrical Equipment & Parts
+AGRITECH,Consumer Defensive,Farm Products
+FINPIPE,Industrials,Building Products & Equipment
+KFINTECH,Technology,Software - Application
+ROTO,Industrials,Specialty Industrial Machinery
+BUTTERFLY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+CHALET,Consumer Cyclical,Lodging
+THELEELA,Consumer Cyclical,Lodging
+KRISHIVAL,Consumer Defensive,Packaged Foods
+SIGNPOST,Communication Services,Advertising Agencies
+GARUDA,Industrials,Engineering & Construction
+BANSWRAS,Consumer Cyclical,Textile Manufacturing
+KSOLVES,Technology,Software - Application
+ACE,Industrials,Farm & Heavy Construction Machinery
+BIKAJI,Consumer Defensive,Packaged Foods
+NRAIL,Basic Materials,Paper & Paper Products
+AMBER,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+BALPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+ASHAPURMIN,Basic Materials,Other Industrial Metals & Mining
+MEDIASSIST,Healthcare,Healthcare Plans
+ATULAUTO,Consumer Cyclical,Auto Manufacturers
+AGI,Consumer Cyclical,Packaging & Containers
+VENTIVE,Consumer Cyclical,Lodging
+STCINDIA,Industrials,Conglomerates
+NATHBIOGEN,Basic Materials,Agricultural Inputs
+HEROMOTOCO,Consumer Cyclical,Auto Manufacturers
+RBA,Consumer Cyclical,Restaurants
+STARTECK,Financial Services,Credit Services
+PETRONET,Energy,Oil & Gas Refining & Marketing
+DSSL,Technology,Information Technology Services
+JLHL,Healthcare,Medical Care Facilities
+VIDYAWIRES,Industrials,Electrical Equipment & Parts
+ECLERX,Technology,Information Technology Services
+TCS,Technology,Information Technology Services
+PERSISTENT,Technology,Information Technology Services
+INDIANB,Financial Services,Banks - Regional
+JUNIPER,Consumer Cyclical,Lodging
+SHEMAROO,Communication Services,Entertainment
+MOREPENLAB,Healthcare,Drug Manufacturers - Specialty & Generic
+SHRINGARMS,Consumer Cyclical,Luxury Goods
+FSL,Technology,Information Technology Services
+RITCO,Industrials,Integrated Freight & Logistics
+VINYLINDIA,Basic Materials,Specialty Chemicals
+PRINCEPIPE,Industrials,Building Products & Equipment
+AXISBANK,Financial Services,Banks - Regional
+AMANTA,Healthcare,Drug Manufacturers - Specialty & Generic
+GARFIBRES,Consumer Cyclical,Textile Manufacturing
+DRCSYSTEMS,Technology,Information Technology Services
+DRREDDY,Healthcare,Drug Manufacturers - Specialty & Generic
+FOCUS,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ROSSELLIND,Industrials,Conglomerates
+TITAGARH,Industrials,Railroads
+SINDHUTRAD,Industrials,Conglomerates
+GLOSTERLTD,Consumer Cyclical,Textile Manufacturing
+AUTOAXLES,Consumer Cyclical,Auto Parts
+UFO,Communication Services,Entertainment
+SOLARWORLD,Technology,Solar
+MANAPPURAM,Financial Services,Credit Services
+CERA,Industrials,Building Products & Equipment
+ORCHPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+DALMIASUG,Consumer Defensive,Confectioners
+INDOSTAR,Financial Services,Credit Services
+IRCTC,Consumer Cyclical,Travel Services
+PKTEA,Consumer Defensive,Farm Products
+ORIENTHOT,Consumer Cyclical,Lodging
+SHRIPISTON,Consumer Cyclical,Auto Parts
+RUPA,Consumer Cyclical,Apparel Manufacturing
+INTLCONV,Industrials,Specialty Industrial Machinery
+MUFTI,Consumer Cyclical,Apparel Retail
+RKFORGE,Industrials,Metal Fabrication
+TATACAP,Financial Services,Credit Services
+KWIL,Consumer Defensive,Packaged Foods
+MASTERTR,Financial Services,Capital Markets
+WIPRO,Technology,Information Technology Services
+JAYKAY,Industrials,Specialty Business Services
+STARCEMENT,Basic Materials,Building Materials
+GILLETTE,Consumer Defensive,Household & Personal Products
+EMKAY,Financial Services,Capital Markets
+LANCORHOL,Real Estate,Real Estate - Development
+SHAKTIPUMP,Industrials,Specialty Industrial Machinery
+TPLPLASTEH,Consumer Cyclical,Packaging & Containers
+AARTIIND,Basic Materials,Specialty Chemicals
+KALAMANDIR,Consumer Cyclical,Apparel Retail
+ONESOURCE,Healthcare,Biotechnology
+ELLEN,Basic Materials,Chemicals
+INDIGOPNTS,Basic Materials,Specialty Chemicals
+UGARSUGAR,Consumer Defensive,Confectioners
+ENDURANCE,Consumer Cyclical,Auto Parts
+IEX,Financial Services,Capital Markets
+SUNDRMFAST,Consumer Cyclical,Auto Parts
+AFFLE,Communication Services,Advertising Agencies
+AXISCADES,Industrials,Engineering & Construction
+AJMERA,Real Estate,Real Estate - Development
+SIGMA,Technology,Information Technology Services
+RUBFILA,Basic Materials,Specialty Chemicals
+NAUKRI,Communication Services,Internet Content & Information
+NEWGEN,Technology,Software - Infrastructure
+BEARDSELL,Industrials,Building Products & Equipment
+TORNTPOWER,Utilities,Utilities - Independent Power Producers
+AVANTIFEED,Consumer Defensive,Packaged Foods
+BAJAJHLDNG,Financial Services,Asset Management
+KPITTECH,Technology,Software - Infrastructure
+SHAH,Basic Materials,Steel
+WAAREEENER,Technology,Solar
+HARDWYN,Industrials,Building Products & Equipment
+LUMAXIND,Consumer Cyclical,Auto Parts
+BLUESTONE,Consumer Cyclical,Luxury Goods
+SBIN,Financial Services,Banks - Regional
+APEX,Consumer Defensive,Farm Products
+EXICOM,Industrials,Electrical Equipment & Parts
+NAVNETEDUL,Communication Services,Publishing
+METROBRAND,Consumer Cyclical,Apparel Retail
+MHLXMIRU,Consumer Cyclical,Textile Manufacturing
+LINDEINDIA,Basic Materials,Specialty Chemicals
+IFBIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+HALEOSLABS,Healthcare,Biotechnology
+JSWINFRA,Industrials,Marine Shipping
+MINDTECK,Technology,Information Technology Services
+AMRUTANJAN,Healthcare,Drug Manufacturers - Specialty & Generic
+INDRAMEDCO,Healthcare,Medical Care Facilities
+IGL,Utilities,Utilities - Regulated Gas
+SAFARI,Consumer Cyclical,Footwear & Accessories
+PROTEAN,Technology,Information Technology Services
+KREBSBIO,Healthcare,Drug Manufacturers - Specialty & Generic
+GNA,Consumer Cyclical,Auto Parts
+ABDL,Consumer Defensive,Beverages - Wineries & Distilleries
+NTPCGREEN,Utilities,Utilities - Renewable
+NIITMTS,Consumer Defensive,Education & Training Services
+ESCORTS,Industrials,Farm & Heavy Construction Machinery
+SGIL,Industrials,Metal Fabrication
+GUJRAFFIA,Unknown,Unknown
+BHARATWIRE,Basic Materials,Steel
+AMAGI,Technology,Software - Application
+KPEL,Industrials,Engineering & Construction
+ROUTE,Communication Services,Telecom Services
+BSOFT,Technology,Information Technology Services
+KICL,Financial Services,Asset Management
+COASTCORP,Consumer Defensive,Packaged Foods
+KSB,Industrials,Specialty Industrial Machinery
+LAGNAM,Consumer Cyclical,Textile Manufacturing
+ABBOTINDIA,Healthcare,Drug Manufacturers - Specialty & Generic
+MRF,Consumer Cyclical,Auto Parts
+ONWARDTEC,Technology,Information Technology Services
+IPL,Basic Materials,Agricultural Inputs
+ARE&M,Industrials,Electrical Equipment & Parts
+SHAHALLOYS,Basic Materials,Steel
+TCI,Industrials,Integrated Freight & Logistics
+KRBL,Consumer Defensive,Packaged Foods
+DATAMATICS,Technology,Information Technology Services
+ORICONENT,Consumer Cyclical,Packaging & Containers
+ALEMBICLTD,Real Estate,Real Estate - Development
+ICRA,Financial Services,Financial Data & Stock Exchanges
+IRMENERGY,Utilities,Utilities - Regulated Gas
+MANUGRAPH,Industrials,Specialty Industrial Machinery
+ITI,Technology,Communication Equipment
+DCBBANK,Financial Services,Banks - Regional
+CMSINFO,Industrials,Specialty Business Services
+BANSALWIRE,Basic Materials,Steel
+BLUEJET,Healthcare,Biotechnology
+SUKHJITS,Basic Materials,Specialty Chemicals
+CLEAN,Basic Materials,Specialty Chemicals
+SONATSOFTW,Technology,Information Technology Services
+HEMIPROP,Real Estate,Real Estate - Diversified
+ROSSARI,Basic Materials,Specialty Chemicals
+HINDCOMPOS,Consumer Cyclical,Auto Parts
+APTUS,Financial Services,Mortgage Finance
+BETA,Healthcare,Drug Manufacturers - Specialty & Generic
+GINNIFILA,Consumer Cyclical,Textile Manufacturing
+RBZJEWEL,Consumer Cyclical,Luxury Goods
+ADVANCE,Basic Materials,Agricultural Inputs
+SAMHI,Consumer Cyclical,Lodging
+GRMOVER,Consumer Defensive,Packaged Foods
+ERIS,Healthcare,Drug Manufacturers - Specialty & Generic
+NESCO,Industrials,Conglomerates
+NAGREEKEXP,Consumer Cyclical,Textile Manufacturing
+PDSL,Industrials,Specialty Business Services
+SCHAND,Communication Services,Publishing
+LTM,Technology,Information Technology Services
+NPST,Technology,Software - Application
+BERGEPAINT,Basic Materials,Specialty Chemicals
+MAXESTATES,Real Estate,Real Estate - Development
+VMM,Consumer Cyclical,Department Stores
+SRF,Industrials,Conglomerates
+HINDPETRO,Energy,Oil & Gas Refining & Marketing
+WANBURY,Healthcare,Drug Manufacturers - Specialty & Generic
+ITC,Consumer Defensive,Tobacco
+INDBANK,Financial Services,Capital Markets
+AEQUS,Industrials,Aerospace & Defense
+BAJAJHIND,Consumer Defensive,Confectioners
+APLAPOLLO,Basic Materials,Steel
+UNITDSPR,Consumer Defensive,Beverages - Wineries & Distilleries
+MODIRUBBER,Real Estate,Real Estate Services
+INTELLECT,Technology,Software - Application
+EICHERMOT,Consumer Cyclical,Auto Manufacturers
+RVHL,Real Estate,Real Estate - Development
+BRITANNIA,Consumer Defensive,Packaged Foods
+HCLTECH,Technology,Information Technology Services
+TCC,Unknown,Unknown
+ALGOQUANT,Financial Services,Capital Markets
+M&M,Consumer Cyclical,Auto Manufacturers
+LANDMARK,Consumer Cyclical,Auto & Truck Dealerships
+DODLA,Consumer Defensive,Food Distribution
 EUROBOND,Industrials,Building Products & Equipment
-VGL,Consumer Cyclical,Textile Manufacturing
-EKC,Industrials,Specialty Industrial Machinery
-JINDALPOLY,Consumer Cyclical,Packaging & Containers
+EUROTEXIND,Real Estate,Real Estate - Development
+HALDER,Consumer Defensive,Farm Products
+CREST,Financial Services,Financial Conglomerates
+SHARDAMOTR,Consumer Cyclical,Auto Parts
+ASTEC,Basic Materials,Agricultural Inputs
+DBCORP,Communication Services,Publishing
+CIPLA,Healthcare,Drug Manufacturers - Specialty & Generic
+CAMPUS,Consumer Cyclical,Footwear & Accessories
+PRAJIND,Industrials,Engineering & Construction
+APLLTD,Healthcare,Drug Manufacturers - Specialty & Generic
+GALLANTT,Basic Materials,Steel
+KSL,Basic Materials,Steel
+TATAPOWER,Utilities,Utilities - Independent Power Producers
+EPIGRAL,Basic Materials,Chemicals
+HYUNDAI,Consumer Cyclical,Auto Manufacturers
+RAILTEL,Communication Services,Telecom Services
+STEL,Financial Services,Asset Management
+JINDWORLD,Consumer Cyclical,Textile Manufacturing
+STALLION,Basic Materials,Specialty Chemicals
+MAPMYINDIA,Technology,Software - Infrastructure
+STEELCITY,Financial Services,Capital Markets
+MSUMI,Consumer Cyclical,Auto Parts
+ESAFSFB,Financial Services,Banks - Regional
+VIDHIING,Basic Materials,Specialty Chemicals
+COLPAL,Consumer Defensive,Household & Personal Products
+PRESTIGE,Real Estate,Real Estate - Diversified
+ISFT,Consumer Cyclical,Internet Retail
+LTTS,Technology,Information Technology Services
+ETERNAL,Consumer Cyclical,Internet Retail
+GLAXO,Healthcare,Drug Manufacturers - General
+GULFOILLUB,Basic Materials,Specialty Chemicals
+NAVKARCORP,Industrials,Integrated Freight & Logistics
+ALPA,Healthcare,Drug Manufacturers - Specialty & Generic
+KCP,Basic Materials,Building Materials
+BRIGHOTEL,Consumer Cyclical,Lodging
+VGUARD,Industrials,Electrical Equipment & Parts
+JSLL,Healthcare,Medical Care Facilities
+SWELECTES,Technology,Solar
+PARAGMILK,Consumer Defensive,Packaged Foods
+GREENPOWER,Utilities,Utilities - Independent Power Producers
+KANSAINER,Basic Materials,Specialty Chemicals
+CANTABIL,Consumer Cyclical,Apparel Manufacturing
+RPGLIFE,Healthcare,Drug Manufacturers - Specialty & Generic
+TEAMLEASE,Industrials,Staffing & Employment Services
+PWL,Consumer Defensive,Education & Training Services
+KPIGREEN,Utilities,Utilities - Renewable
+SIRCA,Basic Materials,Specialty Chemicals
+UNITEDTEA,Consumer Defensive,Farm Products
+RPPL,Consumer Cyclical,Packaging & Containers
+ASAHIINDIA,Consumer Cyclical,Auto Parts
+MAZDA,Industrials,Specialty Industrial Machinery
+CRIZAC,Consumer Defensive,Education & Training Services
+TCIEXP,Industrials,Integrated Freight & Logistics
+CORALFINAC,Real Estate,Real Estate Services
+VENKEYS,Consumer Defensive,Farm Products
+MONTECARLO,Consumer Cyclical,Apparel Manufacturing
+PINELABS,Technology,Software - Infrastructure
+TTKHLTCARE,Healthcare,Drug Manufacturers - General
+INDIAMART,Communication Services,Internet Content & Information
+SPLPETRO,Basic Materials,Specialty Chemicals
+PFIZER,Healthcare,Drug Manufacturers - General
+MANBA,Financial Services,Credit Services
+KOTHARIPET,Basic Materials,Specialty Chemicals
+GOCOLORS,Consumer Cyclical,Apparel Retail
+DIXON,Technology,Consumer Electronics
+HAPPSTMNDS,Technology,Information Technology Services
+ZAGGLE,Technology,Software - Infrastructure
+NHPC,Utilities,Utilities - Renewable
+LENSKART,Healthcare,Medical Instruments & Supplies
+DEVX,Real Estate,Real Estate Services
+BLBLIMITED,Financial Services,Capital Markets
+ARIS,Industrials,Engineering & Construction
+SURAKSHA,Healthcare,Diagnostics & Research
+TVSELECT,Technology,Computer Hardware
+APOLLOTYRE,Consumer Cyclical,Auto Parts
+PGHH,Consumer Defensive,Household & Personal Products
+PNCINFRA,Industrials,Engineering & Construction
+360ONE,Financial Services,Asset Management
+DCMSHRIRAM,Industrials,Conglomerates
+ARVEE,Basic Materials,Specialty Chemicals
+MARUTI,Consumer Cyclical,Auto Manufacturers
+SALONA,Consumer Cyclical,Textile Manufacturing
+TARIL,Industrials,Electrical Equipment & Parts
+NAHARCAP,Financial Services,Capital Markets
+EIHOTEL,Consumer Cyclical,Lodging
+DOLPHIN,Energy,Oil & Gas Equipment & Services
+PRITIKAUTO,Industrials,Specialty Industrial Machinery
+PCJEWELLER,Consumer Cyclical,Luxury Goods
+ENTERO,Healthcare,Medical Distribution
+DDEVPLSTIK,Basic Materials,Specialty Chemicals
+SPIC,Basic Materials,Agricultural Inputs
+UTIAMC,Financial Services,Asset Management
 SAMBHV,Basic Materials,Steel
-AIRAN,Technology,Information Technology Services
-IZMO,Technology,Software - Application
+RVTH,Industrials,Farm & Heavy Construction Machinery
+DYCL,Industrials,Electrical Equipment & Parts
+BCLIND,Consumer Defensive,Beverages - Wineries & Distilleries
+MGL,Utilities,Utilities - Regulated Gas
+FMGOETZE,Consumer Cyclical,Auto Parts
+BEL,Industrials,Aerospace & Defense
+PASHUPATI,Consumer Cyclical,Textile Manufacturing
+LODHA,Real Estate,Real Estate - Development
+OMFREIGHT,Industrials,Integrated Freight & Logistics
+GREENLAM,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ELDEHSG,Real Estate,Real Estate Services
+CASTROLIND,Energy,Oil & Gas Refining & Marketing
+GODIGIT,Financial Services,Insurance - Property & Casualty
+DYNAMATECH,Consumer Cyclical,Auto Parts
+MOKSH,Consumer Cyclical,Luxury Goods
+LOVABLE,Consumer Cyclical,Apparel Manufacturing
+MCLOUD,Technology,Information Technology Services
+JSL,Basic Materials,Steel
+CLEANMAX,Utilities,Utilities - Renewable
+VGL,Consumer Cyclical,Textile Manufacturing
+NORBTEAEXP,Consumer Defensive,Farm Products
+CELLO,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+KROSS,Consumer Cyclical,Auto Parts
+GODREJCP,Consumer Defensive,Household & Personal Products
+SILGO,Consumer Cyclical,Luxury Goods
+EMIL,Consumer Cyclical,Specialty Retail
 SHARDACROP,Basic Materials,Agricultural Inputs
-NIITLTD,Consumer Defensive,Education & Training Services
-IRB,Industrials,Infrastructure Operations
-BAJFINANCE,Financial Services,Credit Services
-CHOICEIN,Financial Services,Capital Markets
-MOTISONS,Consumer Cyclical,Luxury Goods
-TRAVELFOOD,Consumer Cyclical,Restaurants
-REDINGTON,Technology,Information Technology Services
-MSTCLTD,Industrials,Conglomerates
-SIGIND,Industrials,Conglomerates
+GATEWAY,Industrials,Integrated Freight & Logistics
+DLF,Real Estate,Real Estate - Development
+COSMOFIRST,Consumer Cyclical,Packaging & Containers
+CYBERTECH,Technology,Information Technology Services
+DOMS,Industrials,Business Equipment & Supplies
 AMBICAAGAR,Consumer Defensive,Household & Personal Products
 LOTUSDEV,Industrials,Engineering & Construction
-UMIYA-MRO,Real Estate,Real Estate - Development
-ARVINDFASN,Consumer Cyclical,Apparel Manufacturing
-TMPV,Consumer Cyclical,Auto Manufacturers
-MHLXMIRU,Consumer Cyclical,Textile Manufacturing
-SOBHA,Real Estate,Real Estate - Development
-RHIM,Industrials,Metal Fabrication
-WILLAMAGOR,Financial Services,Credit Services
-MOKSH,Consumer Cyclical,Luxury Goods
-SURAJEST,Real Estate,Real Estate - Development
-JUSTDIAL,Communication Services,Internet Content & Information
-DEVX,Real Estate,Real Estate Services
-NAVKARCORP,Industrials,Integrated Freight & Logistics
-KRONOX,Basic Materials,Specialty Chemicals
-HUDCO,Financial Services,Credit Services
-NIITMTS,Consumer Defensive,Education & Training Services
-GODREJPROP,Real Estate,Real Estate - Development
-BLKASHYAP,Industrials,Engineering & Construction
-GTPL,Communication Services,Entertainment
-SHREECEM,Basic Materials,Building Materials
-MOREPENLAB,Healthcare,Drug Manufacturers - Specialty & Generic
-IFGLEXPOR,Basic Materials,Building Materials
-CRIZAC,Consumer Defensive,Education & Training Services
-TECHNOE,Industrials,Engineering & Construction
-IXIGO,Consumer Cyclical,Travel Services
-PPAP,Consumer Cyclical,Auto Parts
-MITTAL,Consumer Cyclical,Textile Manufacturing
-SURAKSHA,Healthcare,Diagnostics & Research
-EFCIL,Real Estate,Real Estate Services
-AAVAS,Financial Services,Mortgage Finance
-IRCTC,Consumer Cyclical,Travel Services
-ULTRACEMCO,Basic Materials,Building Materials
-VGUARD,Industrials,Electrical Equipment & Parts
-MEESHO,Consumer Cyclical,Internet Retail
-BHARTIHEXA,Communication Services,Telecom Services
-HAVELLS,Industrials,Electrical Equipment & Parts
-PRESTIGE,Real Estate,Real Estate - Diversified
-STERTOOLS,Industrials,Tools & Accessories
-BHARTIARTL,Communication Services,Telecom Services
-ASALCBR,Consumer Defensive,Beverages - Wineries & Distilleries
-STCINDIA,Industrials,Conglomerates
-JUBLFOOD,Consumer Cyclical,Restaurants
-ASTRAZEN,Healthcare,Drug Manufacturers - Specialty & Generic
-BHARATRAS,Basic Materials,Agricultural Inputs
-TARACHAND,Industrials,Farm & Heavy Construction Machinery
-PATELENG,Industrials,Engineering & Construction
-AARTIDRUGS,Healthcare,Drug Manufacturers - Specialty & Generic
-SAMBHAAV,Communication Services,Publishing
-BRIGHOTEL,Consumer Cyclical,Lodging
-UNOMINDA,Consumer Cyclical,Auto Parts
-PICCADIL,Consumer Defensive,Beverages - Wineries & Distilleries
-RAMCOIND,Industrials,Building Products & Equipment
-DCMSHRIRAM,Industrials,Conglomerates
-MONEYBOXX,Financial Services,Credit Services
-CAMPUS,Consumer Cyclical,Footwear & Accessories
-PRICOLLTD,Consumer Cyclical,Auto Parts
-NAHARPOLY,Consumer Cyclical,Packaging & Containers
-JYOTHYLAB,Consumer Defensive,Household & Personal Products
-KALYANKJIL,Consumer Cyclical,Luxury Goods
-SYNGENE,Healthcare,Diagnostics & Research
-IKIO,Technology,Electronic Components
-EMIL,Consumer Cyclical,Specialty Retail
-GATEWAY,Industrials,Integrated Freight & Logistics
-VARROC,Consumer Cyclical,Auto Parts
-AAATECH,Technology,Information Technology Services
-NAVA,Industrials,Conglomerates
-TASTYBITE,Consumer Defensive,Packaged Foods
-SBICARD,Financial Services,Credit Services
-GODREJAGRO,Consumer Defensive,Packaged Foods
-JPOLYINVST,Financial Services,Asset Management
-GALAXYSURF,Basic Materials,Specialty Chemicals
-JSL,Basic Materials,Steel
-EMAMIPAP,Basic Materials,Paper & Paper Products
-INDRAMEDCO,Healthcare,Medical Care Facilities
-HDBFS,Financial Services,Credit Services
-GREENPLY,Basic Materials,Lumber & Wood Production
-RNBDENIMS,Consumer Cyclical,Textile Manufacturing
-KELLTONTEC,Technology,Software - Application
-MANUGRAPH,Industrials,Specialty Industrial Machinery
-GANESHHOU,Real Estate,Real Estate - Development
-TEGA,Industrials,Specialty Industrial Machinery
-AURIGROW,Industrials,Electrical Equipment & Parts
-SPLPETRO,Basic Materials,Specialty Chemicals
-RBZJEWEL,Consumer Cyclical,Luxury Goods
-AADHARHFC,Financial Services,Mortgage Finance
-DDEVPLSTIK,Basic Materials,Specialty Chemicals
-CHOLAHLDNG,Financial Services,Credit Services
-IFBIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-RELIANCE,Energy,Oil & Gas Refining & Marketing
-RALLIS,Basic Materials,Agricultural Inputs
-FAIRCHEMOR,Basic Materials,Specialty Chemicals
-KOTAKBANK,Financial Services,Banks - Regional
-ASIANTILES,Industrials,Building Products & Equipment
-SMLT,Industrials,Metal Fabrication
-FILATEX,Consumer Cyclical,Textile Manufacturing
-VINCOFE,Consumer Defensive,Beverages - Non-Alcoholic
-PALASHSECU,Consumer Defensive,Packaged Foods
-SCILAL,Real Estate,Real Estate Services
-LEMONTREE,Consumer Cyclical,Lodging
-MAHLOG,Industrials,Integrated Freight & Logistics
-RGL,Consumer Cyclical,Luxury Goods
-LOVABLE,Consumer Cyclical,Apparel Manufacturing
-BALKRISHNA,Consumer Cyclical,Packaging & Containers
-GULFOILLUB,Basic Materials,Specialty Chemicals
-SUPREMEINF,Industrials,Engineering & Construction
-LFIC,Financial Services,Asset Management
-SBGLP,Real Estate,Real Estate - Development
-ICICIBANK,Financial Services,Banks - Regional
-TATVA,Basic Materials,Specialty Chemicals
-DCW,Basic Materials,Chemicals
-ISFT,Consumer Cyclical,Internet Retail
-GOPAL,Consumer Defensive,Packaged Foods
-SAGILITY,Healthcare,Health Information Services
-AEGISVOPAK,Energy,Oil & Gas Equipment & Services
-SUNTECK,Real Estate,Real Estate - Development
-BEDMUTHA,Basic Materials,Steel
-MAHSCOOTER,Financial Services,Asset Management
-ARVEE,Basic Materials,Specialty Chemicals
-FIVESTAR,Financial Services,Credit Services
-RAMKY,Industrials,Engineering & Construction
-MBLINFRA,Industrials,Engineering & Construction
-ICRA,Financial Services,Financial Data & Stock Exchanges
-RAMCOCEM,Basic Materials,Building Materials
-JUNIPER,Consumer Cyclical,Lodging
-SAKSOFT,Technology,Information Technology Services
-BONLON,Basic Materials,Other Industrial Metals & Mining
-SHIVALIK,Basic Materials,Agricultural Inputs
-SJVN,Utilities,Utilities - Renewable
-LAXMIDENTL,Healthcare,Medical Instruments & Supplies
-HLEGLAS,Industrials,Specialty Industrial Machinery
-GOLDTECH,Technology,Information Technology Services
-AURIONPRO,Technology,Software - Application
-WAKEFIT,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-CCAVENUE,Technology,Software - Infrastructure
-KAMDHENU,Basic Materials,Steel
-ASHOKAMET,Basic Materials,Steel
-VRAJ,Basic Materials,Steel
-SPECIALITY,Consumer Cyclical,Restaurants
-DBEIL,Industrials,Engineering & Construction
-EIDPARRY,Basic Materials,Agricultural Inputs
-KIRLOSBROS,Industrials,Specialty Industrial Machinery
-MASFIN,Financial Services,Credit Services
-NESCO,Industrials,Conglomerates
-UEL,Technology,Solar
-HEIDELBERG,Basic Materials,Building Materials
-MICEL,Technology,Electronic Components
-ALLTIME,Consumer Defensive,Household & Personal Products
-DCM,Industrials,Metal Fabrication
-CHEVIOT,Consumer Cyclical,Textile Manufacturing
-KCP,Basic Materials,Building Materials
-TTKPRESTIG,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-KRYSTAL,Industrials,Specialty Business Services
-M&MFIN,Financial Services,Credit Services
-TRANSRAILL,Industrials,Engineering & Construction
-CCHHL,Consumer Cyclical,Lodging
-DELTACORP,Consumer Cyclical,Resorts & Casinos
-NILASPACES,Real Estate,Real Estate - Development
-LGBBROSLTD,Consumer Cyclical,Auto Parts
-HATHWAY,Communication Services,Entertainment
-LGEINDIA,Technology,Consumer Electronics
-JUBLCPL,Basic Materials,Specialty Chemicals
-ZENSARTECH,Technology,Information Technology Services
-GFLLIMITED,Financial Services,Asset Management
-GMRP&UI,Energy,Thermal Coal
-IIFL,Financial Services,Credit Services
-CANFINHOME,Financial Services,Mortgage Finance
-HECPROJECT,Industrials,Engineering & Construction
-AJOONI,Consumer Defensive,Packaged Foods
-DHANUKA,Basic Materials,Agricultural Inputs
-RPPL,Consumer Cyclical,Packaging & Containers
-VRLLOG,Industrials,Trucking
-INTERARCH,Industrials,Engineering & Construction
-SOLEX,Technology,Solar
-RAYMONDLSL,Consumer Cyclical,Apparel Manufacturing
-HAPPSTMNDS,Technology,Information Technology Services
-PTCIL,Industrials,Metal Fabrication
-DENORA,Industrials,Electrical Equipment & Parts
-KAMATHOTEL,Consumer Cyclical,Lodging
-XCHANGING,Technology,Information Technology Services
-MOIL,Basic Materials,Other Industrial Metals & Mining
-SUBROS,Consumer Cyclical,Auto Parts
-SURYAROSNI,Basic Materials,Steel
-CYBERTECH,Technology,Information Technology Services
-ALPA,Healthcare,Drug Manufacturers - Specialty & Generic
-JWL,Industrials,Railroads
-MOHITIND,Consumer Cyclical,Textile Manufacturing
-PGHH,Consumer Defensive,Household & Personal Products
-JUBLPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-GEECEE,Real Estate,Real Estate - Development
-URBANCO,Technology,Software - Application
-HALDER,Consumer Defensive,Farm Products
-BALUFORGE,Industrials,Metal Fabrication
-RSYSTEMS,Technology,Information Technology Services
-TARSONS,Healthcare,Medical Instruments & Supplies
-TCI,Industrials,Integrated Freight & Logistics
-AVONMORE,Financial Services,Capital Markets
-RUPA,Consumer Cyclical,Apparel Manufacturing
 PLATIND,Basic Materials,Specialty Chemicals
-UDS,Industrials,Specialty Business Services
-VSTTILLERS,Industrials,Farm & Heavy Construction Machinery
-PGEL,Technology,Electronic Components
-FISCHER,Healthcare,Medical Devices
-WAAREERTL,Industrials,Engineering & Construction
-ARE&M,Industrials,Electrical Equipment & Parts
-CEATLTD,Consumer Cyclical,Auto Parts
-CONTROLPR,Industrials,Business Equipment & Supplies
-JSLL,Healthcare,Medical Care Facilities
-STEL,Financial Services,Asset Management
-HTMEDIA,Communication Services,Publishing
-AGROPHOS,Basic Materials,Agricultural Inputs
-IDBI,Financial Services,Banks - Regional
-NFL,Basic Materials,Agricultural Inputs
-INOXWIND,Industrials,Specialty Industrial Machinery
-SAFARI,Consumer Cyclical,Footwear & Accessories
-ADVANIHOTR,Consumer Cyclical,Lodging
-JMFINANCIL,Financial Services,Capital Markets
-MIRZAINT,Consumer Cyclical,Footwear & Accessories
-BEARDSELL,Industrials,Building Products & Equipment
-TRANSWORLD,Industrials,Marine Shipping
-POLYMED,Healthcare,Medical Instruments & Supplies
-BANARISUG,Consumer Defensive,Confectioners
-EXCELINDUS,Basic Materials,Specialty Chemicals
-STARCEMENT,Basic Materials,Building Materials
-AARON,Industrials,Specialty Industrial Machinery
-BAJAJFINSV,Financial Services,Financial Conglomerates
-DONEAR,Consumer Cyclical,Textile Manufacturing
-INDOCO,Healthcare,Drug Manufacturers - Specialty & Generic
-RAMCOSYS,Technology,Software - Application
-SUNDROP,Consumer Defensive,Packaged Foods
-ROML,Consumer Defensive,Packaged Foods
-IDFCFIRSTB,Financial Services,Banks - Regional
-EIMCOELECO,Industrials,Farm & Heavy Construction Machinery
-PAYTM,Technology,Software - Infrastructure
-MCLOUD,Technology,Information Technology Services
-SHREYANIND,Basic Materials,Paper & Paper Products
-JTEKTINDIA,Consumer Cyclical,Auto Parts
-TOLINS,Consumer Cyclical,Auto Parts
-PPLPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
-WIPL,Basic Materials,Lumber & Wood Production
-BASML,Consumer Cyclical,Textile Manufacturing
-WENDT,Industrials,Tools & Accessories
-PIGL,Industrials,Engineering & Construction
-YUKEN,Industrials,Specialty Industrial Machinery
-ELDEHSG,Real Estate,Real Estate Services
-BANG,Consumer Cyclical,Apparel Manufacturing
-SPLIL,Consumer Cyclical,Apparel Manufacturing
-FMGOETZE,Consumer Cyclical,Auto Parts
-BAJAJHFL,Financial Services,Mortgage Finance
-UNIECOM,Technology,Software - Application
-PATANJALI,Consumer Defensive,Packaged Foods
-INDBANK,Financial Services,Capital Markets
-HGS,Industrials,Specialty Business Services
-CHEMCON,Basic Materials,Specialty Chemicals
-SMARTWORKS,Real Estate,Real Estate Services
-PURVA,Real Estate,Real Estate - Development
-CREDITACC,Financial Services,Credit Services
-JAINREC,Basic Materials,Other Industrial Metals & Mining
-KARMAENG,Utilities,Utilities - Renewable
-DALBHARAT,Basic Materials,Building Materials
-GSFC,Basic Materials,Agricultural Inputs
-KEYFINSERV,Financial Services,Capital Markets
-SMCGLOBAL,Financial Services,Capital Markets
-FORCEMOT,Consumer Cyclical,Auto Manufacturers
-VENKEYS,Consumer Defensive,Farm Products
-PIIND,Basic Materials,Agricultural Inputs
-RELAXO,Consumer Cyclical,Footwear & Accessories
-TGBHOTELS,Consumer Cyclical,Lodging
-CPEDU,Consumer Defensive,Education & Training Services
-SHANTIGEAR,Industrials,Specialty Industrial Machinery
-KKCL,Consumer Cyclical,Apparel Manufacturing
-GICHSGFIN,Financial Services,Mortgage Finance
-BANARBEADS,Consumer Cyclical,Footwear & Accessories
-NELCO,Technology,Communication Equipment
-SARDAEN,Basic Materials,Steel
-VAKRANGEE,Technology,Information Technology Services
-NECCLTD,Industrials,Trucking
-MATRIMONY,Communication Services,Internet Content & Information
-CANBK,Financial Services,Banks - Regional
-NAVNETEDUL,Communication Services,Publishing
-OLECTRA,Industrials,Farm & Heavy Construction Machinery
-RADHIKAJWE,Consumer Cyclical,Luxury Goods
-BANKINDIA,Financial Services,Banks - Regional
-TVSMOTOR,Consumer Cyclical,Auto Manufacturers
-CCCL,Industrials,Engineering & Construction
-BANKBARODA,Financial Services,Banks - Regional
-ANDHRAPAP,Basic Materials,Paper & Paper Products
-RMDRIP,Industrials,Farm & Heavy Construction Machinery
-APOLSINHOT,Industrials,Specialty Business Services
-VLSFINANCE,Financial Services,Capital Markets
-CRISIL,Financial Services,Financial Data & Stock Exchanges
-PNGJL,Consumer Cyclical,Luxury Goods
-ADROITINFO,Technology,Information Technology Services
-INOXGREEN,Utilities,Utilities - Renewable
-ALICON,Industrials,Metal Fabrication
-SIKKO,Basic Materials,Agricultural Inputs
-LICI,Financial Services,Insurance - Life
-COROMANDEL,Basic Materials,Agricultural Inputs
-KSCL,Basic Materials,Agricultural Inputs
-RADIANTCMS,Industrials,Specialty Business Services
-HMAAGRO,Consumer Defensive,Packaged Foods
-ZUARIIND,Industrials,Conglomerates
-MAXIND,Healthcare,Medical Care Facilities
-PRINCEPIPE,Industrials,Building Products & Equipment
-SSWL,Consumer Cyclical,Auto Parts
-BLUESTARCO,Industrials,Building Products & Equipment
-SPIC,Basic Materials,Agricultural Inputs
-MFML,Consumer Cyclical,Textile Manufacturing
-KMSUGAR,Consumer Defensive,Confectioners
-DATAMATICS,Technology,Information Technology Services
-TREL,Real Estate,Real Estate Services
-BFUTILITIE,Industrials,Infrastructure Operations
-IOB,Financial Services,Banks - Regional
-HCL-INSYS,Technology,Electronics & Computer Distribution
-UTTAMSUGAR,Consumer Defensive,Confectioners
-21STCENMGM,Financial Services,Capital Markets
-SBILIFE,Financial Services,Insurance - Life
-ADSL,Technology,Information Technology Services
-GICL,Industrials,Integrated Freight & Logistics
-XELPMOC,Technology,Information Technology Services
-CORALFINAC,Real Estate,Real Estate Services
-SNOWMAN,Industrials,Integrated Freight & Logistics
-TICL,Industrials,Engineering & Construction
-ZEEMEDIA,Communication Services,Broadcasting
-PPL,Industrials,Building Products & Equipment
-HDFCBANK,Financial Services,Banks - Regional
-CONCORDBIO,Healthcare,Biotechnology
-RELIGARE,Financial Services,Insurance - Life
-TARMAT,Industrials,Engineering & Construction
-KOTARISUG,Consumer Defensive,Confectioners
-ELIN,Industrials,Electrical Equipment & Parts
-BIOFILCHEM,Healthcare,Drug Manufacturers - Specialty & Generic
-AIROLAM,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-SKFINDIA,Industrials,Tools & Accessories
-OSWALGREEN,Financial Services,Asset Management
-KRIDHANINF,Basic Materials,Steel
-PVRINOX,Communication Services,Entertainment
-STARPAPER,Basic Materials,Paper & Paper Products
-MBEL,Industrials,Engineering & Construction
-FLAIR,Industrials,Business Equipment & Supplies
-SUPERSPIN,Consumer Cyclical,Textile Manufacturing
-ALANKIT,Technology,Information Technology Services
-CONCOR,Industrials,Railroads
-ROHLTD,Consumer Cyclical,Lodging
-RCF,Basic Materials,Agricultural Inputs
-HPL,Industrials,Electrical Equipment & Parts
-ROSSELLIND,Industrials,Conglomerates
-HYBRIDFIN,Financial Services,Capital Markets
-ACC,Basic Materials,Building Materials
-JKCEMENT,Basic Materials,Building Materials
-COHANCE,Healthcare,Drug Manufacturers - Specialty & Generic
-PNBGILTS,Financial Services,Capital Markets
-ALMONDZ,Financial Services,Capital Markets
-PRECAM,Consumer Cyclical,Auto Parts
-MEDICAMEQ,Healthcare,Drug Manufacturers - Specialty & Generic
-SURANASOL,Technology,Solar
-WEALTH,Financial Services,Capital Markets
-BRNL,Industrials,Infrastructure Operations
-MAMATA,Industrials,Specialty Industrial Machinery
-SUDARSCHEM,Basic Materials,Specialty Chemicals
-PENIND,Industrials,Specialty Industrial Machinery
-NBIFIN,Financial Services,Capital Markets
-SHREERAMA,Consumer Cyclical,Packaging & Containers
-SURANAT&P,Utilities,Utilities - Independent Power Producers
-TRIGYN,Technology,Information Technology Services
-ZENITHSTL,Basic Materials,Steel
-ORIENTCEM,Basic Materials,Building Materials
-HITECH,Basic Materials,Steel
-ITCHOTELS,Consumer Cyclical,Resorts & Casinos
-DICIND,Basic Materials,Specialty Chemicals
-LASA,Healthcare,Drug Manufacturers - Specialty & Generic
-AMJLAND,Real Estate,Real Estate - Development
-HDFCLIFE,Financial Services,Insurance - Life
-RELTD,Technology,Solar
-UFO,Communication Services,Entertainment
-PAR,Healthcare,Drug Manufacturers - Specialty & Generic
-DEN,Communication Services,Entertainment
-BOROLTD,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-SADBHIN,Industrials,Engineering & Construction
-ASHOKA,Industrials,Engineering & Construction
-INDIANHUME,Industrials,Engineering & Construction
-ZEELEARN,Consumer Defensive,Education & Training Services
-INFOMEDIA,Financial Services,Shell Companies
-BASF,Basic Materials,Specialty Chemicals
-FOSECOIND,Basic Materials,Chemicals
-DOLATALGO,Financial Services,Capital Markets
-BYKE,Consumer Cyclical,Lodging
-LICHSGFIN,Financial Services,Mortgage Finance
-JAIPURKURT,Consumer Cyclical,Apparel Manufacturing
-HCG,Healthcare,Medical Care Facilities
-UNICHEMLAB,Healthcare,Drug Manufacturers - Specialty & Generic
-CROWN,Industrials,Rental & Leasing Services
-VHL,Financial Services,Credit Services
-AQYLON,Communication Services,Broadcasting
-SUNDARMFIN,Financial Services,Credit Services
-ICICIPRULI,Financial Services,Insurance - Life
-POONAWALLA,Financial Services,Credit Services
-NIPPOBATRY,Industrials,Electrical Equipment & Parts
-JSWDULUX,Unknown,Unknown
-PNB,Financial Services,Banks - Regional
-ROTO,Industrials,Specialty Industrial Machinery
-MANINFRA,Industrials,Engineering & Construction
-TCIEXP,Industrials,Integrated Freight & Logistics
-ECOSMOBLTY,Industrials,Rental & Leasing Services
-SHOPERSTOP,Consumer Cyclical,Department Stores
-RTNPOWER,Utilities,Utilities - Independent Power Producers
-ARIES,Basic Materials,Agricultural Inputs
-PSB,Financial Services,Banks - Regional
-BORORENEW,Technology,Solar
-USK,Industrials,Engineering & Construction
-PRAKASHSTL,Basic Materials,Steel
-PARADEEP,Basic Materials,Agricultural Inputs
-TCC,Unknown,Unknown
-RPPINFRA,Industrials,Engineering & Construction
-MUFTI,Consumer Cyclical,Apparel Retail
-JSWHL,Industrials,Conglomerates
-GROBTEA,Consumer Defensive,Farm Products
-YATRA,Consumer Cyclical,Travel Services
-SYSTMTXC,Financial Services,Capital Markets
-ASAHIINDIA,Consumer Cyclical,Auto Parts
-ATAM,Industrials,Specialty Industrial Machinery
-MADRASFERT,Basic Materials,Agricultural Inputs
-ANUHPHR,Healthcare,Drug Manufacturers - Specialty & Generic
-BAIDFIN,Financial Services,Credit Services
-EIHOTEL,Consumer Cyclical,Lodging
-LANDMARK,Consumer Cyclical,Auto & Truck Dealerships
-5PAISA,Financial Services,Capital Markets
-CSBBANK,Financial Services,Banks - Regional
-DELTAMAGNT,Consumer Cyclical,Textile Manufacturing
-ABFRL,Consumer Cyclical,Apparel Manufacturing
-TTKHLTCARE,Healthcare,Drug Manufacturers - General
-RAMAPHO,Basic Materials,Agricultural Inputs
-ALKYLAMINE,Basic Materials,Specialty Chemicals
-DENTA,Industrials,Engineering & Construction
-UNITECH,Real Estate,Real Estate - Diversified
-DPABHUSHAN,Consumer Cyclical,Luxury Goods
-ALPHAGEO,Energy,Oil & Gas Equipment & Services
-GRINFRA,Industrials,Engineering & Construction
-UNIMECH,Industrials,Aerospace & Defense
-HUHTAMAKI,Consumer Cyclical,Packaging & Containers
-MANBA,Financial Services,Credit Services
-GILLANDERS,Consumer Defensive,Farm Products
-KNRCON,Industrials,Engineering & Construction
-TEXINFRA,Real Estate,Real Estate Services
-ASHOKLEY,Industrials,Farm & Heavy Construction Machinery
-URJA,Technology,Solar
-HATSUN,Consumer Defensive,Packaged Foods
-BVCL,Basic Materials,Building Materials
-DPWIRES,Industrials,Metal Fabrication
-CENTEXT,Basic Materials,Aluminum
-SVLL,Industrials,Trucking
-ELECTCAST,Industrials,Building Products & Equipment
-MVGJL,Consumer Cyclical,Luxury Goods
-DOLLAR,Consumer Cyclical,Apparel Manufacturing
-PCBL,Basic Materials,Specialty Chemicals
-NIACL,Financial Services,Insurance - Diversified
-GENUSPAPER,Basic Materials,Paper & Paper Products
-UGROCAP,Financial Services,Credit Services
-AFCONS,Industrials,Engineering & Construction
-DEVIT,Technology,Information Technology Services
-KNAGRI,Consumer Defensive,Farm Products
-NSIL,Financial Services,Asset Management
-EIEL,Industrials,Engineering & Construction
-CELEBRITY,Consumer Cyclical,Apparel Manufacturing
-ABLBL,Consumer Cyclical,Apparel Retail
-EMBDL,Real Estate,Real Estate - Diversified
-INDOTHAI,Financial Services,Capital Markets
-RANASUG,Consumer Defensive,Confectioners
-THEINVEST,Financial Services,Capital Markets
-BEML,Industrials,Conglomerates
-KALYANIFRG,Consumer Cyclical,Auto Parts
-MANOMAY,Consumer Cyclical,Textile Manufacturing
-GLOBUSSPR,Consumer Defensive,Beverages - Wineries & Distilleries
-PRSMJOHNSN,Basic Materials,Building Materials
-IMAGICAA,Communication Services,Entertainment
-MALUPAPER,Basic Materials,Paper & Paper Products
-LAMBODHARA,Consumer Cyclical,Textile Manufacturing
-SOMICONVEY,Industrials,Specialty Industrial Machinery
-INDOFARM,Industrials,Farm & Heavy Construction Machinery
-ORIENTALTL,Industrials,Building Products & Equipment
-QUICKHEAL,Technology,Software - Application
-SPCENET,Financial Services,Capital Markets
-AXITA,Consumer Cyclical,Textile Manufacturing
-ASMS,Technology,Information Technology Services
-XTGLOBAL,Technology,Software - Application
-DIGJAMLMTD,Consumer Cyclical,Textile Manufacturing
-MKPL,Consumer Defensive,Packaged Foods
-TREJHARA,Technology,Software - Application
-SILINV,Financial Services,Asset Management
-BAGFILMS,Communication Services,Broadcasting
-AMDIND,Consumer Cyclical,Packaging & Containers
-DIGIDRIVE,Consumer Cyclical,Internet Retail
-VIKASLIFE,Consumer Defensive,Farm Products
-SUMEETINDS,Consumer Cyclical,Textile Manufacturing
-COUNCODOS,Real Estate,Real Estate - Development
-BATAINDIA,Consumer Cyclical,Footwear & Accessories
-MTNL,Communication Services,Telecom Services
-MARATHON,Real Estate,Real Estate - Development
-CTE,Technology,Information Technology Services
-NDTV,Communication Services,Broadcasting
-BCLIND,Consumer Defensive,Beverages - Wineries & Distilleries
-ARKADE,Real Estate,Real Estate - Development
-SBIN,Financial Services,Banks - Regional
-LXCHEM,Basic Materials,Specialty Chemicals
-SURAJLTD,Basic Materials,Steel
-SUMMITSEC,Financial Services,Capital Markets
-SGIL,Industrials,Metal Fabrication
-JASH,Industrials,Specialty Industrial Machinery
-GOCOLORS,Consumer Cyclical,Apparel Retail
-EMSLIMITED,Industrials,Engineering & Construction
-ACCURACY,Industrials,Integrated Freight & Logistics
-DMCC,Basic Materials,Chemicals
-UCAL,Consumer Cyclical,Auto Parts
-THEJO,Industrials,Specialty Industrial Machinery
-AWFIS,Industrials,Rental & Leasing Services
-APCL,Basic Materials,Building Materials
-JKLAKSHMI,Basic Materials,Building Materials
-KRITIKA,Basic Materials,Steel
-PRIMESECU,Financial Services,Capital Markets
-MALLCOM,Industrials,Security & Protection Services
-SUNTV,Communication Services,Broadcasting
-BELLACASA,Consumer Cyclical,Textile Manufacturing
-MAGADSUGAR,Consumer Defensive,Confectioners
-AKI,Consumer Cyclical,Footwear & Accessories
-SANOFI,Healthcare,Drug Manufacturers - General
-INDORAMA,Consumer Cyclical,Textile Manufacturing
-SPENCERS,Consumer Cyclical,Department Stores
-HEADSUP,Consumer Cyclical,Apparel Retail
-LYPSAGEMS,Consumer Cyclical,Luxury Goods
-ASAHISONG,Basic Materials,Specialty Chemicals
-AJMERA,Real Estate,Real Estate - Development
-ATL,Industrials,Integrated Freight & Logistics
-CIFL,Financial Services,Credit Services
-RTNINDIA,Consumer Cyclical,Internet Retail
-ONMOBILE,Communication Services,Telecom Services
-JHS,Consumer Defensive,Household & Personal Products
-COMPUSOFT,Consumer Defensive,Education & Training Services
-SINTERCOM,Consumer Cyclical,Auto Parts
-KSB,Industrials,Specialty Industrial Machinery
-COCHINSHIP,Industrials,Aerospace & Defense
-ARCHIES,Consumer Cyclical,Specialty Retail
-GANGESSECU,Consumer Defensive,Packaged Foods
-NUCLEUS,Technology,Software - Application
-ASHIMASYN,Real Estate,Real Estate - Development
-IITL,Financial Services,Credit Services
-LIBERTSHOE,Consumer Cyclical,Footwear & Accessories
-QUADFUTURE,Industrials,Railroads
-PARKHOTELS,Consumer Cyclical,Lodging
-RADIOCITY,Communication Services,Broadcasting
-SAURASHCEM,Basic Materials,Building Materials
-GEEKAYWIRE,Industrials,Electrical Equipment & Parts
-JISLDVREQS,Industrials,Conglomerates
-MANAKCOAT,Industrials,Metal Fabrication
-BAJAJHIND,Consumer Defensive,Confectioners
-BLUEDART,Industrials,Integrated Freight & Logistics
-JIOFIN,Financial Services,Asset Management
-TCPLPACK,Consumer Cyclical,Packaging & Containers
-LOTUSEYE,Healthcare,Medical Care Facilities
-HERITGFOOD,Consumer Defensive,Packaged Foods
-SHEMAROO,Communication Services,Entertainment
-SCODATUBES,Basic Materials,Steel
-KRSNAA,Healthcare,Diagnostics & Research
-IONEXCHANG,Industrials,Pollution & Treatment Controls
-INVENTURE,Financial Services,Capital Markets
-KIRLOSIND,Industrials,Metal Fabrication
-SSDL,Consumer Cyclical,Apparel Retail
-KAUSHALYA,Industrials,Engineering & Construction
-KEEPLEARN,Consumer Defensive,Education & Training Services
-PFS,Financial Services,Credit Services
-SAGCEM,Basic Materials,Building Materials
-VOLTAS,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-INDIGO,Industrials,Airlines
-TATACHEM,Basic Materials,Chemicals
-LINC,Industrials,Business Equipment & Supplies
-GRPLTD,Consumer Cyclical,Auto Parts
-BLAL,Financial Services,Shell Companies
-ARCHIDPLY,Basic Materials,Lumber & Wood Production
-PODDARMENT,Basic Materials,Specialty Chemicals
-AKG,Industrials,Industrial Distribution
-SURYALAXMI,Consumer Cyclical,Textile Manufacturing
-VINNY,Consumer Cyclical,Textile Manufacturing
-GLOBE,Consumer Cyclical,Textile Manufacturing
-WORTHPERI,Consumer Cyclical,Packaging & Containers
-AWHCL,Industrials,Waste Management
-KAMOPAINTS,Basic Materials,Steel
-SWIGGY,Consumer Cyclical,Internet Retail
-MUKKA,Consumer Defensive,Packaged Foods
-IRFC,Financial Services,Credit Services
-BSL,Consumer Cyclical,Textile Manufacturing
-VIVIDHA,Consumer Cyclical,Textile Manufacturing
-VCL,Consumer Cyclical,Textile Manufacturing
-ATLANTAA,Industrials,Infrastructure Operations
-TPHQ,Industrials,Engineering & Construction
-KHANDSE,Financial Services,Capital Markets
-CEWATER,Utilities,Utilities - Regulated Water
-ANUP,Industrials,Specialty Industrial Machinery
-NDGL,Financial Services,Capital Markets
-THOMASCOOK,Consumer Cyclical,Travel Services
-TTML,Communication Services,Telecom Services
-HISARMETAL,Basic Materials,Steel
-DECCANCE,Basic Materials,Building Materials
-LEXUS,Industrials,Building Products & Equipment
-REPCOHOME,Financial Services,Mortgage Finance
-PNC,Communication Services,Entertainment
-SILLYMONKS,Communication Services,Entertainment
-63MOONS,Technology,Software - Application
-ATLASCYCLE,Consumer Cyclical,Leisure
-MADHUCON,Industrials,Engineering & Construction
-KAYNES,Technology,Electronic Components
-MOBIKWIK,Technology,Software - Infrastructure
-CUBEXTUB,Basic Materials,Copper
-SATIA,Basic Materials,Paper & Paper Products
-SDBL,Consumer Defensive,Beverages - Brewers
-BECTORFOOD,Consumer Defensive,Packaged Foods
-INDIQUBE,Real Estate,Real Estate Services
-EUREKAFORB,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ADL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-DIGITIDE,Industrials,Specialty Business Services
-POKARNA,Industrials,Building Products & Equipment
-ENIL,Communication Services,Broadcasting
-ZUARI,Basic Materials,Agricultural Inputs
-ARENTERP,Basic Materials,Other Industrial Metals & Mining
-NILAINFRA,Real Estate,Real Estate - Development
-SHRADHA,Real Estate,Real Estate - Development
-ARTNIRMAN,Real Estate,Real Estate - Development
-HEMIPROP,Real Estate,Real Estate - Diversified
-PROSTARM,Industrials,Electrical Equipment & Parts
-WCIL,Industrials,Integrated Freight & Logistics
-URAVIDEF,Consumer Cyclical,Auto Parts
-BPL,Technology,Consumer Electronics
-BAJAJHCARE,Healthcare,Drug Manufacturers - Specialty & Generic
-DCXINDIA,Industrials,Aerospace & Defense
-CENTRALBK,Financial Services,Banks - Regional
-ALBERTDAVD,Healthcare,Drug Manufacturers - Specialty & Generic
-CINELINE,Communication Services,Entertainment
-VIPIND,Consumer Cyclical,Footwear & Accessories
-ORIENTPPR,Basic Materials,Paper & Paper Products
-RUCHIRA,Basic Materials,Paper & Paper Products
-TNPETRO,Basic Materials,Specialty Chemicals
-DAMCAPITAL,Financial Services,Capital Markets
-UBL,Consumer Defensive,Beverages - Brewers
-SULA,Consumer Defensive,Beverages - Wineries & Distilleries
-ISHANCH,Basic Materials,Chemicals
-GENESYS,Technology,Software - Application
-PRAENG,Real Estate,Real Estate - Development
-VIPULLTD,Real Estate,Real Estate - Diversified
-DBL,Industrials,Engineering & Construction
-EASEMYTRIP,Consumer Cyclical,Travel Services
-INDIACEM,Basic Materials,Building Materials
-INDOUS,Basic Materials,Agricultural Inputs
-HAVISHA,Consumer Cyclical,Lodging
-ZODIACLOTH,Consumer Cyclical,Apparel Manufacturing
-SAKHTISUG,Consumer Defensive,Confectioners
-HINDWAREAP,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-BAJAJINDEF,Industrials,Farm & Heavy Construction Machinery
-AKSHAR,Consumer Cyclical,Textile Manufacturing
-TIRUMALCHM,Basic Materials,Specialty Chemicals
-UCOBANK,Financial Services,Banks - Regional
-PILANIINVS,Financial Services,Asset Management
-SWANCORP,Industrials,Conglomerates
-RPOWER,Utilities,Utilities - Independent Power Producers
-AROGRANITE,Industrials,Building Products & Equipment
-ZENITHEXPO,Consumer Cyclical,Textile Manufacturing
-TFL,Financial Services,Mortgage Finance
-CELLO,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-SHYAMCENT,Basic Materials,Steel
-SHK,Basic Materials,Specialty Chemicals
-BLUECHIP,Financial Services,Capital Markets
-PVSL,Consumer Cyclical,Auto & Truck Dealerships
-RKDL,Consumer Defensive,Beverages - Wineries & Distilleries
-VISHWARAJ,Consumer Defensive,Confectioners
-KOKUYOCMLN,Industrials,Business Equipment & Supplies
-EMKAY,Financial Services,Capital Markets
-TRIDENT,Consumer Cyclical,Textile Manufacturing
-SUVIDHAA,Technology,Information Technology Services
-NACLIND,Basic Materials,Agricultural Inputs
-RIIL,Industrials,Engineering & Construction
-ALOKINDS,Consumer Cyclical,Textile Manufacturing
-ESTER,Basic Materials,Specialty Chemicals
-LYKALABS,Healthcare,Biotechnology
-SHREDIGCEM,Basic Materials,Building Materials
-TARC,Real Estate,Real Estate - Development
-RAJOOENG,Industrials,Specialty Industrial Machinery
-ACEINTEG,Industrials,Staffing & Employment Services
-SAPPHIRE,Consumer Cyclical,Restaurants
-TVSHLTD,Consumer Cyclical,Auto Parts
-BALAJEE,Consumer Cyclical,Packaging & Containers
-ARIHANTSUP,Real Estate,Real Estate - Development
-CREST,Financial Services,Financial Conglomerates
-PRITI,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-WHIRLPOOL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-ELGIRUBCO,Consumer Cyclical,Auto Parts
-SESHAPAPER,Basic Materials,Paper & Paper Products
-SHALPAINTS,Basic Materials,Specialty Chemicals
-SECURKLOUD,Technology,Software - Application
-RKEC,Industrials,Engineering & Construction
-GMBREW,Consumer Defensive,Beverages - Wineries & Distilleries
-TEAMGTY,Financial Services,Asset Management
-TRU,Financial Services,Credit Services
-BDL,Industrials,Aerospace & Defense
-HERANBA,Basic Materials,Agricultural Inputs
-WEL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-LAL,Consumer Cyclical,Apparel Manufacturing
-RAMANEWS,Consumer Defensive,Beverages - Non-Alcoholic
-RAJMET,Basic Materials,Copper
-HLVLTD,Consumer Cyclical,Lodging
-JINDALPHOT,Financial Services,Asset Management
-ACL,Basic Materials,Building Materials
-FOODSIN,Consumer Defensive,Packaged Foods
-TOTAL,Industrials,Integrated Freight & Logistics
-EXXARO,Industrials,Building Products & Equipment
-NOVAAGRI,Basic Materials,Agricultural Inputs
-IGARASHI,Consumer Cyclical,Auto Parts
-EVERESTIND,Industrials,Building Products & Equipment
-TVVISION,Communication Services,Broadcasting
-ENERGYDEV,Utilities,Utilities - Regulated Electric
-GUJAPOLLO,Industrials,Specialty Industrial Machinery
-3PLAND,Unknown,Unknown
-GTECJAINX,Consumer Defensive,Education & Training Services
-LGHL,Consumer Cyclical,Luxury Goods
-EIFFL,Consumer Defensive,Packaged Foods
-WESTLIFE,Consumer Cyclical,Restaurants
-KUANTUM,Basic Materials,Paper & Paper Products
-ACI,Basic Materials,Chemicals
-KABRAEXTRU,Industrials,Specialty Industrial Machinery
-TARAPUR,Industrials,Specialty Industrial Machinery
-EMMBI,Consumer Cyclical,Packaging & Containers
-GREENPANEL,Basic Materials,Lumber & Wood Production
-ABREL,Real Estate,Real Estate Services
-GOYALALUM,Basic Materials,Aluminum
-TIL,Industrials,Farm & Heavy Construction Machinery
-MAHAPEXLTD,Financial Services,Credit Services
-BTML,Communication Services,Entertainment
-SYMPHONY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-OMAXE,Real Estate,Real Estate - Development
-DGCONTENT,Communication Services,Internet Content & Information
-ABINFRA,Industrials,Engineering & Construction
-JYOTICNC,Industrials,Specialty Industrial Machinery
-BALAJITELE,Communication Services,Entertainment
-DHUNINV,Financial Services,Capital Markets
-NIBL,Industrials,Tools & Accessories
-GANECOS,Consumer Cyclical,Textile Manufacturing
-GAYAHWS,Industrials,Infrastructure Operations
-ALLCARGO,Industrials,Integrated Freight & Logistics
-LAXMICOT,Consumer Cyclical,Textile Manufacturing
-KCPSUGIND,Consumer Defensive,Confectioners
-ORCHASP,Technology,Software - Application
-MADHAV,Industrials,Building Products & Equipment
-HIMATSEIDE,Consumer Cyclical,Textile Manufacturing
-CHEMPLASTS,Basic Materials,Chemicals
-BIRLANU,Industrials,Building Products & Equipment
-HEXATRADEX,Financial Services,Credit Services
-KAYA,Consumer Defensive,Household & Personal Products
-TECILCHEM,Financial Services,Shell Companies
-TTL,Consumer Cyclical,Textile Manufacturing
-SUNCLAY,Industrials,Metal Fabrication
-A2ZINFRA,Industrials,Engineering & Construction
-TRF,Industrials,Specialty Industrial Machinery
-AKSHARCHEM,Basic Materials,Specialty Chemicals
-UTKARSHBNK,Financial Services,Banks - Regional
-SALASAR,Basic Materials,Steel
-REGENCERAM,Industrials,Building Products & Equipment
-CAMLINFINE,Basic Materials,Specialty Chemicals
-DIAMINESQ,Basic Materials,Chemicals
-IRCON,Industrials,Engineering & Construction
-DEVYANI,Consumer Cyclical,Restaurants
-IGCL,Basic Materials,Agricultural Inputs
-DREAMFOLKS,Industrials,Airports & Air Services
-NDL,Consumer Cyclical,Textile Manufacturing
-DCMSRIND,Consumer Defensive,Confectioners
-AARTIPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
-SELMC,Consumer Cyclical,Textile Manufacturing
-FIRSTCRY,Consumer Cyclical,Internet Retail
-TEXRAIL,Industrials,Railroads
-TOUCHWOOD,Communication Services,Advertising Agencies
-NCC,Industrials,Engineering & Construction
-DVL,Financial Services,Capital Markets
-JISLJALEQS,Industrials,Conglomerates
-SRD,Basic Materials,Specialty Chemicals
-FLEXITUFF,Consumer Cyclical,Textile Manufacturing
-RENUKA,Consumer Defensive,Confectioners
-AGRITECH,Consumer Defensive,Farm Products
-SANATHAN,Consumer Cyclical,Textile Manufacturing
-NEXTMEDIA,Communication Services,Broadcasting
-SAMPANN,Basic Materials,Specialty Chemicals
-ESSARSHPNG,Industrials,Marine Shipping
-VSTL,Basic Materials,Steel
-ZOTA,Healthcare,Biotechnology
-UMAEXPORTS,Consumer Defensive,Farm Products
-NITIRAJ,Technology,Scientific & Technical Instruments
-BRIGADE,Real Estate,Real Estate - Development
-KEC,Industrials,Engineering & Construction
-UNIENTER,Basic Materials,Chemicals
-PRABHA,Energy,Oil & Gas E&P
+HLEGLAS,Industrials,Specialty Industrial Machinery
+TATACONSUM,Consumer Defensive,Packaged Foods
 CINEVISTA,Communication Services,Entertainment
-WSI,Industrials,Engineering & Construction
-STANLEY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-SHIVATEX,Consumer Cyclical,Textile Manufacturing
-DNAMEDIA,Communication Services,Publishing
-OSWALSEEDS,Basic Materials,Agricultural Inputs
-GVPTECH,Technology,Information Technology Services
-RUSTOMJEE,Real Estate,Real Estate - Development
-KITEX,Consumer Cyclical,Apparel Manufacturing
-KAVDEFENCE,Technology,Communication Equipment
-KHADIM,Consumer Cyclical,Footwear & Accessories
-LANDSMILL,Industrials,Conglomerates
-ICDSLTD,Real Estate,Real Estate Services
-RVNL,Industrials,Engineering & Construction
-NETWORK18,Communication Services,Entertainment
-NKIND,Consumer Defensive,Household & Personal Products
-OBCL,Industrials,Trucking
-VIRINCHI,Technology,Software - Application
-RADAAN,Communication Services,Entertainment
-FINOPB,Financial Services,Banks - Regional
-AGARIND,Basic Materials,Specialty Chemicals
-PAKKA,Basic Materials,Paper & Paper Products
+WEALTH,Financial Services,Capital Markets
+DCW,Basic Materials,Chemicals
+MOIL,Basic Materials,Other Industrial Metals & Mining
+GABRIEL,Consumer Cyclical,Auto Parts
+ADVENTHTL,Consumer Cyclical,Lodging
+KIRLOSIND,Industrials,Metal Fabrication
+DABUR,Consumer Defensive,Household & Personal Products
+PUNJABCHEM,Basic Materials,Chemicals
+EMAMILTD,Consumer Defensive,Household & Personal Products
+PDMJEPAPER,Basic Materials,Paper & Paper Products
+HUDCO,Financial Services,Credit Services
+BPCL,Energy,Oil & Gas Refining & Marketing
+HDFCAMC,Financial Services,Asset Management
+NDRAUTO,Consumer Cyclical,Auto Parts
+TATAINVEST,Financial Services,Asset Management
+GHCL,Basic Materials,Chemicals
+VRLLOG,Industrials,Trucking
+TNPL,Basic Materials,Paper & Paper Products
+ASKAUTOLTD,Consumer Cyclical,Auto Parts
+TIMETECHNO,Consumer Cyclical,Packaging & Containers
+IFGLEXPOR,Basic Materials,Building Materials
+HITECH,Basic Materials,Steel
+UPL,Basic Materials,Agricultural Inputs
+VMART,Consumer Cyclical,Department Stores
+TBOTEK,Consumer Cyclical,Travel Services
+DOLATALGO,Financial Services,Capital Markets
+INOXGREEN,Utilities,Utilities - Renewable
+POLYMED,Healthcare,Medical Instruments & Supplies
+AHLEAST,Consumer Cyclical,Lodging
+JUSTDIAL,Communication Services,Internet Content & Information
+SBFC,Financial Services,Credit Services
+ARVINDFASN,Consumer Cyclical,Apparel Manufacturing
+DOLLAR,Consumer Cyclical,Apparel Manufacturing
+SPECIALITY,Consumer Cyclical,Restaurants
+VINATIORGA,Basic Materials,Specialty Chemicals
+AIRAN,Technology,Information Technology Services
+LICI,Financial Services,Insurance - Life
+KRYSTAL,Industrials,Specialty Business Services
+AARNAV,Unknown,Unknown
+ICICIGI,Financial Services,Insurance - Diversified
+AWL,Consumer Defensive,Packaged Foods
+BIRLAMONEY,Financial Services,Capital Markets
+EIHAHOTELS,Consumer Cyclical,Lodging
+GPPL,Industrials,Marine Shipping
+TEXRAIL,Industrials,Railroads
+RESPONIND,Basic Materials,Specialty Chemicals
+CONCORDBIO,Healthcare,Biotechnology
+CDSL,Financial Services,Capital Markets
+BHARTIHEXA,Communication Services,Telecom Services
+KRSNAA,Healthcare,Diagnostics & Research
+MEESHO,Consumer Cyclical,Internet Retail
+NAVA,Industrials,Conglomerates
+PPAP,Consumer Cyclical,Auto Parts
+EMUDHRA,Technology,Software - Application
+GFLLIMITED,Financial Services,Asset Management
+POLICYBZR,Financial Services,Insurance Brokers
+FINKURVE,Financial Services,Credit Services
+SAGILITY,Healthcare,Health Information Services
+NUCLEUS,Technology,Software - Application
+STARPAPER,Basic Materials,Paper & Paper Products
+TCPLPACK,Consumer Cyclical,Packaging & Containers
+HUBTOWN,Real Estate,Real Estate - Development
+SIGNATURE,Real Estate,Real Estate - Development
+AMBUJACEM,Basic Materials,Building Materials
+LEMONTREE,Consumer Cyclical,Lodging
+KIRLOSBROS,Industrials,Specialty Industrial Machinery
+MONEYBOXX,Financial Services,Credit Services
+SHAREINDIA,Financial Services,Capital Markets
+IOC,Energy,Oil & Gas Refining & Marketing
+JUBLINGREA,Basic Materials,Specialty Chemicals
+JKPAPER,Basic Materials,Paper & Paper Products
+BANARISUG,Consumer Defensive,Confectioners
+CENTURYPLY,Basic Materials,Lumber & Wood Production
+BIRLACORPN,Basic Materials,Building Materials
+SMCGLOBAL,Financial Services,Capital Markets
+AGARWALEYE,Healthcare,Medical Instruments & Supplies
+JYOTICNC,Industrials,Specialty Industrial Machinery
+WONDERLA,Consumer Cyclical,Leisure
+ADSL,Technology,Information Technology Services
+INDIASHLTR,Financial Services,Mortgage Finance
+RAMCOCEM,Basic Materials,Building Materials
+AWFIS,Industrials,Rental & Leasing Services
+LTFOODS,Consumer Defensive,Packaged Foods
+NCLIND,Basic Materials,Building Materials
+WIPL,Basic Materials,Lumber & Wood Production
+DMART,Consumer Defensive,Discount Stores
+ALKEM,Healthcare,Drug Manufacturers - Specialty & Generic
+BLACKBUCK,Technology,Software - Application
+ENERGYDEV,Utilities,Utilities - Regulated Electric
+BAJAJINDEF,Industrials,Farm & Heavy Construction Machinery
+GOLDTECH,Technology,Information Technology Services
+JSWCEMENT,Basic Materials,Building Materials
+AURIONPRO,Technology,Software - Application
+CHOICEIN,Financial Services,Capital Markets
+DEN,Communication Services,Entertainment
+MAHLOG,Industrials,Integrated Freight & Logistics
+JINDALPOLY,Consumer Cyclical,Packaging & Containers
+3IINFOLTD,Technology,Information Technology Services
+IRB,Industrials,Infrastructure Operations
+AAVAS,Financial Services,Mortgage Finance
+SAGARDEEP,Basic Materials,Copper
+UNOMINDA,Consumer Cyclical,Auto Parts
+IKIO,Technology,Electronic Components
+BANKBARODA,Financial Services,Banks - Regional
+LGBBROSLTD,Consumer Cyclical,Auto Parts
+CHOLAFIN,Financial Services,Credit Services
+MOTISONS,Consumer Cyclical,Luxury Goods
+TRANSWORLD,Industrials,Marine Shipping
+NBIFIN,Financial Services,Capital Markets
+MADRASFERT,Basic Materials,Agricultural Inputs
+ADROITINFO,Technology,Information Technology Services
+INDIANCARD,Consumer Cyclical,Textile Manufacturing
+JYOTHYLAB,Consumer Defensive,Household & Personal Products
+MBLINFRA,Industrials,Engineering & Construction
+DCAL,Healthcare,Biotechnology
+SUDARSCHEM,Basic Materials,Specialty Chemicals
+ANUP,Industrials,Specialty Industrial Machinery
+MAZDOCK,Industrials,Aerospace & Defense
+CCAVENUE,Technology,Software - Infrastructure
+HECPROJECT,Industrials,Engineering & Construction
+BALUFORGE,Industrials,Metal Fabrication
+PPL,Industrials,Building Products & Equipment
+PICCADIL,Consumer Defensive,Beverages - Wineries & Distilleries
+PAR,Healthcare,Drug Manufacturers - Specialty & Generic
+NILKAMAL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+HATHWAY,Communication Services,Entertainment
+ANMOL,Energy,Thermal Coal
+GMRP&UI,Energy,Thermal Coal
+PALASHSECU,Consumer Defensive,Packaged Foods
+CAMLINFINE,Basic Materials,Specialty Chemicals
+TASTYBITE,Consumer Defensive,Packaged Foods
+CONCOR,Industrials,Railroads
+URBANCO,Technology,Software - Application
+PRICOLLTD,Consumer Cyclical,Auto Parts
+TEMBO,Industrials,Metal Fabrication
+M&MFIN,Financial Services,Credit Services
+DSFCL,Basic Materials,Specialty Chemicals
+INDORAMA,Consumer Cyclical,Textile Manufacturing
+HAVELLS,Industrials,Electrical Equipment & Parts
+ZENITHEXPO,Consumer Cyclical,Textile Manufacturing
+SOBHA,Real Estate,Real Estate - Development
+OMNI,Industrials,Specialty Industrial Machinery
+PENIND,Industrials,Specialty Industrial Machinery
+BONLON,Basic Materials,Other Industrial Metals & Mining
+TAJGVK,Consumer Cyclical,Lodging
+KALYANKJIL,Consumer Cyclical,Luxury Goods
+IREDA,Financial Services,Credit Services
+VEDL,Basic Materials,Other Industrial Metals & Mining
+REDINGTON,Technology,Information Technology Services
+CANFINHOME,Financial Services,Mortgage Finance
+GODREJAGRO,Consumer Defensive,Packaged Foods
+GALAXYSURF,Basic Materials,Specialty Chemicals
+HTMEDIA,Communication Services,Publishing
+REMSONSIND,Consumer Cyclical,Auto Parts
+IXIGO,Consumer Cyclical,Travel Services
+RSYSTEMS,Technology,Information Technology Services
+SOLARA,Healthcare,Drug Manufacturers - Specialty & Generic
+SIGIND,Industrials,Conglomerates
+ULTRACEMCO,Basic Materials,Building Materials
+PNGJL,Consumer Cyclical,Luxury Goods
+ASALCBR,Consumer Defensive,Beverages - Wineries & Distilleries
+AADHARHFC,Financial Services,Mortgage Finance
+RTNINDIA,Consumer Cyclical,Internet Retail
+COMPUSOFT,Consumer Defensive,Education & Training Services
+EUREKAFORB,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SCILAL,Real Estate,Real Estate Services
+RAYMONDLSL,Consumer Cyclical,Apparel Manufacturing
+DCXINDIA,Industrials,Aerospace & Defense
+CNL,Technology,Electronics & Computer Distribution
+BHARATRAS,Basic Materials,Agricultural Inputs
+NUVOCO,Basic Materials,Building Materials
+CYIENT,Industrials,Conglomerates
+DPABHUSHAN,Consumer Cyclical,Luxury Goods
+BLKASHYAP,Industrials,Engineering & Construction
+VSTTILLERS,Industrials,Farm & Heavy Construction Machinery
+ORIENTELEC,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+HUHTAMAKI,Consumer Cyclical,Packaging & Containers
+JMFINANCIL,Financial Services,Capital Markets
+JAINREC,Basic Materials,Other Industrial Metals & Mining
+RGL,Consumer Cyclical,Luxury Goods
+EIDPARRY,Basic Materials,Agricultural Inputs
+MCL,Basic Materials,Copper
+TARACHAND,Industrials,Farm & Heavy Construction Machinery
+AARTIDRUGS,Healthcare,Drug Manufacturers - Specialty & Generic
+JUBLCPL,Basic Materials,Specialty Chemicals
+TATVA,Basic Materials,Specialty Chemicals
+SELMC,Consumer Cyclical,Textile Manufacturing
+NILASPACES,Real Estate,Real Estate - Development
+BAJFINANCE,Financial Services,Credit Services
+LORDSCHLO,Basic Materials,Chemicals
+SPMLINFRA,Industrials,Engineering & Construction
+ICICIBANK,Financial Services,Banks - Regional
+BIOFILCHEM,Healthcare,Drug Manufacturers - Specialty & Generic
+EMMBI,Consumer Cyclical,Packaging & Containers
+TRENT,Consumer Cyclical,Apparel Retail
+CENTEXT,Basic Materials,Aluminum
+TRANSRAILL,Industrials,Engineering & Construction
+CAPACITE,Industrials,Engineering & Construction
+GSFC,Basic Materials,Agricultural Inputs
+FAIRCHEMOR,Basic Materials,Specialty Chemicals
+TOTAL,Industrials,Integrated Freight & Logistics
+GICHSGFIN,Financial Services,Mortgage Finance
+ASHOKAMET,Basic Materials,Steel
+LAOPALA,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+DICIND,Basic Materials,Specialty Chemicals
+BLUEDART,Industrials,Integrated Freight & Logistics
+RALLIS,Basic Materials,Agricultural Inputs
+HEG,Industrials,Electrical Equipment & Parts
+AHLUCONT,Industrials,Engineering & Construction
+RCF,Basic Materials,Agricultural Inputs
+RELIANCE,Energy,Oil & Gas Refining & Marketing
+LXCHEM,Basic Materials,Specialty Chemicals
+TMPV,Consumer Cyclical,Auto Manufacturers
+HATSUN,Consumer Defensive,Packaged Foods
+INDOTHAI,Financial Services,Capital Markets
+TTKPRESTIG,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SIL,Consumer Cyclical,Textile Manufacturing
+SUNTV,Communication Services,Broadcasting
+DAMCAPITAL,Financial Services,Capital Markets
+LAXMICOT,Consumer Cyclical,Textile Manufacturing
+WAAREERTL,Industrials,Engineering & Construction
+CONTROLPR,Industrials,Business Equipment & Supplies
+INTERARCH,Industrials,Engineering & Construction
+CEATLTD,Consumer Cyclical,Auto Parts
 GMMPFAUDLR,Industrials,Specialty Industrial Machinery
-BESTAGRO,Basic Materials,Agricultural Inputs
-MODTHREAD,Consumer Cyclical,Textile Manufacturing
-CREATIVEYE,Communication Services,Entertainment
-TEXMOPIPES,Industrials,Building Products & Equipment
-BCONCEPTS,Consumer Cyclical,Footwear & Accessories
-TREEHOUSE,Consumer Defensive,Education & Training Services
-ANTGRAPHIC,Consumer Cyclical,Packaging & Containers
-RUSHIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-FIBERWEB,Consumer Cyclical,Textile Manufacturing
-TNTELE,Technology,Communication Equipment
-MOL,Basic Materials,Agricultural Inputs
-AARTECH,Industrials,Electrical Equipment & Parts
-SWSOLAR,Technology,Solar
-ODIGMA,Communication Services,Advertising Agencies
-GLOBALVECT,Industrials,Airports & Air Services
+MATRIMONY,Communication Services,Internet Content & Information
+BHARTIARTL,Communication Services,Telecom Services
+GTPL,Communication Services,Entertainment
+ZEEMEDIA,Communication Services,Broadcasting
+CANBK,Financial Services,Banks - Regional
+AEGISVOPAK,Energy,Oil & Gas Equipment & Services
+KARMAENG,Utilities,Utilities - Renewable
+GANECOS,Consumer Cyclical,Textile Manufacturing
+EMAMIPAP,Basic Materials,Paper & Paper Products
+NDTV,Communication Services,Broadcasting
+IOB,Financial Services,Banks - Regional
+SYNGENE,Healthcare,Diagnostics & Research
+CPEDU,Consumer Defensive,Education & Training Services
+MITTAL,Consumer Cyclical,Textile Manufacturing
+JUBLFOOD,Consumer Cyclical,Restaurants
+MICEL,Technology,Electronic Components
+SUBROS,Consumer Cyclical,Auto Parts
+RTNPOWER,Utilities,Utilities - Independent Power Producers
+AFSL,Financial Services,Capital Markets
+LAMBODHARA,Consumer Cyclical,Textile Manufacturing
+RHIM,Industrials,Metal Fabrication
+ANDHRAPAP,Basic Materials,Paper & Paper Products
+INOXWIND,Industrials,Specialty Industrial Machinery
+KSCL,Basic Materials,Agricultural Inputs
+MUNJALSHOW,Consumer Cyclical,Auto Parts
+ZUARIIND,Industrials,Conglomerates
+UNICHEMLAB,Healthcare,Drug Manufacturers - Specialty & Generic
+BEDMUTHA,Basic Materials,Steel
+RAMKY,Industrials,Engineering & Construction
+KAMOPAINTS,Basic Materials,Steel
+UNIECOM,Technology,Software - Application
+BAJAJHFL,Financial Services,Mortgage Finance
+SURANAT&P,Utilities,Utilities - Independent Power Producers
+MTNL,Communication Services,Telecom Services
+RADIOCITY,Communication Services,Broadcasting
+HISARMETAL,Basic Materials,Steel
+LTF,Financial Services,Credit Services
+SURANASOL,Technology,Solar
+SHREYANIND,Basic Materials,Paper & Paper Products
+PNB,Financial Services,Banks - Regional
+LAL,Consumer Cyclical,Apparel Manufacturing
+SIMPLEXINF,Industrials,Engineering & Construction
+UJJIVANSFB,Financial Services,Banks - Regional
+BASML,Consumer Cyclical,Textile Manufacturing
+DALBHARAT,Basic Materials,Building Materials
+PARADEEP,Basic Materials,Agricultural Inputs
+STERTOOLS,Industrials,Tools & Accessories
+AURIGROW,Industrials,Electrical Equipment & Parts
+PNGSREVA,Consumer Cyclical,Luxury Goods
+ASMS,Technology,Information Technology Services
+ZENSARTECH,Technology,Information Technology Services
+IDBI,Financial Services,Banks - Regional
+RMDRIP,Industrials,Farm & Heavy Construction Machinery
+HYBRIDFIN,Financial Services,Capital Markets
+CRISIL,Financial Services,Financial Data & Stock Exchanges
+BOMDYEING,Consumer Cyclical,Textile Manufacturing
+TCIFINANCE,Financial Services,Credit Services
+ENIL,Communication Services,Broadcasting
+HPL,Industrials,Electrical Equipment & Parts
+KNRCON,Industrials,Engineering & Construction
+ROML,Consumer Defensive,Packaged Foods
+NACLIND,Basic Materials,Agricultural Inputs
+EKC,Industrials,Specialty Industrial Machinery
+VLSFINANCE,Financial Services,Capital Markets
+NELCO,Technology,Communication Equipment
+IDFCFIRSTB,Financial Services,Banks - Regional
+GEEKAYWIRE,Industrials,Electrical Equipment & Parts
+ORIENTALTL,Industrials,Building Products & Equipment
+EIMCOELECO,Industrials,Farm & Heavy Construction Machinery
+JUBLPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+CCCL,Industrials,Engineering & Construction
+BECTORFOOD,Consumer Defensive,Packaged Foods
+MAHSCOOTER,Financial Services,Asset Management
+MASFIN,Financial Services,Credit Services
+RPOWER,Utilities,Utilities - Independent Power Producers
+SOMATEX,Consumer Cyclical,Textile Manufacturing
+GOACARBON,Basic Materials,Specialty Chemicals
+ISHANCH,Basic Materials,Chemicals
+ARVSMART,Real Estate,Real Estate - Development
+HEIDELBERG,Basic Materials,Building Materials
+GODREJIND,Industrials,Conglomerates
+NURECA,Healthcare,Medical Devices
+KELLTONTEC,Technology,Software - Application
+SEPC,Industrials,Engineering & Construction
+NETWORK18,Communication Services,Entertainment
+ABLBL,Consumer Cyclical,Apparel Retail
+AVONMORE,Financial Services,Capital Markets
+SKFINDIA,Industrials,Tools & Accessories
+MEDICAMEQ,Healthcare,Drug Manufacturers - Specialty & Generic
+AARON,Industrials,Specialty Industrial Machinery
+INDOFARM,Industrials,Farm & Heavy Construction Machinery
+BAIDFIN,Financial Services,Credit Services
+ATL,Industrials,Integrated Freight & Logistics
+BORORENEW,Technology,Solar
+IGARASHI,Consumer Cyclical,Auto Parts
+COHANCE,Healthcare,Drug Manufacturers - Specialty & Generic
+THOMASCOTT,Consumer Cyclical,Textile Manufacturing
+AQYLON,Communication Services,Broadcasting
+DANGEE,Consumer Cyclical,Restaurants
+SNOWMAN,Industrials,Integrated Freight & Logistics
+MAXIND,Healthcare,Medical Care Facilities
+AMJLAND,Real Estate,Real Estate - Development
+ELECTCAST,Industrials,Building Products & Equipment
+CROWN,Industrials,Rental & Leasing Services
+KOTAKBANK,Financial Services,Banks - Regional
+COROMANDEL,Basic Materials,Agricultural Inputs
+DENTA,Industrials,Engineering & Construction
+PSB,Financial Services,Banks - Regional
+GATECH,Financial Services,Asset Management
+SHREEPUSHK,Basic Materials,Specialty Chemicals
 SALZERELEC,Industrials,Electrical Equipment & Parts
-CENTRUM,Financial Services,Financial Conglomerates
-DELPHIFX,Financial Services,Capital Markets
-OMINFRAL,Industrials,Engineering & Construction
-ORIENTTECH,Technology,Information Technology Services
-BIGBLOC,Industrials,Building Products & Equipment
-VIKASECO,Basic Materials,Specialty Chemicals
-REPL,Industrials,Consulting Services
-AHLADA,Industrials,Building Products & Equipment
-MAGNUM,Basic Materials,Paper & Paper Products
-BAJAJELEC,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
-TRACXN,Technology,Software - Application
+CROMPTON,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+MBEL,Industrials,Engineering & Construction
+ARIES,Basic Materials,Agricultural Inputs
+ASTRAZEN,Healthcare,Drug Manufacturers - Specialty & Generic
+FORCEMOT,Consumer Cyclical,Auto Manufacturers
+BYKE,Consumer Cyclical,Lodging
+UGROCAP,Financial Services,Credit Services
+SADBHIN,Industrials,Engineering & Construction
+INDIANHUME,Industrials,Engineering & Construction
+AKSHARCHEM,Basic Materials,Specialty Chemicals
+DELTACORP,Consumer Cyclical,Resorts & Casinos
+TVSMOTOR,Consumer Cyclical,Auto Manufacturers
+JKCEMENT,Basic Materials,Building Materials
+KMSUGAR,Consumer Defensive,Confectioners
+GLOBUSSPR,Consumer Defensive,Beverages - Wineries & Distilleries
+KIRIINDUS,Basic Materials,Specialty Chemicals
+PAYTM,Technology,Software - Infrastructure
+KOTARISUG,Consumer Defensive,Confectioners
+BANG,Consumer Cyclical,Apparel Manufacturing
+BLUESTARCO,Industrials,Building Products & Equipment
+KRITIKA,Basic Materials,Steel
+HDBFS,Financial Services,Credit Services
+SMLT,Industrials,Metal Fabrication
+ASHOKA,Industrials,Engineering & Construction
+WORTHPERI,Consumer Cyclical,Packaging & Containers
+KALYANIFRG,Consumer Cyclical,Auto Parts
+POONAWALLA,Financial Services,Credit Services
+USK,Industrials,Engineering & Construction
+KNAGRI,Consumer Defensive,Farm Products
+SUPREMEINF,Industrials,Engineering & Construction
+RAMAPHO,Basic Materials,Agricultural Inputs
+SURAJEST,Real Estate,Real Estate - Development
+FIRSTCRY,Consumer Cyclical,Internet Retail
+RELAXO,Consumer Cyclical,Footwear & Accessories
+YATRA,Consumer Cyclical,Travel Services
+PURVA,Real Estate,Real Estate - Development
+ALICON,Industrials,Metal Fabrication
+PIIND,Basic Materials,Agricultural Inputs
+ARKADE,Real Estate,Real Estate - Development
+VCL,Consumer Cyclical,Textile Manufacturing
+RIIL,Industrials,Engineering & Construction
+PVRINOX,Communication Services,Entertainment
+BASF,Basic Materials,Specialty Chemicals
+CUB,Financial Services,Banks - Regional
+GODREJPROP,Real Estate,Real Estate - Development
+TOUCHWOOD,Communication Services,Advertising Agencies
+SOLEX,Technology,Solar
+PCBL,Basic Materials,Specialty Chemicals
+KAMATHOTEL,Consumer Cyclical,Lodging
+ZOTA,Healthcare,Biotechnology
+BTML,Communication Services,Entertainment
+LYKALABS,Healthcare,Biotechnology
+SHREERAMA,Consumer Cyclical,Packaging & Containers
+TARMAT,Industrials,Engineering & Construction
+EIEL,Industrials,Engineering & Construction
+TVSHLTD,Consumer Cyclical,Auto Parts
+MADHAV,Industrials,Building Products & Equipment
+RHL,Consumer Cyclical,Lodging
+PRAKASHSTL,Basic Materials,Steel
+DEVIT,Technology,Information Technology Services
+JTEKTINDIA,Consumer Cyclical,Auto Parts
+PFS,Financial Services,Credit Services
+SILLYMONKS,Communication Services,Entertainment
+NSIL,Financial Services,Asset Management
+GROBTEA,Consumer Defensive,Farm Products
+CTE,Technology,Information Technology Services
+PPLPHARMA,Healthcare,Drug Manufacturers - Specialty & Generic
+MANINFRA,Industrials,Engineering & Construction
+TECHNOE,Industrials,Engineering & Construction
+DPWIRES,Industrials,Metal Fabrication
+PIGL,Industrials,Engineering & Construction
+SYSTMTXC,Financial Services,Capital Markets
+CSBBANK,Financial Services,Banks - Regional
+PATANJALI,Consumer Defensive,Packaged Foods
+HERITGFOOD,Consumer Defensive,Packaged Foods
+UNITECH,Real Estate,Real Estate - Diversified
+CSLFINANCE,Financial Services,Credit Services
+AGARIND,Basic Materials,Specialty Chemicals
+MURUDCERA,Industrials,Building Products & Equipment
+ACEINTEG,Industrials,Staffing & Employment Services
+TTML,Communication Services,Telecom Services
+GATECHDVR,Financial Services,Asset Management
+RANASUG,Consumer Defensive,Confectioners
+SPCENET,Financial Services,Capital Markets
+LINC,Industrials,Business Equipment & Supplies
+BOROLTD,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+BEML,Industrials,Conglomerates
+PROZONER,Real Estate,Real Estate - Diversified
+SAMBHAAV,Communication Services,Publishing
+HGS,Industrials,Specialty Business Services
+VRAJ,Basic Materials,Steel
+TREL,Real Estate,Real Estate Services
+TRIGYN,Technology,Information Technology Services
+HIKAL,Healthcare,Drug Manufacturers - Specialty & Generic
+TGBHOTELS,Consumer Cyclical,Lodging
+MVGJL,Consumer Cyclical,Luxury Goods
+SILINV,Financial Services,Asset Management
+SHREECEM,Basic Materials,Building Materials
+MADHUCON,Industrials,Engineering & Construction
+ATAM,Industrials,Specialty Industrial Machinery
+WENDT,Industrials,Tools & Accessories
+JISLDVREQS,Industrials,Conglomerates
+JISLJALEQS,Industrials,Conglomerates
+VAKRANGEE,Technology,Information Technology Services
+REPCOHOME,Financial Services,Mortgage Finance
+ROHLTD,Consumer Cyclical,Lodging
+GENUSPAPER,Basic Materials,Paper & Paper Products
+INCREDIBLE,Basic Materials,Steel
+SJVN,Utilities,Utilities - Renewable
+AARTECH,Industrials,Electrical Equipment & Parts
+SBGLP,Real Estate,Real Estate - Development
+CENTRALBK,Financial Services,Banks - Regional
+FIBERWEB,Consumer Cyclical,Textile Manufacturing
+NITCO,Industrials,Building Products & Equipment
+ACCURACY,Industrials,Integrated Freight & Logistics
+CCHHL,Consumer Cyclical,Lodging
+JSWDULUX,Unknown,Unknown
+APCL,Basic Materials,Building Materials
+LPDC,Real Estate,Real Estate Services
+HDFCLIFE,Financial Services,Insurance - Life
+WCIL,Industrials,Integrated Freight & Logistics
+AARTIPHARM,Healthcare,Drug Manufacturers - Specialty & Generic
+HCG,Healthcare,Medical Care Facilities
+SOMICONVEY,Industrials,Specialty Industrial Machinery
+BVCL,Basic Materials,Building Materials
+KOTHARIPRO,Industrials,Conglomerates
+HONDAPOWER,Industrials,Specialty Industrial Machinery
+NAHARPOLY,Consumer Cyclical,Packaging & Containers
+MKPL,Consumer Defensive,Packaged Foods
+FACT,Basic Materials,Agricultural Inputs
+JKLAKSHMI,Basic Materials,Building Materials
+RELIGARE,Financial Services,Insurance - Life
+TREJHARA,Technology,Software - Application
+AJOONI,Consumer Defensive,Packaged Foods
+SHALBY,Healthcare,Medical Care Facilities
+5PAISA,Financial Services,Capital Markets
+GOPAL,Consumer Defensive,Packaged Foods
+HEXATRADEX,Financial Services,Credit Services
+DIGJAMLMTD,Consumer Cyclical,Textile Manufacturing
+DBL,Industrials,Engineering & Construction
+KABRAEXTRU,Industrials,Specialty Industrial Machinery
+SWSOLAR,Technology,Solar
+IGCL,Basic Materials,Agricultural Inputs
+VOLTAS,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+BOSCH-HCIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SAURASHCEM,Basic Materials,Building Materials
+HDFCBANK,Financial Services,Banks - Regional
+INDOUS,Basic Materials,Agricultural Inputs
+HCL-INSYS,Technology,Electronics & Computer Distribution
+HINDWAREAP,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ELIN,Industrials,Electrical Equipment & Parts
+SANATHAN,Consumer Cyclical,Textile Manufacturing
+ICICIPRULI,Financial Services,Insurance - Life
+AIROLAM,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+NOCIL,Basic Materials,Specialty Chemicals
+SRTL,Consumer Cyclical,Textile Manufacturing
+BAGFILMS,Communication Services,Broadcasting
+VESUVIUS,Industrials,Specialty Industrial Machinery
+SBILIFE,Financial Services,Insurance - Life
+TOLINS,Consumer Cyclical,Auto Parts
+DIGIDRIVE,Consumer Cyclical,Internet Retail
+MANOMAY,Consumer Cyclical,Textile Manufacturing
+HGM,Technology,Information Technology Services
+VINNY,Consumer Cyclical,Textile Manufacturing
+SHOPERSTOP,Consumer Cyclical,Department Stores
+INA,Technology,Solar
+CREDITACC,Financial Services,Credit Services
+MODTHREAD,Consumer Cyclical,Textile Manufacturing
+HPIL,Basic Materials,Specialty Chemicals
+KEYFINSERV,Financial Services,Capital Markets
+ASHOKLEY,Industrials,Farm & Heavy Construction Machinery
+TICL,Industrials,Engineering & Construction
+SUNDARMFIN,Financial Services,Credit Services
+ANUHPHR,Healthcare,Drug Manufacturers - Specialty & Generic
+IRFC,Financial Services,Credit Services
+RAJMET,Basic Materials,Copper
+NECCLTD,Industrials,Trucking
+ALBERTDAVD,Healthcare,Drug Manufacturers - Specialty & Generic
+SULA,Consumer Defensive,Beverages - Wineries & Distilleries
+AGROPHOS,Basic Materials,Agricultural Inputs
+ALPHAGEO,Energy,Oil & Gas Equipment & Services
+SURAJLTD,Basic Materials,Steel
+TI,Consumer Defensive,Beverages - Wineries & Distilleries
+ASIANTILES,Industrials,Building Products & Equipment
+TPHQ,Industrials,Engineering & Construction
+RNBDENIMS,Consumer Cyclical,Textile Manufacturing
+SUNDROP,Consumer Defensive,Packaged Foods
+MAGADSUGAR,Consumer Defensive,Confectioners
+MANAKCOAT,Industrials,Metal Fabrication
+WHIRLPOOL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ALANKIT,Technology,Information Technology Services
+IRCON,Industrials,Engineering & Construction
+URJA,Technology,Solar
+TEXMOPIPES,Industrials,Building Products & Equipment
+WILLAMAGOR,Financial Services,Credit Services
+LASA,Healthcare,Drug Manufacturers - Specialty & Generic
+THOMASCOOK,Consumer Cyclical,Travel Services
+GOYALALUM,Basic Materials,Aluminum
+ASHIMASYN,Real Estate,Real Estate - Development
+RADIANTCMS,Industrials,Specialty Business Services
+UCOBANK,Financial Services,Banks - Regional
+AVROIND,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+BRNL,Industrials,Infrastructure Operations
+SESHAPAPER,Basic Materials,Paper & Paper Products
+SAGCEM,Basic Materials,Building Materials
+CINELINE,Communication Services,Entertainment
+SANOFI,Healthcare,Drug Manufacturers - General
+ARTNIRMAN,Real Estate,Real Estate - Development
+BAJAJFINSV,Financial Services,Financial Conglomerates
+HEADSUP,Consumer Cyclical,Apparel Retail
+UBL,Consumer Defensive,Beverages - Brewers
+KAUSHALYA,Industrials,Engineering & Construction
+21STCENMGM,Financial Services,Capital Markets
+DVL,Financial Services,Capital Markets
+MALLCOM,Industrials,Security & Protection Services
+PRSMJOHNSN,Basic Materials,Building Materials
+JINDALPHOT,Financial Services,Asset Management
+ORIENTCEM,Basic Materials,Building Materials
+IITL,Financial Services,Credit Services
+SPLIL,Consumer Cyclical,Apparel Manufacturing
+JHS,Consumer Defensive,Household & Personal Products
+KAYNES,Technology,Electronic Components
+AWHCL,Industrials,Waste Management
+GLOBE,Consumer Cyclical,Textile Manufacturing
+XTGLOBAL,Technology,Software - Application
+TARSONS,Healthcare,Medical Instruments & Supplies
+OSWALGREEN,Financial Services,Asset Management
+LANDSMILL,Industrials,Conglomerates
+AKG,Industrials,Industrial Distribution
+TRIDENT,Consumer Cyclical,Textile Manufacturing
+ITCHOTELS,Consumer Cyclical,Resorts & Casinos
+COCHINSHIP,Industrials,Aerospace & Defense
+ALLTIME,Consumer Defensive,Household & Personal Products
+MFML,Consumer Cyclical,Textile Manufacturing
+RAJSREESUG,Consumer Defensive,Confectioners
+SAPPHIRE,Consumer Cyclical,Restaurants
+THEJO,Industrials,Specialty Industrial Machinery
+SHRADHA,Real Estate,Real Estate - Development
+ELGIRUBCO,Consumer Cyclical,Auto Parts
+KHANDSE,Financial Services,Capital Markets
+INDIGO,Industrials,Airlines
+SUMEETINDS,Consumer Cyclical,Textile Manufacturing
+DIGITIDE,Industrials,Specialty Business Services
+FISCHER,Healthcare,Medical Devices
+AIIL,Financial Services,Capital Markets
+TNTELE,Technology,Communication Equipment
+ANTGRAPHIC,Consumer Cyclical,Packaging & Containers
+DONEAR,Consumer Cyclical,Textile Manufacturing
+MARATHON,Real Estate,Real Estate - Development
+JIOFIN,Financial Services,Asset Management
+NIACL,Financial Services,Insurance - Diversified
+LFIC,Financial Services,Asset Management
+AKI,Consumer Cyclical,Footwear & Accessories
+TFL,Financial Services,Mortgage Finance
+DGCONTENT,Communication Services,Internet Content & Information
+63MOONS,Technology,Software - Application
+KITEX,Consumer Cyclical,Apparel Manufacturing
+BSL,Consumer Cyclical,Textile Manufacturing
+ZUARI,Basic Materials,Agricultural Inputs
+SINTERCOM,Consumer Cyclical,Auto Parts
+GENESYS,Technology,Software - Application
+KOKUYOCMLN,Industrials,Business Equipment & Supplies
+AMDIND,Consumer Cyclical,Packaging & Containers
+TTL,Consumer Cyclical,Textile Manufacturing
+GILLANDERS,Consumer Defensive,Farm Products
+KOHINOOR,Consumer Defensive,Packaged Foods
+SAKHTISUG,Consumer Defensive,Confectioners
+MUKKA,Consumer Defensive,Packaged Foods
+AFCONS,Industrials,Engineering & Construction
+VIPIND,Consumer Cyclical,Footwear & Accessories
+SHIVATEX,Consumer Cyclical,Textile Manufacturing
+PARKHOTELS,Consumer Cyclical,Lodging
+VIPULLTD,Real Estate,Real Estate - Diversified
+GRINFRA,Industrials,Engineering & Construction
+PRECAM,Consumer Cyclical,Auto Parts
+BALAJEE,Consumer Cyclical,Packaging & Containers
+FINOPB,Financial Services,Banks - Regional
+MAMATA,Industrials,Specialty Industrial Machinery
+SUPREME,Real Estate,Real Estate - Development
+BAJAJHCARE,Healthcare,Drug Manufacturers - Specialty & Generic
+ARIHANTSUP,Real Estate,Real Estate - Development
+INDIACEM,Basic Materials,Building Materials
+NIBL,Industrials,Tools & Accessories
+RELTD,Technology,Solar
+SSDL,Consumer Cyclical,Apparel Retail
+NKIND,Consumer Defensive,Household & Personal Products
+ACCELYA,Technology,Information Technology Services
+PODDARMENT,Basic Materials,Specialty Chemicals
+MOBIKWIK,Technology,Software - Infrastructure
+EMSLIMITED,Industrials,Engineering & Construction
+FOSECOIND,Basic Materials,Chemicals
+BALKRISIND,Consumer Cyclical,Auto Parts
+SHK,Basic Materials,Specialty Chemicals
+THEINVEST,Financial Services,Capital Markets
+MIRZAINT,Consumer Cyclical,Footwear & Accessories
+ARCHIDPLY,Basic Materials,Lumber & Wood Production
+MOL,Basic Materials,Agricultural Inputs
+XELPMOC,Technology,Information Technology Services
+ONMOBILE,Communication Services,Telecom Services
+SBICARD,Financial Services,Credit Services
+VIRINCHI,Technology,Software - Application
+MOHITIND,Consumer Cyclical,Textile Manufacturing
+DAVANGERE,Consumer Defensive,Confectioners
+CHEMPLASTS,Basic Materials,Chemicals
+EMBDL,Real Estate,Real Estate - Diversified
+BLUECHIP,Financial Services,Capital Markets
+NILAINFRA,Real Estate,Real Estate - Development
+STANLEY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+INDOCO,Healthcare,Drug Manufacturers - Specialty & Generic
+RAJOOENG,Industrials,Specialty Industrial Machinery
+SADBHAV,Industrials,Engineering & Construction
+UNIENTER,Basic Materials,Chemicals
+RUCHIRA,Basic Materials,Paper & Paper Products
+GANGESSECU,Consumer Defensive,Packaged Foods
+NIPPOBATRY,Industrials,Electrical Equipment & Parts
+VHL,Financial Services,Credit Services
+BANARBEADS,Consumer Cyclical,Footwear & Accessories
+OBCL,Industrials,Trucking
+CIFL,Financial Services,Credit Services
+FLEXITUFF,Consumer Cyclical,Textile Manufacturing
+HIMATSEIDE,Consumer Cyclical,Textile Manufacturing
+ESSARSHPNG,Industrials,Marine Shipping
+3PLAND,Unknown,Unknown
+BIRLANU,Industrials,Building Products & Equipment
+ALMONDZ,Financial Services,Capital Markets
+DHUNINV,Financial Services,Capital Markets
 DTIL,Consumer Defensive,Packaged Foods
-PRUDMOULI,Consumer Defensive,Confectioners
+DMCC,Basic Materials,Chemicals
+PNC,Communication Services,Entertainment
+ATLANTAA,Industrials,Infrastructure Operations
+JWL,Industrials,Railroads
+MALUPAPER,Basic Materials,Paper & Paper Products
+DIAMINESQ,Basic Materials,Chemicals
+UCAL,Consumer Cyclical,Auto Parts
+GRPLTD,Consumer Cyclical,Auto Parts
+DNAMEDIA,Communication Services,Publishing
+TVVISION,Communication Services,Broadcasting
+ABINFRA,Industrials,Engineering & Construction
+BIGBLOC,Industrials,Building Products & Equipment
+UTKARSHBNK,Financial Services,Banks - Regional
+RKDL,Consumer Defensive,Beverages - Wineries & Distilleries
+GLOBALVECT,Industrials,Airports & Air Services
+GODAVARIB,Basic Materials,Chemicals
+BALAJITELE,Communication Services,Entertainment
+AHLADA,Industrials,Building Products & Equipment
+JAIPURKURT,Consumer Cyclical,Apparel Manufacturing
+SUVIDHAA,Technology,Information Technology Services
+IONEXCHANG,Industrials,Pollution & Treatment Controls
+PRABHA,Energy,Oil & Gas E&P
+SUNCLAY,Industrials,Metal Fabrication
+AAATECH,Technology,Information Technology Services
+CENTRUM,Financial Services,Financial Conglomerates
+KALPATARU,Real Estate,Real Estate - Development
+SIKKO,Basic Materials,Agricultural Inputs
+TIL,Industrials,Farm & Heavy Construction Machinery
+TREEHOUSE,Consumer Defensive,Education & Training Services
+TRF,Industrials,Specialty Industrial Machinery
+VISHWARAJ,Consumer Defensive,Confectioners
+ARENTERP,Basic Materials,Other Industrial Metals & Mining
+REPL,Industrials,Consulting Services
+JITFINFRA,Industrials,Engineering & Construction
+BRIGADE,Real Estate,Real Estate - Development
+CEWATER,Utilities,Utilities - Regulated Water
+MAHAPEXLTD,Financial Services,Credit Services
+URAVIDEF,Consumer Cyclical,Auto Parts
+ZENITHSTL,Basic Materials,Steel
+PAKKA,Basic Materials,Paper & Paper Products
+NDGL,Financial Services,Capital Markets
+ALLCARGO,Industrials,Integrated Freight & Logistics
+ARCHIES,Consumer Cyclical,Specialty Retail
+PARASPETRO,Consumer Cyclical,Textile Manufacturing
 AVG,Industrials,Integrated Freight & Logistics
+SURYALAXMI,Consumer Cyclical,Textile Manufacturing
+HERANBA,Basic Materials,Agricultural Inputs
+GVPTECH,Technology,Information Technology Services
+SDBL,Consumer Defensive,Beverages - Brewers
+EASEMYTRIP,Consumer Cyclical,Travel Services
+ICEMAKE,Industrials,Specialty Industrial Machinery
+SHYAMCENT,Basic Materials,Steel
+NFL,Basic Materials,Agricultural Inputs
+SGL,Consumer Cyclical,Textile Manufacturing
+VIKASLIFE,Consumer Defensive,Farm Products
+MFSL,Financial Services,Insurance - Life
+YUKEN,Industrials,Specialty Industrial Machinery
+BALKRISHNA,Consumer Cyclical,Packaging & Containers
+ZODIACLOTH,Consumer Cyclical,Apparel Manufacturing
+A2ZINFRA,Industrials,Engineering & Construction
+RAMANEWS,Consumer Defensive,Beverages - Non-Alcoholic
+SALASAR,Basic Materials,Steel
+TIJARIA,Industrials,Building Products & Equipment
+TATACHEM,Basic Materials,Chemicals
+LYPSAGEMS,Consumer Cyclical,Luxury Goods
+MAGNUM,Basic Materials,Paper & Paper Products
+OMAXE,Real Estate,Real Estate - Development
+EVERESTIND,Industrials,Building Products & Equipment
+BATAINDIA,Consumer Cyclical,Footwear & Accessories
+TRACXN,Technology,Software - Application
+KEC,Industrials,Engineering & Construction
+SYMPHONY,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+TNPETRO,Basic Materials,Specialty Chemicals
+SCODATUBES,Basic Materials,Steel
+RUSHIL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+IMAGICAA,Communication Services,Entertainment
+NCC,Industrials,Engineering & Construction
+BLAL,Financial Services,Shell Companies
+ESTER,Basic Materials,Specialty Chemicals
+ABMINTLLTD,Basic Materials,Specialty Chemicals
+INDIQUBE,Real Estate,Real Estate Services
+TARC,Real Estate,Real Estate - Development
+BAJAJELEC,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ACI,Basic Materials,Chemicals
+RPPINFRA,Industrials,Engineering & Construction
+ORIENTTECH,Technology,Information Technology Services
+TIRUMALCHM,Basic Materials,Specialty Chemicals
+EIFFL,Consumer Defensive,Packaged Foods
+PVSL,Consumer Cyclical,Auto & Truck Dealerships
+RADAAN,Communication Services,Entertainment
+DECCANCE,Basic Materials,Building Materials
+GANGAFORGE,Industrials,Metal Fabrication
+DELTAMAGNT,Consumer Cyclical,Textile Manufacturing
+TARAPUR,Industrials,Specialty Industrial Machinery
+JSWHL,Industrials,Conglomerates
+POKARNA,Industrials,Building Products & Equipment
+ICDSLTD,Real Estate,Real Estate Services
+ABFRL,Consumer Cyclical,Apparel Manufacturing
+ABREL,Real Estate,Real Estate Services
+EXXARO,Industrials,Building Products & Equipment
+HAVISHA,Consumer Cyclical,Lodging
+DREAMFOLKS,Industrials,Airports & Air Services
+AROGRANITE,Industrials,Building Products & Equipment
+SWANCORP,Industrials,Conglomerates
+AXITA,Consumer Cyclical,Textile Manufacturing
+WEL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+ORIENTPPR,Basic Materials,Paper & Paper Products
+BESTAGRO,Basic Materials,Agricultural Inputs
+MHRIL,Consumer Cyclical,Resorts & Casinos
+RVNL,Industrials,Engineering & Construction
+SUPERSPIN,Consumer Cyclical,Textile Manufacturing
+BPL,Technology,Consumer Electronics
+GAYAHWS,Industrials,Infrastructure Operations
+COUNCODOS,Real Estate,Real Estate - Development
+UEL,Technology,Solar
+SHANTI,Consumer Defensive,Farm Products
+LEXUS,Industrials,Building Products & Equipment
+RAJTV,Communication Services,Broadcasting
+ADL,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+DCMSRIND,Consumer Defensive,Confectioners
+PRITI,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+NDL,Consumer Cyclical,Textile Manufacturing
+GMBREW,Consumer Defensive,Beverages - Wineries & Distilleries
+PRUDMOULI,Consumer Defensive,Confectioners
+SECURKLOUD,Technology,Software - Application
+DEVYANI,Consumer Cyclical,Restaurants
+RENUKA,Consumer Defensive,Confectioners
+GREENPANEL,Basic Materials,Lumber & Wood Production
+BCONCEPTS,Consumer Cyclical,Footwear & Accessories
+GENCON,Industrials,Engineering & Construction
+SRD,Basic Materials,Specialty Chemicals
+KCPSUGIND,Consumer Defensive,Confectioners
+KUANTUM,Basic Materials,Paper & Paper Products
+CUBEXTUB,Basic Materials,Copper
+KAYA,Consumer Defensive,Household & Personal Products
+INFOMEDIA,Financial Services,Shell Companies
 INTENTECH,Technology,Software - Infrastructure
+CREATIVEYE,Communication Services,Entertainment
 GSLSU,Basic Materials,Building Materials
+TECILCHEM,Financial Services,Shell Companies
+FOODSIN,Consumer Defensive,Packaged Foods
+PILANIINVS,Financial Services,Asset Management
+CELEBRITY,Consumer Cyclical,Apparel Manufacturing
+SHALPAINTS,Basic Materials,Specialty Chemicals
+PGEL,Technology,Electronic Components
+HMAAGRO,Consumer Defensive,Packaged Foods
+SAMPANN,Basic Materials,Specialty Chemicals
+ORCHASP,Technology,Software - Application
+REGENCERAM,Industrials,Building Products & Equipment
+ACL,Basic Materials,Building Materials
+WSI,Industrials,Engineering & Construction
+VIVIDHA,Consumer Cyclical,Textile Manufacturing
+WESTLIFE,Consumer Cyclical,Restaurants
+VSTL,Basic Materials,Steel
+SWIGGY,Consumer Cyclical,Internet Retail
+NEXTMEDIA,Communication Services,Broadcasting
+VIKASECO,Basic Materials,Specialty Chemicals
+GICL,Industrials,Integrated Freight & Logistics
+ALOKINDS,Consumer Cyclical,Textile Manufacturing
+RKEC,Industrials,Engineering & Construction
+OMINFRAL,Industrials,Engineering & Construction
+EPACK,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+SATIA,Basic Materials,Paper & Paper Products
+GUJAPOLLO,Industrials,Specialty Industrial Machinery
+KHADIM,Consumer Cyclical,Footwear & Accessories
+TRU,Financial Services,Credit Services
+KEEPLEARN,Consumer Defensive,Education & Training Services
+WAAREEINDO,Technology,Solar
+KAVDEFENCE,Technology,Communication Equipment
+DELPHIFX,Financial Services,Capital Markets
+FUSION,Financial Services,Credit Services
+BDL,Industrials,Aerospace & Defense
