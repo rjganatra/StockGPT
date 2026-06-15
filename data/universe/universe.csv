@@ -11,6 +11,7 @@ symbol,company_name,series,isin,sector,industry
 A2ZINFRA,A2Z Infra Engineering Limited,EQ,INE619I01012,Industrials,Engineering & Construction
 AAATECH,AAA Technologies Limited,EQ,INE0D0U01013,Technology,Information Technology Services
 AADHARHFC,Aadhar Housing Finance Limited,EQ,INE883F01010,Financial Services,Mortgage Finance
+AAKASH,Aakash Exploration Services Limited,EQ,INE087Z01024,Unknown,Unknown
 AARNAV,Aarnav Fashions Limited,EQ,INE750R01016,Unknown,Unknown
 AARON,Aaron Industries Limited,EQ,INE721Z01010,Industrials,Specialty Industrial Machinery
 AARTECH,Aartech Solonics Limited,EQ,INE01C001026,Industrials,Electrical Equipment & Parts
@@ -181,7 +182,7 @@ ASIANHOTNR,Asian Hotels (North) Limited,EQ,INE363A01022,Consumer Cyclical,Lodgin
 ASIANPAINT,Asian Paints Limited,EQ,INE021A01026,Basic Materials,Specialty Chemicals
 ASIANTILES,Asian Granito India Limited,EQ,INE022I01019,Industrials,Building Products & Equipment
 ASKAUTOLTD,ASK Automotive Limited,EQ,INE491J01022,Consumer Cyclical,Auto Parts
-ASMS,Bartronics India Limited,EQ,INE855F01042,Technology,Information Technology Services
+ASMS,Avio Smart Market Stack Limited,EQ,INE855F01042,Technology,Information Technology Services
 ASPINWALL,Aspinwall and Company Limited,EQ,INE991I01015,Consumer Defensive,Farm Products
 ASTAR,Asian Star Company Limited,EQ,INE194D01017,Unknown,Unknown
 ASTEC,Astec LifeSciences Limited,EQ,INE563J01010,Basic Materials,Agricultural Inputs
@@ -461,7 +462,6 @@ DBL,Dilip Buildcon Limited,EQ,INE917M01012,Industrials,Engineering & Constructio
 DBSTOCKBRO,DB (International) Stock Brokers Limited,EQ,INE921B01025,Financial Services,Capital Markets
 DCAL,Dishman Carbogen Amcis Limited,EQ,INE385W01011,Healthcare,Biotechnology
 DCBBANK,DCB Bank Limited,EQ,INE503A01015,Financial Services,Banks - Regional
-DCM,DCM  Limited,EQ,INE498A01018,Industrials,Metal Fabrication
 DCMSHRIRAM,DCM Shriram Limited,EQ,INE499A01024,Industrials,Conglomerates
 DCMSRIND,DCM Shriram Industries Limited,EQ,INE843D01027,Consumer Defensive,Confectioners
 DCW,DCW Limited,EQ,INE500A01029,Basic Materials,Chemicals
@@ -585,7 +585,6 @@ ETHOSLTD,Ethos Limited,EQ,INE04TZ01018,Consumer Cyclical,Luxury Goods
 EUREKAFORB,Eureka Forbes Limited,EQ,INE0KCE01017,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 EUROBOND,Euro Panel Products Limited,EQ,INE505V01016,Industrials,Building Products & Equipment
 EUROPRATIK,Euro Pratik Sales Limited,EQ,INE198501012,Basic Materials,Building Materials
-EUROTEXIND,Eurotex Industries and Exports Limited,EQ,INE022C01012,Real Estate,Real Estate - Development
 EVEREADY,Eveready Industries India Limited,EQ,INE128A01029,Industrials,Electrical Equipment & Parts
 EVERESTIND,Everest Industries Limited,EQ,INE295A01018,Industrials,Building Products & Equipment
 EXCELINDUS,Excel Industries Limited,EQ,INE369A01029,Basic Materials,Specialty Chemicals
@@ -651,6 +650,7 @@ GAYAHWS,Gayatri Highways Limited,EQ,INE287Z01012,Industrials,Infrastructure Oper
 GCSL,Gretex Corporate Services Limited,EQ,INE199P01028,Financial Services,Capital Markets
 GEECEE,GeeCee Ventures Limited,EQ,INE916G01016,Real Estate,Real Estate - Development
 GEEKAYWIRE,Geekay Wires Limited,EQ,INE669X01032,Industrials,Electrical Equipment & Parts
+GEMAROMA,Gem Aromatics Limited,EQ,INE06XZ01023,Unknown,Unknown
 GENCON,Generic Engineering Construction and Projects Limited,EQ,INE854S01022,Industrials,Engineering & Construction
 GENESYS,Genesys International Corporation Limited,EQ,INE727B01026,Technology,Software - Application
 GENUSPAPER,Genus Paper & Boards Limited,EQ,INE949P01018,Unknown,Unknown
@@ -1067,6 +1067,7 @@ KSCL,Kaveri Seed Company Limited,EQ,INE455I01029,Basic Materials,Agricultural In
 KSHINTL,KSH International Limited,EQ,INE987S01020,Industrials,Electrical Equipment & Parts
 KSL,Kalyani Steels Limited,EQ,INE907A01026,Basic Materials,Steel
 KSOLVES,Ksolves India Limited,EQ,INE0D6I01023,Technology,Software - Application
+KSR,KSR Footwear Limited,EQ,INE1SPP01016,Unknown,Unknown
 KTKBANK,The Karnataka Bank Limited,EQ,INE614B01018,Financial Services,Banks - Regional
 KUANTUM,Kuantum Papers Limited,EQ,INE529I01021,Basic Materials,Paper & Paper Products
 KWIL,Kwality Wall's (India) Limited,EQ,INE2KCE01013,Consumer Defensive,Packaged Foods
@@ -1648,6 +1649,7 @@ SCHNEIDER,Schneider Electric Infrastructure Limited,EQ,INE839M01018,Industrials,
 SCI,Shipping Corporation Of India Limited,EQ,INE109A01011,Industrials,Marine Shipping
 SCILAL,Shipping Corporation of India Land and Assets Limited,EQ,INE0PB301013,Real Estate,Real Estate Services
 SCODATUBES,Scoda Tubes Limited,EQ,INE090501011,Basic Materials,Steel
+SCPL,Sheetal Cool Products Limited,EQ,INE501Y01019,Unknown,Unknown
 SDBL,Som Distilleries & Breweries Limited,EQ,INE480C01038,Consumer Defensive,Beverages - Brewers
 SEAMECLTD,Seamec Limited,EQ,INE497B01018,Industrials,Marine Shipping
 SECMARK,SecMark Consultancy Limited,EQ,INE0BTM01013,Industrials,Consulting Services
@@ -2008,7 +2010,6 @@ VELJAN,Veljan Denison Limited,EQ,INE232E01013,Unknown,Unknown
 VENKEYS,Venky's (India) Limited,EQ,INE398A01010,Consumer Defensive,Farm Products
 VENTIVE,Ventive Hospitality Limited,EQ,INE781S01027,Consumer Cyclical,Lodging
 VENUSPIPES,Venus Pipes & Tubes Limited,EQ,INE0JA001018,Basic Materials,Steel
-VENUSREM,Venus Remedies Limited,EQ,INE411B01019,Healthcare,Drug Manufacturers - Specialty & Generic
 VERANDA,Veranda Learning Solutions Limited,EQ,INE0IQ001011,Consumer Defensive,Education & Training Services
 VESUVIUS,Vesuvius India Limited,EQ,INE386A01023,Industrials,Specialty Industrial Machinery
 VETO,Veto Switchgears And Cables Limited,EQ,INE918N01018,Industrials,Electrical Equipment & Parts
