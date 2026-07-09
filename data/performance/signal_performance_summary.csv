@@ -1,73 +1,73 @@
 signal_type,horizon_bucket,signals,win_rate,avg_return,median_return,best_return,worst_return
-52W Low Opportunity,15D,2103,32.05,-1.43,-1.75,36.85,-39.93
-52W Low Opportunity,1D,642,13.08,-1.79,-1.97,15.09,-9.7
-52W Low Opportunity,30D,6676,52.86,1.48,0.4,63.25,-90.98
-52W Low Opportunity,3D,297,18.86,-1.83,-2.16,15.76,-14.17
-52W Low Opportunity,60D+,2648,48.98,1.98,-0.21,124.79,-91.88
-52W Low Opportunity,7D,1370,37.3,-0.61,-1.06,29.03,-23.5
-Avoid / Risky,15D,8212,69.85,-1.76,-2.47,51.68,-39.93
-Avoid / Risky,1D,2294,85.83,-2.04,-2.26,29.32,-15.81
-Avoid / Risky,30D,24118,51.6,1.15,-0.28,99.1,-90.98
-Avoid / Risky,3D,1111,82.54,-2.42,-2.63,28.21,-14.71
-Avoid / Risky,60D+,11871,48.84,2.68,0.29,124.79,-95.26
-Avoid / Risky,7D,4660,68.18,-1.1,-1.7,39.59,-23.5
-High Conviction,15D,283,47.0,-0.71,-0.67,31.26,-85.43
-High Conviction,1D,64,15.62,-2.34,-2.05,1.44,-10.91
-High Conviction,30D,480,59.58,4.24,3.0,57.98,-21.01
-High Conviction,3D,38,18.42,-2.85,-1.88,3.09,-12.37
-High Conviction,60D+,63,61.9,3.24,4.12,63.01,-20.33
-High Conviction,7D,165,32.73,-2.13,-1.99,11.22,-15.36
-Low Risk Quality,15D,2235,40.4,-0.81,-1.55,53.71,-85.43
-Low Risk Quality,1D,590,16.95,-2.24,-2.2,15.68,-15.16
-Low Risk Quality,30D,4047,58.83,3.5,2.27,89.34,-84.49
-Low Risk Quality,3D,340,22.35,-2.5,-2.59,16.89,-14.3
-Low Risk Quality,60D+,692,65.9,5.73,5.17,76.24,-84.2
-Low Risk Quality,7D,1309,31.55,-1.82,-2.17,22.53,-19.06
-Near 52W High Momentum,15D,3454,40.91,-1.26,-1.41,47.42,-85.43
-Near 52W High Momentum,1D,960,16.56,-2.24,-2.34,23.98,-15.16
-Near 52W High Momentum,30D,6830,56.11,2.75,1.53,96.17,-91.24
-Near 52W High Momentum,3D,507,22.49,-2.41,-2.54,25.69,-15.21
-Near 52W High Momentum,60D+,2631,59.9,5.08,3.16,95.94,-95.26
-Near 52W High Momentum,7D,1935,35.25,-1.81,-1.86,39.59,-81.96
-Range Accumulation Zone,15D,4006,29.26,-1.67,-2.16,36.85,-39.93
-Range Accumulation Zone,1D,1137,13.46,-1.84,-2.05,15.09,-10.23
-Range Accumulation Zone,30D,12213,49.19,1.0,-0.1,62.88,-89.98
-Range Accumulation Zone,3D,541,17.19,-2.22,-2.26,15.76,-14.71
-Range Accumulation Zone,60D+,667,49.48,1.6,-0.11,63.62,-59.8
-Range Accumulation Zone,7D,2434,32.25,-0.98,-1.39,33.12,-18.6
-Range Breakdown Risk,15D,62,53.23,-1.97,-0.67,12.99,-39.77
-Range Breakdown Risk,1D,14,50.0,-1.26,-0.86,1.5,-5.61
-Range Breakdown Risk,30D,241,46.47,0.4,0.51,28.72,-90.98
-Range Breakdown Risk,3D,6,83.33,-1.85,-2.54,3.0,-4.66
-Range Breakdown Risk,60D+,12,50.0,-4.92,0.98,23.55,-91.88
-Range Breakdown Risk,7D,67,49.25,-0.22,0.03,21.44,-23.5
-Range Profit Booking Zone,15D,3894,62.4,-1.22,-1.86,49.85,-85.16
-Range Profit Booking Zone,1D,1163,86.59,-2.34,-2.54,7.54,-12.55
-Range Profit Booking Zone,30D,8075,46.33,2.27,0.91,96.17,-84.49
-Range Profit Booking Zone,3D,605,80.17,-2.57,-2.87,13.68,-12.47
-Range Profit Booking Zone,60D+,451,47.01,2.94,0.7,71.91,-77.77
-Range Profit Booking Zone,7D,2214,67.8,-1.42,-1.95,39.59,-79.0
-Relative Strength Leader,15D,776,39.95,-1.84,-2.26,31.26,-25.91
-Relative Strength Leader,1D,225,24.44,-2.23,-2.2,23.98,-15.16
-Relative Strength Leader,30D,1554,54.76,2.96,1.53,57.98,-91.24
-Relative Strength Leader,3D,121,23.14,-2.97,-2.46,12.79,-15.21
-Relative Strength Leader,60D+,321,65.42,7.45,8.32,91.3,-89.41
-Relative Strength Leader,7D,479,36.12,-1.78,-2.31,19.15,-19.68
-Strong Fundamentals,15D,3859,35.42,-1.11,-1.69,53.71,-85.43
-Strong Fundamentals,1D,1106,13.92,-2.03,-2.13,29.32,-12.64
-Strong Fundamentals,30D,8846,54.58,2.39,0.88,99.1,-84.49
-Strong Fundamentals,3D,551,19.42,-2.36,-2.41,28.21,-12.47
-Strong Fundamentals,60D+,1569,58.25,4.25,2.03,100.32,-84.2
-Strong Fundamentals,7D,2204,33.48,-1.22,-1.5,32.23,-19.06
-Swing Candidate,15D,573,35.08,-1.22,-1.39,36.45,-39.77
-Swing Candidate,1D,164,25.61,-1.1,-1.34,8.78,-6.91
-Swing Candidate,30D,2408,56.6,2.35,1.05,61.24,-90.98
-Swing Candidate,3D,80,25.0,-1.61,-1.86,6.72,-13.69
-Swing Candidate,60D+,858,56.99,3.82,2.0,118.71,-93.47
-Swing Candidate,7D,456,47.37,0.14,-0.32,32.23,-23.5
-Top Final Conviction,15D,175,44.57,-0.73,-0.94,24.86,-20.24
-Top Final Conviction,1D,50,18.0,-2.13,-1.66,1.44,-10.91
-Top Final Conviction,30D,430,60.93,4.61,3.72,60.85,-21.01
-Top Final Conviction,3D,25,24.0,-2.14,-1.43,3.09,-12.37
-Top Final Conviction,60D+,224,64.73,5.56,4.34,64.92,-83.4
-Top Final Conviction,7D,100,30.0,-1.98,-1.98,11.22,-15.36
+52W Low Opportunity,15D,1810,41.99,-0.24,-0.72,26.27,-42.89
+52W Low Opportunity,1D,739,61.57,0.51,0.51,18.7,-9.63
+52W Low Opportunity,30D,6939,59.66,2.7,1.5,64.67,-91.11
+52W Low Opportunity,3D,315,26.67,-0.66,-1.07,18.67,-14.14
+52W Low Opportunity,60D+,2641,56.27,3.51,0.97,131.59,-92.0
+52W Low Opportunity,7D,1667,44.69,0.36,-0.32,34.21,-27.28
+Avoid / Risky,15D,7014,60.49,-0.33,-1.27,51.98,-42.89
+Avoid / Risky,1D,2466,36.33,0.59,0.59,20.7,-9.63
+Avoid / Risky,30D,25250,45.28,2.61,0.85,105.62,-91.11
+Avoid / Risky,3D,1114,71.9,-0.85,-1.23,32.21,-14.14
+Avoid / Risky,60D+,11840,43.47,4.39,1.62,131.59,-95.33
+Avoid / Risky,7D,5761,58.74,0.08,-0.7,40.06,-27.28
+High Conviction,15D,245,58.37,1.1,1.03,35.56,-85.46
+High Conviction,1D,44,75.0,0.97,1.46,5.46,-7.2
+High Conviction,30D,518,65.83,5.73,4.84,64.57,-20.46
+High Conviction,3D,38,31.58,-0.76,-1.02,6.06,-9.1
+High Conviction,60D+,63,65.08,5.02,6.55,69.81,-19.09
+High Conviction,7D,202,48.51,-0.38,-0.1,13.85,-13.67
+Low Risk Quality,15D,1922,51.14,1.09,0.15,58.35,-85.46
+Low Risk Quality,1D,499,72.34,1.26,1.29,14.76,-11.67
+Low Risk Quality,30D,4339,64.95,5.36,4.01,95.54,-84.99
+Low Risk Quality,3D,318,37.42,-0.55,-0.78,21.14,-13.27
+Low Risk Quality,60D+,690,68.55,7.58,6.95,80.28,-84.23
+Low Risk Quality,7D,1643,45.59,0.11,-0.5,25.44,-16.68
+Near 52W High Momentum,15D,2955,50.63,0.61,0.08,47.39,-85.46
+Near 52W High Momentum,1D,800,66.12,1.01,0.92,14.76,-11.67
+Near 52W High Momentum,30D,7322,61.62,4.51,3.15,102.6,-90.8
+Near 52W High Momentum,3D,513,34.31,-0.66,-1.02,24.4,-13.27
+Near 52W High Momentum,60D+,2630,64.37,6.95,4.72,102.36,-95.33
+Near 52W High Momentum,7D,2438,46.68,0.01,-0.38,40.06,-81.42
+Range Accumulation Zone,15D,3431,38.82,-0.38,-1.11,34.4,-42.89
+Range Accumulation Zone,1D,1263,60.73,0.49,0.53,17.73,-9.63
+Range Accumulation Zone,30D,12776,55.86,2.36,0.95,71.62,-90.12
+Range Accumulation Zone,3D,552,26.27,-0.77,-1.08,17.59,-14.14
+Range Accumulation Zone,60D+,665,55.49,3.24,0.97,72.4,-57.81
+Range Accumulation Zone,7D,2975,41.31,0.06,-0.54,35.19,-19.47
+Range Breakdown Risk,15D,57,47.37,-0.41,0.27,13.97,-34.53
+Range Breakdown Risk,1D,27,14.81,1.28,2.13,4.06,-6.63
+Range Breakdown Risk,30D,246,41.87,1.57,1.81,31.98,-91.11
+Range Breakdown Risk,3D,6,50.0,0.92,1.18,6.33,-4.25
+Range Breakdown Risk,60D+,12,41.67,-3.63,1.28,29.73,-92.0
+Range Breakdown Risk,7D,73,39.73,0.38,0.91,23.68,-27.28
+Range Profit Booking Zone,15D,3352,52.39,0.51,-0.4,50.35,-85.19
+Range Profit Booking Zone,1D,1020,36.67,0.65,0.71,12.85,-10.24
+Range Profit Booking Zone,30D,8556,40.54,3.87,2.36,102.6,-84.99
+Range Profit Booking Zone,3D,588,68.37,-0.88,-1.18,13.3,-12.62
+Range Profit Booking Zone,60D+,450,41.56,4.68,2.3,68.71,-77.11
+Range Profit Booking Zone,7D,2803,57.15,0.06,-0.77,42.32,-78.38
+Relative Strength Leader,15D,664,49.55,0.53,-0.04,35.56,-22.91
+Relative Strength Leader,1D,176,74.43,1.81,1.85,12.37,-11.67
+Relative Strength Leader,30D,1665,61.74,5.14,3.81,64.57,-90.8
+Relative Strength Leader,3D,128,46.09,-0.06,-0.51,24.4,-13.27
+Relative Strength Leader,60D+,321,68.85,9.94,10.3,100.86,-88.89
+Relative Strength Leader,7D,598,50.84,0.49,0.08,22.54,-19.09
+Strong Fundamentals,15D,3297,46.74,0.53,-0.35,58.35,-85.46
+Strong Fundamentals,1D,1104,66.76,0.85,0.86,20.7,-11.67
+Strong Fundamentals,30D,9383,61.62,3.96,2.38,105.62,-84.99
+Strong Fundamentals,3D,552,31.88,-0.65,-0.97,32.21,-13.27
+Strong Fundamentals,60D+,1565,62.17,5.91,3.58,106.88,-84.23
+Strong Fundamentals,7D,2750,46.04,0.26,-0.34,35.19,-16.68
+Swing Candidate,15D,518,43.82,-0.01,-0.52,26.27,-34.53
+Swing Candidate,1D,246,77.64,1.14,1.0,17.43,-4.94
+Swing Candidate,30D,2459,62.59,3.65,2.28,62.64,-91.11
+Swing Candidate,3D,89,40.45,0.14,-0.34,15.8,-6.38
+Swing Candidate,60D+,852,63.15,5.55,3.19,125.32,-93.56
+Swing Candidate,7D,536,54.1,1.07,0.37,35.19,-27.28
+Top Final Conviction,15D,150,56.0,1.33,0.95,31.56,-18.83
+Top Final Conviction,1D,50,74.0,1.04,1.52,5.46,-7.2
+Top Final Conviction,30D,455,67.47,6.14,5.66,64.57,-20.46
+Top Final Conviction,3D,25,40.0,-0.33,-0.59,6.06,-9.1
+Top Final Conviction,60D+,224,66.96,7.2,6.67,71.8,-83.43
+Top Final Conviction,7D,124,54.84,0.1,0.53,13.85,-13.67
