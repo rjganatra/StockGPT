@@ -1,29 +1,29 @@
 change_scan_time,symbol,sector,industry,current_price,current_rsi,current_risk,current_final_score,current_score_band,technical_score,fundamental_score,relative_strength_score,volume_ratio,distance_pct,distance_from_high_pct,trend,previous_rsi,previous_risk,previous_final_score,previous_score_band,score_change,rsi_change,risk_change,change_signal
-20.07.2026 at 01:08 PM IST,TCS,Technology,Information Technology Services,2256.8,62.0,15,36.1,D Weak,40,82.0,8,0.28,14.79,31.35,Bullish,63.63,15.0,19.71,E Avoid,16.39,-1.63,0.0,"Score Improved Sharply, Band Changed: E Avoid → D Weak"
-20.07.2026 at 01:08 PM IST,MTARTECH,Unknown,Unknown,5744.0,31.59,0,14.95,E Avoid,23,0.0,30,0.25,313.09,34.08,Bearish,0.0,0.0,0.0,New Stock,14.95,31.59,0.0,"Score Improved Sharply, Band Changed: New Stock → E Avoid"
-20.07.2026 at 01:08 PM IST,SBIN,Financial Services,Banks - Regional,1046.0,57.56,0,33.41,E Avoid,55,26.0,18,0.9,35.38,13.76,Bullish,56.99,0.0,20.48,E Avoid,12.93,0.57,0.0,Score Improved Sharply
-20.07.2026 at 01:08 PM IST,KAYNES,Technology,Electronic Components,3367.8,53.4,15,10.9,E Avoid,40,24.0,8,0.22,12.45,56.29,Bullish,54.44,15.0,10.56,E Avoid,0.34,-1.04,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,RITES,Industrials,Engineering & Construction,218.69,51.05,15,30.86,E Avoid,45,71.0,8,0.03,24.97,20.11,Bullish,50.53,15.0,30.54,E Avoid,0.32,0.52,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,ITC,Consumer Defensive,Tobacco,282.85,46.27,15,24.95,E Avoid,25,70.0,0,0.55,2.85,30.53,Bearish,41.87,15.0,24.64,E Avoid,0.31,4.4,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,ICICIBANK,Financial Services,Banks - Regional,1451.2,72.05,0,46.11,C Neutral,62,38.0,38,1.25,22.2,2.51,Bullish,70.84,0.0,45.86,C Neutral,0.25,1.21,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,RVNL,Industrials,Engineering & Construction,225.27,34.82,15,0.0,E Avoid,16,4.0,0,0.53,1.68,43.6,Bearish,34.99,15.0,0.0,E Avoid,0.0,-0.17,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,IRCON,Industrials,Engineering & Construction,129.1,39.01,15,0.0,E Avoid,13,16.0,0,0.43,12.75,32.97,Bearish,39.47,15.0,0.0,E Avoid,0.0,-0.46,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,RAILTEL,Communication Services,Telecom Services,294.3,36.36,15,16.58,E Avoid,13,63.0,0,0.39,20.12,28.28,Bearish,38.97,15.0,16.81,E Avoid,-0.23,-2.61,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,INFY,Technology,Information Technology Services,1088.0,51.16,15,32.35,E Avoid,25,82.0,8,0.34,10.75,35.67,Bearish,53.0,15.0,33.26,E Avoid,-0.91,-1.84,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,TITAGARH,Industrials,Railroads,855.85,48.62,0,22.56,E Avoid,42,7.0,20,0.45,50.49,11.86,Bullish,49.73,0.0,23.49,E Avoid,-0.93,-1.11,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,MAZDOCK,Industrials,Aerospace & Defense,2336.0,36.7,15,11.06,E Avoid,13,42.0,0,0.22,13.54,23.29,Bearish,37.32,15.0,11.99,E Avoid,-0.93,-0.62,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,COCHINSHIP,Industrials,Aerospace & Defense,1400.7,40.88,15,1.61,E Avoid,13,24.0,0,0.21,18.0,28.92,Bearish,41.12,15.0,2.54,E Avoid,-0.93,-0.24,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,BDL,Industrials,Aerospace & Defense,1251.2,37.56,15,1.61,E Avoid,13,25.0,0,0.2,15.21,27.6,Bearish,38.09,15.0,2.54,E Avoid,-0.93,-0.53,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,IRFC,Financial Services,Credit Services,88.28,34.65,15,3.11,E Avoid,16,25.0,0,0.27,1.55,34.96,Bearish,35.04,15.0,4.11,E Avoid,-1.0,-0.39,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,CYIENTDLM,Industrials,Aerospace & Defense,593.35,74.22,0,43.66,D Weak,52,24.0,65,0.63,123.74,1.59,Bullish,72.02,0.0,46.54,C Neutral,-2.88,2.2,0.0,Band Changed: C Neutral → D Weak
-20.07.2026 at 01:08 PM IST,BEL,Industrials,Aerospace & Defense,407.05,44.18,15,15.96,E Avoid,13,62.0,0,0.3,13.17,14.02,Bearish,46.13,15.0,19.14,E Avoid,-3.18,-1.95,0.0,No Major Change
-20.07.2026 at 01:08 PM IST,DATAPATTNS,Industrials,Aerospace & Defense,4022.2,36.31,0,33.91,E Avoid,23,49.0,20,0.61,88.75,18.84,Bearish,38.4,0.0,37.34,D Weak,-3.43,-2.09,0.0,Band Changed: D Weak → E Avoid
-20.07.2026 at 01:08 PM IST,ZENTEC,Industrials,Aerospace & Defense,1737.1,43.83,0,34.31,E Avoid,23,47.0,30,0.27,42.04,14.17,Bearish,46.92,0.0,39.99,D Weak,-5.68,-3.09,0.0,"Score Dropped, Band Changed: D Weak → E Avoid"
-20.07.2026 at 01:08 PM IST,HDFCBANK,Financial Services,Banks - Regional,779.5,43.58,15,11.31,E Avoid,36,26.0,10,1.26,9.05,22.35,Bullish,60.39,15.0,17.26,E Avoid,-5.95,-16.81,0.0,Score Dropped
-20.07.2026 at 01:08 PM IST,HAL,Industrials,Aerospace & Defense,4476.8,55.98,0,43.86,D Weak,60,51.0,20,0.32,28.68,9.32,Bullish,58.45,0.0,50.54,C Neutral,-6.68,-2.47,0.0,"Score Dropped, Band Changed: C Neutral → D Weak"
-20.07.2026 at 01:08 PM IST,LT,Unknown,Unknown,3826.2,35.94,15,0.0,E Avoid,18,0.0,10,0.36,17.5,12.98,Bearish,34.48,15.0,8.69,E Avoid,-8.69,1.46,0.0,Score Dropped
-20.07.2026 at 01:08 PM IST,KOTAKBANK,Financial Services,Banks - Regional,380.35,45.64,15,4.31,E Avoid,22,16.0,10,1.15,10.28,15.93,Bearish,52.33,15.0,15.46,E Avoid,-11.15,-6.69,0.0,Score Dropped Sharply
-20.07.2026 at 01:08 PM IST,RELIANCE,Energy,Oil & Gas Refining & Marketing,1328.5,56.7,15,10.63,E Avoid,48,19.0,8,0.84,6.01,17.2,Bullish,56.34,15.0,22.96,E Avoid,-12.33,0.36,0.0,Score Dropped Sharply
-20.07.2026 at 01:08 PM IST,GRSE,Industrials,Aerospace & Defense,2561.9,37.63,15,11.96,E Avoid,8,41.0,10,0.45,30.46,23.27,Bearish,39.27,0.0,31.64,E Avoid,-19.68,-1.64,15.0,"Score Dropped Sharply, Risk Increased Sharply"
-20.07.2026 at 01:08 PM IST,BLS,Unknown,Unknown,234.45,34.13,15,0.0,E Avoid,16,0.0,0,0.23,7.1,42.93,Bearish,35.09,15.0,28.84,E Avoid,-28.84,-0.96,0.0,Score Dropped Sharply
-20.07.2026 at 01:08 PM IST,AXISBANK,Financial Services,Banks - Regional,1251.6,33.58,20,0.0,E Avoid,28,17.0,0,2.81,20.15,11.69,Bearish,50.47,0.0,35.31,D Weak,-35.31,-16.89,20.0,"Score Dropped Sharply, Fresh Weakness, Risk Increased Sharply, Band Changed: D Weak → E Avoid"
+20.07.2026 at 04:01 PM IST,TCS,Technology,Information Technology Services,2251.1,61.27,15,36.1,D Weak,40,82.0,8,0.43,14.5,31.52,Bullish,63.63,15.0,19.71,E Avoid,16.39,-2.36,0.0,"Score Improved Sharply, Band Changed: E Avoid → D Weak"
+20.07.2026 at 04:01 PM IST,SBIN,Financial Services,Banks - Regional,1060.0,61.76,0,36.17,D Weak,65,26.0,18,1.54,37.19,12.6,Bullish,56.99,0.0,20.48,E Avoid,15.69,4.77,0.0,"Score Improved Sharply, Fresh Momentum, Band Changed: E Avoid → D Weak"
+20.07.2026 at 04:01 PM IST,MTARTECH,Unknown,Unknown,5744.0,31.59,0,15.04,E Avoid,23,0.0,30,0.29,313.09,34.08,Bearish,0.0,0.0,0.0,New Stock,15.04,31.59,0.0,"Score Improved Sharply, Band Changed: New Stock → E Avoid"
+20.07.2026 at 04:01 PM IST,TITAGARH,Industrials,Railroads,867.2,51.76,0,26.02,E Avoid,55,7.0,20,0.76,52.49,10.69,Bullish,49.73,0.0,23.49,E Avoid,2.53,2.03,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,ICICIBANK,Financial Services,Banks - Regional,1460.2,73.48,0,47.62,C Neutral,67,38.0,38,1.73,22.95,1.9,Bullish,70.84,0.0,45.86,C Neutral,1.76,2.64,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,MAZDOCK,Industrials,Aerospace & Defense,2346.5,37.89,15,12.52,E Avoid,18,42.0,0,0.4,14.05,22.95,Bearish,37.32,15.0,11.99,E Avoid,0.53,0.57,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,COCHINSHIP,Industrials,Aerospace & Defense,1407.6,42.29,15,3.07,E Avoid,18,24.0,0,0.36,18.58,28.57,Bearish,41.12,15.0,2.54,E Avoid,0.53,1.17,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,BDL,Industrials,Aerospace & Defense,1257.6,38.75,15,3.07,E Avoid,18,25.0,0,0.34,15.8,27.23,Bearish,38.09,15.0,2.54,E Avoid,0.53,0.66,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,IRFC,Financial Services,Credit Services,88.72,36.73,15,4.62,E Avoid,21,25.0,0,0.4,2.06,34.63,Bearish,35.04,15.0,4.11,E Avoid,0.51,1.69,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,KAYNES,Technology,Electronic Components,3328.8,51.29,15,10.9,E Avoid,40,24.0,8,0.44,11.15,56.8,Bullish,54.44,15.0,10.56,E Avoid,0.34,-3.15,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,ITC,Consumer Defensive,Tobacco,282.7,45.98,15,24.95,E Avoid,25,70.0,0,0.81,2.8,30.56,Bearish,41.87,15.0,24.64,E Avoid,0.31,4.11,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,IRCON,Industrials,Engineering & Construction,129.64,40.41,15,0.27,E Avoid,18,16.0,0,0.65,13.22,32.69,Bearish,39.47,15.0,0.0,E Avoid,0.27,0.94,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,RVNL,Industrials,Engineering & Construction,226.87,37.53,15,0.0,E Avoid,21,4.0,0,0.88,2.4,43.2,Bearish,34.99,15.0,0.0,E Avoid,0.0,2.54,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,RAILTEL,Communication Services,Telecom Services,294.7,36.63,15,16.58,E Avoid,13,63.0,0,0.66,20.29,28.18,Bearish,38.97,15.0,16.81,E Avoid,-0.23,-2.34,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,RITES,Industrials,Engineering & Construction,219.94,52.09,15,29.82,E Avoid,40,71.0,8,0.05,25.68,19.65,Bullish,50.53,15.0,30.54,E Avoid,-0.72,1.56,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,INFY,Technology,Information Technology Services,1087.1,50.98,15,32.35,E Avoid,25,82.0,8,0.49,10.66,35.73,Bearish,53.0,15.0,33.26,E Avoid,-0.91,-2.02,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,ZENTEC,Industrials,Aerospace & Defense,1749.8,44.99,0,38.27,D Weak,38,47.0,30,0.4,43.07,13.55,Bullish,46.92,0.0,39.99,D Weak,-1.72,-1.93,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,BEL,Industrials,Aerospace & Defense,408.15,45.05,15,17.17,E Avoid,17,62.0,0,0.49,13.48,13.79,Bearish,46.13,15.0,19.14,E Avoid,-1.97,-1.08,0.0,No Major Change
+20.07.2026 at 04:01 PM IST,CYIENTDLM,Industrials,Aerospace & Defense,596.05,74.58,0,43.87,D Weak,52,24.0,65,0.92,124.75,1.14,Bullish,72.02,0.0,46.54,C Neutral,-2.67,2.56,0.0,Band Changed: C Neutral → D Weak
+20.07.2026 at 04:01 PM IST,DATAPATTNS,Industrials,Aerospace & Defense,3990.7,35.36,0,34.12,E Avoid,23,49.0,20,0.99,87.27,19.48,Bearish,38.4,0.0,37.34,D Weak,-3.22,-3.04,0.0,Band Changed: D Weak → E Avoid
+20.07.2026 at 04:01 PM IST,HAL,Industrials,Aerospace & Defense,4491.0,57.42,0,44.07,D Weak,60,51.0,20,0.53,29.09,9.03,Bullish,58.45,0.0,50.54,C Neutral,-6.47,-1.03,0.0,"Score Dropped, Band Changed: C Neutral → D Weak"
+20.07.2026 at 04:01 PM IST,LT,Unknown,Unknown,3838.8,37.43,15,0.0,E Avoid,18,0.0,10,0.68,17.89,12.7,Bearish,34.48,15.0,8.69,E Avoid,-8.69,2.95,0.0,Score Dropped
+20.07.2026 at 04:01 PM IST,HDFCBANK,Financial Services,Banks - Regional,777.6,43.02,20,7.82,E Avoid,41,26.0,10,1.67,8.78,22.54,Bullish,60.39,15.0,17.26,E Avoid,-9.44,-17.37,5.0,"Score Dropped, Risk Increased"
+20.07.2026 at 04:01 PM IST,KOTAKBANK,Financial Services,Banks - Regional,382.05,46.7,15,5.82,E Avoid,27,16.0,10,1.73,10.77,15.55,Bearish,52.33,15.0,15.46,E Avoid,-9.64,-5.63,0.0,Score Dropped
+20.07.2026 at 04:01 PM IST,RELIANCE,Energy,Oil & Gas Refining & Marketing,1323.1,54.92,15,8.21,E Avoid,48,19.0,0,1.16,5.58,17.53,Bullish,56.34,15.0,22.96,E Avoid,-14.75,-1.42,0.0,Score Dropped Sharply
+20.07.2026 at 04:01 PM IST,GRSE,Industrials,Aerospace & Defense,2561.7,37.62,15,12.17,E Avoid,8,41.0,10,0.62,30.45,23.28,Bearish,39.27,0.0,31.64,E Avoid,-19.47,-1.65,15.0,"Score Dropped Sharply, Risk Increased Sharply"
+20.07.2026 at 04:01 PM IST,BLS,Unknown,Unknown,235.85,35.31,15,0.0,E Avoid,21,0.0,0,0.39,7.74,42.59,Bearish,35.09,15.0,28.84,E Avoid,-28.84,0.22,0.0,Score Dropped Sharply
+20.07.2026 at 04:01 PM IST,AXISBANK,Financial Services,Banks - Regional,1256.0,34.24,20,0.0,E Avoid,28,17.0,0,3.58,20.57,11.37,Bearish,50.47,0.0,35.31,D Weak,-35.31,-16.23,20.0,"Score Dropped Sharply, Fresh Weakness, Risk Increased Sharply, Band Changed: D Weak → E Avoid"
