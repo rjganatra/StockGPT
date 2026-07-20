@@ -1,29 +1,29 @@
 relative_scan_time,symbol,return_1m,return_3m,return_6m,nifty_1m_return,nifty_3m_return,nifty_6m_return,return_vs_nifty_1m,return_vs_nifty_3m,return_vs_nifty_6m,relative_strength_score,relative_strength_reasons,sector,industry,sector_rank,sector_count,sector_rank_pct
-20.07.2026 at 10:01 AM IST,HAL,-0.68,3.04,2.11,,,,0,0,0,20,"Positive 3M return, Positive 6M return",Industrials,Aerospace & Defense,3.0,13,23.08
-20.07.2026 at 10:01 AM IST,SBIN,0.25,-2.93,1.91,,,,0,0,0,18,"Positive 1M return, Positive 6M return",Financial Services,Banks - Regional,2.0,6,33.33
-20.07.2026 at 10:01 AM IST,ICICIBANK,7.45,7.8,3.0,,,,0,0,0,38,"Positive 1M return, Positive 3M return, Positive 6M return, Positive across 1M/3M/6M",Financial Services,Banks - Regional,1.0,6,16.67
-20.07.2026 at 10:01 AM IST,RELIANCE,0.26,-0.55,-8.36,,,,0,0,0,8,Positive 1M return,Energy,Oil & Gas Refining & Marketing,1.0,1,100.0
-20.07.2026 at 10:01 AM IST,ZENTEC,-10.62,1.89,32.02,,,,0,0,0,30,"Positive 3M return, Strong 6M absolute return",Industrials,Aerospace & Defense,2.0,13,15.38
-20.07.2026 at 10:01 AM IST,TITAGARH,-7.77,14.46,5.35,,,,0,0,0,20,"Positive 3M return, Positive 6M return",Industrials,Railroads,3.0,13,23.08
-20.07.2026 at 10:01 AM IST,CYIENTDLM,23.63,56.44,52.06,,,,0,0,0,65,"Strong 1M absolute return, Strong 3M absolute return, Strong 6M absolute return, Positive across 1M/3M/6M",Industrials,Aerospace & Defense,1.0,13,7.69
-20.07.2026 at 10:01 AM IST,KAYNES,2.08,-23.61,-7.21,,,,0,0,0,8,Positive 1M return,Technology,Electronic Components,1.0,3,33.33
-20.07.2026 at 10:01 AM IST,TCS,6.81,-8.65,-28.16,,,,0,0,0,8,Positive 1M return,Technology,Information Technology Services,1.0,3,33.33
-20.07.2026 at 10:01 AM IST,HDFCBANK,-0.68,1.23,-14.73,,,,0,0,0,10,Positive 3M return,Financial Services,Banks - Regional,3.0,6,50.0
-20.07.2026 at 10:01 AM IST,DATAPATTNS,-16.62,-1.88,59.61,,,,0,0,0,20,Strong 6M absolute return,Industrials,Aerospace & Defense,3.0,13,23.08
-20.07.2026 at 10:01 AM IST,MTARTECH,-30.75,7.41,115.07,,,,0,0,0,30,"Positive 3M return, Strong 6M absolute return",Unknown,Unknown,1.0,3,33.33
-20.07.2026 at 10:01 AM IST,INFY,2.62,-9.97,-33.9,,,,0,0,0,8,Positive 1M return,Technology,Information Technology Services,1.0,3,33.33
-20.07.2026 at 10:01 AM IST,RITES,1.71,-1.94,-4.5,,,,0,0,0,8,Positive 1M return,Industrials,Engineering & Construction,5.0,13,38.46
-20.07.2026 at 10:01 AM IST,ITC,-3.64,-5.57,-10.59,,,,0,0,0,0,,Consumer Defensive,Tobacco,1.0,1,100.0
-20.07.2026 at 10:01 AM IST,KOTAKBANK,-5.74,2.34,-9.36,,,,0,0,0,10,Positive 3M return,Financial Services,Banks - Regional,3.0,6,50.0
-20.07.2026 at 10:01 AM IST,IRFC,-12.49,-15.95,-26.97,,,,0,0,0,0,,Financial Services,Credit Services,4.0,6,66.67
-20.07.2026 at 10:01 AM IST,RVNL,-8.92,-27.01,-32.88,,,,0,0,0,0,,Industrials,Engineering & Construction,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,BLS,-12.04,-17.03,-21.7,,,,0,0,0,0,,Unknown,Unknown,2.0,3,66.67
-20.07.2026 at 10:01 AM IST,IRCON,-7.03,-15.9,-19.77,,,,0,0,0,0,,Industrials,Engineering & Construction,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,BDL,-10.95,-11.99,-17.1,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,BEL,-5.72,-9.59,-0.42,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,COCHINSHIP,-5.35,-12.27,-8.25,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,MAZDOCK,-8.27,-13.45,-4.42,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
-20.07.2026 at 10:01 AM IST,AXISBANK,-7.27,-8.02,-2.66,,,,0,0,0,0,,Financial Services,Banks - Regional,4.0,6,66.67
-20.07.2026 at 10:01 AM IST,LT,-9.18,-4.96,-0.09,,,,0,0,0,0,,Unknown,Unknown,2.0,3,66.67
-20.07.2026 at 10:01 AM IST,RAILTEL,-8.53,-9.57,-14.64,,,,0,0,0,0,,Communication Services,Telecom Services,1.0,1,100.0
-20.07.2026 at 10:01 AM IST,GRSE,-10.24,-10.83,6.22,,,,0,0,0,10,Positive 6M return,Industrials,Aerospace & Defense,4.0,13,30.77
+20.07.2026 at 01:08 PM IST,HAL,-0.86,2.85,1.92,,,,0,0,0,20,"Positive 3M return, Positive 6M return",Industrials,Aerospace & Defense,3.0,13,23.08
+20.07.2026 at 01:08 PM IST,SBIN,0.48,-2.71,2.13,,,,0,0,0,18,"Positive 1M return, Positive 6M return",Financial Services,Banks - Regional,2.0,6,33.33
+20.07.2026 at 01:08 PM IST,ICICIBANK,7.31,7.66,2.87,,,,0,0,0,38,"Positive 1M return, Positive 3M return, Positive 6M return, Positive across 1M/3M/6M",Financial Services,Banks - Regional,1.0,6,16.67
+20.07.2026 at 01:08 PM IST,RELIANCE,0.15,-0.65,-8.45,,,,0,0,0,8,Positive 1M return,Energy,Oil & Gas Refining & Marketing,1.0,1,100.0
+20.07.2026 at 01:08 PM IST,TITAGARH,-7.03,15.37,6.2,,,,0,0,0,20,"Positive 3M return, Positive 6M return",Industrials,Railroads,3.0,13,23.08
+20.07.2026 at 01:08 PM IST,CYIENTDLM,22.9,55.51,51.15,,,,0,0,0,65,"Strong 1M absolute return, Strong 3M absolute return, Strong 6M absolute return, Positive across 1M/3M/6M",Industrials,Aerospace & Defense,1.0,13,7.69
+20.07.2026 at 01:08 PM IST,KAYNES,2.56,-23.25,-6.77,,,,0,0,0,8,Positive 1M return,Technology,Electronic Components,1.0,3,33.33
+20.07.2026 at 01:08 PM IST,TCS,6.69,-8.76,-28.25,,,,0,0,0,8,Positive 1M return,Technology,Information Technology Services,1.0,3,33.33
+20.07.2026 at 01:08 PM IST,HDFCBANK,-0.88,1.02,-14.9,,,,0,0,0,10,Positive 3M return,Financial Services,Banks - Regional,3.0,6,50.0
+20.07.2026 at 01:08 PM IST,RITES,2.41,-1.27,-3.85,,,,0,0,0,8,Positive 1M return,Industrials,Engineering & Construction,5.0,13,38.46
+20.07.2026 at 01:08 PM IST,DATAPATTNS,-17.34,-2.73,58.23,,,,0,0,0,20,Strong 6M absolute return,Industrials,Aerospace & Defense,3.0,13,23.08
+20.07.2026 at 01:08 PM IST,MTARTECH,-30.75,7.41,115.07,,,,0,0,0,30,"Positive 3M return, Strong 6M absolute return",Unknown,Unknown,1.0,3,33.33
+20.07.2026 at 01:08 PM IST,ZENTEC,-11.47,0.92,30.76,,,,0,0,0,30,"Positive 3M return, Strong 6M absolute return",Industrials,Aerospace & Defense,2.0,13,15.38
+20.07.2026 at 01:08 PM IST,INFY,2.12,-10.4,-34.22,,,,0,0,0,8,Positive 1M return,Technology,Information Technology Services,1.0,3,33.33
+20.07.2026 at 01:08 PM IST,ITC,-2.88,-4.83,-9.89,,,,0,0,0,0,,Consumer Defensive,Tobacco,1.0,1,100.0
+20.07.2026 at 01:08 PM IST,KOTAKBANK,-5.26,2.86,-8.89,,,,0,0,0,10,Positive 3M return,Financial Services,Banks - Regional,3.0,6,50.0
+20.07.2026 at 01:08 PM IST,IRFC,-12.56,-16.02,-27.03,,,,0,0,0,0,,Financial Services,Credit Services,4.0,6,66.67
+20.07.2026 at 01:08 PM IST,RVNL,-8.5,-26.67,-32.57,,,,0,0,0,0,,Industrials,Engineering & Construction,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,BLS,-12.22,-17.21,-21.86,,,,0,0,0,0,,Unknown,Unknown,3.0,3,100.0
+20.07.2026 at 01:08 PM IST,AXISBANK,-7.8,-8.55,-3.22,,,,0,0,0,0,,Financial Services,Banks - Regional,4.0,6,66.67
+20.07.2026 at 01:08 PM IST,LT,-8.93,-4.7,0.18,,,,0,0,0,10,Positive 6M return,Unknown,Unknown,2.0,3,66.67
+20.07.2026 at 01:08 PM IST,IRCON,-7.21,-16.06,-19.92,,,,0,0,0,0,,Industrials,Engineering & Construction,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,COCHINSHIP,-5.16,-12.09,-8.07,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,MAZDOCK,-8.09,-13.28,-4.24,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,BDL,-11.05,-12.09,-17.2,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,BEL,-5.68,-9.55,-0.37,,,,0,0,0,0,,Industrials,Aerospace & Defense,6.0,13,46.15
+20.07.2026 at 01:08 PM IST,RAILTEL,-9.03,-10.06,-15.1,,,,0,0,0,0,,Communication Services,Telecom Services,1.0,1,100.0
+20.07.2026 at 01:08 PM IST,GRSE,-10.46,-11.05,5.95,,,,0,0,0,10,Positive 6M return,Industrials,Aerospace & Defense,4.0,13,30.77
