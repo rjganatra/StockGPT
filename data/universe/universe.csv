@@ -3,7 +3,6 @@ symbol,company_name,series,isin,sector,industry
 21STCENMGM,21st Century Management Services Limited,EQ,INE253B01015,Financial Services,Capital Markets
 360ONE,360 ONE WAM LIMITED,EQ,INE466L01038,Financial Services,Asset Management
 3BBLACKBIO,3B Blackbio Dx Limited,EQ,INE994E01018,Unknown,Unknown
-3IINFOLTD,3i Infotech Limited,EQ,INE748C01038,Technology,Information Technology Services
 3MINDIA,3M India Limited,EQ,INE470A01017,Industrials,Conglomerates
 3PLAND,3P Land Holdings Limited,EQ,INE105C01023,Unknown,Unknown
 5PAISA,5Paisa Capital Limited,EQ,INE618L01018,Financial Services,Capital Markets
@@ -888,6 +887,7 @@ INGERRAND,Ingersoll Rand (India) Limited,EQ,INE177A01018,Industrials,Specialty I
 INNOVACAP,Innova Captab Limited,EQ,INE0DUT01020,Healthcare,Drug Manufacturers - Specialty & Generic
 INNOVANA,Innovana Thinklabs Limited,EQ,INE403Y01018,Technology,Software - Application
 INNOVISION,Innovision Limited,EQ,INE0ADB01012,Industrials,Staffing & Employment Services
+INOXGREEN,Inox Green Energy Services Limited,EQ,INE510W01014,Unknown,Unknown
 INOXINDIA,INOX India Limited,EQ,INE616N01034,Industrials,Specialty Industrial Machinery
 INOXWIND,Inox Wind Limited,EQ,INE066P01011,Industrials,Specialty Industrial Machinery
 INSECTICID,Insecticides (India) Limited,EQ,INE070I01018,Basic Materials,Agricultural Inputs
@@ -1095,6 +1095,7 @@ LAXMICOT,Laxmi Cotspin Limited,EQ,INE801V01019,Consumer Cyclical,Textile Manufac
 LAXMIDENTL,Laxmi Dental Limited,EQ,INE0WO601020,Healthcare,Medical Instruments & Supplies
 LCCINFOTEC,LCC Infotech Limited,EQ,INE938A01021,Consumer Defensive,Education & Training Services
 LCL,Lohia Corp Limited,EQ,INE0QJW01029,Unknown,Unknown
+LEAPIND,LEAP India Limited,EQ,INE00GO01025,Unknown,Unknown
 LEMERITE,Le Merite Exports Limited,EQ,INE0G1L01025,Consumer Cyclical,Textile Manufacturing
 LEMONTREE,Lemon Tree Hotels Limited,EQ,INE970X01018,Consumer Cyclical,Lodging
 LENSKART,Lenskart Solutions Limited,EQ,INE956O01016,Healthcare,Medical Instruments & Supplies
@@ -1775,7 +1776,6 @@ SPAL,S. P. Apparels Limited,EQ,INE212I01016,Consumer Cyclical,Apparel Manufactur
 SPANDANA,Spandana Sphoorty Financial Limited,EQ,INE572J01011,Financial Services,Credit Services
 SPARC,Sun Pharma Advanced Research Company Limited,EQ,INE232I01014,Healthcare,Drug Manufacturers - Specialty & Generic
 SPCENET,Spacenet Enterprises India Limited,EQ,INE970N01027,Financial Services,Capital Markets
-SPECIALITY,Speciality Restaurants Limited,EQ,INE247M01014,Consumer Cyclical,Restaurants
 SPENCERS,Spencer's Retail Limited,EQ,INE020801028,Consumer Cyclical,Department Stores
 SPIC,Southern Petrochemicals Industries Corporation  Limited,EQ,INE147A01011,Basic Materials,Agricultural Inputs
 SPLIL,SPL Industries Limited,EQ,INE978G01016,Consumer Cyclical,Apparel Manufacturing
@@ -1891,6 +1891,7 @@ TDPOWERSYS,TD Power Systems Limited,EQ,INE419M01027,Industrials,Specialty Indust
 TEAMGTY,Team India Guaranty Limited,EQ,INE289C01025,Financial Services,Asset Management
 TEAMLEASE,Teamlease Services Limited,EQ,INE985S01024,Industrials,Staffing & Employment Services
 TECHM,Tech Mahindra Limited,EQ,INE669C01036,Technology,Information Technology Services
+TECHNOCRAF,Technocraft Ventures Limited,EQ,INE1D0W01018,Unknown,Unknown
 TECHNOE,Techno Electric & Engineering Company Limited,EQ,INE285K01026,Industrials,Engineering & Construction
 TECHNVISN,TechNVision Ventures Limited,EQ,INE314H01012,Unknown,Unknown
 TECILCHEM,TECIL Chemicals and Hydro Power Limited,EQ,INE014B01011,Financial Services,Shell Companies
