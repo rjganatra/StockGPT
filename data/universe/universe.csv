@@ -6,7 +6,7 @@ symbol,company_name,series,isin,sector,industry
 3MINDIA,3M India Limited,EQ,INE470A01017,Industrials,Conglomerates
 3PLAND,3P Land Holdings Limited,EQ,INE105C01023,Unknown,Unknown
 5PAISA,5Paisa Capital Limited,EQ,INE618L01018,Financial Services,Capital Markets
-63MOONS,63 moons technologies limited,EQ,INE111B01023,Unknown,Unknown
+63MOONS,63 moons technologies limited,EQ,INE111B01023,Technology,Software - Application
 A2ZINFRA,A2Z Infra Engineering Limited,EQ,INE619I01012,Industrials,Engineering & Construction
 AAATECH,AAA Technologies Limited,EQ,INE0D0U01013,Technology,Information Technology Services
 AADHARHFC,Aadhar Housing Finance Limited,EQ,INE883F01010,Financial Services,Mortgage Finance
@@ -16,7 +16,7 @@ AARON,Aaron Industries Limited,EQ,INE721Z01010,Industrials,Specialty Industrial 
 AARTIDRUGS,Aarti Drugs Limited,EQ,INE767A01016,Healthcare,Drug Manufacturers - Specialty & Generic
 AARTIIND,Aarti Industries Limited,EQ,INE769A01020,Basic Materials,Specialty Chemicals
 AARTIPHARM,Aarti Pharmalabs Limited,EQ,INE0LRU01027,Healthcare,Drug Manufacturers - Specialty & Generic
-AARVI,Aarvi Encon Limited,EQ,INE754X01016,Unknown,Unknown
+AARVI,Aarvi Encon Limited,EQ,INE754X01016,Industrials,Staffing & Employment Services
 AASTHA,Aastha Spintex Limited,EQ,INE2FMX01012,Unknown,Unknown
 AAVAS,Aavas Financiers Limited,EQ,INE216P01012,Financial Services,Mortgage Finance
 ABANSENT,Abans Enterprises Limited,EQ,INE365O01028,Unknown,Unknown
@@ -50,24 +50,24 @@ ADL,Archidply Decor Limited,EQ,INE0CHO01012,Consumer Cyclical,"Furnishings, Fixt
 ADOR,Ador Welding Limited,EQ,INE045A01017,Industrials,Specialty Industrial Machinery
 ADROITINFO,Adroit Infotech Limited,EQ,INE737B01033,Technology,Information Technology Services
 ADSL,Allied Digital Services Limited,EQ,INE102I01027,Technology,Information Technology Services
-ADVAIT,Advait Energy Transitions Limited,EQ,INE0ALI01010,Industrials,Specialty Industrial Machinery
+ADVAIT,Advait Energy Transitions Limited,EQ,INE0ALI01010,Unknown,Unknown
 ADVANCE,Advance Agrolife Limited,EQ,INE1B0W01010,Basic Materials,Agricultural Inputs
-ADVANIHOTR,Advani Hotels & Resorts (India) Limited,EQ,INE199C01026,Unknown,Unknown
+ADVANIHOTR,Advani Hotels & Resorts (India) Limited,EQ,INE199C01026,Consumer Cyclical,Lodging
 ADVENTHTL,Advent Hotels International Limited,EQ,INE28GN01010,Consumer Cyclical,Lodging
 ADVENZYMES,Advanced Enzyme Technologies Limited,EQ,INE837H01020,Basic Materials,Specialty Chemicals
 ADVIKCA,Advik Capital Limited,EQ,INE178T01024,Unknown,Unknown
 AEGISLOG,Aegis Logistics Limited,EQ,INE208C01025,Energy,Oil & Gas Refining & Marketing
 AEGISVOPAK,Aegis Vopak Terminals Limited,EQ,INE0INX01018,Energy,Oil & Gas Equipment & Services
-AEPL,Artemis Electricals and Projects Limited,EQ,INE757T01025,Unknown,Unknown
+AEPL,Artemis Electricals and Projects Limited,EQ,INE757T01025,Industrials,Electrical Equipment & Parts
 AEQUS,Aequs Limited,EQ,INE947N01017,Industrials,Aerospace & Defense
 AEROENTER,Aeroflex Enterprises Limited,EQ,INE065D01027,Basic Materials,Steel
 AEROFLEX,Aeroflex Industries Limited,EQ,INE024001021,Industrials,Metal Fabrication
 AERONEU,Aeroflex Neu Limited,EQ,INE035801013,Consumer Cyclical,Packaging & Containers
 AEROPLANE,Amir Chand Jagdish Kumar (Exports) Limited,EQ,INE05TO01019,Consumer Defensive,Farm Products
 AETHER,Aether Industries Limited,EQ,INE0BWX01014,Basic Materials,Specialty Chemicals
-AFCONS,Afcons Infrastructure Limited,EQ,INE101I01011,Unknown,Unknown
+AFCONS,Afcons Infrastructure Limited,EQ,INE101I01011,Industrials,Engineering & Construction
 AFFLE,Affle 3i Limited,EQ,INE00WC01027,Communication Services,Advertising Agencies
-AFFORDABLE,Affordable Robotic & Automation Limited,EQ,INE692Z01013,Unknown,Unknown
+AFFORDABLE,Affordable Robotic & Automation Limited,EQ,INE692Z01013,Industrials,Specialty Industrial Machinery
 AFIL,Akme Fintrade (India) Limited,EQ,INE916Y01027,Financial Services,Credit Services
 AFSL,Abans Financial Services Limited,EQ,INE00ZE01026,Financial Services,Capital Markets
 AGARIND,Agarwal Industrial Corporation Limited,EQ,INE204E01012,Basic Materials,Specialty Chemicals
@@ -83,17 +83,17 @@ AHLEAST,Asian Hotels (East) Limited,EQ,INE926K01017,Consumer Cyclical,Lodging
 AHLUCONT,Ahluwalia Contracts (India) Limited,EQ,INE758C01029,Industrials,Engineering & Construction
 AIAENG,AIA Engineering Limited,EQ,INE212H01026,Industrials,Specialty Industrial Machinery
 AIIL,Authum Investment & Infrastructure Limited,EQ,INE206F01022,Financial Services,Capital Markets
-AIRAN,Airan Limited,EQ,INE645W01026,Unknown,Unknown
+AIRAN,Airan Limited,EQ,INE645W01026,Technology,Information Technology Services
 AIROLAM,Airo Lam limited,EQ,INE801L01010,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 AJANTPHARM,Ajanta Pharma Limited,EQ,INE031B01049,Healthcare,Drug Manufacturers - Specialty & Generic
-AJAXENGG,Ajax Engineering Limited,EQ,INE274Y01021,Unknown,Unknown
+AJAXENGG,Ajax Engineering Limited,EQ,INE274Y01021,Industrials,Farm & Heavy Construction Machinery
 AJMERA,Ajmera Realty & Infra India Limited,EQ,INE298G01035,Real Estate,Real Estate - Development
 AJOONI,Ajooni Biotech Limited,EQ,INE820Y01021,Consumer Defensive,Packaged Foods
 AKASH,Akash Infra-Projects Limited,EQ,INE737W01013,Industrials,Engineering & Construction
 AKCAPIT,AK Capital Services Limited,EQ,INE701G01012,Unknown,Unknown
 AKG,Akg Exim Limited,EQ,INE00Y801016,Industrials,Industrial Distribution
 AKI,AKI India Limited,EQ,INE642Z01026,Consumer Cyclical,Footwear & Accessories
-AKSHAR,Akshar Spintex Limited,EQ,INE256Z01025,Consumer Cyclical,Textile Manufacturing
+AKSHAR,Akshar Spintex Limited,EQ,INE256Z01025,Unknown,Unknown
 AKUMS,Akums Drugs and Pharmaceuticals Limited,EQ,INE09XN01023,Healthcare,Drug Manufacturers - Specialty & Generic
 ALANKIT,Alankit Limited,EQ,INE914E01040,Technology,Information Technology Services
 ALBERTDAVD,Albert David Limited,EQ,INE155C01010,Healthcare,Drug Manufacturers - Specialty & Generic
@@ -125,13 +125,13 @@ AMNPLST,Amines & Plasticizers Limited,EQ,INE275D01022,Basic Materials,Chemicals
 AMRUTANJAN,Amrutanjan Health Care Limited,EQ,INE098F01031,Healthcare,Drug Manufacturers - Specialty & Generic
 ANANDRATHI,Anand Rathi Wealth Limited,EQ,INE463V01026,Financial Services,Asset Management
 ANANTRAJ,Anant Raj Limited,EQ,INE242C01024,Real Estate,Real Estate - Development
-ANDHRAPAP,ANDHRA PAPER LIMITED,EQ,INE435A01051,Unknown,Unknown
+ANDHRAPAP,ANDHRA PAPER LIMITED,EQ,INE435A01051,Basic Materials,Paper & Paper Products
 ANDHRSUGAR,The Andhra Sugars Limited,EQ,INE715B01021,Basic Materials,Chemicals
 ANDREWYU,Andrew Yule & Company Limited,EQ,INE449C01025,Unknown,Unknown
 ANGELONE,Angel One Limited,EQ,INE732I01021,Financial Services,Capital Markets
 ANIKINDS,Anik Industries Limited,EQ,INE087B01017,Consumer Defensive,Food Distribution
-ANMOL,Anmol India Limited,EQ,INE02AR01019,Energy,Thermal Coal
-ANNAPURNA,Annapurna Swadisht Limited,EQ,INE0MGM01017,Consumer Defensive,Packaged Foods
+ANMOL,Anmol India Limited,EQ,INE02AR01019,Unknown,Unknown
+ANNAPURNA,Annapurna Swadisht Limited,EQ,INE0MGM01017,Unknown,Unknown
 ANSALBU,Ansal Buildwell Limited,EQ,INE030C01015,Unknown,Unknown
 ANTELOPUS,Antelopus Selan Energy Limited,EQ,INE818A01017,Energy,Oil & Gas E&P
 ANTGRAPHIC,Antarctica Limited,EQ,INE414B01021,Consumer Cyclical,Packaging & Containers
@@ -140,7 +140,7 @@ ANUHPHR,Anuh Pharma Limited,EQ,INE489G01022,Healthcare,Drug Manufacturers - Spec
 ANUP,The Anup Engineering Limited,EQ,INE294Z01018,Industrials,Specialty Industrial Machinery
 ANURAS,Anupam Rasayan India Limited,EQ,INE930P01018,Basic Materials,Specialty Chemicals
 APARINDS,Apar Industries Limited,EQ,INE372A01015,Industrials,Electrical Equipment & Parts
-APCL,Anjani Portland Cement Limited,EQ,INE071F01012,Basic Materials,Building Materials
+APCL,Anjani Portland Cement Limited,EQ,INE071F01012,Unknown,Unknown
 APCOTEXIND,Apcotex Industries Limited,EQ,INE116A01032,Basic Materials,Specialty Chemicals
 APEX,Apex Frozen Foods Limited,EQ,INE346W01013,Consumer Defensive,Farm Products
 APLAPOLLO,APL Apollo Tubes Limited,EQ,INE702C01027,Basic Materials,Steel
@@ -148,7 +148,7 @@ APLLTD,Alembic Pharmaceuticals Limited,EQ,INE901L01018,Healthcare,Drug Manufactu
 APOLLO,Apollo Micro Systems Limited,EQ,INE713T01028,Industrials,Aerospace & Defense
 APOLLOHOSP,Apollo Hospitals Enterprise Limited,EQ,INE437A01024,Healthcare,Medical Care Facilities
 APOLLOPIPE,Apollo Pipes Limited,EQ,INE126J01016,Industrials,Building Products & Equipment
-APOLLOTYRE,Apollo Tyres Limited,EQ,INE438A01022,Unknown,Unknown
+APOLLOTYRE,Apollo Tyres Limited,EQ,INE438A01022,Consumer Cyclical,Auto Parts
 APOLSINHOT,Apollo Sindoori Hotels Limited,EQ,INE451F01024,Industrials,Specialty Business Services
 APOORVA,Apoorva Leasing Finance and Investment Company Limited,EQ,INE217S01014,Unknown,Unknown
 APTUS,Aptus Value Housing Finance India Limited,EQ,INE852O01025,Financial Services,Mortgage Finance
@@ -173,18 +173,18 @@ ARTEMISMED,Artemis Medicare Services Limited,EQ,INE025R01021,Unknown,Unknown
 ARTNIRMAN,Art Nirman Limited,EQ,INE738V01013,Real Estate,Real Estate - Development
 ARVEE,Arvee Laboratories (India) Limited,EQ,INE006Z01016,Basic Materials,Specialty Chemicals
 ARVIND,Arvind Limited,EQ,INE034A01011,Consumer Cyclical,Textile Manufacturing
-ARVINDFASN,Arvind Fashions Limited,EQ,INE955V01021,Unknown,Unknown
+ARVINDFASN,Arvind Fashions Limited,EQ,INE955V01021,Consumer Cyclical,Apparel Retail
 ARVSMART,Arvind SmartSpaces Limited,EQ,INE034S01021,Real Estate,Real Estate - Development
 ARYAMAN,Aryaman Financial Services Limited,EQ,INE032E01017,Unknown,Unknown
 ASAHIINDIA,Asahi India Glass Limited,EQ,INE439A01020,Consumer Cyclical,Auto Parts
 ASAL,Automotive Stampings and Assemblies Limited,EQ,INE900C01027,Consumer Cyclical,Auto Parts
-ASALCBR,Associated Alcohols & Breweries Ltd.,EQ,INE073G01016,Consumer Defensive,Beverages - Wineries & Distilleries
-ASHAPURMIN,Ashapura Minechem Limited,EQ,INE348A01023,Basic Materials,Other Industrial Metals & Mining
+ASALCBR,Associated Alcohols & Breweries Ltd.,EQ,INE073G01016,Unknown,Unknown
+ASHAPURMIN,Ashapura Minechem Limited,EQ,INE348A01023,Unknown,Unknown
 ASHIANA,Ashiana Housing Limited,EQ,INE365D01021,Real Estate,Real Estate - Development
 ASHIMASYN,Ashima Limited,EQ,INE440A01010,Real Estate,Real Estate - Development
 ASHOKA,Ashoka Buildcon Limited,EQ,INE442H01029,Industrials,Engineering & Construction
 ASHOKAMET,Ashoka Metcast Limited,EQ,INE760Y01011,Basic Materials,Steel
-ASHOKLEY,Ashok Leyland Limited,EQ,INE208A01029,Unknown,Unknown
+ASHOKLEY,Ashok Leyland Limited,EQ,INE208A01029,Industrials,Farm & Heavy Construction Machinery
 ASIANENE,Asian Energy Services Limited,EQ,INE276G01015,Energy,Oil & Gas Equipment & Services
 ASIANHOTNR,Asian Hotels (North) Limited,EQ,INE363A01022,Consumer Cyclical,Lodging
 ASIANPAINT,Asian Paints Limited,EQ,INE021A01026,Basic Materials,Specialty Chemicals
@@ -223,8 +223,8 @@ AVADHSUGAR,Avadh Sugar & Energy Limited,EQ,INE349W01017,Consumer Defensive,Confe
 AVALON,Avalon Technologies Limited,EQ,INE0LCL01028,Technology,Electronic Components
 AVANCE,Avance Technologies Limited,EQ,INE758A01072,Unknown,Unknown
 AVANTEL,Avantel Limited,EQ,INE005B01027,Technology,Communication Equipment
-AVANTIFEED,Avanti Feeds Limited,EQ,INE871C01038,Consumer Defensive,Packaged Foods
-AVL,Aditya Vision Limited,EQ,INE679V01027,Consumer Cyclical,Specialty Retail
+AVANTIFEED,Avanti Feeds Limited,EQ,INE871C01038,Unknown,Unknown
+AVL,Aditya Vision Limited,EQ,INE679V01027,Unknown,Unknown
 AVONMORE,Avonmore Capital & Management Services Limited,EQ,INE323B01024,Financial Services,Capital Markets
 AVROIND,AVRO INDIA LIMITED,EQ,INE652Z01025,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 AVTNPL,AVT Natural Products Limited,EQ,INE488D01021,Basic Materials,Specialty Chemicals
@@ -239,11 +239,11 @@ AYE,Aye Finance Limited,EQ,INE501X01029,Financial Services,Credit Services
 AYMSYNTEX,AYM Syntex Limited,EQ,INE193B01039,Consumer Cyclical,Textile Manufacturing
 AZAD,Azad Engineering Limited,EQ,INE02IJ01035,Industrials,Specialty Industrial Machinery
 AZADIND,Azad India Mobility Limited,EQ,INE566M01017,Unknown,Unknown
-BAGFILMS,B.A.G Films and Media Limited,EQ,INE116D01028,Communication Services,Broadcasting
+BAGFILMS,B.A.G Films and Media Limited,EQ,INE116D01028,Unknown,Unknown
 BAIDFIN,Baid Finserv Limited,EQ,INE020D01022,Financial Services,Credit Services
 BAJAJ-AUTO,Bajaj Auto Limited,EQ,INE917I01010,Consumer Cyclical,Auto Manufacturers
 BAJAJCON,Bajaj Consumer Care Limited,EQ,INE933K01021,Consumer Defensive,Household & Personal Products
-BAJAJELEC,Bajaj Electricals Limited,EQ,INE193E01025,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+BAJAJELEC,Bajaj Electricals Limited,EQ,INE193E01025,Unknown,Unknown
 BAJAJFINSV,Bajaj Finserv Limited,EQ,INE918I01026,Financial Services,Financial Conglomerates
 BAJAJHCARE,Bajaj Healthcare Limited,EQ,INE411U01027,Healthcare,Drug Manufacturers - Specialty & Generic
 BAJAJHFL,Bajaj Housing Finance Limited,EQ,INE377Y01014,Financial Services,Mortgage Finance
@@ -284,13 +284,13 @@ BBTCL,B&B Triplewall Containers Limited,EQ,INE01EE01011,Consumer Cyclical,Packag
 BCG,Brightcom Group Limited,EQ,INE425B01027,Communication Services,Advertising Agencies
 BCLIND,Bcl Industries Limited,EQ,INE412G01024,Consumer Defensive,Beverages - Wineries & Distilleries
 BCONCEPTS,Brand Concepts Limited,EQ,INE977Y01011,Consumer Cyclical,Footwear & Accessories
-BCPL,BCPL Railway Infrastructure Limited,EQ,INE00SW01015,Unknown,Unknown
+BCPL,BCPL Railway Infrastructure Limited,EQ,INE00SW01015,Industrials,Infrastructure Operations
 BDL,Bharat Dynamics Limited,EQ,INE171Z01026,Industrials,Aerospace & Defense
 BEARDSELL,Beardsell Limited,EQ,INE520H01022,Industrials,Building Products & Equipment
 BECTORFOOD,Mrs. Bectors Food Specialities Limited,EQ,INE495P01020,Consumer Defensive,Packaged Foods
 BEDMUTHA,Bedmutha Industries Limited,EQ,INE844K01012,Basic Materials,Steel
 BEEKAY,Beekay Steel Industries Limited,EQ,INE213D01015,Unknown,Unknown
-BEL,Bharat Electronics Limited,EQ,INE263A01024,Industrials,Aerospace & Defense
+BEL,Bharat Electronics Limited,EQ,INE263A01024,Unknown,Unknown
 BELLACASA,Bella Casa Fashion & Retail Limited,EQ,INE344T01014,Consumer Cyclical,Textile Manufacturing
 BELRISE,Belrise Industries Limited,EQ,INE894V01022,Consumer Cyclical,Auto Parts
 BEML,BEML Limited,EQ,INE258A01024,Industrials,Conglomerates
@@ -306,14 +306,14 @@ BHAGCHEM,Bhagiradha Chemicals & Industries Limited,EQ,INE414D01027,Basic Materia
 BHAGYANGR,Bhagyanagar India Limited,EQ,INE458B01036,Basic Materials,Copper
 BHANDARI,Bhandari Hosiery Exports Limited,EQ,INE474E01029,Consumer Cyclical,Apparel Manufacturing
 BHARATCOAL,Bharat Coking Coal Limited,EQ,INE05XR01022,Basic Materials,Coking Coal
-BHARATFORG,Bharat Forge Limited,EQ,INE465A01025,Consumer Cyclical,Auto Parts
+BHARATFORG,Bharat Forge Limited,EQ,INE465A01025,Industrials,Metal Fabrication
 BHARATRAS,Bharat Rasayan Limited,EQ,INE838B01021,Basic Materials,Agricultural Inputs
 BHARATSE,Bharat Seats Limited,EQ,INE415D01024,Consumer Cyclical,Auto Parts
 BHARATWIRE,Bharat Wire Ropes Limited,EQ,INE316L01019,Basic Materials,Steel
 BHARTIARTL,Bharti Airtel Limited,EQ,INE397D01024,Communication Services,Telecom Services
 BHARTIHEXA,Bharti Hexacom Limited,EQ,INE343G01021,Communication Services,Telecom Services
 BHEL,Bharat Heavy Electricals Limited,EQ,INE257A01026,Industrials,Specialty Industrial Machinery
-BIGBLOC,Bigbloc Construction Limited,EQ,INE412U01025,Industrials,Building Products & Equipment
+BIGBLOC,Bigbloc Construction Limited,EQ,INE412U01025,Unknown,Unknown
 BIKAJI,Bikaji Foods International Limited,EQ,INE00E101023,Consumer Defensive,Packaged Foods
 BIL,Bhartiya International Limited,EQ,INE828A01016,Consumer Cyclical,Footwear & Accessories
 BIMETAL,Bimetal Bearings Limited,EQ,INE469A01019,Consumer Cyclical,Auto Parts
@@ -324,7 +324,7 @@ BIRLAMONEY,Aditya Birla Money Limited,EQ,INE865C01022,Financial Services,Capital
 BIRLANU,BirlaNu Limited,EQ,INE557A01011,Industrials,Building Products & Equipment
 BIRLAPREC,Birla Precision Technologies Limited,EQ,INE372E01025,Unknown,Unknown
 BLACKBUCK,BLACKBUCK LIMITED,EQ,INE0UIZ01018,Technology,Software - Application
-BLAL,BEML Land Assets Limited,EQ,INE0N7W01012,Unknown,Unknown
+BLAL,BEML Land Assets Limited,EQ,INE0N7W01012,Financial Services,Shell Companies
 BLBLIMITED,BLB Limited,EQ,INE791A01024,Financial Services,Capital Markets
 BLEL,Behari Lal Engineering Limited,EQ,INE1EEM01017,Unknown,Unknown
 BLIL,Balmer Lawrie Investments Limited,EQ,INE525F01025,Unknown,Unknown
@@ -339,8 +339,8 @@ BLUESTONE,BlueStone Jewellery and Lifestyle Limited,EQ,INE304W01038,Consumer Cyc
 BLUSPRING,Bluspring Enterprises Limited,EQ,INE0U4101014,Industrials,Specialty Business Services
 BMWVENTLTD,BMW Ventures Limited,EQ,INE965W01036,Basic Materials,Steel
 BNAGROCHEM,BN Agrochem Limited,EQ,INE00HZ01011,Unknown,Unknown
-BODALCHEM,Bodal Chemicals Limited,EQ,INE338D01028,Unknown,Unknown
-BOHRAIND,Bohra Industries Limited,EQ,INE802W01023,Unknown,Unknown
+BODALCHEM,Bodal Chemicals Limited,EQ,INE338D01028,Basic Materials,Specialty Chemicals
+BOHRAIND,Bohra Industries Limited,EQ,INE802W01023,Basic Materials,Agricultural Inputs
 BOMDYEING,Bombay Dyeing & Mfg Company Limited,EQ,INE032A01023,Consumer Cyclical,Textile Manufacturing
 BONLON,Bonlon Industries Limited,EQ,INE0B9A01018,Basic Materials,Other Industrial Metals & Mining
 BORANA,Borana Weaves Limited,EQ,INE16SF01016,Consumer Cyclical,Textile Manufacturing
@@ -375,7 +375,7 @@ CANFINHOME,Can Fin Homes Limited,EQ,INE477A01020,Financial Services,Mortgage Fin
 CANHLIFE,Canara HSBC Life Insurance Company Limited,EQ,INE01TY01017,Financial Services,Insurance - Life
 CANTABIL,Cantabil Retail India Limited,EQ,INE068L01024,Consumer Cyclical,Apparel Manufacturing
 CAPACITE,Capacit'e Infraprojects Limited,EQ,INE264T01014,Industrials,Engineering & Construction
-CAPILLARY,Capillary Technologies India Limited,EQ,INE0ILV01024,Unknown,Unknown
+CAPILLARY,Capillary Technologies India Limited,EQ,INE0ILV01024,Technology,Software - Application
 CAPITALSFB,Capital Small Finance Bank Limited,EQ,INE646H01017,Financial Services,Banks - Regional
 CAPLIPOINT,Caplin Point Laboratories Limited,EQ,INE475E01026,Healthcare,Drug Manufacturers - Specialty & Generic
 CARBORUNIV,Carborundum Universal Limited,EQ,INE120A01034,Industrials,Conglomerates
@@ -429,10 +429,10 @@ CLEANMAX,Clean Max Enviro Energy Solutions Limited,EQ,INE647U01026,Utilities,Uti
 CLSEL,Chaman Lal Setia Exports Limited,EQ,INE419D01026,Consumer Defensive,Packaged Foods
 CMLL,Caliber Mining and Logistics Limited,EQ,INE11XY01018,Unknown,Unknown
 CMPDI,Central Mine Planning & Design Institute Limited,EQ,INE05HV01027,Basic Materials,Other Industrial Metals & Mining
-CMRGREEN,CMR Green Technologies Limited,EQ,INE00WV01027,Unknown,Unknown
+CMRGREEN,CMR Green Technologies Limited,EQ,INE00WV01027,Basic Materials,Aluminum
 CMSINFO,CMS Info Systems Limited,EQ,INE925R01014,Industrials,Specialty Business Services
 CNL,Creative Newtech Limited,EQ,INE985W01018,Technology,Electronics & Computer Distribution
-COALINDIA,Coal India Limited,EQ,INE522F01014,Energy,Thermal Coal
+COALINDIA,Coal India Limited,EQ,INE522F01014,Unknown,Unknown
 COASTCORP,Coastal Corporation Limited,EQ,INE377E01024,Consumer Defensive,Packaged Foods
 COCHINSHIP,Cochin Shipyard Limited,EQ,INE704P01025,Industrials,Aerospace & Defense
 COCKERILL,John Cockerill India Limited,EQ,INE515A01019,Industrials,Metal Fabrication
@@ -449,12 +449,12 @@ CONFIPET,Confidence Petroleum India Limited,EQ,INE552D01024,Energy,Oil & Gas Ref
 CONTROLPR,Control Print Limited,EQ,INE663B01015,Industrials,Business Equipment & Supplies
 CORALFINAC,Coral India Finance & Housing Limited,EQ,INE558D01021,Real Estate,Real Estate Services
 CORDELIA,Waterways Leisure Tourism Limited,EQ,INE0LZF01039,Unknown,Unknown
-CORDSCABLE,Cords Cable Industries Limited,EQ,INE792I01017,Unknown,Unknown
+CORDSCABLE,Cords Cable Industries Limited,EQ,INE792I01017,Industrials,Electrical Equipment & Parts
 COROMANDEL,Coromandel International Limited,EQ,INE169A01031,Basic Materials,Agricultural Inputs
 CORONA,CORONA Remedies Limited,EQ,INE02ZQ01018,Healthcare,Drug Manufacturers - General
 COSMOFIRST,COSMO FIRST LIMITED,EQ,INE757A01017,Consumer Cyclical,Packaging & Containers
 CPCAP,CP Capital Limited,EQ,INE521J01018,Financial Services,Credit Services
-CPEDU,Career Point Edutech Limited,EQ,INE0P6P01016,Consumer Defensive,Education & Training Services
+CPEDU,Career Point Edutech Limited,EQ,INE0P6P01016,Unknown,Unknown
 CPL,Captain Polyplast Limited,EQ,INE536P01021,Unknown,Unknown
 CPPLUS,Aditya Infotech Limited,EQ,INE819V01029,Industrials,Building Products & Equipment
 CRAFTSMAN,Craftsman Automation Limited,EQ,INE00LO01017,Consumer Cyclical,Auto Parts
@@ -490,8 +490,8 @@ DAVANGERE,Davangere Sugar Company Limited,EQ,INE179G01029,Consumer Defensive,Con
 DBCORP,D.B.Corp Limited,EQ,INE950I01011,Communication Services,Publishing
 DBL,Dilip Buildcon Limited,EQ,INE917M01012,Industrials,Engineering & Construction
 DBOL,Dhampur Bio Organics Limited,EQ,INE0I3401014,Consumer Defensive,Farm Products
-DBREALTY,Valor Estate Limited,EQ,INE879I01012,Real Estate,Real Estate - Development
-DCAL,Dishman Carbogen Amcis Limited,EQ,INE385W01011,Healthcare,Biotechnology
+DBREALTY,Valor Estate Limited,EQ,INE879I01012,Unknown,Unknown
+DCAL,Dishman Carbogen Amcis Limited,EQ,INE385W01011,Unknown,Unknown
 DCBBANK,DCB Bank Limited,EQ,INE503A01015,Financial Services,Banks - Regional
 DCI,Dc Infotech And Communication Limited,EQ,INE0A1101019,Technology,Electronics & Computer Distribution
 DCMFINSERV,DCM Financial Services Limited,EQ,INE891B01012,Financial Services,Credit Services
@@ -512,12 +512,12 @@ DEEPINDS,Deep Industries Limited,EQ,INE0FHS01024,Energy,Oil & Gas E&P
 DELHIVERY,Delhivery Limited,EQ,INE148O01028,Industrials,Integrated Freight & Logistics
 DELTACORP,Delta Corp Limited,EQ,INE124G01033,Consumer Cyclical,Resorts & Casinos
 DELTAMAGNT,Delta Manufacturing Limited,EQ,INE393A01011,Consumer Cyclical,Textile Manufacturing
-DEN,Den Networks Limited,EQ,INE947J01015,Communication Services,Entertainment
+DEN,Den Networks Limited,EQ,INE947J01015,Unknown,Unknown
 DENORA,De Nora India Limited,EQ,INE244A01016,Industrials,Electrical Equipment & Parts
-DENTA,Denta Water and Infra Solutions Limited,EQ,INE0R4L01018,Unknown,Unknown
+DENTA,Denta Water and Infra Solutions Limited,EQ,INE0R4L01018,Industrials,Engineering & Construction
 DEVIT,Dev Information Technology Limited,EQ,INE060X01034,Technology,Information Technology Services
 DEVX,Dev Accelerator Limited,EQ,INE0VOV01021,Real Estate,Real Estate Services
-DEVYANI,Devyani International Limited,EQ,INE872J01023,Consumer Cyclical,Restaurants
+DEVYANI,Devyani International Limited,EQ,INE872J01023,Unknown,Unknown
 DGCONTENT,Digicontent Limited,EQ,INE03JI01017,Communication Services,Internet Content & Information
 DHAMPURSUG,Dhampur Sugar Mills Limited,EQ,INE041A01016,Consumer Defensive,Confectioners
 DHANBANK,Dhanlaxmi Bank Limited,EQ,INE680A01011,Financial Services,Banks - Regional
@@ -570,7 +570,7 @@ EASTWEST,East West Freight Carriers Limited,EQ,INE595R01023,Unknown,Unknown
 EBGNG,GNG Electronics Limited,EQ,INE18JU01028,Technology,Computer Hardware
 ECLERX,eClerx Services Limited,EQ,INE738I01010,Technology,Information Technology Services
 ECORECO,Eco Recycling Limited,EQ,INE316A01038,Unknown,Unknown
-ECOSMOBLTY,Ecos (India) Mobility & Hospitality Limited,EQ,INE06HJ01020,Unknown,Unknown
+ECOSMOBLTY,Ecos (India) Mobility & Hospitality Limited,EQ,INE06HJ01020,Industrials,Rental & Leasing Services
 EDELWEISS,Edelweiss Financial Services Limited,EQ,INE532F01054,Financial Services,Financial Conglomerates
 EFCIL,EFC (I) Limited,EQ,INE886D01026,Real Estate,Real Estate Services
 EICHERMOT,Eicher Motors Limited,EQ,INE066A01021,Consumer Cyclical,Auto Manufacturers
@@ -588,13 +588,13 @@ ELECON,Elecon Engineering Company Limited,EQ,INE205B01031,Industrials,Specialty 
 ELECTCAST,Electrosteel Castings Limited,EQ,INE086A01029,Industrials,Building Products & Equipment
 ELECTHERM,Electrotherm (India) Limited,EQ,INE822G01016,Basic Materials,Steel
 ELGIEQUIP,Elgi Equipments Limited,EQ,INE285A01027,Industrials,Specialty Industrial Machinery
-ELGIRUBCO,Elgi Rubber Company Limited,EQ,INE819L01012,Consumer Cyclical,Auto Parts
+ELGIRUBCO,Elgi Rubber Company Limited,EQ,INE819L01012,Unknown,Unknown
 ELIN,Elin Electronics Limited,EQ,INE050401020,Industrials,Electrical Equipment & Parts
 ELITECON,Elitecon International Limited,EQ,INE669R01026,Unknown,Unknown
 ELLEN,Ellenbarrie Industrial Gases Limited,EQ,INE236E01022,Basic Materials,Chemicals
 ELPROINTL,Elpro International Limited,EQ,INE579B01039,Unknown,Unknown
 EMAMILTD,Emami Limited,EQ,INE548C01032,Consumer Defensive,Household & Personal Products
-EMAMIREAL,Emami Realty Limited,EQ,INE778K01012,Real Estate,Real Estate - Development
+EMAMIREAL,Emami Realty Limited,EQ,INE778K01012,Unknown,Unknown
 EMBDL,Embassy Developments Limited,EQ,INE069I01010,Real Estate,Real Estate - Diversified
 EMCURE,Emcure Pharmaceuticals Limited,EQ,INE168P01015,Healthcare,Drug Manufacturers - Specialty & Generic
 EMIL,Electronics Mart India Limited,EQ,INE02YR01019,Consumer Cyclical,Specialty Retail
@@ -631,7 +631,7 @@ EUROPRATIK,Euro Pratik Sales Limited,EQ,INE198501012,Basic Materials,Building Ma
 EVEREADY,Eveready Industries India Limited,EQ,INE128A01029,Industrials,Electrical Equipment & Parts
 EXCELINDUS,Excel Industries Limited,EQ,INE369A01029,Basic Materials,Specialty Chemicals
 EXCELSOFT,Excelsoft Technologies Limited,EQ,INE606N01019,Technology,Software - Application
-EXICOM,Exicom Tele-Systems Limited,EQ,INE777F01014,Unknown,Unknown
+EXICOM,Exicom Tele-Systems Limited,EQ,INE777F01014,Industrials,Electrical Equipment & Parts
 EXIDEIND,Exide Industries Limited,EQ,INE302A01020,Consumer Cyclical,Auto Parts
 EXPLEOSOL,Expleo Solutions Limited,EQ,INE201K01015,Technology,Information Technology Services
 EXXARO,Exxaro Tiles Limited,EQ,INE0GFE01026,Industrials,Building Products & Equipment
@@ -656,12 +656,12 @@ FINOPB,Fino Payments Bank Limited,EQ,INE02NC01014,Financial Services,Banks - Reg
 FINPIPE,Finolex Industries Limited,EQ,INE183A01024,Industrials,Building Products & Equipment
 FIRSTCRY,Brainbees Solutions Limited,EQ,INE02RE01045,Consumer Cyclical,Internet Retail
 FISCHER,Fischer Medical Ventures Limited,EQ,INE771F01041,Healthcare,Medical Devices
-FIVESTAR,Five-Star Business Finance Limited,EQ,INE128S01021,Financial Services,Credit Services
+FIVESTAR,Five-Star Business Finance Limited,EQ,INE128S01021,Unknown,Unknown
 FLAIR,Flair Writing Industries Limited,EQ,INE00Y201027,Industrials,Business Equipment & Supplies
 FLUOROCHEM,Gujarat Fluorochemicals Limited,EQ,INE09N301011,Basic Materials,Specialty Chemicals
 FMGOETZE,Federal-Mogul Goetze (India) Limited.,EQ,INE529A01010,Consumer Cyclical,Auto Parts
 FMNL,Future Market Networks Limited,EQ,INE360L01017,Real Estate,Real Estate Services
-FOODSIN,Foods & Inns Limited,EQ,INE976E01023,Unknown,Unknown
+FOODSIN,Foods & Inns Limited,EQ,INE976E01023,Consumer Defensive,Packaged Foods
 FORCEMOT,FORCE MOTORS LTD,EQ,INE451A01017,Consumer Cyclical,Auto Manufacturers
 FORTIS,Fortis Healthcare Limited,EQ,INE061F01013,Healthcare,Medical Care Facilities
 FOSECOIND,Foseco India Limited,EQ,INE519A01011,Basic Materials,Chemicals
@@ -688,12 +688,12 @@ GARFIBRES,Garware Technical Fibres Limited,EQ,INE276A01018,Consumer Cyclical,Tex
 GARUDA,Garuda Construction and Engineering Limited,EQ,INE0JVO01026,Industrials,Engineering & Construction
 GATEWAY,Gateway Distriparks Limited,EQ,INE079J01017,Industrials,Integrated Freight & Logistics
 GAYAHWS,Gayatri Highways Limited,EQ,INE287Z01012,Industrials,Infrastructure Operations
-GAYAPROJ,Gayatri Projects Limited,EQ,INE336H01023,Unknown,Unknown
+GAYAPROJ,Gayatri Projects Limited,EQ,INE336H01023,Industrials,Engineering & Construction
 GCSL,Gretex Corporate Services Limited,EQ,INE199P01028,Financial Services,Capital Markets
 GEEKAYWIRE,Geekay Wires Limited,EQ,INE669X01032,Industrials,Electrical Equipment & Parts
 GEMAROMA,Gem Aromatics Limited,EQ,INE06XZ01023,Basic Materials,Chemicals
 GENCON,Generic Engineering Construction and Projects Limited,EQ,INE854S01022,Industrials,Engineering & Construction
-GENESYS,Genesys International Corporation Limited,EQ,INE727B01026,Unknown,Unknown
+GENESYS,Genesys International Corporation Limited,EQ,INE727B01026,Technology,Software - Application
 GENUSPAPER,Genus Paper & Boards Limited,EQ,INE949P01018,Basic Materials,Paper & Paper Products
 GENUSPOWER,Genus Power Infrastructures Limited,EQ,INE955D01029,Industrials,Electrical Equipment & Parts
 GEOJITFSL,Geojit Financial Services Limited,EQ,INE007B01023,Financial Services,Capital Markets
@@ -701,7 +701,7 @@ GESHIP,The Great Eastern Shipping Company Limited,EQ,INE017A01032,Industrials,Ma
 GFLLIMITED,GFL Limited,EQ,INE538A01037,Financial Services,Asset Management
 GHCL,GHCL Limited,EQ,INE539A01019,Basic Materials,Chemicals
 GHCLTEXTIL,GHCL Textiles Limited,EQ,INE0PA801013,Consumer Cyclical,Textile Manufacturing
-GICHSGFIN,GIC Housing Finance Limited,EQ,INE289B01019,Financial Services,Mortgage Finance
+GICHSGFIN,GIC Housing Finance Limited,EQ,INE289B01019,Unknown,Unknown
 GICL,Globe International Carriers Limited,EQ,INE947T01022,Industrials,Integrated Freight & Logistics
 GICRE,General Insurance Corporation of India,EQ,INE481Y01014,Financial Services,Insurance - Reinsurance
 GILLANDERS,Gillanders Arbuthnot & Company Limited,EQ,INE047B01011,Consumer Defensive,Farm Products
@@ -723,7 +723,7 @@ GLOBECIVIL,Globe Civil Projects Limited,EQ,INE0V3U01015,Industrials,Engineering 
 GLOBUSSPR,Globus Spirits Limited,EQ,INE615I01010,Consumer Defensive,Beverages - Wineries & Distilleries
 GLOSTERLTD,Gloster Limited,EQ,INE350Z01018,Consumer Cyclical,Textile Manufacturing
 GLOTTIS,Glottis Limited,EQ,INE0TQE01026,Industrials,Integrated Freight & Logistics
-GMBREW,GM Breweries Limited,EQ,INE075D01018,Consumer Defensive,Beverages - Wineries & Distilleries
+GMBREW,GM Breweries Limited,EQ,INE075D01018,Unknown,Unknown
 GMDCLTD,Gujarat Mineral Development Corporation Limited,EQ,INE131A01031,Energy,Thermal Coal
 GMMPFAUDLR,GMM Pfaudler Limited,EQ,INE541A01023,Industrials,Specialty Industrial Machinery
 GMRAIRPORT,GMR AIRPORTS LIMITED,EQ,INE776C01039,Industrials,Airports & Air Services
@@ -732,7 +732,7 @@ GNA,GNA Axles Limited,EQ,INE934S01014,Consumer Cyclical,Auto Parts
 GNFC,Gujarat Narmada Valley Fertilizers and Chemicals Limited,EQ,INE113A01013,Basic Materials,Chemicals
 GNRL,Gujarat Natural Resources Limited,EQ,INE207H01018,Unknown,Unknown
 GOACARBON,Goa Carbon Limited,EQ,INE426D01013,Basic Materials,Specialty Chemicals
-GOCLCORP,GOCL Corporation Limited,EQ,INE077F01035,Unknown,Unknown
+GOCLCORP,GOCL Corporation Limited,EQ,INE077F01035,Basic Materials,Specialty Chemicals
 GOCOLORS,Go Fashion (India) Limited,EQ,INE0BJS01011,Consumer Cyclical,Apparel Retail
 GODAVARIB,Godavari Biorefineries Limited,EQ,INE497S01012,Basic Materials,Chemicals
 GODFRYPHLP,Godfrey Phillips India Limited,EQ,INE260B01028,Consumer Defensive,Tobacco
@@ -746,9 +746,9 @@ GOKUL,Gokul Refoils and Solvent Limited,EQ,INE020J01029,Consumer Defensive,Packa
 GOKULAGRO,Gokul Agro Resources Limited,EQ,INE314T01033,Consumer Defensive,Packaged Foods
 GOLDIAM,Goldiam International Limited,EQ,INE025B01025,Consumer Cyclical,Luxury Goods
 GOODLUCK,Goodluck India Limited,EQ,INE127I01024,Basic Materials,Steel
-GOODYEAR,Goodyear India Limited,EQ,INE533A01012,Consumer Cyclical,Auto Parts
+GOODYEAR,Goodyear India Limited,EQ,INE533A01012,Unknown,Unknown
 GOPAL,Gopal Snacks Limited,EQ,INE0L9R01028,Consumer Defensive,Packaged Foods
-GOYALALUM,Goyal Aluminiums Limited,EQ,INE705X01026,Unknown,Unknown
+GOYALALUM,Goyal Aluminiums Limited,EQ,INE705X01026,Basic Materials,Aluminum
 GPIL,Godawari Power And Ispat limited,EQ,INE177H01039,Basic Materials,Steel
 GPPL,Gujarat Pipavav Port Limited,EQ,INE517F01014,Industrials,Marine Shipping
 GPTHEALTH,GPT Healthcare Limited,EQ,INE486R01017,Healthcare,Medical Care Facilities
@@ -762,7 +762,7 @@ GRAUWEIL,Grauer & Weil India Limited,EQ,INE266D01021,Basic Materials,Specialty C
 GRAVISSHO,Graviss Hospitality Limited,EQ,INE214F01026,Unknown,Unknown
 GRAVITA,Gravita India Limited,EQ,INE024L01027,Industrials,Metal Fabrication
 GREAVESCOT,Greaves Cotton Limited,EQ,INE224A01026,Industrials,Specialty Industrial Machinery
-GREENLAM,Greenlam Industries Limited,EQ,INE544R01021,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
+GREENLAM,Greenlam Industries Limited,EQ,INE544R01021,Basic Materials,Lumber & Wood Production
 GREENPANEL,Greenpanel Industries Limited,EQ,INE08ZM01014,Basic Materials,Lumber & Wood Production
 GREENPLY,Greenply Industries Limited,EQ,INE461C01038,Basic Materials,Lumber & Wood Production
 GREENPOWER,Orient Green Power Company Limited,EQ,INE999K01014,Utilities,Utilities - Independent Power Producers
@@ -774,7 +774,7 @@ GROWW,Billionbrains Garage Ventures Limited,EQ,INE0HOQ01053,Financial Services,C
 GRPLTD,GRP Limited,EQ,INE137I01015,Consumer Cyclical,Auto Parts
 GRSE,Garden Reach Shipbuilders & Engineers Limited,EQ,INE382Z01011,Industrials,Aerospace & Defense
 GRWRHITECH,Garware Hi-Tech Films Limited,EQ,INE291A01017,Basic Materials,Specialty Chemicals
-GSFC,Gujarat State Fertilizers & Chemicals Limited,EQ,INE026A01025,Basic Materials,Agricultural Inputs
+GSFC,Gujarat State Fertilizers & Chemicals Limited,EQ,INE026A01025,Unknown,Unknown
 GSLSU,Global Surfaces Limited,EQ,INE0JSX01015,Basic Materials,Building Materials
 GSPCROP,GSP Crop Science Limited,EQ,INE713R01022,Basic Materials,Agricultural Inputs
 GSS,GSS Infotech Limited,EQ,INE871H01011,Technology,Information Technology Services
@@ -789,7 +789,7 @@ GUJRAFFIA,Gujarat Raffia Industries Limited,EQ,INE610B01024,Unknown,Unknown
 GUJTHEM,Gujarat Themis Biosyn Limited,EQ,INE942C01045,Healthcare,Drug Manufacturers - Specialty & Generic
 GULFOILLUB,Gulf Oil Lubricants India Limited,EQ,INE635Q01029,Basic Materials,Specialty Chemicals
 GULPOLY,Gulshan Polyols Limited,EQ,INE255D01024,Basic Materials,Chemicals
-GVPIL,GE Power India Limited,EQ,INE878A01011,Industrials,Engineering & Construction
+GVPIL,GE Power India Limited,EQ,INE878A01011,Unknown,Unknown
 GVT&D,GE Vernova T&D India Limited,EQ,INE200A01026,Industrials,Specialty Industrial Machinery
 GYFTR,Gyftr Limited,EQ,INE724A01017,Unknown,Unknown
 HAL,Hindustan Aeronautics Limited,EQ,INE066F01020,Industrials,Aerospace & Defense
@@ -811,7 +811,7 @@ HAZOOR,Hazoor Multi Projects Limited,EQ,INE550F01049,Unknown,Unknown
 HBESD,HB Estate Developers Limited,EQ,INE640B01021,Unknown,Unknown
 HBLENGINE,HBL Engineering Limited,EQ,INE292B01021,Industrials,Electrical Equipment & Parts
 HBPOR,HB Portfolio Limited,EQ,INE638B01025,Unknown,Unknown
-HBSL,HB Stockholdings Limited,EQ,INE550B01022,Unknown,Unknown
+HBSL,HB Stockholdings Limited,EQ,INE550B01022,Financial Services,Capital Markets
 HCC,Hindustan Construction Company Limited,EQ,INE549A01026,Industrials,Engineering & Construction
 HCG,Healthcare Global Enterprises Limited,EQ,INE075I01017,Healthcare,Medical Care Facilities
 HCL-INSYS,HCL Infosystems Limited,EQ,INE236A01020,Technology,Electronics & Computer Distribution
@@ -867,8 +867,8 @@ HPIL,Hindprakash Industries Limited,EQ,INE05X901010,Basic Materials,Specialty Ch
 HPL,HPL Electric & Power Limited,EQ,INE495S01016,Industrials,Electrical Equipment & Parts
 HRYNSHP,Hariyana Ship Breakers Limited,EQ,INE400G01011,Unknown,Unknown
 HSCL,Himadri Speciality Chemical Limited,EQ,INE019C01026,Basic Materials,Specialty Chemicals
-HTMEDIA,HT Media Limited,EQ,INE501G01024,Communication Services,Publishing
-HUBTOWN,Hubtown Limited,EQ,INE703H01016,Real Estate,Real Estate - Development
+HTMEDIA,HT Media Limited,EQ,INE501G01024,Unknown,Unknown
+HUBTOWN,Hubtown Limited,EQ,INE703H01016,Unknown,Unknown
 HUDCO,Housing & Urban Development Corporation Limited,EQ,INE031A01017,Financial Services,Credit Services
 HUHTAMAKI,Huhtamaki India Limited,EQ,INE275B01026,Consumer Cyclical,Packaging & Containers
 HYUNDAI,Hyundai Motor India Limited,EQ,INE0V6F01027,Consumer Cyclical,Auto Manufacturers
@@ -897,7 +897,7 @@ IGL,Indraprastha Gas Limited,EQ,INE203G01027,Utilities,Utilities - Regulated Gas
 IGPL,IG Petrochemicals Limited,EQ,INE204A01010,Basic Materials,Chemicals
 IIFL,IIFL Finance Limited,EQ,INE530B01024,Financial Services,Credit Services
 IIFLCAPS,IIFL Capital Services Limited,EQ,INE489L01022,Financial Services,Capital Markets
-IITL,Industrial Investment Trust Limited,EQ,INE886A01014,Financial Services,Credit Services
+IITL,Industrial Investment Trust Limited,EQ,INE886A01014,Unknown,Unknown
 IKIO,IKIO Technologies Limited,EQ,INE0LOJ01019,Technology,Electronic Components
 IKS,Inventurus Knowledge Solutions Limited,EQ,INE115Q01022,Healthcare,Health Information Services
 IMAGICAA,Imagicaaworld Entertainment Limited,EQ,INE172N01012,Communication Services,Entertainment
@@ -905,19 +905,19 @@ IMFA,Indian Metals & Ferro Alloys Limited,EQ,INE919H01018,Basic Materials,Other 
 IMPAL,India Motor Parts and Accessories Limited,EQ,INE547E01014,Consumer Cyclical,Auto Parts
 INA,Insolation Energy Limited,EQ,INE0LGX01024,Technology,Solar
 INCREDIBLE,INCREDIBLE INDUSTRIES LIMITED,EQ,INE452L01012,Basic Materials,Steel
-INDBANK,Indbank Merchant Banking Services Limited,EQ,INE841B01017,Unknown,Unknown
+INDBANK,Indbank Merchant Banking Services Limited,EQ,INE841B01017,Financial Services,Capital Markets
 INDGN,Indegene Limited,EQ,INE065X01017,Healthcare,Health Information Services
 INDHOTEL,The Indian Hotels Company Limited,EQ,INE053A01029,Consumer Cyclical,Lodging
 INDIACEM,The India Cements Limited,EQ,INE383A01012,Basic Materials,Building Materials
-INDIAMART,Indiamart Intermesh Limited,EQ,INE933S01016,Communication Services,Internet Content & Information
+INDIAMART,Indiamart Intermesh Limited,EQ,INE933S01016,Consumer Cyclical,Internet Retail
 INDIANB,Indian Bank,EQ,INE562A01011,Financial Services,Banks - Regional
 INDIANCARD,Indian Card Clothing Company Limited,EQ,INE061A01014,Consumer Cyclical,Textile Manufacturing
 INDIANHUME,Indian Hume Pipe Company Limited,EQ,INE323C01030,Industrials,Engineering & Construction
-INDIASHLTR,India Shelter Finance Corporation Limited,EQ,INE922K01024,Unknown,Unknown
+INDIASHLTR,India Shelter Finance Corporation Limited,EQ,INE922K01024,Financial Services,Mortgage Finance
 INDIGO,InterGlobe Aviation Limited,EQ,INE646L01027,Industrials,Airlines
 INDIGOPNTS,Indigo Paints Limited,EQ,INE09VQ01012,Basic Materials,Specialty Chemicals
 INDIQUBE,Indiqube Spaces Limited,EQ,INE06ST01018,Real Estate,Real Estate Services
-INDNIPPON,India Nippon Electricals Limited,EQ,INE092B01025,Unknown,Unknown
+INDNIPPON,India Nippon Electricals Limited,EQ,INE092B01025,Consumer Cyclical,Auto Parts
 INDOBORAX,Indo Borax & Chemicals Limited,EQ,INE803D01021,Basic Materials,Chemicals
 INDOCO,Indoco Remedies Limited,EQ,INE873D01024,Healthcare,Drug Manufacturers - Specialty & Generic
 INDOFARM,Indo Farm Equipment Limited,EQ,INE622H01018,Industrials,Farm & Heavy Construction Machinery
@@ -946,7 +946,7 @@ INOXGREEN,Inox Green Energy Services Limited,EQ,INE510W01014,Utilities,Utilities
 INOXINDIA,INOX India Limited,EQ,INE616N01034,Industrials,Specialty Industrial Machinery
 INOXWIND,Inox Wind Limited,EQ,INE066P01011,Industrials,Specialty Industrial Machinery
 INSECTICID,Insecticides (India) Limited,EQ,INE070I01018,Basic Materials,Agricultural Inputs
-INSPIRISYS,Inspirisys Solutions Limited,EQ,INE020G01017,Unknown,Unknown
+INSPIRISYS,Inspirisys Solutions Limited,EQ,INE020G01017,Technology,Information Technology Services
 INTELLECT,Intellect Design Arena Limited,EQ,INE306R01017,Technology,Software - Application
 INTENTECH,Intense Technologies Limited,EQ,INE781A01025,Technology,Software - Infrastructure
 INTERARCH,Interarch Building Solutions Limited,EQ,INE00M901018,Industrials,Engineering & Construction
@@ -961,7 +961,7 @@ IPL,India Pesticides Limited,EQ,INE0D6701023,Basic Materials,Agricultural Inputs
 IPRINGLTD,IP Rings Limited,EQ,INE558A01019,Unknown,Unknown
 IRB,IRB Infrastructure Developers Limited,EQ,INE821I01022,Industrials,Infrastructure Operations
 IRCON,Ircon International Limited,EQ,INE962Y01021,Industrials,Engineering & Construction
-IRCTC,Indian Railway Catering And Tourism Corporation Limited,EQ,INE335Y01020,Consumer Cyclical,Travel Services
+IRCTC,Indian Railway Catering And Tourism Corporation Limited,EQ,INE335Y01020,Unknown,Unknown
 IREDA,Indian Renewable Energy Development Agency Limited,EQ,INE202E01016,Financial Services,Credit Services
 IRFC,Indian Railway Finance Corporation Limited,EQ,INE053F01010,Financial Services,Credit Services
 IRIS,IRIS RegTech Solutions Limited,EQ,INE864K01010,Technology,Software - Application
@@ -987,15 +987,15 @@ JAGSNPHARM,Jagsonpal Pharmaceuticals Limited,EQ,INE048B01035,Healthcare,Drug Man
 JAIBALAJI,Jai Balaji Industries Limited,EQ,INE091G01026,Basic Materials,Steel
 JAICORPLTD,Jai Corp Limited,EQ,INE070D01027,Basic Materials,Specialty Chemicals
 JAINREC,Jain Resource Recycling Limited,EQ,INE0YD401026,Basic Materials,Other Industrial Metals & Mining
-JAIPURKURT,Nandani Creation Limited,EQ,INE696V01013,Consumer Cyclical,Apparel Manufacturing
+JAIPURKURT,Nandani Creation Limited,EQ,INE696V01013,Unknown,Unknown
 JAMNAAUTO,Jamna Auto Industries Limited,EQ,INE039C01032,Consumer Cyclical,Auto Parts
 JARO,Jaro Institute of Technology Management and Research Limited,EQ,INE00YJ01010,Consumer Defensive,Education & Training Services
 JASH,Jash Engineering Limited,EQ,INE039O01029,Industrials,Specialty Industrial Machinery
 JAYAGROGN,Jayant Agro Organics Limited,EQ,INE785A01026,Basic Materials,Specialty Chemicals
-JAYBARMARU,Jay Bharat Maruti Limited,EQ,INE571B01036,Unknown,Unknown
+JAYBARMARU,Jay Bharat Maruti Limited,EQ,INE571B01036,Consumer Cyclical,Auto Parts
 JAYKAY,Jaykay Enterprises Limited,EQ,INE903A01025,Industrials,Specialty Business Services
 JAYNECOIND,Jayaswal Neco Industries Limited,EQ,INE854B01010,Basic Materials,Steel
-JAYSREETEA,Jayshree Tea & Industries Limited,EQ,INE364A01020,Unknown,Unknown
+JAYSREETEA,Jayshree Tea & Industries Limited,EQ,INE364A01020,Consumer Defensive,Farm Products
 JBMA,JBM Auto Limited,EQ,INE927D01051,Consumer Cyclical,Auto Parts
 JENBURPH,Jenburkt Pharmaceuticals Limited,EQ,INE354A01013,Unknown,Unknown
 JETFREIGHT,Jet Freight Logistics Limited,EQ,INE982V01025,Industrials,Integrated Freight & Logistics
@@ -1013,13 +1013,13 @@ JISLJALEQS,Jain Irrigation Systems Limited,EQ,INE175A01038,Industrials,Conglomer
 JITFINFRA,JITF Infralogistics Limited,EQ,INE863T01013,Industrials,Engineering & Construction
 JKCEMENT,JK Cement Limited,EQ,INE823G01014,Basic Materials,Building Materials
 JKIL,J.Kumar Infraprojects Limited,EQ,INE576I01022,Industrials,Engineering & Construction
-JKIPL,Jinkushal Industries Limited,EQ,INE1FF001016,Industrials,Farm & Heavy Construction Machinery
+JKIPL,Jinkushal Industries Limited,EQ,INE1FF001016,Industrials,Industrial Distribution
 JKLAKSHMI,JK Lakshmi Cement Limited,EQ,INE786A01032,Basic Materials,Building Materials
 JKPAPER,JK Paper Limited,EQ,INE789E01012,Basic Materials,Paper & Paper Products
 JKTYRE,JK Tyre & Industries Limited,EQ,INE573A01042,Consumer Cyclical,Auto Parts
 JLHL,Jupiter Life Line Hospitals Limited,EQ,INE682M01020,Healthcare,Medical Care Facilities
 JMA,Jullundur Motor Agency (Delhi) Limited,EQ,INE412C01023,Consumer Cyclical,Auto Parts
-JMFINANCIL,JM Financial Limited,EQ,INE780C01023,Unknown,Unknown
+JMFINANCIL,JM Financial Limited,EQ,INE780C01023,Financial Services,Capital Markets
 JNKINDIA,JNK India Limited,EQ,INE0OAF01028,Industrials,Specialty Industrial Machinery
 JNPR,Juniper Green Energy Limited,EQ,INE05C901015,Unknown,Unknown
 JPOLYINVST,Jindal Poly Investment and Finance Company Limited,EQ,INE147P01019,Financial Services,Asset Management
@@ -1030,14 +1030,14 @@ JSLL,Jeena Sikho Lifecare Limited,EQ,INE0J5801029,Healthcare,Medical Care Facili
 JSWCEMENT,JSW Cement Limited,EQ,INE718I01012,Basic Materials,Building Materials
 JSWDULUX,JSW Dulux Limited,EQ,INE133A01011,Unknown,Unknown
 JSWENERGY,JSW Energy Limited,EQ,INE121E01018,Utilities,Utilities - Independent Power Producers
-JSWHL,JSW Holdings Limited,EQ,INE824G01012,Financial Services,Asset Management
+JSWHL,JSW Holdings Limited,EQ,INE824G01012,Unknown,Unknown
 JSWINFRA,JSW Infrastructure Limited,EQ,INE880J01026,Industrials,Marine Shipping
 JSWSTEEL,JSW Steel Limited,EQ,INE019A01038,Basic Materials,Steel
 JTEKTINDIA,Jtekt India Limited,EQ,INE643A01035,Consumer Cyclical,Auto Parts
 JTLIND,JTL INDUSTRIES LIMITED,EQ,INE391J01032,Basic Materials,Steel
 JUBLCPL,Jubilant Agri and Consumer Products Limited,EQ,INE03CC01015,Basic Materials,Specialty Chemicals
 JUBLFOOD,Jubilant Foodworks Limited,EQ,INE797F01020,Consumer Cyclical,Restaurants
-JUBLINGREA,Jubilant Ingrevia Limited,EQ,INE0BY001018,Unknown,Unknown
+JUBLINGREA,Jubilant Ingrevia Limited,EQ,INE0BY001018,Basic Materials,Specialty Chemicals
 JUBLPHARMA,Jubilant Pharmova Limited,EQ,INE700A01033,Healthcare,Drug Manufacturers - Specialty & Generic
 JUNIPER,Juniper Hotels Limited,EQ,INE696F01016,Consumer Cyclical,Lodging
 JUSTDIAL,Just Dial Limited,EQ,INE599M01018,Communication Services,Internet Content & Information
@@ -1050,7 +1050,7 @@ KABRAEXTRU,Kabra Extrusion Technik Limited,EQ,INE900B01029,Industrials,Specialty
 KAJARIACER,Kajaria Ceramics Limited,EQ,INE217B01036,Industrials,Building Products & Equipment
 KAKATCEM,Kakatiya Cement Sugar & Industries Limited,EQ,INE437B01014,Basic Materials,Building Materials
 KALAMANDIR,Sai Silks (Kalamandir) Limited,EQ,INE438K01021,Consumer Cyclical,Apparel Retail
-KALPATARU,Kalpataru Limited,EQ,INE227J01012,Real Estate,Real Estate - Development
+KALPATARU,Kalpataru Limited,EQ,INE227J01012,Unknown,Unknown
 KALYANKJIL,Kalyan Jewellers India Limited,EQ,INE303R01014,Consumer Cyclical,Luxury Goods
 KAMAHOLD,Kama Holdings Limited,EQ,INE411F01010,Unknown,Unknown
 KAMANWALA,Kamanwala Housing Construction Limited,EQ,INE344D01018,Unknown,Unknown
@@ -1065,8 +1065,8 @@ KAPSTON,Kapston Services Limited,EQ,INE542Z01028,Industrials,Specialty Business 
 KARMAENG,Karma Energy Limited,EQ,INE725L01011,Utilities,Utilities - Renewable
 KARURVYSYA,Karur Vysya Bank Limited,EQ,INE036D01028,Financial Services,Banks - Regional
 KAVDEFENCE,Kavveri Defence & Wireless Technologies Limited,EQ,INE641C01019,Technology,Communication Equipment
-KAYNES,Kaynes Technology India Limited,EQ,INE918Z01012,Technology,Electronic Components
-KCP,KCP Limited,EQ,INE805C01028,Basic Materials,Building Materials
+KAYNES,Kaynes Technology India Limited,EQ,INE918Z01012,Unknown,Unknown
+KCP,KCP Limited,EQ,INE805C01028,Unknown,Unknown
 KDDL,KDDL Limited,EQ,INE291D01011,Consumer Cyclical,Luxury Goods
 KDGREEN,KD Green Industries Limited,EQ,INE348N01042,Unknown,Unknown
 KEC,KEC International Limited,EQ,INE389H01022,Industrials,Engineering & Construction
@@ -1075,14 +1075,14 @@ KEEPLEARN,DSJ Keep Learning Limited,EQ,INE055C01020,Consumer Defensive,Education
 KEI,KEI Industries Limited,EQ,INE878B01027,Industrials,Electrical Equipment & Parts
 KELLTONTEC,Kellton Tech Solutions Limited,EQ,INE164B01030,Technology,Software - Application
 KENNAMET,Kennametal India Limited,EQ,INE717A01029,Industrials,Tools & Accessories
-KERNEX,Kernex Microsystems (India) Limited,EQ,INE202H01019,Technology,Software - Application
+KERNEX,Kernex Microsystems (India) Limited,EQ,INE202H01019,Unknown,Unknown
 KEYFINSERV,Keynote Financial Services Limited,EQ,INE681C01015,Financial Services,Capital Markets
 KFINTECH,Kfin Technologies Limited,EQ,INE138Y01010,Technology,Software - Application
 KHAICHEM,Khaitan Chemicals & Fertilizers Limited,EQ,INE745B01028,Basic Materials,Agricultural Inputs
 KHAITANLTD,Khaitan (India) Limited,EQ,INE731C01018,Industrials,Industrial Distribution
 KHANDSE,Khandwala Securities Limited,EQ,INE060B01014,Financial Services,Capital Markets
 KICL,Kalyani Investment Company Limited,EQ,INE029L01018,Financial Services,Asset Management
-KIMS,Krishna Institute of Medical Sciences Limited,EQ,INE967H01025,Unknown,Unknown
+KIMS,Krishna Institute of Medical Sciences Limited,EQ,INE967H01025,Healthcare,Medical Care Facilities
 KINGFA,Kingfa Science & Technology (India) Limited,EQ,INE473D01015,Basic Materials,Specialty Chemicals
 KIOCL,KIOCL Limited,EQ,INE880L01014,Basic Materials,Steel
 KIRANVYPAR,Kiran Vyapar Limited,EQ,INE555P01013,Unknown,Unknown
@@ -1106,7 +1106,7 @@ KNRCON,KNR Constructions Limited,EQ,INE634I01029,Industrials,Engineering & Const
 KOHINOOR,Kohinoor Foods Limited,EQ,INE080B01012,Consumer Defensive,Packaged Foods
 KOKUYOCMLN,Kokuyo Camlin Limited,EQ,INE760A01029,Industrials,Business Equipment & Supplies
 KOLTEPATIL,Kolte - Patil Developers Limited,EQ,INE094I01018,Real Estate,Real Estate - Development
-KOPRAN,Kopran Limited,EQ,INE082A01010,Unknown,Unknown
+KOPRAN,Kopran Limited,EQ,INE082A01010,Healthcare,Drug Manufacturers - General
 KOTAKBANK,Kotak Mahindra Bank Limited,EQ,INE237A01036,Financial Services,Banks - Regional
 KOTHARIPET,Kothari Petrochemicals Limited,EQ,INE720A01015,Basic Materials,Specialty Chemicals
 KOTHARIPRO,Kothari Products Limited,EQ,INE823A01017,Industrials,Conglomerates
@@ -1115,7 +1115,7 @@ KOVAI,Kovai Medical Center & Hospital Limited,EQ,INE177F01017,Healthcare,Medical
 KPEL,K.P. Energy Limited,EQ,INE127T01021,Industrials,Engineering & Construction
 KPIGREEN,KPI Green Energy Limited,EQ,INE542W01025,Utilities,Utilities - Renewable
 KPIL,Kalpataru Projects International Limited,EQ,INE220B01022,Industrials,Engineering & Construction
-KPITTECH,KPIT Technologies Limited,EQ,INE04I401011,Technology,Software - Infrastructure
+KPITTECH,KPIT Technologies Limited,EQ,INE04I401011,Unknown,Unknown
 KPL,Kwality Pharmaceuticals Limited,EQ,INE552U01010,Unknown,Unknown
 KPRMILL,K.P.R. Mill Limited,EQ,INE930H01031,Consumer Cyclical,Textile Manufacturing
 KRBL,KRBL Limited,EQ,INE001B01026,Consumer Defensive,Packaged Foods
@@ -1124,7 +1124,7 @@ KRISHANA,Krishana Phoschem Limited,EQ,INE506W01020,Basic Materials,Agricultural 
 KRISHIVAL,Krishival Foods Limited,EQ,INE0GGO01015,Consumer Defensive,Packaged Foods
 KRISHNADEF,Krishna Defence And Allied Industries Limited,EQ,INE0J5601015,Industrials,Specialty Industrial Machinery
 KRITI,Kriti Industries (India) Limited,EQ,INE479D01038,Industrials,Building Products & Equipment
-KRITIKA,Kritika Wires Limited,EQ,INE00Z501029,Basic Materials,Steel
+KRITIKA,Kritika Wires Limited,EQ,INE00Z501029,Unknown,Unknown
 KRITINUT,Kriti Nutrients Limited,EQ,INE798K01010,Consumer Defensive,Packaged Foods
 KRN,KRN Heat Exchanger and Refrigeration Limited,EQ,INE0Q3J01015,Technology,Electronic Components
 KROSS,Kross Limited,EQ,INE0O6601022,Consumer Cyclical,Auto Parts
@@ -1157,7 +1157,7 @@ LANDSMILL,Landsmill Green Limited,EQ,INE688J01023,Industrials,Conglomerates
 LAOPALA,La Opala RG Limited,EQ,INE059D01020,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 LASA,Lasa Supergenerics Limited,EQ,INE670X01014,Healthcare,Drug Manufacturers - Specialty & Generic
 LASERPOWER,Laser Power & Infra Limited,EQ,INE17IR01028,Unknown,Unknown
-LATENTVIEW,Latent View Analytics Limited,EQ,INE0I7C01011,Unknown,Unknown
+LATENTVIEW,Latent View Analytics Limited,EQ,INE0I7C01011,Industrials,Consulting Services
 LATTEYS,Latteys Industries Limited,EQ,INE262Z01023,Industrials,Specialty Industrial Machinery
 LAURUSLABS,Laurus Labs Limited,EQ,INE947Q01028,Healthcare,Drug Manufacturers - Specialty & Generic
 LAXMICOT,Laxmi Cotspin Limited,EQ,INE801V01019,Consumer Cyclical,Textile Manufacturing
@@ -1170,14 +1170,14 @@ LEMERITE,Le Merite Exports Limited,EQ,INE0G1L01025,Consumer Cyclical,Textile Man
 LEMONTREE,Lemon Tree Hotels Limited,EQ,INE970X01018,Consumer Cyclical,Lodging
 LENSKART,Lenskart Solutions Limited,EQ,INE956O01016,Healthcare,Medical Instruments & Supplies
 LEXUS,Lexus Granito (India) Limited,EQ,INE500X01013,Industrials,Building Products & Equipment
-LFIC,Lakshmi Finance & Industrial Corporation Limited,EQ,INE850E01012,Unknown,Unknown
+LFIC,Lakshmi Finance & Industrial Corporation Limited,EQ,INE850E01012,Financial Services,Asset Management
 LGBBROSLTD,LG Balakrishnan & Bros Limited,EQ,INE337A01034,Consumer Cyclical,Auto Parts
 LGEINDIA,LG Electronics India Limited,EQ,INE324D01010,Technology,Consumer Electronics
 LGHL,Laxmi Goldorna House Limited,EQ,INE258Y01016,Consumer Cyclical,Luxury Goods
 LIBAS,Libas Consumer Products Limited,EQ,INE908V01012,Consumer Cyclical,Apparel Manufacturing
 LIBERTSHOE,Liberty Shoes Limited,EQ,INE557B01019,Consumer Cyclical,Footwear & Accessories
 LICHSGFIN,LIC Housing Finance Limited,EQ,INE115A01026,Financial Services,Mortgage Finance
-LICI,Life Insurance Corporation Of India,EQ,INE0J1Y01017,Unknown,Unknown
+LICI,Life Insurance Corporation Of India,EQ,INE0J1Y01017,Financial Services,Insurance - Life
 LIKHITHA,Likhitha Infrastructure Limited,EQ,INE060901027,Energy,Oil & Gas Equipment & Services
 LINC,Linc Limited,EQ,INE802B01027,Industrials,Business Equipment & Supplies
 LINCOLN,Lincoln Pharmaceuticals Limited,EQ,INE405C01035,Healthcare,Drug Manufacturers - Specialty & Generic
@@ -1188,7 +1188,7 @@ LLOYDSENT,Lloyds Enterprises Limited,EQ,INE080I01025,Basic Materials,Steel
 LLOYDSME,Lloyds Metals And Energy Limited,EQ,INE281B01032,Basic Materials,Steel
 LMW,LMW Limited,EQ,INE269B01029,Industrials,Specialty Industrial Machinery
 LODHA,Lodha Developers Limited,EQ,INE670K01029,Real Estate,Real Estate - Development
-LOKESHMACH,Lokesh Machines Limited,EQ,INE397H01017,Unknown,Unknown
+LOKESHMACH,Lokesh Machines Limited,EQ,INE397H01017,Industrials,Specialty Industrial Machinery
 LORDSCHLO,Lords Chloro Alkali Limited,EQ,INE846D01012,Basic Materials,Chemicals
 LOTUSCHO,Lotus Chocolate Company Limited,EQ,INE026D01011,Unknown,Unknown
 LOTUSEYE,Lotus Eye Hospital and Institute Limited,EQ,INE947I01017,Healthcare,Medical Care Facilities
@@ -1228,7 +1228,7 @@ MAKERSL,Makers Laboratories Limited,EQ,INE987A01010,Unknown,Unknown
 MALLCOM,Mallcom (India) Limited,EQ,INE389C01015,Industrials,Security & Protection Services
 MALUPAPER,Malu Paper Mills Limited,EQ,INE383H01017,Basic Materials,Paper & Paper Products
 MAMATA,Mamata Machinery Limited,EQ,INE0TO701015,Industrials,Specialty Industrial Machinery
-MANAKALUCO,Manaksia Aluminium Company Limited,EQ,INE859Q01017,Basic Materials,Aluminum
+MANAKALUCO,Manaksia Aluminium Company Limited,EQ,INE859Q01017,Unknown,Unknown
 MANAKCOAT,Manaksia Coated Metals & Industries Limited,EQ,INE830Q01018,Industrials,Metal Fabrication
 MANAKSIA,Manaksia Limited,EQ,INE015D01022,Industrials,Metal Fabrication
 MANAKSTEEL,Manaksia Steels Limited,EQ,INE824Q01011,Basic Materials,Steel
@@ -1254,11 +1254,11 @@ MARINE,Marine Electricals (India) Limited,EQ,INE01JE01028,Industrials,Electrical
 MARKOLINES,Markolines Pavement Technologies Limited,EQ,INE0FW001016,Industrials,Infrastructure Operations
 MARKSANS,Marksans Pharma Limited,EQ,INE750C01026,Healthcare,Drug Manufacturers - General
 MARSONS,Marsons Limited,EQ,INE415B01044,Industrials,Electrical Equipment & Parts
-MARUTI,Maruti Suzuki India Limited,EQ,INE585B01010,Unknown,Unknown
+MARUTI,Maruti Suzuki India Limited,EQ,INE585B01010,Consumer Cyclical,Auto Manufacturers
 MASFIN,MAS Financial Services Limited,EQ,INE348L01012,Financial Services,Credit Services
 MASKINVEST,Mask Investments Limited,EQ,INE885F01015,Financial Services,Capital Markets
 MASTEK,Mastek Limited,EQ,INE759A01021,Technology,Information Technology Services
-MASTERTR,Master Trust Limited,EQ,INE677D01037,Unknown,Unknown
+MASTERTR,Master Trust Limited,EQ,INE677D01037,Financial Services,Capital Markets
 MATRIMONY,Matrimony.Com Limited,EQ,INE866R01028,Communication Services,Internet Content & Information
 MAWANASUG,Mawana Sugars Limited,EQ,INE636A01039,Consumer Defensive,Confectioners
 MAXESTATES,Max Estates Limited,EQ,INE03EI01018,Real Estate,Real Estate - Development
@@ -1292,7 +1292,7 @@ METROPOLIS,Metropolis Healthcare Limited,EQ,INE112L01020,Healthcare,Diagnostics 
 MFML,Mahalaxmi Fabric Mills Limited,EQ,INE0US801024,Consumer Cyclical,Textile Manufacturing
 MFSL,Max Financial Services Limited,EQ,INE180A01020,Financial Services,Insurance - Life
 MGL,Mahanagar Gas Limited,EQ,INE002S01010,Utilities,Utilities - Regulated Gas
-MHRIL,Mahindra Holidays & Resorts India Limited,EQ,INE998I01010,Unknown,Unknown
+MHRIL,Mahindra Holidays & Resorts India Limited,EQ,INE998I01010,Consumer Cyclical,Resorts & Casinos
 MIDHANI,Mishra Dhatu Nigam Limited,EQ,INE099Z01011,Basic Materials,Steel
 MIDWESTLTD,Midwest Limited,EQ,INE0XAD01024,Basic Materials,Building Materials
 MIIL,Meghna Infracon Infrastructure Limited,EQ,INE898Q01015,Unknown,Unknown
@@ -1309,20 +1309,20 @@ MMP,MMP Industries Limited,EQ,INE511Y01018,Basic Materials,Aluminum
 MMTC,MMTC Limited,EQ,INE123F01029,Industrials,Conglomerates
 MMWL,Media Matrix Worldwide Limited,EQ,INE200D01020,Communication Services,Entertainment
 MOBIKWIK,One Mobikwik Systems Limited,EQ,INE0HLU01028,Technology,Software - Infrastructure
-MODINATUR,Modi Naturals Limited,EQ,INE537F01012,Unknown,Unknown
+MODINATUR,Modi Naturals Limited,EQ,INE537F01012,Consumer Defensive,Packaged Foods
 MODIRUBBER,Modi Rubber Limited,EQ,INE832A01018,Real Estate,Real Estate Services
 MODIS,Modis Navnirman Limited,EQ,INE0L0L01012,Real Estate,Real Estate - Development
-MODISONLTD,MODISON LIMITED,EQ,INE737D01021,Unknown,Unknown
-MODTHREAD,Modern Threads (India) Limited,EQ,INE794W01014,Consumer Cyclical,Textile Manufacturing
+MODISONLTD,MODISON LIMITED,EQ,INE737D01021,Industrials,Electrical Equipment & Parts
+MODTHREAD,Modern Threads (India) Limited,EQ,INE794W01014,Unknown,Unknown
 MOHITE,Mohite Industries Limited,EQ,INE154B01023,Unknown,Unknown
-MOHITIND,Mohit Industries Limited,EQ,INE954E01012,Unknown,Unknown
+MOHITIND,Mohit Industries Limited,EQ,INE954E01012,Consumer Cyclical,Textile Manufacturing
 MOIL,MOIL Limited,EQ,INE490G01020,Basic Materials,Other Industrial Metals & Mining
 MOKSH,Moksh Ornaments Limited,EQ,INE514Y01020,Consumer Cyclical,Luxury Goods
 MOL,Meghmani Organics Limited,EQ,INE0CT101020,Basic Materials,Agricultural Inputs
 MOLBIO,Molbio Diagnostics Limited,EQ,INE869T01028,Unknown,Unknown
 MOLDTKPAC,Mold-Tek Packaging Limited,EQ,INE893J01029,Consumer Cyclical,Packaging & Containers
 MONARCH,Monarch Networth Capital Limited,EQ,INE903D01011,Financial Services,Capital Markets
-MONEYBOXX,Moneyboxx Finance Limited,EQ,INE296Q01012,Unknown,Unknown
+MONEYBOXX,Moneyboxx Finance Limited,EQ,INE296Q01012,Financial Services,Credit Services
 MONTECARLO,Monte Carlo Fashions Limited,EQ,INE950M01013,Consumer Cyclical,Apparel Manufacturing
 MOREPENLAB,Morepen Laboratories Limited,EQ,INE083A01026,Healthcare,Drug Manufacturers - Specialty & Generic
 MOSCHIP,Moschip Technologies Limited,EQ,INE935B01025,Technology,Semiconductor Equipment & Materials
@@ -1337,9 +1337,9 @@ MSL,Mangalam Seeds Limited,EQ,INE829S01016,Unknown,Unknown
 MSPL,MSP Steel & Power Limited,EQ,INE752G01015,Basic Materials,Steel
 MSTCLTD,Mstc Limited,EQ,INE255X01014,Industrials,Conglomerates
 MSUMI,Motherson Sumi Wiring India Limited,EQ,INE0FS801015,Consumer Cyclical,Auto Parts
-MTNL,Mahanagar Telephone Nigam Limited,EQ,INE153A01019,Unknown,Unknown
+MTNL,Mahanagar Telephone Nigam Limited,EQ,INE153A01019,Communication Services,Telecom Services
 MUFIN,Mufin Green Finance Limited,EQ,INE08KJ01020,Financial Services,Credit Services
-MUFTI,Credo Brands Marketing Limited,EQ,INE220Q01020,Unknown,Unknown
+MUFTI,Credo Brands Marketing Limited,EQ,INE220Q01020,Consumer Cyclical,Apparel Retail
 MUKANDLTD,Mukand Limited,EQ,INE304A01026,Basic Materials,Steel
 MUKESHB,Mukesh Babu Financial Services Limited,EQ,INE596B01017,Unknown,Unknown
 MUKKA,Mukka Proteins Limited,EQ,INE0CG401037,Consumer Defensive,Packaged Foods
@@ -1372,7 +1372,7 @@ NAVKARCORP,Navkar Corporation Limited,EQ,INE278M01019,Industrials,Integrated Fre
 NAVNETEDUL,Navneet Education Limited,EQ,INE060A01024,Communication Services,Publishing
 NAZARA,Nazara Technologies Limited,EQ,INE418L01047,Communication Services,Electronic Gaming & Multimedia
 NBCC,NBCC (India) Limited,EQ,INE095N01031,Industrials,Engineering & Construction
-NBIFIN,N. B. I. Industrial Finance Company Limited,EQ,INE365I01020,Financial Services,Capital Markets
+NBIFIN,N. B. I. Industrial Finance Company Limited,EQ,INE365I01020,Unknown,Unknown
 NCC,NCC Limited,EQ,INE868B01028,Industrials,Engineering & Construction
 NCLIND,NCL Industries Limited,EQ,INE732C01016,Basic Materials,Building Materials
 NDGL,Naga Dhunseri Group Limited,EQ,INE756C01015,Financial Services,Capital Markets
@@ -1381,9 +1381,9 @@ NDLVENTURE,NDL Ventures Limited,EQ,INE353A01023,Communication Services,Entertain
 NDRAUTO,Ndr Auto Components Limited,EQ,INE07OG01012,Consumer Cyclical,Auto Parts
 NDTV,New Delhi Television Limited,EQ,INE155G01029,Communication Services,Broadcasting
 NEAGI,Neelamalai Agro Industries Limited,EQ,INE605D01012,Unknown,Unknown
-NECLIFE,Nectar Lifesciences Limited,EQ,INE023H01027,Healthcare,Drug Manufacturers - Specialty & Generic
+NECLIFE,Nectar Lifesciences Limited,EQ,INE023H01027,Unknown,Unknown
 NELCAST,Nelcast Limited,EQ,INE189I01024,Industrials,Metal Fabrication
-NELCO,NELCO Limited,EQ,INE045B01015,Technology,Communication Equipment
+NELCO,NELCO Limited,EQ,INE045B01015,Unknown,Unknown
 NEOGEN,Neogen Chemicals Limited,EQ,INE136S01016,Basic Materials,Specialty Chemicals
 NEPHROPLUS,Nephrocare Health Services Limited,EQ,INE428V01029,Healthcare,Medical Care Facilities
 NESCO,Nesco Limited,EQ,INE317F01035,Industrials,Conglomerates
@@ -1417,7 +1417,7 @@ NITCO,Nitco Limited,EQ,INE858F01012,Industrials,Building Products & Equipment
 NITINSPIN,Nitin Spinners Limited,EQ,INE229H01012,Consumer Cyclical,Textile Manufacturing
 NITIRAJ,Nitiraj Engineers Limited,EQ,INE439T01012,Technology,Scientific & Technical Instruments
 NITTAGELA,Nitta Gelatin India Limited,EQ,INE265B01019,Basic Materials,Specialty Chemicals
-NIVABUPA,Niva Bupa Health Insurance Company Limited,EQ,INE995S01015,Financial Services,Insurance - Life
+NIVABUPA,Niva Bupa Health Insurance Company Limited,EQ,INE995S01015,Unknown,Unknown
 NKIND,NK Industries Limited,EQ,INE542C01019,Consumer Defensive,Household & Personal Products
 NLCINDIA,NLC India Limited,EQ,INE589A01014,Utilities,Utilities - Regulated Electric
 NMDC,NMDC Limited,EQ,INE584A01023,Basic Materials,Steel
@@ -1430,7 +1430,7 @@ NPST,Network People Services Technologies Limited,EQ,INE0FFK01017,Technology,Sof
 NRAIL,N R Agarwal Industries Limited,EQ,INE740D01017,Basic Materials,Paper & Paper Products
 NRBBEARING,NRB Bearing Limited,EQ,INE349A01021,Consumer Cyclical,Auto Parts
 NSIL,Nalwa Sons Investments Limited,EQ,INE023A01030,Financial Services,Asset Management
-NSLNISP,NMDC Steel Limited,EQ,INE0NNS01018,Basic Materials,Steel
+NSLNISP,NMDC Steel Limited,EQ,INE0NNS01018,Unknown,Unknown
 NTCIND,NTC Industries Limited,EQ,INE920C01017,Unknown,Unknown
 NTPC,NTPC Limited,EQ,INE733E01010,Utilities,Utilities - Regulated Electric
 NTPCGREEN,NTPC Green Energy Limited,EQ,INE0ONG01011,Utilities,Utilities - Renewable
@@ -1439,7 +1439,7 @@ NUVAMA,Nuvama Wealth Management Limited,EQ,INE531F01023,Financial Services,Asset
 NUVOCO,Nuvoco Vistas Corporation Limited,EQ,INE118D01016,Basic Materials,Building Materials
 NYKAA,FSN E-Commerce Ventures Limited,EQ,INE388Y01029,Consumer Cyclical,Internet Retail
 OAL,Oriental Aromatics Limited,EQ,INE959C01023,Basic Materials,Specialty Chemicals
-OBCL,OBCL Limited,EQ,INE426Z01016,Industrials,Trucking
+OBCL,OBCL Limited,EQ,INE426Z01016,Unknown,Unknown
 OBEROIRLTY,Oberoi Realty Limited,EQ,INE093I01010,Real Estate,Real Estate - Development
 ODIGMA,Odigma Consultancy Solutions Limited,EQ,INE054301028,Communication Services,Advertising Agencies
 ODYCORP,Odyssey Corporation Limited,EQ,INE839E01023,Unknown,Unknown
@@ -1450,7 +1450,7 @@ OLECTRA,Olectra Greentech Limited,EQ,INE260D01016,Industrials,Farm & Heavy Const
 OMAXAUTO,Omax Autos Limited,EQ,INE090B01011,Consumer Cyclical,Auto Parts
 OMAXE,Omaxe Limited,EQ,INE800H01010,Real Estate,Real Estate - Development
 OMINFRAL,OM INFRA LIMITED,EQ,INE239D01028,Industrials,Engineering & Construction
-OMNI,Omnitech Engineering Limited,EQ,INE0UH301010,Unknown,Unknown
+OMNI,Omnitech Engineering Limited,EQ,INE0UH301010,Industrials,Specialty Industrial Machinery
 OMPOWER,Om Power Transmission Limited,EQ,INE25E901019,Industrials,Engineering & Construction
 ONEGLOBAL,One Global Service Provider Limited,EQ,INE670O01013,Unknown,Unknown
 ONEPOINT,One Point One Solutions Limited,EQ,INE840Y01029,Industrials,Specialty Business Services
@@ -1463,10 +1463,10 @@ OPTIEMUS,Optiemus Infracom Limited,EQ,INE350C01017,Technology,Electronics & Comp
 OPTIFIN,Optimus Finance Limited,EQ,INE031G01022,Unknown,Unknown
 ORCHASP,Orchasp Limited,EQ,INE215B01022,Technology,Software - Application
 ORCHPHARMA,Orchid Pharma Limited,EQ,INE191A01027,Healthcare,Drug Manufacturers - Specialty & Generic
-ORICONENT,Oricon Enterprises Limited,EQ,INE730A01022,Consumer Cyclical,Packaging & Containers
+ORICONENT,Oricon Enterprises Limited,EQ,INE730A01022,Unknown,Unknown
 ORIENTALTL,Oriental Trimex Limited,EQ,INE998H01012,Industrials,Building Products & Equipment
 ORIENTBELL,Orient Bell Limited,EQ,INE607D01018,Industrials,Building Products & Equipment
-ORIENTCEM,Orient Cement Limited,EQ,INE876N01018,Basic Materials,Building Materials
+ORIENTCEM,Orient Cement Limited,EQ,INE876N01018,Unknown,Unknown
 ORIENTCER,ORIENT CERATECH LIMITED,EQ,INE569C01020,Basic Materials,Specialty Chemicals
 ORIENTELEC,Orient Electric Limited,EQ,INE142Z01019,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 ORIENTHOT,Oriental Hotels Limited,EQ,INE750A01020,Consumer Cyclical,Lodging
@@ -1516,7 +1516,7 @@ PENIND,Pennar Industries Limited,EQ,INE932A01024,Industrials,Specialty Industria
 PERMAGN,Permanent Magnets Limited,EQ,INE418E01018,Unknown,Unknown
 PERSISTENT,Persistent Systems Limited,EQ,INE262H01021,Technology,Information Technology Services
 PETRONET,Petronet LNG Limited,EQ,INE347G01014,Energy,Oil & Gas Refining & Marketing
-PFC,Power Finance Corporation Limited,EQ,INE134E01011,Financial Services,Credit Services
+PFC,Power Finance Corporation Limited,EQ,INE134E01011,Unknown,Unknown
 PFIZER,Pfizer Limited,EQ,INE182A01018,Healthcare,Drug Manufacturers - General
 PFOCUS,Prime Focus Limited,EQ,INE367G01038,Communication Services,Entertainment
 PFS,PTC India Financial Services Limited,EQ,INE560K01014,Financial Services,Credit Services
@@ -1528,7 +1528,7 @@ PHOENIXLTD,The Phoenix Mills Limited,EQ,INE211B01039,Real Estate,Real Estate - D
 PHOENXINTL,Phoenix International Limited,EQ,INE245B01011,Unknown,Unknown
 PICCADIL,Piccadily Agro Industries Limited,EQ,INE546C01010,Consumer Defensive,Beverages - Wineries & Distilleries
 PIDILITIND,Pidilite Industries Limited,EQ,INE318A01026,Basic Materials,Specialty Chemicals
-PIGL,Power & Instrumentation (Gujarat) Limited,EQ,INE557Z01018,Unknown,Unknown
+PIGL,Power & Instrumentation (Gujarat) Limited,EQ,INE557Z01018,Industrials,Engineering & Construction
 PIIND,PI Industries Limited,EQ,INE603J01030,Basic Materials,Agricultural Inputs
 PILANIINVS,Pilani Investment and Industries Corporation Limited,EQ,INE417C01014,Financial Services,Asset Management
 PILITA,PIL ITALICA LIFESTYLE LIMITED,EQ,INE600A01035,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
@@ -1597,7 +1597,7 @@ PTC,PTC India Limited,EQ,INE877F01012,Utilities,Utilities - Independent Power Pr
 PTCIL,PTC Industries Limited,EQ,INE596F01018,Industrials,Metal Fabrication
 PTL,PTL Enterprises Limited,EQ,INE034D01049,Real Estate,Real Estate Services
 PUNJABCHEM,Punjab Chemicals & Crop Protection Limited,EQ,INE277B01014,Basic Materials,Chemicals
-PURVA,Puravankara Limited,EQ,INE323I01011,Unknown,Unknown
+PURVA,Puravankara Limited,EQ,INE323I01011,Real Estate,Real Estate - Development
 PVP,PVP Ventures Limited,EQ,INE362A01016,Industrials,Conglomerates
 PVRINOX,PVR INOX Limited,EQ,INE191H01014,Communication Services,Entertainment
 PVSL,Popular Vehicles and Services Limited,EQ,INE772T01024,Consumer Cyclical,Auto & Truck Dealerships
@@ -1629,7 +1629,7 @@ RAMBHAJO,Advit Jewels Limited,EQ,INE1SJO01012,Unknown,Unknown
 RAMCOCEM,The Ramco Cements Limited,EQ,INE331A01037,Basic Materials,Building Materials
 RAMCOIND,Ramco Industries Limited,EQ,INE614A01028,Industrials,Building Products & Equipment
 RAMCOSYS,Ramco Systems Limited,EQ,INE246B01019,Technology,Software - Application
-RAMKY,Ramky Infrastructure Limited,EQ,INE874I01013,Unknown,Unknown
+RAMKY,Ramky Infrastructure Limited,EQ,INE874I01013,Industrials,Engineering & Construction
 RAMRAT,Ram Ratna Wires Limited,EQ,INE207E01023,Industrials,Electrical Equipment & Parts
 RANASUG,Rana Sugars Limited,EQ,INE625B01014,Consumer Defensive,Confectioners
 RANEHOLDIN,Rane Holdings Limited,EQ,INE384A01010,Consumer Cyclical,Auto Parts
@@ -1642,7 +1642,7 @@ RAYMONDREL,Raymond Realty Limited,EQ,INE1SY401010,Real Estate,Real Estate - Deve
 RBA,Restaurant Brands Asia Limited,EQ,INE07T201019,Consumer Cyclical,Restaurants
 RBLBANK,RBL Bank Limited,EQ,INE976G01028,Financial Services,Banks - Regional
 RBZJEWEL,RBZ Jewellers Limited,EQ,INE0PEQ01016,Consumer Cyclical,Luxury Goods
-RCF,Rashtriya Chemicals and Fertilizers Limited,EQ,INE027A01015,Basic Materials,Agricultural Inputs
+RCF,Rashtriya Chemicals and Fertilizers Limited,EQ,INE027A01015,Unknown,Unknown
 RECLTD,REC Limited,EQ,INE020B01018,Financial Services,Credit Services
 REDINGTON,Redington Limited,EQ,INE891D01026,Technology,Information Technology Services
 REDTAPE,Redtape Limited,EQ,INE0LXT01019,Consumer Cyclical,Footwear & Accessories
@@ -1653,7 +1653,7 @@ RELAXO,Relaxo Footwears Limited,EQ,INE131B01039,Consumer Cyclical,Footwear & Acc
 RELCHEMQ,Reliance Chemotex Industries Limited,EQ,INE750D01016,Consumer Cyclical,Textile Manufacturing
 RELIABLE,Reliable Data Services Limited,EQ,INE375Y01018,Technology,Information Technology Services
 RELIANCE,Reliance Industries Limited,EQ,INE002A01018,Energy,Oil & Gas Refining & Marketing
-RELIGARE,Religare Enterprises Limited,EQ,INE621H01010,Unknown,Unknown
+RELIGARE,Religare Enterprises Limited,EQ,INE621H01010,Financial Services,Insurance - Life
 RELTD,Ravindra Energy Limited,EQ,INE206N01018,Technology,Solar
 REMSONSIND,Remsons Industries Limited,EQ,INE474C01023,Consumer Cyclical,Auto Parts
 RENUKA,Shree Renuka Sugars Limited,EQ,INE087H01022,Consumer Defensive,Confectioners
@@ -1665,7 +1665,7 @@ RGL,Renaissance Global Limited,EQ,INE722H01024,Consumer Cyclical,Luxury Goods
 RHETAN,Rhetan TMT Limited,EQ,INE0KKN01029,Basic Materials,Steel
 RHIM,RHI MAGNESITA INDIA LIMITED,EQ,INE743M01012,Industrials,Metal Fabrication
 RHL,Robust Hotels Limited,EQ,INE508K01013,Consumer Cyclical,Lodging
-RICOAUTO,Rico Auto Industries Limited,EQ,INE209B01025,Unknown,Unknown
+RICOAUTO,Rico Auto Industries Limited,EQ,INE209B01025,Consumer Cyclical,Auto Parts
 RIIL,Reliance Industrial Infrastructure Limited,EQ,INE046A01015,Industrials,Engineering & Construction
 RIR,RIR Power Electronics Limited,EQ,INE302D01024,Unknown,Unknown
 RISHABH,Rishabh Instruments Limited,EQ,INE0N2P01017,Technology,Scientific & Technical Instruments
@@ -1675,7 +1675,7 @@ RKDL,Ravi Kumar Distilleries Limited,EQ,INE722J01012,Consumer Defensive,Beverage
 RKEC,RKEC Projects Limited,EQ,INE786W01010,Industrials,Engineering & Construction
 RKFORGE,Ramkrishna Forgings Limited,EQ,INE399G01023,Industrials,Metal Fabrication
 RKSWAMY,R K Swamy Limited,EQ,INE0NQ801033,Communication Services,Advertising Agencies
-RMC,RMC Switchgears Limited,EQ,INE655V01019,Industrials,Electrical Equipment & Parts
+RMC,RMC Switchgears Limited,EQ,INE655V01019,Unknown,Unknown
 RML,Rane (Madras) Limited,EQ,INE050H01012,Consumer Cyclical,Auto Parts
 RNBDENIMS,R&B Denims Limited,EQ,INE012Q01039,Consumer Cyclical,Textile Manufacturing
 ROHLTD,Royal Orchid Hotels Limited,EQ,INE283H01019,Consumer Cyclical,Lodging
@@ -1694,14 +1694,14 @@ RPSGVENT,RPSG VENTURES LIMITED,EQ,INE425Y01011,Technology,Information Technology
 RPTECH,Rashi Peripherals Limited,EQ,INE0J1F01024,Technology,Electronics & Computer Distribution
 RRECL,RDB Real Estate Constructions Limited,EQ,INE0AK901016,Unknown,Unknown
 RRIL,RRIL Limited,EQ,INE951M01037,Unknown,Unknown
-RRKABEL,R R Kabel Limited,EQ,INE777K01022,Industrials,Electrical Equipment & Parts
+RRKABEL,R R Kabel Limited,EQ,INE777K01022,Unknown,Unknown
 RSL,Rajputana Stainless Limited,EQ,INE313L01016,Basic Materials,Steel
 RSSOFTWARE,R. S. Software (India) Limited,EQ,INE165B01029,Technology,Information Technology Services
 RSYSTEMS,R Systems International Limited,EQ,INE411H01032,Technology,Information Technology Services
 RTNINDIA,RattanIndia Enterprises Limited,EQ,INE834M01019,Consumer Cyclical,Internet Retail
 RTNPOWER,RattanIndia Power Limited,EQ,INE399K01017,Utilities,Utilities - Independent Power Producers
 RTSPOWR,RTS Power Corporation Limited,EQ,INE005C01017,Unknown,Unknown
-RUBFILA,Rubfila International Limited,EQ,INE642C01025,Unknown,Unknown
+RUBFILA,Rubfila International Limited,EQ,INE642C01025,Basic Materials,Specialty Chemicals
 RUBICON,Rubicon Research Limited,EQ,INE506V01022,Healthcare,Drug Manufacturers - General
 RUCHINFRA,Ruchi Infrastructure Limited,EQ,INE413B01023,Industrials,Specialty Business Services
 RUCHIRA,Ruchira Papers Limited,EQ,INE803H01014,Basic Materials,Paper & Paper Products
@@ -1738,7 +1738,7 @@ SAMBANDAM,Sambandam Spinning Mills Limited,EQ,INE304D01012,Unknown,Unknown
 SAMBHAAV,Sambhaav Media Limited,EQ,INE699B01027,Communication Services,Publishing
 SAMBHV,Sambhv Steel Tubes Limited,EQ,INE12NJ01018,Basic Materials,Steel
 SAMHI,Samhi Hotels Limited,EQ,INE08U801020,Consumer Cyclical,Lodging
-SAMMAANCAP,Sammaan Capital Limited,EQ,INE148I01020,Financial Services,Mortgage Finance
+SAMMAANCAP,Sammaan Capital Limited,EQ,INE148I01020,Unknown,Unknown
 SAMPANN,Sampann Utpadan India Limited,EQ,INE735M01018,Basic Materials,Specialty Chemicals
 SANATHAN,Sanathan Textiles Limited,EQ,INE0JPD01013,Consumer Cyclical,Textile Manufacturing
 SANDESH,The Sandesh Limited,EQ,INE583B01015,Communication Services,Publishing
@@ -1795,7 +1795,7 @@ SETL,Standard Engineering Technology Limited,EQ,INE0M4D01010,Industrials,Special
 SFL,Sheela Foam Limited,EQ,INE916U01025,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
 SGFIN,SG Finserve Limited,EQ,INE618R01015,Financial Services,Capital Markets
 SGIL,Synergy Green Industries Limited,EQ,INE00QT01015,Industrials,Metal Fabrication
-SGL,STL Global Limited,EQ,INE353H01010,Consumer Cyclical,Textile Manufacturing
+SGL,STL Global Limited,EQ,INE353H01010,Unknown,Unknown
 SGLRES,SGL Resources Limited,EQ,INE967B01028,Unknown,Unknown
 SGMART,SG Mart Limited,EQ,INE385F01024,Industrials,Industrial Distribution
 SGRL,Shree Ganesh Remedies Limited,EQ,INE414Y01015,Unknown,Unknown
@@ -1821,7 +1821,7 @@ SHINDL,Sharat Industries Limited,EQ,INE220Z01013,Unknown,Unknown
 SHIPROCKET,Shiprocket Limited,EQ,INE0FOO01011,Unknown,Unknown
 SHIVAAGRO,Shiva Global Agro Industries Limited,EQ,INE960E01019,Unknown,Unknown
 SHIVACEM,Shiva Cement Limited,EQ,INE555C01029,Unknown,Unknown
-SHIVAMAUTO,Shivam Autotech Limited,EQ,INE637H01024,Unknown,Unknown
+SHIVAMAUTO,Shivam Autotech Limited,EQ,INE637H01024,Consumer Cyclical,Auto Parts
 SHIVAMILLS,Shiva Mills Limited,EQ,INE644Y01017,Consumer Cyclical,Textile Manufacturing
 SHIVATEX,Shiva Texyarn Limited,EQ,INE705C01020,Consumer Cyclical,Textile Manufacturing
 SHIVAUM,Shiv Aum Steels Limited,EQ,INE719F01016,Basic Materials,Steel
@@ -1881,7 +1881,7 @@ SMLT,Sarthak Metals Limited,EQ,INE017W01010,Industrials,Metal Fabrication
 SMSPHARMA,SMS Pharmaceuticals Limited,EQ,INE812G01025,Healthcare,Drug Manufacturers - General
 SNOWMAN,Snowman Logistics Limited,EQ,INE734N01019,Industrials,Integrated Freight & Logistics
 SOBHA,Sobha Limited,EQ,INE671H01015,Real Estate,Real Estate - Development
-SOFTTECH,Softtech Engineers Limited,EQ,INE728Z01015,Technology,Software - Application
+SOFTTECH,Softtech Engineers Limited,EQ,INE728Z01015,Unknown,Unknown
 SOLARA,Solara Active Pharma Sciences Limited,EQ,INE624Z01016,Healthcare,Drug Manufacturers - Specialty & Generic
 SOLARINDS,Solar Industries India Limited,EQ,INE343H01029,Basic Materials,Specialty Chemicals
 SOLARWORLD,Solarworld Energy Solutions Limited,EQ,INE0TY101024,Technology,Solar
@@ -1900,7 +1900,7 @@ SPANDANA,Spandana Sphoorty Financial Limited,EQ,INE572J01011,Financial Services,
 SPARC,Sun Pharma Advanced Research Company Limited,EQ,INE232I01014,Healthcare,Drug Manufacturers - Specialty & Generic
 SPCENET,Spacenet Enterprises India Limited,EQ,INE970N01027,Financial Services,Capital Markets
 SPELS,SPEL Semiconductor Limited,EQ,INE252A01019,Unknown,Unknown
-SPENCERS,Spencer's Retail Limited,EQ,INE020801028,Unknown,Unknown
+SPENCERS,Spencer's Retail Limited,EQ,INE020801028,Consumer Cyclical,Department Stores
 SPIC,Southern Petrochemicals Industries Corporation  Limited,EQ,INE147A01011,Basic Materials,Agricultural Inputs
 SPLIL,SPL Industries Limited,EQ,INE978G01016,Consumer Cyclical,Apparel Manufacturing
 SPLPETRO,Supreme Petrochem Limited,EQ,INE663A01033,Basic Materials,Specialty Chemicals
@@ -1909,7 +1909,7 @@ SPORTKING,Sportking India Limited,EQ,INE885H01029,Consumer Cyclical,Textile Manu
 SRD,Shankar Lal Rampal Dye-Chem Limited,EQ,INE01NE01012,Basic Materials,Specialty Chemicals
 SREEL,Sreeleathers Limited,EQ,INE099F01013,Consumer Cyclical,Footwear & Accessories
 SRF,SRF Limited,EQ,INE647A01010,Industrials,Conglomerates
-SRGHFL,SRG Housing Finance Limited,EQ,INE559N01010,Financial Services,Mortgage Finance
+SRGHFL,SRG Housing Finance Limited,EQ,INE559N01010,Unknown,Unknown
 SRHHYPOLTD,Sree Rayalaseema Hi-Strength Hypo Limited,EQ,INE917H01012,Basic Materials,Chemicals
 SRIKPRIND,Sri KPR Industries Limited,EQ,INE009C01019,Unknown,Unknown
 SRM,SRM Contractors Limited,EQ,INE0R6Z01013,Industrials,Engineering & Construction
@@ -1941,14 +1941,14 @@ SUDARCOLOR,Sudarshan Colorants India Limited,EQ,INE492A01029,Basic Materials,Spe
 SUDARSCHEM,Sudarshan Chemical Industries Limited,EQ,INE659A01023,Basic Materials,Specialty Chemicals
 SUDEEPPHRM,Sudeep Pharma Limited,EQ,INE0QPI01025,Healthcare,Drug Manufacturers - Specialty & Generic
 SUKHJITS,Sukhjit Starch & Chemicals Limited,EQ,INE450E01029,Basic Materials,Specialty Chemicals
-SULA,Sula Vineyards Limited,EQ,INE142Q01026,Consumer Defensive,Beverages - Wineries & Distilleries
+SULA,Sula Vineyards Limited,EQ,INE142Q01026,Unknown,Unknown
 SUMEDHA,Sumedha Fiscal Services Limited,EQ,INE886B01012,Unknown,Unknown
 SUMEETINDS,Sumeet Industries Limited,EQ,INE235C01036,Consumer Cyclical,Textile Manufacturing
 SUMICHEM,Sumitomo Chemical India Limited,EQ,INE258G01013,Basic Materials,Agricultural Inputs
 SUMIT,Sumit Woods Limited,EQ,INE748Z01013,Real Estate,Real Estate - Development
 SUMMITSEC,Summit Securities Limited,EQ,INE519C01017,Financial Services,Capital Markets
 SUNCLAY,Sundaram Clayton Limited,EQ,INE0Q3R01026,Industrials,Metal Fabrication
-SUNDARAM,Sundaram Multi Pap Limited,EQ,INE108E01023,Unknown,Unknown
+SUNDARAM,Sundaram Multi Pap Limited,EQ,INE108E01023,Basic Materials,Paper & Paper Products
 SUNDARMFIN,Sundaram Finance Limited,EQ,INE660A01013,Financial Services,Credit Services
 SUNDRMFAST,Sundram Fasteners Limited,EQ,INE387A01021,Consumer Cyclical,Auto Parts
 SUNDROP,Sundrop Brands Limited,EQ,INE209A01019,Consumer Defensive,Packaged Foods
@@ -2053,7 +2053,7 @@ THELEELA,Leela Palaces Hotels & Resorts Limited,EQ,INE0AQ201015,Consumer Cyclica
 THEMISMED,Themis Medicare Limited,EQ,INE083B01024,Healthcare,Drug Manufacturers - Specialty & Generic
 THERMAX,Thermax Limited,EQ,INE152A01029,Industrials,Conglomerates
 THOMASCOOK,Thomas Cook  (India)  Limited,EQ,INE332A01027,Consumer Cyclical,Travel Services
-THOMASCOTT,Thomas Scott (India) Limited,EQ,INE480M01011,Consumer Cyclical,Textile Manufacturing
+THOMASCOTT,Thomas Scott (India) Limited,EQ,INE480M01011,Unknown,Unknown
 THYROCARE,Thyrocare Technologies Limited,EQ,INE594H01019,Healthcare,Diagnostics & Research
 TI,Tilaknagar Industries Limited,EQ,INE133E01013,Consumer Defensive,Beverages - Wineries & Distilleries
 TIGERLOGS,Tiger Logistics (India) Limited,EQ,INE906O01029,Industrials,Integrated Freight & Logistics
@@ -2086,7 +2086,7 @@ TRACXN,Tracxn Technologies Limited,EQ,INE0HMF01019,Technology,Software - Applica
 TRANSCOR,Transcorp International Limited,EQ,INE330E01023,Unknown,Unknown
 TRANSRAILL,Transrail Lighting Limited,EQ,INE454P01035,Industrials,Engineering & Construction
 TRAVELFOOD,Travel Food Services Limited,EQ,INE103V01028,Consumer Cyclical,Restaurants
-TREEHOUSE,Tree House Education & Accessories Limited,EQ,INE040M01013,Consumer Defensive,Education & Training Services
+TREEHOUSE,Tree House Education & Accessories Limited,EQ,INE040M01013,Unknown,Unknown
 TREJHARA,TREJHARA SOLUTIONS LIMITED,EQ,INE00CA01015,Technology,Software - Application
 TREL,Transindia Real Estate Limited,EQ,INE0O3901029,Real Estate,Real Estate Services
 TRENT,Trent Limited,EQ,INE849A01020,Consumer Cyclical,Apparel Retail
@@ -2124,7 +2124,7 @@ UJJIVANSFB,Ujjivan Small Finance Bank Limited,EQ,INE551W01018,Financial Services
 ULTRACEMCO,UltraTech Cement Limited,EQ,INE481G01011,Basic Materials,Building Materials
 ULTRAMAR,Ultramarine & Pigments Limited,EQ,INE405A01021,Basic Materials,Specialty Chemicals
 UMESLTD,Usha Martin Education & Solutions Limited,EQ,INE240C01028,Consumer Defensive,Education & Training Services
-UMIYA-MRO,UMIYA BUILDCON LIMITED,EQ,INE398B01018,Real Estate,Real Estate - Development
+UMIYA-MRO,UMIYA BUILDCON LIMITED,EQ,INE398B01018,Technology,Communication Equipment
 UNICHEMLAB,Unichem Laboratories Limited,EQ,INE351A01035,Healthcare,Drug Manufacturers - Specialty & Generic
 UNIECOM,Unicommerce Esolutions Limited,EQ,INE00U401027,Technology,Software - Application
 UNIENTER,Uniphos Enterprises Limited,EQ,INE037A01022,Basic Materials,Chemicals
@@ -2154,8 +2154,8 @@ VADILENT,Vadilal Enterprises Limited,EQ,INE693D01018,Unknown,Unknown
 VAIBHAVGBL,Vaibhav Global Limited,EQ,INE884A01027,Consumer Cyclical,Luxury Goods
 VAISHALI,Vaishali Pharma Limited,EQ,INE972X01022,Healthcare,Drug Manufacturers - Specialty & Generic
 VAKRANGEE,Vakrangee Limited,EQ,INE051B01021,Technology,Information Technology Services
-VAML,Vedanta Aluminium Metal Limited,EQ,INE1CDF01017,Unknown,Unknown
-VARDMNPOLY,Vardhman Polytex Limited,EQ,INE835A01029,Consumer Cyclical,Textile Manufacturing
+VAML,Vedanta Aluminium Metal Limited,EQ,INE1CDF01017,Basic Materials,Aluminum
+VARDMNPOLY,Vardhman Polytex Limited,EQ,INE835A01029,Unknown,Unknown
 VARROC,Varroc Engineering Limited,EQ,INE665L01035,Consumer Cyclical,Auto Parts
 VASCONEQ,Vascon Engineers Limited,EQ,INE893I01013,Industrials,Engineering & Construction
 VASUPRADA,Shri Vasuprada Plantations Limited,EQ,INE574G01013,Unknown,Unknown
@@ -2163,16 +2163,16 @@ VASWANI,Vaswani Industries Limited,EQ,INE590L01019,Basic Materials,Steel
 VBL,Varun Beverages Limited,EQ,INE200M01039,Consumer Defensive,Beverages - Non-Alcoholic
 VEDAVAAG,VEDAVAAG Systems Limited,EQ,INE359B01010,Unknown,Unknown
 VEDL,Vedanta Limited,EQ,INE205A01025,Basic Materials,Other Industrial Metals & Mining
-VEDPOWER,Vedanta Power Limited,EQ,INE694L01019,Unknown,Unknown
+VEDPOWER,Vedanta Power Limited,EQ,INE694L01019,Utilities,Utilities - Independent Power Producers
 VEEDOL,Veedol Corporation Limited,EQ,INE484C01030,Basic Materials,Specialty Chemicals
 VENKEYS,Venky's (India) Limited,EQ,INE398A01010,Consumer Defensive,Farm Products
-VENTIVE,Ventive Hospitality Limited,EQ,INE781S01027,Unknown,Unknown
+VENTIVE,Ventive Hospitality Limited,EQ,INE781S01027,Consumer Cyclical,Lodging
 VENUSPIPES,Venus Pipes & Tubes Limited,EQ,INE0JA001018,Basic Materials,Steel
 VERANDA,Veranda Learning Solutions Limited,EQ,INE0IQ001011,Consumer Defensive,Education & Training Services
-VERTOZ,Vertoz Limited,EQ,INE188Y01031,Unknown,Unknown
+VERTOZ,Vertoz Limited,EQ,INE188Y01031,Technology,Software - Infrastructure
 VESUVIUS,Vesuvius India Limited,EQ,INE386A01023,Industrials,Specialty Industrial Machinery
 VGCL,Vibrant Global Capital Limited,EQ,INE761Q01015,Unknown,Unknown
-VGL,VARVEE GLOBAL LIMITED,EQ,INE273D01027,Consumer Cyclical,Textile Manufacturing
+VGL,VARVEE GLOBAL LIMITED,EQ,INE273D01027,Unknown,Unknown
 VGUARD,V-Guard Industries Limited,EQ,INE951I01027,Industrials,Electrical Equipment & Parts
 VHL,Vardhman Holdings Limited,EQ,INE701A01023,Financial Services,Credit Services
 VIDHIING,Vidhi Specialty Food Ingredients Limited,EQ,INE632C01026,Basic Materials,Specialty Chemicals
@@ -2199,8 +2199,8 @@ VISAKAIND,Visaka Industries Limited,EQ,INE392A01021,Industrials,Building Product
 VISHAL,Vishal Fabrics Limited,EQ,INE755Q01025,Unknown,Unknown
 VISHNU,Vishnu Chemicals Limited,EQ,INE270I01022,Basic Materials,Specialty Chemicals
 VISHWARAJ,Vishwaraj Sugar Industries Limited,EQ,INE430N01022,Consumer Defensive,Confectioners
-VISL,Vedanta Iron and Steel Limited,EQ,INE1CLE01013,Unknown,Unknown
-VITAL,Vital Chemtech Limited,EQ,INE0L4K01016,Unknown,Unknown
+VISL,Vedanta Iron and Steel Limited,EQ,INE1CLE01013,Basic Materials,Steel
+VITAL,Vital Chemtech Limited,EQ,INE0L4K01016,Basic Materials,Specialty Chemicals
 VIVIDHA,Visagar Polytex Limited,EQ,INE370E01029,Consumer Cyclical,Textile Manufacturing
 VIVOBIOT,Vivo Bio Tech Limited,EQ,INE380K01017,Unknown,Unknown
 VIYASH,Viyash Scientific Limited,EQ,INE807F01027,Healthcare,Drug Manufacturers - Specialty & Generic
@@ -2209,7 +2209,7 @@ VMART,V-Mart Retail Limited,EQ,INE665J01013,Consumer Cyclical,Department Stores
 VMM,Vishal Mega Mart Limited,EQ,INE01EA01019,Consumer Cyclical,Department Stores
 VMSTMT,VMS TMT Limited,EQ,INE0SJA01013,Basic Materials,Steel
 VOEPL,Virtuoso Optoelectronics Limited,EQ,INE0I0T01010,Unknown,Unknown
-VOGL,Vedanta Oil and Gas Limited,EQ,INE704J01044,Unknown,Unknown
+VOGL,Vedanta Oil and Gas Limited,EQ,INE704J01044,Basic Materials,Other Industrial Metals & Mining
 VOITHPAPR,Voith Paper Fabrics India Limited,EQ,INE285C01015,Unknown,Unknown
 VOLTAMP,Voltamp Transformers Limited,EQ,INE540H01012,Industrials,Electrical Equipment & Parts
 VOLTAS,Voltas Limited,EQ,INE226A01021,Consumer Cyclical,"Furnishings, Fixtures & Appliances"
@@ -2269,11 +2269,11 @@ YATRA,Yatra Online Limited,EQ,INE0JR601024,Consumer Cyclical,Travel Services
 YESBANK,Yes Bank Limited,EQ,INE528G01035,Financial Services,Banks - Regional
 YOGI,Yogi Limited,EQ,INE290E01011,Unknown,Unknown
 YUKEN,Yuken India Limited,EQ,INE384C01016,Industrials,Specialty Industrial Machinery
-ZAGGLE,Zaggle Prepaid Ocean Services Limited,EQ,INE07K301024,Technology,Software - Infrastructure
+ZAGGLE,Zaggle Prepaid Ocean Services Limited,EQ,INE07K301024,Unknown,Unknown
 ZEEL,Zee Entertainment Enterprises Limited,EQ,INE256A01028,Communication Services,Broadcasting
 ZEEMEDIA,Zee Media Corporation Limited,EQ,INE966H01019,Communication Services,Broadcasting
 ZENITHEXPO,Zenith Exports Limited,EQ,INE058B01018,Consumer Cyclical,Textile Manufacturing
-ZENITHSTL,Zenith Steel Pipes & Industries Limited,EQ,INE318D01020,Unknown,Unknown
+ZENITHSTL,Zenith Steel Pipes & Industries Limited,EQ,INE318D01020,Basic Materials,Steel
 ZENSARTECH,Zensar Technologies Limited,EQ,INE520A01027,Technology,Information Technology Services
 ZENTEC,Zen Technologies Limited,EQ,INE251B01027,Industrials,Aerospace & Defense
 ZFCVINDIA,ZF Commercial Vehicle Control Systems India Limited,EQ,INE342J01019,Consumer Cyclical,Auto Parts
