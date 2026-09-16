@@ -6,7 +6,7 @@ signal_type,horizon_bucket,signals,win_rate,avg_return,median_return,best_return
 52W Low Opportunity,60D+,14396,33.2,-2.19,-4.54,80.85,-85.05
 52W Low Opportunity,7D,2050,18.78,-2.36,-2.52,33.06,-48.59
 Avoid / Risky,15D,11698,76.7,-3.07,-3.76,78.86,-77.6
-Avoid / Risky,1D,3075,68.65,-1.1,-0.97,30.01,-23.35
+Avoid / Risky,1D,3076,68.66,-1.1,-0.98,30.01,-23.35
 Avoid / Risky,30D,23235,75.42,-3.76,-4.93,115.9,-90.16
 Avoid / Risky,3D,1443,80.6,-2.13,-2.25,30.01,-23.35
 Avoid / Risky,60D+,48156,66.21,-2.39,-5.11,235.66,-90.54
@@ -42,7 +42,7 @@ Range Breakdown Risk,3D,46,67.39,-1.05,-1.1,20.97,-18.97
 Range Breakdown Risk,60D+,492,65.04,-3.35,-4.32,68.65,-84.1
 Range Breakdown Risk,7D,140,78.57,-1.28,-1.98,33.06,-35.18
 Range Profit Booking Zone,15D,3277,76.14,-3.24,-3.93,34.41,-36.17
-Range Profit Booking Zone,1D,738,68.83,-1.37,-1.06,11.17,-15.21
+Range Profit Booking Zone,1D,739,68.88,-1.38,-1.07,11.17,-15.21
 Range Profit Booking Zone,30D,9207,68.85,-2.99,-4.37,87.95,-59.87
 Range Profit Booking Zone,3D,412,82.28,-2.53,-2.4,11.17,-15.21
 Range Profit Booking Zone,60D+,20336,57.79,0.05,-2.8,235.66,-90.4
