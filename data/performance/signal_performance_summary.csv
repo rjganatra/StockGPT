@@ -1,15 +1,15 @@
 signal_type,horizon_bucket,signals,win_rate,avg_return,median_return,best_return,worst_return
-52W Low Opportunity,15D,4431,23.29,-3.45,-3.76,43.74,-89.94
+52W Low Opportunity,15D,4431,23.29,-3.45,-3.77,43.74,-89.94
 52W Low Opportunity,1D,1598,19.21,-2.12,-1.8,42.14,-89.91
 52W Low Opportunity,30D,10923,17.17,-6.17,-6.63,41.75,-67.56
 52W Low Opportunity,3D,758,10.29,-3.22,-3.25,42.14,-26.07
 52W Low Opportunity,60D+,16249,17.23,-9.34,-10.09,64.73,-89.98
 52W Low Opportunity,7D,3640,16.62,-3.73,-3.92,43.74,-89.94
-Avoid / Risky,15D,10063,79.83,-3.89,-4.57,684.83,-90.02
+Avoid / Risky,15D,10063,79.82,-3.88,-4.57,684.83,-90.02
 Avoid / Risky,1D,3658,80.78,-2.34,-2.03,42.14,-90.12
-Avoid / Risky,30D,28329,84.14,-6.81,-7.6,673.41,-90.52
+Avoid / Risky,30D,28329,84.13,-6.8,-7.6,673.41,-90.52
 Avoid / Risky,3D,1773,88.95,-3.55,-3.49,42.14,-90.12
-Avoid / Risky,60D+,51780,81.93,-9.28,-10.85,685.36,-90.92
+Avoid / Risky,60D+,51780,81.91,-9.28,-10.85,685.36,-90.92
 Avoid / Risky,7D,8409,86.76,-4.45,-4.58,684.83,-90.25
 High Conviction,15D,2,50.0,-0.64,-0.64,0.12,-1.41
 High Conviction,1D,3,0.0,-4.65,-4.35,-3.31,-6.28
@@ -31,21 +31,21 @@ Near 52W High Momentum,60D+,18919,27.13,-6.02,-8.01,570.91,-90.48
 Near 52W High Momentum,7D,1319,13.12,-5.94,-6.19,49.76,-28.58
 Range Accumulation Zone,15D,6595,19.55,-3.6,-4.29,684.83,-90.02
 Range Accumulation Zone,1D,2414,18.43,-2.24,-1.95,19.77,-89.91
-Range Accumulation Zone,30D,17799,14.98,-6.68,-7.34,673.41,-90.04
+Range Accumulation Zone,30D,17799,14.99,-6.68,-7.34,673.41,-90.04
 Range Accumulation Zone,3D,1205,9.96,-3.34,-3.34,19.77,-26.07
 Range Accumulation Zone,60D+,26094,17.07,-9.17,-10.42,685.36,-90.52
 Range Accumulation Zone,7D,5717,13.29,-4.08,-4.26,684.83,-90.08
 Range Breakdown Risk,15D,652,67.64,-2.53,-3.34,42.69,-27.71
-Range Breakdown Risk,1D,222,78.38,-2.1,-2.06,42.14,-20.0
+Range Breakdown Risk,1D,222,78.38,-2.1,-2.05,42.14,-20.0
 Range Breakdown Risk,30D,1162,77.11,-4.78,-5.93,40.81,-48.14
 Range Breakdown Risk,3D,66,86.36,-3.34,-3.86,42.14,-12.25
 Range Breakdown Risk,60D+,743,76.45,-9.24,-9.39,45.26,-87.79
 Range Breakdown Risk,7D,315,75.87,-3.28,-3.85,36.25,-39.09
-Range Profit Booking Zone,15D,1485,84.31,-6.39,-6.67,57.83,-83.5
+Range Profit Booking Zone,15D,1485,84.31,-6.39,-6.55,57.83,-83.5
 Range Profit Booking Zone,1D,359,77.99,-2.48,-2.45,11.69,-15.56
-Range Profit Booking Zone,30D,6816,84.39,-7.84,-8.81,617.86,-90.56
+Range Profit Booking Zone,30D,6816,84.39,-7.83,-8.8,617.86,-90.56
 Range Profit Booking Zone,3D,216,83.8,-3.48,-3.82,11.69,-15.56
-Range Profit Booking Zone,60D+,19820,77.87,-7.64,-9.76,589.5,-90.48
+Range Profit Booking Zone,60D+,19820,77.85,-7.64,-9.76,589.5,-90.48
 Range Profit Booking Zone,7D,1248,85.58,-5.13,-5.48,23.69,-39.38
 Relative Strength Leader,15D,413,16.46,-8.1,-9.07,40.95,-25.9
 Relative Strength Leader,1D,76,9.21,-4.5,-4.03,5.96,-13.56
