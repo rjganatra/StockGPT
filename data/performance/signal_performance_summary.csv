@@ -1,12 +1,12 @@
 signal_type,horizon_bucket,signals,win_rate,avg_return,median_return,best_return,worst_return
 52W Low Opportunity,15D,4878,65.56,2.87,2.68,48.62,-90.81
-52W Low Opportunity,1D,1556,83.16,2.82,2.39,25.53,-19.07
+52W Low Opportunity,1D,1554,83.14,2.82,2.39,25.53,-19.07
 52W Low Opportunity,30D,12657,44.74,-0.68,-0.82,74.37,-90.84
 52W Low Opportunity,3D,901,90.46,6.15,5.74,35.53,-15.71
 52W Low Opportunity,60D+,17916,27.29,-5.67,-5.86,51.55,-90.87
 52W Low Opportunity,7D,4464,84.97,5.59,5.16,46.92,-16.11
 Avoid / Risky,15D,10852,38.87,2.21,1.78,48.62,-91.0
-Avoid / Risky,1D,3406,21.05,2.51,2.04,29.75,-45.22
+Avoid / Risky,1D,3404,21.06,2.51,2.04,29.75,-45.22
 Avoid / Risky,30D,30202,61.93,-1.53,-2.24,801.14,-91.11
 Avoid / Risky,3D,1818,13.09,5.7,5.41,58.63,-45.99
 Avoid / Risky,60D+,54436,74.38,-5.74,-6.84,801.75,-91.37
@@ -30,7 +30,7 @@ Near 52W High Momentum,3D,149,71.81,2.58,1.99,58.63,-16.66
 Near 52W High Momentum,60D+,18524,37.52,-2.55,-4.54,670.34,-91.37
 Near 52W High Momentum,7D,692,67.92,2.18,2.13,24.05,-25.72
 Range Accumulation Zone,15D,7098,61.09,2.0,1.74,41.58,-90.96
-Range Accumulation Zone,1D,2453,79.45,2.41,2.04,24.88,-45.22
+Range Accumulation Zone,1D,2451,79.44,2.41,2.04,24.88,-45.22
 Range Accumulation Zone,30D,19987,38.6,-1.36,-1.99,801.14,-90.93
 Range Accumulation Zone,3D,1279,87.1,5.48,5.14,38.86,-45.99
 Range Accumulation Zone,60D+,28461,25.36,-5.53,-6.34,801.75,-90.89
