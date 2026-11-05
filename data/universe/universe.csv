@@ -1,6 +1,5 @@
 symbol,company_name,series,isin,sector,industry
 20MICRONS,20 Microns Limited,EQ,INE144J01027,Basic Materials,Other Industrial Metals & Mining
-21STCENMGM,21st Century Management Services Limited,EQ,INE253B01015,Financial Services,Capital Markets
 360ONE,360 ONE WAM LIMITED,EQ,INE466L01038,Financial Services,Asset Management
 3BBLACKBIO,3B Blackbio Dx Limited,EQ,INE994E01018,Unknown,Unknown
 3MINDIA,3M India Limited,EQ,INE470A01017,Industrials,Conglomerates
@@ -248,6 +247,7 @@ AYMSYNTEX,AYM Syntex Limited,EQ,INE193B01039,Consumer Cyclical,Textile Manufactu
 AZAD,Azad Engineering Limited,EQ,INE02IJ01035,Industrials,Specialty Industrial Machinery
 AZADIND,Azad India Mobility Limited,EQ,INE566M01025,Unknown,Unknown
 BAGFILMS,B.A.G Films and Media Limited,EQ,INE116D01028,Communication Services,Broadcasting
+BAHETI,Baheti Recycling Industries Limited,EQ,INE029Q01017,Unknown,Unknown
 BAIDFIN,Baid Finserv Limited,EQ,INE020D01022,Financial Services,Credit Services
 BAJAJ-AUTO,Bajaj Auto Limited,EQ,INE917I01010,Consumer Cyclical,Auto Manufacturers
 BAJAJCON,Bajaj Consumer Care Limited,EQ,INE933K01021,Consumer Defensive,Household & Personal Products
@@ -371,6 +371,7 @@ BRAHMINFRA,Brahmaputra Infrastructure Limited,EQ,INE320I01017,Unknown,Unknown
 BRIGADE,Brigade Enterprises Limited,EQ,INE791I01019,Real Estate,Real Estate - Development
 BRIGHOTEL,Brigade Hotel Ventures Limited,EQ,INE03NU01014,Consumer Cyclical,Lodging
 BRIGHTBR,Bright Brothers Limited,EQ,INE630D01010,Unknown,Unknown
+BRIGHTOUTD,Bright Outdoor Media Limited,EQ,INE0OMI01019,Unknown,Unknown
 BRITANNIA,Britannia Industries Limited,EQ,INE216A01030,Consumer Defensive,Packaged Foods
 BRNL,Bharat Road Network Limited,EQ,INE727S01012,Industrials,Infrastructure Operations
 BROOKS,Brooks Laboratories Limited,EQ,INE650L01011,Healthcare,Drug Manufacturers - Specialty & Generic
@@ -769,7 +770,7 @@ GMRAIRPORT,GMR AIRPORTS LIMITED,EQ,INE776C01039,Industrials,Airports & Air Servi
 GMRP&UI,GMR Power and Urban Infra Limited,EQ,INE0CU601026,Energy,Thermal Coal
 GNA,GNA Axles Limited,EQ,INE934S01014,Consumer Cyclical,Auto Parts
 GNFC,Gujarat Narmada Valley Fertilizers and Chemicals Limited,EQ,INE113A01013,Basic Materials,Chemicals
-GNRL,Gujarat Natural Resources Limited,EQ,INE207H01018,Unknown,Unknown
+GNRL,Gujarat Natural Resources Limited,EQ,INE207H01026,Unknown,Unknown
 GOACARBON,Goa Carbon Limited,EQ,INE426D01013,Basic Materials,Specialty Chemicals
 GOCLCORP,GOCL Corporation Limited,EQ,INE077F01035,Basic Materials,Specialty Chemicals
 GOCOLORS,Go Fashion (India) Limited,EQ,INE0BJS01011,Consumer Cyclical,Apparel Retail
